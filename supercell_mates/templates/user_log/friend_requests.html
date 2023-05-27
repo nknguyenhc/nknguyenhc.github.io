@@ -1,0 +1,38 @@
+{% extends 'user_profile/user_profile_layout.html' %} 
+
+{% block title %} 
+    <title>Friend Requests</title>
+{% endblock %} 
+
+{% block style %} 
+    {{ block.super }}
+    <link rel="stylesheet" href="/static/style/user_log/friend_requests.css">
+{% endblock %} 
+
+{% block script %} 
+    {{ block.super }}
+    <script src="/static/script/user_log/respond_friend_request.js"></script>
+{% endblock %} 
+
+{% block content %} 
+    <div id="friend_requests">
+        {% for friend_request in friend_requests %} 
+            <div class="friend-request p-3">
+                <div class="friend-request-info">
+                    <div class="friend-request-profile-pic">
+                        <img src="{{ friend_request.profile_pic_url }}">
+                    </div>
+                    <a href="{{ friend_request.profile_link }}">
+                        <div class="text-primary">{{ friend_request.username }}</div>
+                    </a>
+                </div>
+                <form class="friend_request_form">
+                    {% csrf_token %} 
+                    <input type="hidden" class="friend_username" value="{{ friend_request.username }}">
+                    <input type="submit" value="Approve" class="btn btn-success">
+                    <input type="submit" value="Reject" class="btn btn-danger">
+                </form>
+            </div>
+        {% endfor %} 
+    </div>
+{% endblock %} 

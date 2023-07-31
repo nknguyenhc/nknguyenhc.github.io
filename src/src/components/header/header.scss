@@ -1,3 +1,13 @@
 header {
     background-color: $red;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+}
+
+.header-item {
+    cursor: pointer;
 }

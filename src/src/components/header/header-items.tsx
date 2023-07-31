@@ -1,6 +1,17 @@
 
 
-const headerItems = [
+type DropdownItem = {
+    text: string,
+    url: string,
+};
+
+type HeaderItem = {
+    text: string,
+    url?: string,
+    dropdown?: Array<DropdownItem>,
+};
+
+const headerItems: Array<HeaderItem> = [
     {
         text: 'home',
         url: '/'

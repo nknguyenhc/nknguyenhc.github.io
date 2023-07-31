@@ -1,6 +1,6 @@
 import headerItems from './header-items';
 
-export default function Header() {
+export default function Header(): JSX.Element {
     return (
         <header>
             {headerItems.map((item, i) => (

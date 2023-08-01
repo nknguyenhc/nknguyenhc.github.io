@@ -1,23 +1,41 @@
 
 
-type DropdownItem = {
+export type DropdownItem = {
     text: string,
     url: string,
 };
 
-type HeaderItem = {
-    text: string,
-    url?: string,
-    dropdown?: Array<DropdownItem>,
+export class HeaderItemWithLink {
+    text: string;
+    url: string;
+    constructor({ text, url }: {
+        text: string,
+        url: string,
+    }) {
+        this.text = text;
+        this.url = url;
+    }
+}
+
+export class HeaderItemWithDropdown {
+    text: string;
+    dropdown: Array<DropdownItem>;
+    constructor({ text, dropdown}: { 
+        text: string, 
+        dropdown: Array<DropdownItem>,
+    }) {
+        this.text = text;
+        this.dropdown = dropdown;
+    }
 };
 
-const headerItems: Array<HeaderItem> = [
-    {
-        text: 'home',
+const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
+    new HeaderItemWithLink({
+        text: 'Home',
         url: '/'
-    },
-    {
-        text: 'projects',
+    }),
+    new HeaderItemWithDropdown({
+        text: 'Projects',
         dropdown: [
             {
                 text: 'MatchMiner',
@@ -28,7 +46,16 @@ const headerItems: Array<HeaderItem> = [
                 url: '/'
             }
         ]
-    }
+    }),
+    new HeaderItemWithDropdown({
+        text: 'Guides',
+        dropdown: [
+            {
+                text: 'Deploy Django on Heroku',
+                url: '/'
+            }
+        ]
+    }),
 ];
 
 export default headerItems;

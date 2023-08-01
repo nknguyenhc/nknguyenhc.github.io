@@ -1,4 +1,20 @@
+// colours
 $red: #ff7f7a;
+$lightgrey: rgb(194, 194, 194);
+$cyan: #54e3e3;
+
+// gap
+$small-gap: 12px;
+$x-small-gap: 4px;
+$large-gap: 40px;
+
+// border radius
+$small-border-radius: 10px;
+$x-small-border-radius: 6px;
+
+// transition
+$bg-transition: background-color 0.15s ease-in-out;
+$opacity-transition: opacity 0.4s ease-in-out;
 
 * {
     color: black;

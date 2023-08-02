@@ -1,0 +1,55 @@
+$django-heroku-section-gap: 160vh;
+
+.django-heroku {
+    &-header {
+        font-size: $x-large-fs;
+        font-weight: $bold-fw;
+    }
+
+    &-banner {
+        width: 40vw;
+        max-width: 440px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        gap: $django-heroku-section-gap;
+        padding-top: $x-large-gap;
+        line-height: $normal-line-h;
+    }
+
+    &-section {
+        display: flex;
+        flex-direction: column;
+        gap: $large-gap;
+
+        &-header {
+            font-size: $large-fs;
+            font-weight: $light-bold-fw;
+        }
+
+        &-body {
+            display: flex;
+            flex-direction: column;
+            gap: $normal-gap;
+
+            &-img {
+                width: 70%;
+                margin: auto;
+                
+                img {
+                    max-width: 100%;
+                }
+
+                p {
+                    font-size: $small-fs;
+                    font-weight: $light-fw;
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}

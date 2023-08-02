@@ -50,7 +50,14 @@ function HeaderDropdown({
                 >
                     {dropdown.map((item, i) => (
                         <Link to={item.url} key={i}>
-                            <div className="header-dropdown-item">{item.text}</div>
+                            <div 
+                                className="header-dropdown-item"
+                                onClick={() => {
+                                    setShowDropdown(false)
+                                }}
+                            >
+                                {item.text}
+                            </div>
                         </Link>
                     ))}
                 </div>

@@ -52,7 +52,7 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
         dropdown: [
             {
                 text: 'Deploy Django on Heroku',
-                url: '/'
+                url: '/guide/deploy-django-on-heroku'
             }
         ]
     }),

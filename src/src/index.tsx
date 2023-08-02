@@ -5,6 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import DjangoHerokuGuide from './components/guides/django-on-heroku/index';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,15 @@ const router = createBrowserRouter([
       {
         path: 'test',
         element: <div>Test</div>
+      },
+      {
+        path: 'guide/',
+        children: [
+          {
+            path: 'deploy-django-on-heroku',
+            element: <DjangoHerokuGuide />
+          }
+        ]
       }
     ]
   }

@@ -2,11 +2,15 @@
 $red: #ff7f7a;
 $lightgrey: rgb(194, 194, 194);
 $cyan: #54e3e3;
+$secondary: rgb(31, 31, 31);
+$blue: #0600a3;
 
 // gap
 $small-gap: 12px;
 $x-small-gap: 4px;
+$normal-gap: 24px;
 $large-gap: 40px;
+$x-large-gap: 60px;
 
 // border radius
 $small-border-radius: 10px;
@@ -16,12 +20,45 @@ $x-small-border-radius: 6px;
 $bg-transition: background-color 0.15s ease-in-out;
 $opacity-transition: opacity 0.4s ease-in-out;
 
+// font-size
+$small-fs: 12px;
+$normal-fs: 16px;
+$large-fs: 30px;
+$x-large-fs: 60px;
+
+// font-weight
+$light-fw: 300;
+$normal-fw: 400;
+$bold-fw: 700;
+$light-bold-fw: 550;
+
+// line-height
+$normal-line-h: 150%;
+
 * {
     color: black;
+    font-size: $normal-fs;
+    font-weight: $normal-fw;
+    letter-spacing: 0.01em;
+    margin: 0;
 }
 
 a {
     text-decoration: none;
 }
 
+.central-body {
+    width: 60vw;
+    max-width: 700px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    margin: auto;
+}
+
+.link {
+    color: $blue;
+    text-decoration: underline;
+}
+
 @import './components/header/header.scss';
+@import './components/guides/django-on-heroku/index.scss';

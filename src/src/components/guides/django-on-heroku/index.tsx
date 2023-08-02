@@ -7,7 +7,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
     const [bodyGap, setBodyGap] = useState<number>(0);
     const root = useRef<HTMLDivElement>(null);
     const [bodyWidth, setBodyWidth] = useState<number>(0);
-    const displayOffset = 30;
+    const displayOffset = 100;
 
     const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
         if (top > 2 * bodyGap / 3) {

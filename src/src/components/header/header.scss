@@ -9,9 +9,19 @@ header {
     flex-direction: row;
     gap: $large-gap;
     justify-content: center;
+    box-shadow: 0px -5px 20px 10px #da2525;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: transform 1s cubic-bezier(0.17, 1.02, 0.67, 0.98);
+    transform-origin: 50% 0;
 }
 
 .header {
+    &-hide {
+        transform: rotateX(90deg) skew(20deg, 0);
+    }
+
     &-item {
         cursor: pointer;
         padding: $x-small-gap;
@@ -44,7 +54,7 @@ header {
         gap: $small-gap;
         z-index: -10;
         height: 20px;
-        overflow: hidden;
+        box-shadow: 0px 0px 10px;
 
         &-container {
             position: absolute;

@@ -1,10 +1,43 @@
 import headerItems, { HeaderItemWithLink, DropdownItem } from './header-items';
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+
+type ScrollStatus = {
+    direction: 'up' | 'down',
+    scrollPos: number
+}
 
 export default function Header(): JSX.Element {
+    const headerDiv = useRef<HTMLHeadElement>(null);
+    const [headerHeight, setHeaderHeight] = useState<string>('');
+    const [scrollStatus, setScrollStatus] = useState<ScrollStatus>({
+        direction: 'up',
+        scrollPos: 0
+    })
+
+    useEffect(() => {
+        setHeaderHeight(getComputedStyle(headerDiv.current!).height);
+    }, []);
+
+    useEffect(() => {
+        const callback = (): void => {
+            setScrollStatus((state: ScrollStatus): ScrollStatus => ({
+                direction: window.scrollY > state.scrollPos ? 'down' : 'up',
+                scrollPos: window.scrollY
+            }))
+        }
+        window.addEventListener('scroll', callback);
+        return () => window.removeEventListener('scroll', callback);
+    }, []);
+
     return (
-        <header>
+        <header 
+            ref={headerDiv}
+            style={{
+                height: headerHeight
+            }}
+            className={scrollStatus.direction === 'down' ? 'header-hide' : ''}
+        >
             {headerItems.map((item, i) => (
                 item instanceof HeaderItemWithLink
                 ? <Link to={item.url} key={i}>
@@ -44,7 +77,7 @@ function HeaderDropdown({
                 <div 
                     className={"header-dropdown" + (showDropdown ? " header-dropdown-hover": "")}
                     style={{
-                        height: showDropdown ? `${dropdownDiv.current!.scrollHeight - 2 * Number(getComputedStyle(dropdownDiv.current!).padding.slice(0, -2))}px` : ''
+                        height: showDropdown ? `${dropdownDiv.current!.scrollHeight - Number(getComputedStyle(dropdownDiv.current!).padding.slice(0, -2))}px` : ''
                     }}
                     ref={dropdownDiv}
                 >

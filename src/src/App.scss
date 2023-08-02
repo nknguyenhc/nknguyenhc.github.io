@@ -41,6 +41,12 @@ $normal-line-h: 150%;
     font-weight: $normal-fw;
     letter-spacing: 0.01em;
     margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 a {

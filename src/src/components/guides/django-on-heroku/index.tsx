@@ -7,29 +7,28 @@ export default function DjangoHerokuGuide(): JSX.Element {
     const [bodyGap, setBodyGap] = useState<number>(0);
     const root = useRef<HTMLDivElement>(null);
     const [bodyWidth, setBodyWidth] = useState<number>(0);
+    const displayOffset = 30;
 
     const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
         if (top > 2 * bodyGap / 3) {
             return sectionIndex > 0 ? {
                 opacity: 0
             } : {};
-        } else if (top <= 2 * bodyGap / 3 && top > 0) {
+        } else if (top <= 2 * bodyGap / 3 && top > displayOffset) {
             return sectionIndex > 0 ? {
                 opacity: (2 * bodyGap / 3 - top) / (2 * bodyGap / 3),
                 position: 'fixed',
-                top: 0,
+                top: displayOffset,
                 width: bodyWidth
             } : {} ;
-        } else if (bottom > window.innerHeight) {
-            return {
-                opacity: 1
-            };
-        } else if (bottom <= window.innerHeight && bottom > window.innerHeight - 2 * bodyGap / 3) {
+        } else if (bottom > window.innerHeight - displayOffset) {
+            return {};
+        } else if (bottom <= window.innerHeight - displayOffset && bottom > window.innerHeight - 2 * bodyGap / 3) {
             return {
                 opacity: (bottom - (window.innerHeight - 2 * bodyGap / 3)) / (2 * bodyGap / 3),
                 position: 'fixed',
-                bottom: bottom - top > window.innerHeight ? 0 : '',
-                top: bottom - top <= window.innerHeight ? 0 : '',
+                bottom: bottom - top > window.innerHeight ? displayOffset : '',
+                top: bottom - top <= window.innerHeight ? displayOffset : '',
                 width: bodyWidth
             };
         } else {

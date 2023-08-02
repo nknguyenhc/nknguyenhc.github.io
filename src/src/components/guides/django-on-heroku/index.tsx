@@ -8,18 +8,18 @@ export default function DjangoHerokuGuide(): JSX.Element {
     const root = useRef<HTMLDivElement>(null);
     const [bodyWidth, setBodyWidth] = useState<number>(0);
 
-    const setSectionStyle = useCallback<(top: number, bottom: number) => CSSProperties>((top, bottom) => {
+    const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
         if (top > 2 * bodyGap / 3) {
-            return {
+            return sectionIndex > 0 ? {
                 opacity: 0
-            };
+            } : {};
         } else if (top <= 2 * bodyGap / 3 && top > 0) {
-            return {
+            return sectionIndex > 0 ? {
                 opacity: (2 * bodyGap / 3 - top) / (2 * bodyGap / 3),
                 position: 'fixed',
                 top: 0,
                 width: bodyWidth
-            };
+            } : {} ;
         } else if (bottom > window.innerHeight) {
             return {
                 opacity: 1
@@ -57,7 +57,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
                 {data.sections.map((section, sectionIndex) => (
                     <SectionDiv 
                         section={section} 
-                        setSectionStyle={setSectionStyle}
+                        setSectionStyle={setSectionStyle(sectionIndex)}
                         key={sectionIndex} 
                     />
                 ))}

@@ -16,7 +16,7 @@ const Stepper = ({ steps, scrollOffset }: {
         const callback = () => {
             const elements: Array<HTMLElement> = steps.map(step => document.querySelector(`#${step.id}`)!);
             for (let i = 0; i < elements.length; i++) {
-                if (elements[i].offsetTop - 2 * scrollOffset >= window.scrollY) {
+                if (elements[i].offsetTop - scrollOffset - 300 >= window.scrollY) {
                     setActiveIndex(i - 1);
                     return;
                 }

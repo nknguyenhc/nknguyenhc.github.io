@@ -1,5 +1,9 @@
 $header-vertical-padding: 20px;
 $dropdown-height-transition: height 0.6s ease-in-out;
+$menu-icon-width: 25px;
+$menu-icon-container-padding: 20px;
+$menu-icon-centre: $menu-icon-width / 2 + $menu-icon-container-padding;
+$menu-item-transition: 0.3s ease-in-out;
 
 header {
     background-color: $red;
@@ -55,6 +59,7 @@ header {
         z-index: -10;
         height: 20px;
         box-shadow: 0px 0px 10px;
+        overflow: hidden;
 
         &-container {
             position: absolute;
@@ -76,6 +81,161 @@ header {
             
             &:hover {
                 background-color: $lightgrey;
+            }
+        }
+    }
+}
+
+@media (max-width: $desktop) {
+    header {
+        background-color: transparent;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: block;
+        box-shadow: none;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        transform: none;
+        height: 0px;
+    }
+
+    .header {
+        &-icon {
+            height: $menu-icon-width;
+            width: $menu-icon-width;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px $secondary solid;
+            border-radius: 5px;
+
+            svg {
+                line {
+                    stroke: black;
+                    stroke-width: 2px;
+                }
+            }
+
+            &-container {
+                padding: $menu-icon-container-padding;
+                transition: transform 0.4s linear;
+
+                &-hide {
+                    transform: translateY(-100%);
+                }
+            }
+        }
+
+        &-menu {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+
+            &-hide {
+                display: none;
+            }
+
+            &-container {
+                transition: transform 0.6s ease-in;
+                transform: translate(-50%, -50%) scale(3);
+                border-radius: 50%;
+                position: fixed;
+                top: 50vh;
+                left: 50vw;
+                width: 100vw;
+                height: 100vw;
+                overflow: hidden;
+                background: $red;
+
+                &-hide {
+                    transform: translate(calc(-100vw + #{$menu-icon-centre}), calc(-50vh - 50vw + #{$menu-icon-centre})) scale(0) scale(0);
+                }
+            }
+
+            svg {
+                line {
+                    stroke: black;
+                    stroke-width: 3px;
+                    stroke-linecap: round;
+                }
+            }
+
+            &-main, &-secondary {
+                display: flex;
+                flex-direction: column;
+                gap: $large-gap;
+                justify-content: center;
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transition: transform 0.3s linear;
+            }
+
+            &-main {
+                transform: translate(0, -50%);
+            }
+
+            &-main-shifted {
+                transform: translate(-100%, -50%);
+            }
+
+            &-secondary {
+                transform: translate(100%, -50%);
+            }
+
+            &-secondary-show {
+                transform: translate(0, -50%);
+            }
+
+            &-item {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: $normal-gap;
+                padding-right: $normal-gap;
+                opacity: 1;
+                transition: opacity $menu-item-transition;
+                
+                &-hide {
+                    opacity: 0;
+                }
+
+                &-text {
+                    font-size: $large-fs;
+                    font-weight: $light-bold-fw;
+                    transform: none;
+                    transition: transform $menu-item-transition;
+
+                    &-hide {
+                        transform: rotate3d(1, 1, 1, 45deg);
+                    }
+                }
+            }
+
+            &-back {
+                position: absolute;
+                top: $large-gap;
+                left: $large-gap;
+                transform: scale(-1, 1);
+                height: fit-content;
+                width: fit-content;
+            }
+
+            &-close {
+                position: absolute;
+                top: $large-gap;
+                right: $large-gap;
+                height: fit-content;
+                width: fit-content;
+                transition: opacity $menu-item-transition;
+
+                &-hide {
+                    opacity: 0;
+                }
             }
         }
     }

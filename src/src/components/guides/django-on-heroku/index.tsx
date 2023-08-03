@@ -15,24 +15,25 @@ export default function DjangoHerokuGuide(): JSX.Element {
         displayText: section.header,
         id: textToId(section.header),
     }));
+    const partial = 1;
 
     const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
-        if (top > 2 * bodyGap / 3) {
+        if (top > bodyGap * partial) {
             return sectionIndex > 0 ? {
                 opacity: 0
             } : {};
-        } else if (top <= 2 * bodyGap / 3 && top > displayOffset) {
+        } else if (top <= bodyGap * partial && top > displayOffset) {
             return sectionIndex > 0 ? {
-                opacity: (2 * bodyGap / 3 - top) / (2 * bodyGap / 3),
+                opacity: (bodyGap * partial - top) / (bodyGap * partial),
                 position: 'fixed',
                 top: displayOffset,
                 width: bodyWidth
             } : {} ;
         } else if (bottom > window.innerHeight - displayOffset) {
             return {};
-        } else if (bottom <= window.innerHeight - displayOffset && bottom > window.innerHeight - 2 * bodyGap / 3) {
+        } else if (bottom <= window.innerHeight - displayOffset && bottom > window.innerHeight - bodyGap * partial) {
             return {
-                opacity: (bottom - (window.innerHeight - 2 * bodyGap / 3)) / (2 * bodyGap / 3),
+                opacity: (bottom - (window.innerHeight - bodyGap * partial)) / (bodyGap * partial),
                 position: 'fixed',
                 bottom: bottom - top > window.innerHeight ? displayOffset : '',
                 top: bottom - top <= window.innerHeight ? displayOffset : '',

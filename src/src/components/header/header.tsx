@@ -13,7 +13,8 @@ export default function Header(): JSX.Element {
     const [scrollStatus, setScrollStatus] = useState<ScrollStatus>({
         direction: 'up',
         scrollPos: 0
-    })
+    });
+    const top: number = 200;
 
     useEffect(() => {
         setHeaderHeight(getComputedStyle(headerDiv.current!).height);
@@ -22,7 +23,7 @@ export default function Header(): JSX.Element {
     useEffect(() => {
         const callback = (): void => {
             setScrollStatus((state: ScrollStatus): ScrollStatus => ({
-                direction: window.scrollY > state.scrollPos ? 'down' : 'up',
+                direction: (window.scrollY > state.scrollPos && window.scrollY > top) ? 'down' : 'up',
                 scrollPos: window.scrollY
             }))
         }

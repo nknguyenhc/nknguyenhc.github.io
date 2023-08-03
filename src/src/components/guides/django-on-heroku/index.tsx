@@ -1,13 +1,20 @@
 import data, { Paragraph, Image, Section } from './data';
 import { autoHyperlink } from '../../../utils/text-processing';
 import { useState, useRef, useEffect, useCallback, CSSProperties } from 'react';
+import Stepper, { StepperStep } from '../../stepper/index';
+import { textToId } from '../../../utils/text-processing';
 
 export default function DjangoHerokuGuide(): JSX.Element {
     const bodyDiv = useRef<HTMLDivElement>(null);
     const [bodyGap, setBodyGap] = useState<number>(0);
     const root = useRef<HTMLDivElement>(null);
     const [bodyWidth, setBodyWidth] = useState<number>(0);
+
     const displayOffset = 100;
+    const stepperSteps: Array<StepperStep> = data.sections.map(section => ({
+        displayText: section.header,
+        id: textToId(section.header),
+    }));
 
     const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
         if (top > 2 * bodyGap / 3) {
@@ -62,6 +69,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
                 ))}
                 <div></div>
             </div>
+            <Stepper steps={stepperSteps} scrollOffset={displayOffset} />
         </div>
     );
 }
@@ -97,6 +105,7 @@ const SectionDiv = ({ section, setSectionStyle }: {
                 height: containerHeight
             }}
             ref={containerDiv}
+            id={textToId(section.header)}
         >
             <div 
                 className="django-heroku-section" 

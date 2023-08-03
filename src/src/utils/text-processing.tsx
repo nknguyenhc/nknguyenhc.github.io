@@ -10,3 +10,5 @@ export const autoHyperlink = (inputText: string): string => {
         ))
         .reduce((prev, curr) => prev + curr, '');
 }
+
+export const textToId = (text: string): string => text.split(' ').reduce((prev, curr) => prev + '-' + curr);

@@ -1,5 +1,6 @@
 // colours
 $red: #ff7f7a;
+$dark-red: rgb(167, 23, 7);
 $lightgrey: rgb(194, 194, 194);
 $cyan: #54e3e3;
 $secondary: rgb(31, 31, 31);
@@ -66,5 +67,10 @@ a {
     text-decoration: underline;
 }
 
+.App {
+    overflow-x: clip;
+}
+
 @import './components/header/header.scss';
 @import './components/guides/django-on-heroku/index.scss';
+@import './components/stepper/index.scss';

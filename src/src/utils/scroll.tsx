@@ -31,7 +31,7 @@ export function useScrollDirection(excludeTop: boolean) {
         }
         window.addEventListener('scroll', callback);
         return () => window.removeEventListener('scroll', callback);
-    }, []);
+    }, [excludeTop]);
 
     return scrollStatus.direction;
 }

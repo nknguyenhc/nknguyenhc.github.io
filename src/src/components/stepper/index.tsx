@@ -25,7 +25,7 @@ const Stepper = ({ steps, scrollOffset }: {
         }
         window.addEventListener('scroll', callback);
         return () => window.removeEventListener('scroll', callback);
-    }, []);
+    }, [scrollOffset, steps]);
 
     return <div className="stepper">
         {steps.map((step, stepIndex) => (
@@ -53,7 +53,7 @@ const StepperStepDiv = ({ isActive, text, targetId, scrollOffset }: {
         if (isHover || isActive || (event.target as HTMLElement).contains(circle.current)) {
             scrollToId(targetId, scrollOffset);
         }
-    }, [isHover]);
+    }, [isHover, isActive, targetId, scrollOffset]);
 
     return (
         <div 

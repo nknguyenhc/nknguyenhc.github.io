@@ -1,0 +1,147 @@
+.projects {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    &-title {
+        padding: 20px 20vw;
+        font-size: $large-fs;
+        font-weight: $light-bold-fw;
+    }
+}
+
+$panel-top: 13%;
+$panel-left: 12%;
+$panel-width: 85%;
+$panel-height: 80%;
+
+.project {
+    position: absolute;
+    top: $panel-top;
+    left: $panel-left;
+    width: $panel-width;
+    height: $panel-height;
+    background: white;
+    border: 2px $lightgrey solid;
+    border-radius: $large-border-radius;
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
+    z-index: 0;
+
+    &-arrow-left {
+        position: absolute;
+        left: $panel-left;
+        top: $panel-top + $panel-height / 2;
+        translate: -50% -50%;
+    }
+
+    &-arrow-right {
+        position: absolute;
+        left: $panel-left + $panel-width;
+        top: $panel-top + $panel-height / 2;
+        translate: -50% -50%;
+    }
+
+    &-show {
+        opacity: 1;
+        z-index: 1;
+    }
+    
+    &-panel {
+        padding: $large-gap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &-left {
+        width: 35%;
+    }
+
+    &-right {
+        width: 65%;
+        align-items: end;
+    }
+
+    &-title {
+        font-size: $large-fs;
+        font-weight: $light-bold-fw;
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+    }
+
+    &-description {
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+
+        p {
+            text-align: justify;
+        }
+    }
+
+    &-links {
+        display: flex;
+        flex-direction: column;
+        gap: $x-small-gap;
+    }
+
+    &-code {
+        display: flex;
+        flex-direction: row;
+        gap: $small-gap;
+    }
+
+    &-images {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &-image {
+        border: 1px black solid;
+
+        &-main {
+            width: 65%;
+            img {
+                width: 100%;
+            }
+        }
+
+        &-secondary {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-panel {
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    &-deploy {
+        display: flex;
+        flex-direction: row;
+        gap: $normal-gap;
+
+        &-links {
+            display: flex;
+            flex-direction: row;
+            gap: $normal-gap;
+        }
+
+        &-link {
+            display: flex;
+            flex-direction: row;
+            gap: $x-small-gap;
+            align-items: center;
+        }
+    }
+}

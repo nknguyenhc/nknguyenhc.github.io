@@ -12,3 +12,5 @@ export const autoHyperlink = (inputText: string): string => {
 }
 
 export const textToId = (text: string): string => text.split(' ').reduce((prev, curr) => prev + '-' + curr);
+
+export const splitToParagraphs = (text: string) => text.split('\n').map(para => `<p>${para}</p>`).reduce((prev, curr) => prev + curr);

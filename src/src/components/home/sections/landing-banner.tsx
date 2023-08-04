@@ -34,7 +34,7 @@ export default function LandingBanner(): JSX.Element {
     }, []);
 
     return <div className='landing-banner'>
-        <div className="landing-banner-images">
+        <div className="landing-banner-images" onClick={() => setShowOrder(curr => (curr + 1) % images.length)}>
             {images.map((img, srcIndex) => (
                 <img 
                     src={img.src} 

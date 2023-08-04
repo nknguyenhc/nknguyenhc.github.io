@@ -15,10 +15,11 @@ const Stepper = ({ steps, scrollOffset }: {
     const [activeIndex, setActiveIndex] = useState<number>(-1);
     const rootDiv = useRef<HTMLDivElement>(null);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
-    const justScrolledTimeout = 800;
-    const [justScrolled, setJustScrolled] = useState<boolean>(false);
+    const justClickedTimeout = 800;
+    const [justClicked, setJustClicked] = useState<boolean>(false);
     const [showWords, setShowWords] = useState<boolean>(true);
     const scrollDirection = useScrollDirection(false);
+    const [isOverflow, setIsOverflow] = useState<boolean>(false);
 
     const scrollToStep = useCallback((left: number): void => {
         rootDiv.current!.scrollTo({
@@ -29,12 +30,8 @@ const Stepper = ({ steps, scrollOffset }: {
 
     useEffect(() => {
         const callback = () => {
-            if (!justScrolled) {
-                setJustScrolled(true);
+            if (!justClicked) {
                 setShowWords(scrollDirection === 'up');
-                setTimeout(() => {
-                    setJustScrolled(false);
-                }, justScrolledTimeout);
             }
             const elements: Array<HTMLElement> = steps.map(step => document.querySelector(`#${step.id}`)!);
             for (let i = 0; i < elements.length; i++) {
@@ -47,16 +44,27 @@ const Stepper = ({ steps, scrollOffset }: {
         }
         window.addEventListener('scroll', callback);
         return () => window.removeEventListener('scroll', callback);
-    }, [scrollOffset, steps, scrollDirection, justScrolled, justScrolledTimeout]);
+    }, [scrollOffset, steps, scrollDirection, justClicked]);
+
+    useEffect(() => {
+        const callback = () => setIsOverflow(rootDiv.current!.scrollWidth > rootDiv.current!.clientWidth);
+        callback();
+        window.addEventListener('resize', callback);
+        return () => window.removeEventListener('resize', callback);
+    }, []);
 
     return <div 
-        className={"stepper" + ((isScrolled && showWords) ? " stepper-scrolled" : "")} 
+        className={"stepper" + (isOverflow ? " stepper-overflow" : "") + ((isScrolled && showWords) ? " stepper-scrolled" : "")} 
         ref={rootDiv}
         onScroll={() => {
             setIsScrolled(rootDiv.current!.scrollLeft > 10);
             setShowWords(true);
         }}
-        onClick={() => setShowWords(true)}
+        onClick={() => {
+            setShowWords(true);
+            setJustClicked(true);
+            setTimeout(() => setJustClicked(false), justClickedTimeout);
+        }}
     >
         {steps.map((step, stepIndex) => (
             <StepperStepDiv 

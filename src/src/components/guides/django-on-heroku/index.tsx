@@ -39,7 +39,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
                 opacity: (bottom - (window.innerHeight - bodyGap * partial)) / (bodyGap * partial),
                 position: 'fixed',
                 bottom: bottom - top > window.innerHeight ? displayOffset + (window.innerHeight - displayOffset - bottom) * scrollLag : '',
-                top: bottom - top <= window.innerHeight ? displayOffset : '',
+                top: bottom - top <= window.innerHeight ? displayOffset + (top - displayOffset) * scrollLag : '',
                 width: bodyWidth
             };
         } else {

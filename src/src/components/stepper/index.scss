@@ -20,6 +20,10 @@ $transition-style: linear;
         cursor: pointer;
         height: 40px;
 
+        &-overflow {
+            box-shadow: inset -13px 0px 10px -15px;
+        }
+
         &-scrolled {
             box-shadow: inset 10px 0px 10px -15px;
         }

@@ -11,6 +11,10 @@ $django-heroku-section-gap: 160vh;
         max-width: 440px;
         margin-left: 50%;
         transform: translateX(-50%);
+
+        @media (max-width: $desktop) {
+            width: 80vw;
+        }
     }
 
     &-body {
@@ -46,8 +50,12 @@ $django-heroku-section-gap: 160vh;
 
                 p {
                     font-size: $small-fs;
-                    font-weight: $light-fw;
+                    font-weight: $normal-fw;
                     color: $secondary;
+                }
+
+                @media (max-width: $desktop) {
+                    width: 90%;
                 }
             }
         }

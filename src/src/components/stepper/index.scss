@@ -10,12 +10,33 @@ $transition-style: linear;
     gap: $normal-gap;
     user-select: none;
 
+    @media (max-width: $desktop) {
+        top: 0px;
+        right: 0px;
+        left: auto;
+        flex-direction: row;
+        width: calc(100vw - 68px);
+        overflow: auto;
+        cursor: pointer;
+        height: 40px;
+
+        &-scrolled {
+            box-shadow: inset 10px 0px 10px -15px;
+        }
+    }
+
     &-step {
         display: flex;
         flex-direction: row;
         gap: $small-gap;
         align-items: center;
         z-index: -10;
+
+        @media (max-width: $desktop) {
+            flex-direction: column;
+            gap: $x-small-gap;
+            flex-shrink: 0;
+        }
 
         &-circle {
             height: 18px;
@@ -25,12 +46,29 @@ $transition-style: linear;
             border-radius: 50%;
             cursor: pointer;
             transition: background-color $transition-duration $transition-style, border-color $transition-duration $transition-style;
+
+            @media (max-width: $desktop) {
+                height: 5px;
+                width: 100%;
+                border: none;
+                background-color: $dark-red;
+                border-radius: 0px;
+            }
         }
 
         &-text {
             font-size: $small-fs;
             opacity: 0;
             transition: opacity $transition-duration $transition-style;
+
+            @media (max-width: $desktop) {
+                opacity: 1;
+                transition: $menu-icon-transition;
+
+                &-hide {
+                    transform: translateY(-200%);
+                }
+            }
         }
 
         &-active {
@@ -50,6 +88,10 @@ $transition-style: linear;
 
             & .stepper-step-circle {
                 border: 2px solid $red;
+
+                @media (max-width: $desktop) {
+                    border: none;
+                }
             }
 
             & .stepper-step-text {

@@ -1,21 +1,24 @@
 import data, { Paragraph, Image, Section } from './data';
 import { autoHyperlink } from '../../../utils/text-processing';
-import { useState, useRef, useEffect, useCallback, CSSProperties } from 'react';
+import { useState, useRef, useEffect, useCallback, CSSProperties, useMemo } from 'react';
 import Stepper, { StepperStep } from '../../stepper/index';
 import { textToId } from '../../../utils/text-processing';
+import useViewportWidth from '../../../utils/viewport';
 
 export default function DjangoHerokuGuide(): JSX.Element {
     const bodyDiv = useRef<HTMLDivElement>(null);
     const [bodyGap, setBodyGap] = useState<number>(0);
     const root = useRef<HTMLDivElement>(null);
     const [bodyWidth, setBodyWidth] = useState<number>(0);
+    const isDesktop = useViewportWidth();
 
-    const displayOffset = 100;
+    const displayOffset = useMemo<number>(() => isDesktop ? 100 : 30, [isDesktop]);
     const stepperSteps: Array<StepperStep> = data.sections.map(section => ({
         displayText: section.header,
         id: textToId(section.header),
     }));
     const partial = 1;
+    const scrollLag = 0.2;
 
     const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
         if (top > bodyGap * partial) {
@@ -35,7 +38,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
             return {
                 opacity: (bottom - (window.innerHeight - bodyGap * partial)) / (bodyGap * partial),
                 position: 'fixed',
-                bottom: bottom - top > window.innerHeight ? displayOffset : '',
+                bottom: bottom - top > window.innerHeight ? displayOffset + (window.innerHeight - displayOffset - bottom) * scrollLag : '',
                 top: bottom - top <= window.innerHeight ? displayOffset : '',
                 width: bodyWidth
             };
@@ -44,7 +47,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
                 opacity: 0
             };
         }
-    }, [bodyGap, bodyWidth]);
+    }, [bodyGap, bodyWidth, displayOffset]);
 
     useEffect(() => {
         const styles = getComputedStyle(bodyDiv.current!);
@@ -52,8 +55,13 @@ export default function DjangoHerokuGuide(): JSX.Element {
     }, []);
 
     useEffect(() => {
-        const rect = root.current!.getBoundingClientRect();
-        setBodyWidth(rect.right - rect.left);
+        const callback = () => {
+            const rect = root.current!.getBoundingClientRect();
+            setBodyWidth(rect.right - rect.left);
+        }
+        callback();
+        window.addEventListener('resize', callback);
+        return () => window.removeEventListener('resize', callback);
     }, []);
 
     return (
@@ -96,7 +104,11 @@ const SectionDiv = ({ section, setSectionStyle }: {
     useEffect(() => {
         resetDimensions();
         window.addEventListener('scroll', resetDimensions);
-        return () => window.removeEventListener('scroll', resetDimensions);
+        window.addEventListener('resize', resetDimensions);
+        return () => {
+            window.removeEventListener('scroll', resetDimensions);
+            window.removeEventListener('resize', resetDimensions);
+        }
     }, [resetDimensions]);
 
     return (

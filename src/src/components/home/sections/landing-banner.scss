@@ -1,0 +1,50 @@
+.landing-banner {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+
+    &-images {
+        height: 50vh;
+        max-height: 650px;
+        position: relative;
+    }
+
+    &-image {
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        clip-path: circle(closest-side);
+        opacity: 0;
+        transition: opacity 0.3s cubic-bezier(0.87, 0.12, 0.44, 0.44);
+
+        &-not-circle {
+            clip-path: none;
+        }
+
+        &-show {
+            opacity: 1;
+        }
+    }
+
+    &-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        &-top {
+            font-size: $large-fs;
+        }
+
+        &-bottom {
+            font-size: $x-large-fs;
+            font-weight: $bold-fw;
+        }
+    }
+}

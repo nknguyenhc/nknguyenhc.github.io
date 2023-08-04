@@ -6,6 +6,7 @@ import App from './App';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DjangoHerokuGuide from './components/guides/django-on-heroku/index';
+import Home from './components/home/index';
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,8 @@ const router = createBrowserRouter([
     // errorElement: <div>Not found</div>,
     children: [
       {
-        path: 'test',
-        element: <div>Test</div>
+        path: '',
+        element: <Home />
       },
       {
         path: 'guide/',

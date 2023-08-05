@@ -8,6 +8,7 @@ import GithubIcon from '../../../assets/icons/github.png';
 import { splitToParagraphs } from '../../../utils/text-processing';
 import { useState } from 'react';
 import Pagination from '../../pagination/index';
+import useViewportWidth from '../../../utils/viewport';
 
 type DeployData = {
     link: string,
@@ -73,6 +74,7 @@ const projects: Array<ProjectData> = [
 
 export default function Projects(): JSX.Element {
     const [showIndex, setShowIndex] = useState<number>(0);
+    const isDesktop = useViewportWidth();
 
     return <div className="projects" id="my-projects">
         <div className="projects-title">My Projects</div>
@@ -84,14 +86,14 @@ export default function Projects(): JSX.Element {
                 isStatic={showIndex <= projectIndex}
             />
         ))}
-        <Pagination
+        {isDesktop && <Pagination
             leftPositionClass='project-arrow-left'
             rightPositionClass='project-arrow-right'
             indicatorPositionClass=''
             setIndex={setShowIndex}
             currIndex={showIndex}
             numOfItems={projects.length}
-        />
+        />}
     </div>;
 }
 
@@ -100,9 +102,35 @@ const Project = ({ project, isShow, isStatic }: {
     isShow: boolean,
     isStatic: boolean,
 }): JSX.Element => {
+    const isDesktop = useViewportWidth();
+    const [indexOfImgShown, setIndexOfImgShown] = useState<number>(0);
+
     return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>
-        <div className="project-panel project-left">
+        <div className={"project-panel" + (isDesktop ? " project-left" : "")}>
             <div className="project-title">{project.name}</div>
+            {!isDesktop && <div className="project-mobile-images-container">
+                <div className="project-mobile-images">
+                    {[project.images.main, project.images.left, project.images.right].map((image, imageIndex) => (
+                        <div 
+                            key={imageIndex} 
+                            className={
+                                "project-mobile-image" 
+                                + ` project-mobile-image-shift-${imageIndex - indexOfImgShown}`
+                            }
+                        >
+                            <img src={image} alt="project demo" />
+                        </div>
+                    ))}
+                </div>
+                <Pagination 
+                    leftPositionClass='project-mobile-image-arrow-left'
+                    rightPositionClass='project-mobile-image-arrow-right'
+                    indicatorPositionClass=''
+                    setIndex={setIndexOfImgShown}
+                    currIndex={indexOfImgShown}
+                    numOfItems={3}
+                />
+            </div>}
             <div className="project-description" dangerouslySetInnerHTML={{
                 __html: splitToParagraphs(project.description)
             }} />
@@ -116,8 +144,8 @@ const Project = ({ project, isShow, isStatic }: {
                 </div>
             </div>
         </div>
-        <div className="project-panel project-right">
-            <div className="project-images">
+        <div className={"project-panel" + (isDesktop ? " project-right" : "")}>
+            {isDesktop && <div className="project-images">
                 <div className="project-image project-image-main">
                     <img src={project.images.main} alt="project logo" />
                 </div>
@@ -129,7 +157,7 @@ const Project = ({ project, isShow, isStatic }: {
                         <img src={project.images.right} alt="project demo" />
                     </div>
                 </div>
-            </div>
+            </div>}
             <div className="project-deploy">
                 <div className="project-deploy-title">We are available on:</div>
                 <div className="project-deploy-links">

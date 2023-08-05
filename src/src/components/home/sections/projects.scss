@@ -112,10 +112,6 @@ $project-image-mobile-width: 80vw;
         display: flex;
         flex-direction: column;
         gap: $small-gap;
-
-        p {
-            text-align: justify;
-        }
     }
 
     &-links {

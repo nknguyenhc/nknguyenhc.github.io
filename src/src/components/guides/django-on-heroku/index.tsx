@@ -12,7 +12,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
     const [bodyWidth, setBodyWidth] = useState<number>(0);
     const isDesktop = useViewportWidth();
 
-    const displayOffset = useMemo<number>(() => isDesktop ? 100 : 30, [isDesktop]);
+    const displayOffset = useMemo<number>(() => isDesktop ? 100 : 60, [isDesktop]);
     const stepperSteps: Array<StepperStep> = data.sections.map(section => ({
         displayText: section.header,
         id: textToId(section.header),
@@ -134,6 +134,7 @@ const SectionDiv = ({ section, setSectionStyle }: {
                             dangerouslySetInnerHTML={{
                                 __html: autoHyperlink(subsection.text)
                             }}
+                            className="text-justify"
                             key={subsectionIndex}
                         />
                         : subsection instanceof Image

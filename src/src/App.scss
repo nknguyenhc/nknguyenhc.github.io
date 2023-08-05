@@ -62,13 +62,13 @@ a {
 .central-body {
     width: 60vw;
     max-width: 700px;
-    padding-top: 40px;
+    padding-top: 15vh;
     padding-bottom: 60px;
     margin: auto;
 
     @media(max-width: $desktop) {
         width: 90vw;
-        padding-top: 30px;
+        padding-top: 60px;
         padding-bottom: 20px;
     }
 }
@@ -85,6 +85,10 @@ a {
         max-height: 100%;
         max-width: 100%;
     }
+}
+
+.text-justify {
+    text-align: justify;
 }
 
 .App {

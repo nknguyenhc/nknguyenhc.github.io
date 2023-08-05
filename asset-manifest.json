@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e8eb6538.css",
+    "main.js": "/static/js/main.c99c0f11.js",
+    "static/media/landing-1.jpeg": "/static/media/landing-1.c730708627f22e59a1bb.jpeg",
+    "static/media/matchminer-mobile.jpeg": "/static/media/matchminer-mobile.628f382aab136915e2bd.jpeg",
+    "static/media/github.png": "/static/media/github.4bb497e598c121a691f7.png",
+    "static/media/authenticator-app.jpeg": "/static/media/authenticator-app.09fc1dd25076613a0b2d.jpeg",
+    "static/media/landing-3.jpeg": "/static/media/landing-3.6dcb9bf955e7c2f0e509.jpeg",
+    "static/media/heroku-2FA.png": "/static/media/heroku-2FA.4e983b20d7c250b0663b.png",
+    "static/media/matchminer-logo.png": "/static/media/matchminer-logo.8a948f24adf473578588.png",
+    "static/media/landing-2.jpeg": "/static/media/landing-2.5ea85dc8d4932448ff4d.jpeg",
+    "static/media/banner.png": "/static/media/banner.7f33bc4d47481fef4822.png",
+    "static/media/heroku-acc-settings.png": "/static/media/heroku-acc-settings.be2011d220a8abe3c59e.png",
+    "static/media/matchminer-web.png": "/static/media/matchminer-web.ae716232fbc904528915.png",
+    "static/media/web.png": "/static/media/web.10a2be69190b69626a3e.png",
+    "static/media/django-ready.png": "/static/media/django-ready.31f0d40e55d3b90fd87c.png",
+    "index.html": "/index.html",
+    "main.e8eb6538.css.map": "/static/css/main.e8eb6538.css.map",
+    "main.c99c0f11.js.map": "/static/js/main.c99c0f11.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8eb6538.css",
+    "static/js/main.c99c0f11.js"
+  ]
+}

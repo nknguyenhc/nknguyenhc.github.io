@@ -33,7 +33,7 @@ export default function LandingBanner(): JSX.Element {
         return () => clearInterval(interval);
     }, []);
 
-    return <div className='landing-banner'>
+    return <div className='landing-banner' id="landing-banner">
         <div className="landing-banner-images" onClick={() => setShowOrder(curr => (curr + 1) % images.length)}>
             {images.map((img, srcIndex) => (
                 <img 

@@ -74,7 +74,7 @@ const projects: Array<ProjectData> = [
 export default function Projects(): JSX.Element {
     const [showIndex, setShowIndex] = useState<number>(0);
 
-    return <div className="projects">
+    return <div className="projects" id="my-projects">
         <div className="projects-title">My Projects</div>
         {projects.map((project, projectIndex) => (
             <Project 
@@ -103,18 +103,16 @@ const Project = ({ project, isShow, isStatic }: {
     return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>
         <div className="project-panel project-left">
             <div className="project-title">{project.name}</div>
-            <div className="project-body">
-                <div className="project-description" dangerouslySetInnerHTML={{
-                    __html: splitToParagraphs(project.description)
-                }} />
-                <div className="project-links">
-                    <div className="project-readme">Read our full description <a className='link' href={project.readme}>here</a>.</div>
-                    <div className="project-code">
-                        <div className="project-code-text">Fork me!</div> 
-                        <a className="small-img-container" href={project.code}>
-                            <img src={GithubIcon} alt="github icon" />
-                        </a>
-                    </div>
+            <div className="project-description" dangerouslySetInnerHTML={{
+                __html: splitToParagraphs(project.description)
+            }} />
+            <div className="project-links">
+                <div className="project-readme">Read our full description <a className='link' href={project.readme}>here</a>.</div>
+                <div className="project-code">
+                    <div className="project-code-text">Fork me!</div> 
+                    <a className="small-img-container" href={project.code}>
+                        <img src={GithubIcon} alt="github icon" />
+                    </a>
                 </div>
             </div>
         </div>

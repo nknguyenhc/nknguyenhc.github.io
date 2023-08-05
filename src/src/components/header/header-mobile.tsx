@@ -1,6 +1,6 @@
 import headerItems, { HeaderItemWithLink, DropdownItem } from './header-items';
 import { Link } from 'react-router-dom';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { MenuIcon, ArrowRightIcon, LinkIcon, CloseIcon } from './menu-icon';
 import { useScrollDirection } from '../../utils/scroll';
 
@@ -12,6 +12,10 @@ export default function HeaderMobile(): JSX.Element {
     const [numOfLinesShown, setNumOfLinesShown] = useState<number>(0);
     const currTimeout = useRef<number>(-1);
     const currInterval = useRef<number>(-1);
+
+    useEffect(() => {
+        document.body.style.overflow = showMenu ? 'hidden' : '';
+    }, [showMenu]);
 
     const showItems = useCallback((dropdown: Array<DropdownItem>) => {
         setDropdown(dropdown);
@@ -55,7 +59,10 @@ export default function HeaderMobile(): JSX.Element {
                     {headerItems.map((item, i) => (
                         item instanceof HeaderItemWithLink
                         ? <Link to={item.url} key={i}>
-                            <div className={"header-menu-item" + (i >= numOfLinesShown ? " header-menu-item-hide" : "")}>
+                            <div 
+                                className={"header-menu-item" + (i >= numOfLinesShown ? " header-menu-item-hide" : "")}
+                                onClick={closeMenu}
+                            >
                                 <div className={"header-menu-item-text" + (i >= numOfLinesShown ? " header-menu-item-text-hide" : "")}>{item.text}</div>
                                 <LinkIcon />
                             </div>
@@ -66,7 +73,7 @@ export default function HeaderMobile(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <SecondaryMenu dropdown={dropdown} show={showDropdown} />
+                <SecondaryMenu dropdown={dropdown} show={showDropdown} closeMenu={closeMenu} />
                 {showDropdown && <div className="header-menu-back" onClick={hideItems}>
                     <ArrowRightIcon />
                 </div>}
@@ -78,15 +85,16 @@ export default function HeaderMobile(): JSX.Element {
     )
 }
 
-const SecondaryMenu = ({ dropdown, show }: {
+const SecondaryMenu = ({ dropdown, show, closeMenu }: {
     dropdown: Array<DropdownItem>,
-    show: boolean
+    show: boolean,
+    closeMenu: () => void
 }): JSX.Element => {
     return (
         <div className={"header-menu-secondary" + (show ? " header-menu-secondary-show" : "")}>
             {dropdown.map((item, i) => (
                 <Link to={item.url} key={i}>
-                    <div className="header-menu-item">
+                    <div className="header-menu-item" onClick={closeMenu}>
                         <div className="header-menu-item-text">{item.text}</div>
                         <LinkIcon />
                     </div>

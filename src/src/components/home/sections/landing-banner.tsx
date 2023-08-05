@@ -38,7 +38,7 @@ export default function LandingBanner(): JSX.Element {
             {images.map((img, srcIndex) => (
                 <img 
                     src={img.src} 
-                    alt={`landing image ${srcIndex}`} 
+                    alt={`myself ${srcIndex}`} 
                     key={srcIndex} 
                     className={"landing-banner-image" + (img.circleCrop ? "" : " landing-banner-image-not-circle") + (showOrder === srcIndex ? " landing-banner-image-show" : "")}
                 />

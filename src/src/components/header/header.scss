@@ -122,6 +122,10 @@ header {
                 padding: $menu-icon-container-padding;
                 transition: $menu-icon-transition;
                 width: fit-content;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                transform: translateY(0);
 
                 &-hide {
                     transform: translateY(-100%);
@@ -153,7 +157,8 @@ header {
                 background: $red;
 
                 &-hide {
-                    transform: translate(calc(-100vw + #{$menu-icon-centre}), calc(-50vh - 50vw + #{$menu-icon-centre})) scale(0) scale(0);
+                    // transform: translate(calc(-100vw + #{$menu-icon-centre}), calc(-50vh - 50vw + #{$menu-icon-centre})) scale(0);
+                    transform: translate(-90vw, calc(-50vh - 40vw)) scale(0);
                 }
             }
 

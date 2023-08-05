@@ -56,11 +56,11 @@ const AwardListing = ({ award }: {
 }): JSX.Element => {
     const [isInView, setIsInView] = useState<boolean>(false);
     const awardDiv = useRef<HTMLDivElement>(null);
-    const bottomTolerance = 50;
+    const bottomTolerance = 200;
 
-    const calculateInView = () => {
+    const calculateInView = useCallback(() => {
         setIsInView(awardDiv.current!.getBoundingClientRect().bottom < window.innerHeight + bottomTolerance);
-    }
+    }, []);
 
     useEffect(() => {
         calculateInView();

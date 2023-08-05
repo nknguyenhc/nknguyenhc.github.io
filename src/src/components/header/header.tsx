@@ -1,25 +1,13 @@
 import headerItems, { HeaderItemWithLink, DropdownItem } from './header-items';
 import { Link } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useScrollDirection } from '../../utils/scroll';
 
 export default function Header(): JSX.Element {
-    const headerDiv = useRef<HTMLHeadElement>(null);
-    const [headerHeight, setHeaderHeight] = useState<string>('');
     const scrollDirection = useScrollDirection(false);
 
-    useEffect(() => {
-        setHeaderHeight(getComputedStyle(headerDiv.current!).height);
-    }, []);
-
     return (
-        <header 
-            ref={headerDiv}
-            style={{
-                height: headerHeight
-            }}
-            className={scrollDirection === 'down' ? 'header-hide' : ''}
-        >
+        <header className={scrollDirection === 'down' ? 'header-hide' : ''}>
             {headerItems.map((item, i) => (
                 item instanceof HeaderItemWithLink
                 ? <Link to={item.url} key={i}>

@@ -28,6 +28,9 @@ $panel-height: 80%;
     flex-direction: row;
     opacity: 0;
     z-index: 0;
+    transform: rotate(-30deg);
+    transform-origin: 80% 120%;
+    transition: opacity 0.5s linear, transform 0.5s linear;
 
     &-arrow-left {
         position: absolute;
@@ -46,6 +49,10 @@ $panel-height: 80%;
     &-show {
         opacity: 1;
         z-index: 1;
+    }
+
+    &-static {
+        transform: none;
     }
     
     &-panel {

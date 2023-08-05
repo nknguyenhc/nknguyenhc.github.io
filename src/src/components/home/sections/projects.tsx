@@ -81,6 +81,7 @@ export default function Projects(): JSX.Element {
                 project={project} 
                 key={projectIndex} 
                 isShow={showIndex === projectIndex} 
+                isStatic={showIndex <= projectIndex}
             />
         ))}
         <Pagination
@@ -94,11 +95,12 @@ export default function Projects(): JSX.Element {
     </div>;
 }
 
-const Project = ({ project, isShow }: {
+const Project = ({ project, isShow, isStatic }: {
     project: ProjectData,
-    isShow: boolean
+    isShow: boolean,
+    isStatic: boolean,
 }): JSX.Element => {
-    return <div className={"project" + (isShow ? " project-show" : "")}>
+    return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>
         <div className="project-panel project-left">
             <div className="project-title">{project.name}</div>
             <div className="project-body">

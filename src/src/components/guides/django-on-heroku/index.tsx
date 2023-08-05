@@ -51,7 +51,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
 
     useEffect(() => {
         const styles = getComputedStyle(bodyDiv.current!);
-        setBodyGap(Number(styles.gap.slice(0, -2)));
+        setBodyGap(Number(styles.gap.split(' ')[0].slice(0, -2)));
     }, []);
 
     useEffect(() => {

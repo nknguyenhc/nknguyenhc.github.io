@@ -39,7 +39,7 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
         dropdown: [
             {
                 text: 'MatchMiner',
-                url: '/'
+                url: '/project/matchminer'
             },
             {
                 text: 'Coding Scheme Simulation',

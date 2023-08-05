@@ -10,16 +10,6 @@
         flex-direction: column;
         gap: $large-gap;
     }
-
-    &-title {
-        padding: 20px 20vw;
-        font-size: $large-fs;
-        font-weight: $light-bold-fw;
-
-        @media (max-width: $desktop) {
-            padding: 20px 40px;
-        }
-    }
 }
 
 $panel-top: 13%;

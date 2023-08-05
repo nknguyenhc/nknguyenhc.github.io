@@ -7,6 +7,7 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DjangoHerokuGuide from './components/guides/django-on-heroku/index';
 import Home from './components/home/index';
+import MatchMiner from './components/projects/matchminer';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,15 @@ const router = createBrowserRouter([
           {
             path: 'deploy-django-on-heroku',
             element: <DjangoHerokuGuide />
+          }
+        ]
+      },
+      {
+        path: 'project/',
+        children: [
+          {
+            path: 'matchminer',
+            element: <MatchMiner />
           }
         ]
       }

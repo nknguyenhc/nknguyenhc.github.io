@@ -26,6 +26,7 @@ $opacity-transition: opacity 0.4s ease-in-out;
 // font-size
 $small-fs: 12px;
 $normal-fs: 16px;
+$slightly-large-fs: 24px;
 $large-fs: 30px;
 $x-large-fs: 60px;
 
@@ -100,3 +101,4 @@ a {
 @import './components/stepper/index.scss';
 @import './components/home/index.scss';
 @import './components/pagination/index.scss';
+@import './components/projects/matchminer/index.scss';

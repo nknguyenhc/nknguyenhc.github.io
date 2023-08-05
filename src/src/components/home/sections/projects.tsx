@@ -77,7 +77,7 @@ export default function Projects(): JSX.Element {
     const isDesktop = useViewportWidth();
 
     return <div className="projects" id="my-projects">
-        <div className="projects-title">My Projects</div>
+        <div className="home-section-title">My Projects</div>
         {projects.map((project, projectIndex) => (
             <Project 
                 project={project} 

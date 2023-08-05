@@ -7,12 +7,21 @@
     justify-content: center;
     gap: 60px;
 
+    @media (max-width: $desktop) {
+        height: 100vh;
+    }
+
     &-images {
         height: 50vh;
         width: 50vh;
         max-height: 650px;
         max-width: 650px;
         position: relative;
+
+        @media (max-width: $desktop) {
+            height: 80vw;
+            width: 80vw;
+        }
     }
 
     &-image {
@@ -47,6 +56,10 @@
         &-bottom {
             font-size: $x-large-fs;
             font-weight: $bold-fw;
+
+            @media (max-width: $desktop) {
+                font-size: $large-fs;
+            }
         }
     }
 }

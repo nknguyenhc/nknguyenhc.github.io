@@ -1,5 +1,5 @@
 import data, { Paragraph, Image, Section } from './data';
-import { autoHyperlink } from '../../../utils/text-processing';
+import { autoHyperlink, highlightCodes } from '../../../utils/text-processing';
 import { useState, useRef, useEffect, useCallback, CSSProperties, useMemo } from 'react';
 import Stepper, { StepperStep } from '../../stepper/index';
 import { textToId } from '../../../utils/text-processing';
@@ -132,7 +132,7 @@ const SectionDiv = ({ section, setSectionStyle }: {
                         subsection instanceof Paragraph
                         ? <p 
                             dangerouslySetInnerHTML={{
-                                __html: autoHyperlink(subsection.text)
+                                __html: autoHyperlink(highlightCodes(subsection.text))
                             }}
                             className="text-justify"
                             key={subsectionIndex}

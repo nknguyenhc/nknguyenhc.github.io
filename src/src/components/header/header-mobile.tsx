@@ -38,11 +38,14 @@ export default function HeaderMobile(): JSX.Element {
         }, 500);
     }, []);
 
-    const closeMenu = useCallback(() => {
+    const closeMenu = useCallback((scrollToTop: boolean) => {
         setShowMenu(false);
         clearTimeout(currTimeout.current);
         clearInterval(currInterval.current);
         setNumOfLinesShown(0);
+        if (scrollToTop) {
+            window.scrollTo(0, 0);
+        }
     }, []);
 
     return (
@@ -61,7 +64,7 @@ export default function HeaderMobile(): JSX.Element {
                         ? <Link to={item.url} key={i}>
                             <div 
                                 className={"header-menu-item" + (i >= numOfLinesShown ? " header-menu-item-hide" : "")}
-                                onClick={closeMenu}
+                                onClick={() => closeMenu(true)}
                             >
                                 <div className={"header-menu-item-text" + (i >= numOfLinesShown ? " header-menu-item-text-hide" : "")}>{item.text}</div>
                                 <LinkIcon />
@@ -73,11 +76,11 @@ export default function HeaderMobile(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <SecondaryMenu dropdown={dropdown} show={showDropdown} closeMenu={closeMenu} />
+                <SecondaryMenu dropdown={dropdown} show={showDropdown} closeMenu={() => closeMenu(true)} />
                 {showDropdown && <div className="header-menu-back" onClick={hideItems}>
                     <ArrowRightIcon />
                 </div>}
-                <div className={"header-menu-close" + (numOfLinesShown === 0 ? " header-menu-close-hide" : "")} onClick={closeMenu}>
+                <div className={"header-menu-close" + (numOfLinesShown === 0 ? " header-menu-close-hide" : "")} onClick={() => closeMenu(false)}>
                     <CloseIcon />
                 </div>
             </div>

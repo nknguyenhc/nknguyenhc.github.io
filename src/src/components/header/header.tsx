@@ -11,7 +11,7 @@ export default function Header(): JSX.Element {
             {headerItems.map((item, i) => (
                 item instanceof HeaderItemWithLink
                 ? <Link to={item.url} key={i}>
-                    <div className="header-item">{item.text}</div>
+                    <div className="header-item" onClick={() => window.scrollTo(0, 0)}>{item.text}</div>
                 </Link>
                 : <HeaderDropdown text={item.text} dropdown={item.dropdown} key={i} />
             ))}
@@ -56,7 +56,8 @@ function HeaderDropdown({
                             <div 
                                 className="header-dropdown-item"
                                 onClick={() => {
-                                    setShowDropdown(false)
+                                    setShowDropdown(false);
+                                    window.scrollTo(0, 0);
                                 }}
                             >
                                 {item.text}

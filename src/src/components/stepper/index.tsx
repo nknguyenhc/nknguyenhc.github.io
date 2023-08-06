@@ -93,14 +93,24 @@ const StepperStepDiv = ({ isActive, text, targetId, scrollOffset, scroll, showWo
     const isDesktop = useViewportWidth();
     const stepDiv = useRef<HTMLDivElement>(null);
 
+    const scrollToSelf = useCallback<() => void>(() => {
+        scroll(stepDiv.current!.offsetLeft + stepDiv.current!.clientWidth / 2);
+    }, [scroll]);
+
     const handleClickOnParent = useCallback((event: MouseEvent): void => {
         if (isHover || isActive || !isDesktop || (event.target as HTMLElement).contains(circle.current)) {
             scrollToId(targetId, scrollOffset);
             if (!isDesktop) {
-                scroll(stepDiv.current!.offsetLeft + stepDiv.current!.clientWidth / 2);
+                scrollToSelf();
             }
         }
-    }, [isHover, isActive, targetId, scrollOffset, isDesktop, scroll]);
+    }, [isHover, isActive, targetId, scrollOffset, isDesktop, scrollToSelf]);
+
+    useEffect(() => {
+        if (isActive) {
+            scrollToSelf();
+        }
+    }, [isActive, scrollToSelf]);
 
     return (
         <div 

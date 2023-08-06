@@ -19,6 +19,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
     }));
     const partial = 1;
     const scrollLag = 0.2;
+    const topScrollLag = 0.4;
 
     const setSectionStyle = useCallback<(sectionIndex: number) => (top: number, bottom: number) => CSSProperties>((sectionIndex) => (top, bottom) => {
         if (top > bodyGap * partial) {
@@ -29,7 +30,7 @@ export default function DjangoHerokuGuide(): JSX.Element {
             return sectionIndex > 0 ? {
                 opacity: (bodyGap * partial - top) / (bodyGap * partial),
                 position: 'fixed',
-                top: displayOffset,
+                top: displayOffset + (top - displayOffset) * topScrollLag,
                 width: bodyWidth
             } : {} ;
         } else if (bottom > window.innerHeight - displayOffset) {

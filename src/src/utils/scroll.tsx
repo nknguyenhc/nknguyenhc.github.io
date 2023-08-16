@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const scrollToId = (id: string, offset: number): void => {
     const div = document.querySelector(`#${id}`);
@@ -34,4 +34,26 @@ export function useScrollDirection(excludeTop: boolean) {
     }, [excludeTop]);
 
     return scrollStatus.direction;
+}
+
+export const useCheckAndScrollToId = (id: string, offset: number): void => {
+    const scrollDirection = useScrollDirection(true);
+    const [isScrolling, setIsScrolling] = useState<boolean>(false);
+
+    const handleScroll = useCallback<() => void>(() => {
+        const div = document.querySelector(`#${id}`);
+        if (!isScrolling && div) {
+            const rect: DOMRect = div.getBoundingClientRect();
+            if ((rect.top > offset && rect.top < window.innerHeight - offset && scrollDirection === 'down') || (rect.bottom > offset && rect.bottom < window.innerHeight - offset && scrollDirection === 'up')) {
+                scrollToId(id, 0);
+                setIsScrolling(true);
+                setTimeout(() => setIsScrolling(false), 500);
+            }
+        }
+    }, [isScrolling, scrollDirection]);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [handleScroll]);
 }

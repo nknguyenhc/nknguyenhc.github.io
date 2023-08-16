@@ -1,0 +1,117 @@
+.matchminer {
+    display: flex;
+    flex-direction: column;
+    gap: $xx-large-gap;
+    align-items: flex-start;
+
+    &-title {
+        text-align: center;
+        font-size: $x-large-fs;
+        font-weight: $bold-fw;
+        width: 100%;
+        padding-top: $large-gap;
+        padding-bottom: $large-gap;
+    }
+
+    &-video {
+        width: 100vw;
+        height: 100vh;
+        align-self: center;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &-available-platforms {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+
+        &-list {
+            display: flex;
+            flex-direction: row;
+            gap: $normal-gap;
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: row;
+            gap: $small-gap;
+            border-radius: $small-border-radius;
+            background-color: $lightgrey;
+            padding: $x-small-gap;
+        }
+    }
+
+    &-label {
+        font-size: $large-fs;
+        font-weight: $light-bold-fw;
+    }
+
+    &-motivation {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $large-gap;
+        padding-top: $large-gap;
+        user-select: none;
+
+        & * {
+            color: white;
+        }
+
+        &-body {
+            width: 60vw;
+            max-width: 750px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            * {
+                font-size: $slightly-large-fs;
+            }
+        }
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: $normal-gap;
+
+            &-hide {
+                display: none;
+            }
+
+            &-container {
+                width: 45%;
+                position: relative;
+            }
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            height: 40px;
+            
+            svg {
+                line {
+                    stroke: white;
+                    stroke-width: 2px;
+                    stroke-linecap: round;
+                }
+            }
+
+            &-text {
+                height: 100%;
+                padding-right: $normal-gap;
+            }
+        }
+    }
+}

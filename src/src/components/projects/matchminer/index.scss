@@ -1,8 +1,8 @@
 .matchminer {
     display: flex;
     flex-direction: column;
-    gap: $xx-large-gap;
     align-items: flex-start;
+    padding-bottom: 0;
 
     &-title {
         text-align: center;
@@ -28,6 +28,7 @@
         display: flex;
         flex-direction: column;
         gap: $normal-gap;
+        padding-bottom: $large-gap;
 
         &-list {
             display: flex;
@@ -52,7 +53,7 @@
 
     &-motivation {
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - #{$large-gap});
         background-color: black;
         align-self: center;
         display: flex;
@@ -84,12 +85,20 @@
             gap: $normal-gap;
 
             &-hide {
-                display: none;
+                opacity: 0;
+                transform: translateX(70px);
+                transition: transform 0.7s linear, opacity 0.7 linear;
             }
 
             &-container {
                 width: 45%;
                 position: relative;
+            }
+
+            &-detail {
+                position: absolute;
+                top: 0px;
+                left: 0px;
             }
         }
 

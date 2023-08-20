@@ -1,11 +1,10 @@
 import { videoLink, availablePlatforms, projectMotivation, ProjectMotivationProps, ElaborationProps } from './data';
 import { useCheckAndScrollToId } from '../../../utils/scroll';
-import { useState } from 'react';
+import { useState, Fragment, useEffect, useRef } from 'react';
 
 export default function MatchMiner() {
     return <div className="matchminer central-body">
         <div className="matchminer-title">MatchMiner</div>
-        <MatchMinerVideo />
         <div className="matchminer-available-platforms" id="available-platforms">
             <div>We are available on:</div>
             <div className="matchminer-available-platforms-list">
@@ -25,9 +24,8 @@ export default function MatchMiner() {
                 ))}
             </div>
         </div>
-        <div className="matchminer-motivation">
-            <ProjectMotivation />
-        </div>
+        <MatchMinerVideo />
+        <ProjectMotivation />
     </div>;
 }
 
@@ -42,7 +40,7 @@ const MatchMinerVideo = (): JSX.Element => {
 const ProjectMotivation = (): JSX.Element => {
     const [itemIndex, setItemIndex] = useState<number>(-1);
 
-    useCheckAndScrollToId("project-motivation", 300);
+    useCheckAndScrollToId("project-motivation", 10);
 
     return <div className="matchminer-motivation" id="project-motivation">
         <div className="matchminer-label">Project motivation</div>
@@ -59,13 +57,12 @@ const ProjectMotivation = (): JSX.Element => {
             </div>
             <div className='matchminer-motivation-list-container'>
                 {projectMotivation.map((motivation, motivationIndex) => (
-                    <>
+                    <Fragment key={motivationIndex}>
                         <ProjectElaboration 
                             elaboration={motivation.elaboration} 
                             isShow={motivationIndex === itemIndex}
-                            key={motivationIndex} 
                         />
-                    </>
+                    </Fragment>
                 ))}
             </div>
         </div>
@@ -102,7 +99,42 @@ const ProjectElaboration = ({ elaboration, isShow } : {
     elaboration: Array<ElaborationProps>,
     isShow: boolean
 }): JSX.Element => {
-    return <div className={"matchminer-motivation-list matchminer-motivation-list-detail" + (isShow ? "" : " matchminer-motivation-list-hide")}>
+    const root = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (isShow) {
+            root.current!.animate([
+                {
+                    transform: "translateY(130%)",
+                    opacity: 0,
+                },
+                {
+                    transform: "none",
+                    opacity: 1,
+                },
+            ], {
+                duration: 700,
+            });
+        } else {
+            root.current!.animate([
+                {
+                    transform: "none",
+                    opacity: 1,
+                },
+                {
+                    transform: "translateX(70px)",
+                    opacity: 0,
+                },
+            ], {
+                duration: 700,
+            });
+        }
+    }, [isShow]);
+
+    return <div 
+        className={"matchminer-motivation-list matchminer-motivation-list-detail" + (isShow ? "" : " matchminer-motivation-list-hide")}
+        ref={root}
+    >
         {elaboration.map((detail, detailIndex) => (
             <div className="matchminer-motivation-elaboration" key={detailIndex}>{detail.displayText}</div>
         ))}

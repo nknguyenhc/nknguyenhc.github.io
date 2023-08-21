@@ -86,8 +86,6 @@
 
             &-hide {
                 opacity: 0;
-                transform: translateX(70px);
-                transition: transform 0.7s linear, opacity 0.7 linear;
             }
 
             &-container {

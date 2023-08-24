@@ -1,0 +1,31 @@
+.tooltip {
+    border: white 1px solid;
+    position: fixed;
+    padding: $small-gap;
+    border-radius: $small-border-radius;
+    background: $red;
+    font-size: $normal-fs;
+    z-index: 1000;
+
+    @media (max-width: $desktop) {
+        position: absolute;
+    }
+
+    &-arrow {
+        position: fixed;
+        transform-origin: 0px 10px;
+
+        polygon {
+            fill: $red;
+        }
+
+        @media (max-width: $desktop) {
+            position: absolute;
+        }
+    }
+
+    &-container {
+        flex-shrink: 0;
+        position: relative;
+    }
+}

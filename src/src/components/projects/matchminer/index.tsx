@@ -1,6 +1,9 @@
 import { videoLink, availablePlatforms, projectMotivation, ProjectMotivationProps, ElaborationProps } from './data';
 import { useCheckAndScrollToId } from '../../../utils/scroll';
-import { useState, Fragment, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import TooltipDesktop from '../../tooltip/desktop';
+import useViewportWidth from '../../../utils/viewport';
+import TooltipMobile from '../../tooltip/mobile';
 
 export default function MatchMiner() {
     return <div className="matchminer central-body">
@@ -39,14 +42,52 @@ const MatchMinerVideo = (): JSX.Element => {
 
 const ProjectMotivation = (): JSX.Element => {
     const [itemIndex, setItemIndex] = useState<number>(-1);
+    const showMainList = useMemo<boolean>(() => itemIndex === -1, [itemIndex]);
+    const isDesktop = useViewportWidth();
+    const mainList = useRef<HTMLDivElement>(null);
 
     useCheckAndScrollToId("project-motivation", 10);
+
+    useEffect(() => {
+        if (!isDesktop) {
+            if (!showMainList) {
+                mainList.current!.animate([
+                    {
+                        opacity: 1,
+                        transform: "none",
+                    },
+                    {
+                        opacity: 0,
+                        transform: "translateX(-50px)",
+                    },
+                ], {
+                    duration: 700,
+                });
+            } else {
+                mainList.current!.animate([
+                    {
+                        opacity: 0,
+                        tranform: "translateX(-50px)",
+                    },
+                    {
+                        opacity: 1,
+                        transform: "none",
+                    },
+                ], {
+                    duration: 700,
+                });
+            }
+        }
+    }, [isDesktop, showMainList]);
 
     return <div className="matchminer-motivation" id="project-motivation">
         <div className="matchminer-label">Project motivation</div>
         <div className="matchminer-motivation-guide">(Click on each item to see more)</div>
         <div className="matchminer-motivation-body">
-            <div className="matchminer-motivation-list">
+            <div 
+                className={"matchminer-motivation-list" + ((!showMainList && !isDesktop) ? " matchminer-motivation-list-hide" : "")}
+                ref={mainList}
+            >
                 {projectMotivation.map((motivation, motivationIndex) => (
                     <ProjectMotivationItem 
                         motivation={motivation} 
@@ -57,13 +98,18 @@ const ProjectMotivation = (): JSX.Element => {
             </div>
             <div className='matchminer-motivation-list-container'>
                 {projectMotivation.map((motivation, motivationIndex) => (
-                    <Fragment key={motivationIndex}>
-                        <ProjectElaboration 
-                            elaboration={motivation.elaboration} 
-                            isShow={motivationIndex === itemIndex}
-                        />
-                    </Fragment>
+                    <ProjectElaboration 
+                        elaboration={motivation.elaboration} 
+                        isShow={motivationIndex === itemIndex}
+                        key={motivationIndex}
+                    />
                 ))}
+            </div>
+            <div 
+                className={"matchminer-motivation-back-icon" + (showMainList ? " matchminer-motivation-back-icon-hide" : "")}
+                onClick={() => setItemIndex(-1)}
+            >
+                <ArrowRightIcon />
             </div>
         </div>
     </div>;
@@ -71,7 +117,7 @@ const ProjectMotivation = (): JSX.Element => {
 
 function ArrowRightIcon() {
     return (
-        <svg height="40" width="40">
+        <svg className="matchminer-motivation-arrow" height="40" width="40">
             <line x1="3" x2="37" y1="20" y2="20" />
             <line x1="30" x2="37" y1="13" y2="20" />
             <line x1="30" x2="37" y1="27" y2="20" />
@@ -84,6 +130,7 @@ const ProjectMotivationItem = ({ motivation, click }: {
     click: () => void,
 }): JSX.Element => {
     const [isHover, setIsHover] = useState<boolean>(false);
+    const isDesktop = useViewportWidth();
 
     return <div 
         className="matchminer-motivation-item" 
@@ -91,7 +138,7 @@ const ProjectMotivationItem = ({ motivation, click }: {
         onClick={click}
     >
         <div className="matchminer-motivation-item-text" onMouseOver={() => setIsHover(true)}>{motivation.text}</div>
-        {isHover && <ArrowRightIcon />}
+        {(isHover || !isDesktop) && <ArrowRightIcon />}
     </div>;
 }
 
@@ -136,7 +183,39 @@ const ProjectElaboration = ({ elaboration, isShow } : {
         ref={root}
     >
         {elaboration.map((detail, detailIndex) => (
-            <div className="matchminer-motivation-elaboration" key={detailIndex}>{detail.displayText}</div>
+            <ProjectElaborationItem
+                text={detail.displayText}
+                tooltipText={detail.tooltipText}
+                isElaborationVisible={isShow}
+                key={detailIndex}
+            />
         ))}
+    </div>;
+}
+
+const ProjectElaborationItem = ({ text, tooltipText, isElaborationVisible }: {
+    text: string,
+    tooltipText: string,
+    isElaborationVisible: boolean,
+}): JSX.Element => {
+    const [isHovering, setIsHovering] = useState<boolean>(false);
+    const isDesktop = useViewportWidth();
+
+    return <div 
+        className="matchminer-motivation-elaboration"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+    >
+        {text}
+        {isElaborationVisible && isHovering && isDesktop && <TooltipDesktop
+            width={300}
+            text={tooltipText}
+            place="right"
+        />}
+        {!isDesktop && <TooltipMobile
+            width={200}
+            text={tooltipText}
+            place="bottom"
+        />}
     </div>;
 }

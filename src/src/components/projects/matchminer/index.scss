@@ -218,6 +218,7 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                cursor: pointer;
             }
 
             &-icon {
@@ -238,6 +239,7 @@
 
             &-text {
                 padding: $normal-gap;
+                border-top: 1px $lightgrey solid;
             }
         }
 

@@ -55,7 +55,7 @@ $project-image-mobile-width: 80vw;
 
     &-arrow-right {
         position: absolute;
-        left: $panel-left + $panel-width;
+        left: calc(#{$panel-left} + #{$panel-width} + 4px);
         top: $panel-top + $panel-height / 2;
         translate: -50% -50%;
     }

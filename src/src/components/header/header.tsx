@@ -1,13 +1,18 @@
 import headerItems, { HeaderItemWithLink, DropdownItem } from './header-items';
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useScrollDirection } from '../../utils/scroll';
 
 export default function Header(): JSX.Element {
     const scrollDirection = useScrollDirection(false);
+    const [showHeader, setShowHeader] = useState<boolean>(true);
+
+    useEffect(() => {
+        setShowHeader(scrollDirection === 'up');
+    }, [scrollDirection]);
 
     return (
-        <header className={scrollDirection === 'down' ? 'header-hide' : ''}>
+        <header className={!showHeader ? 'header-hide' : ''}>
             {headerItems.map((item, i) => (
                 item instanceof HeaderItemWithLink
                 ? <Link to={item.url} key={i}>
@@ -15,6 +20,9 @@ export default function Header(): JSX.Element {
                 </Link>
                 : <HeaderDropdown text={item.text} dropdown={item.dropdown} key={i} />
             ))}
+            <div className="header-close" onClick={() => setShowHeader(false)}>
+                <HeaderClose />
+            </div>
         </header>
     );
 }
@@ -69,3 +77,10 @@ function HeaderDropdown({
         </div>
     )
 }
+
+const HeaderClose = (): JSX.Element => (
+    <svg height="20" width="20">
+        <line x1="2" x2="18" y1="2" y2="18" />
+        <line x1="2" x2="18" y1="18" y2="2" />
+    </svg>
+);

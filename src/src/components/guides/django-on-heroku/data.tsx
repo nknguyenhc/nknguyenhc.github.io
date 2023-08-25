@@ -13,6 +13,16 @@ import buildPack from '../../../assets/django-heroku-guide/project-path-buildpac
 import projectPathConfig from '../../../assets/django-heroku-guide/project-path-config.png';
 import staticSettings from '../../../assets/django-heroku-guide/static-settings.png';
 import whitenoiseMiddleware from '../../../assets/django-heroku-guide/whitenoise-middleware.png';
+import debugFalse from '../../../assets/django-heroku-guide/debug-false.png';
+import allowedHosts from '../../../assets/django-heroku-guide/allowed-hosts.png';
+import secretKeySettings from '../../../assets/django-heroku-guide/secret-key-settings.png';
+import secretKeyConfig from '../../../assets/django-heroku-guide/secret-key-config.png';
+import sessionAndCSRFToken from '../../../assets/django-heroku-guide/session-and-csrf-token.png';
+import herokuPostgreSQL from '../../../assets/django-heroku-guide/heroku-postgresql.png';
+import herokuAddons from '../../../assets/django-heroku-guide/heroku-addons.png';
+import dbConfig from '../../../assets/django-heroku-guide/db-config.png';
+import dbSettings from '../../../assets/django-heroku-guide/database-settings.png';
+import dbRequirements from '../../../assets/django-heroku-guide/db-requirements.png';
 
 type DjangoHerokuGuide = {
     header: string,
@@ -239,7 +249,102 @@ const data: DjangoHerokuGuide = {
                 new Paragraph({
                     text: "Once ready, you can redeploy your app, and your static files, including CSS and Javascript files, should be loaded properly."
                 }),
+                new Paragraph({
+                    text: "You may be a hobbyist like me, and put your backend code publicly viewable on Github. That is totally fine, however, you need to make sure that your code is secure, so that even when a malicious party views your code, he will not be able to take control of your website. Take note that the following changes to ~settings.py~ will make your project not runnable on local compuater, but only on deployed host. First, you need to turn off debug mode by changing the value of ~DEBUG~ in ~settings.py~ to ~False~"
+                }),
+                new Image({
+                    src: debugFalse,
+                    caption: "Turn debug mode off by indicating DEBUG with False."
+                }),
+                new Paragraph({
+                    text: "This way, when there are errors, especially 404 error, your server will respond with the 404 error HTML template (if none is provided, a default one is served). Configuring custom 404 template is out of the scope of this guide. For Django to work when debug mode is off, you must configure the list of allowed hosts."
+                }),
+                new Image({
+                    src: allowedHosts,
+                    caption: "List of allowed hosts."
+                }),
+                new Paragraph({
+                    text: "The list generally only contains the domain that you deployed your project on. For my project, I used the domain given by Heroku, hence the string indicated in the list of allowed hosts."
+                }),
+                new Paragraph({
+                    text: "Next, the secret key is an important piece of information that you do not want to expose to anyone. With the secret key, anyone can take control of your Django server. First, you need to indicate your ~SECRET_KEY~ as taken from the environment variables."
+                }),
+                new Image({
+                    src: secretKeySettings,
+                    caption: "Set secret key to be taken from the environment variables."
+                }),
+                new Paragraph({
+                    text: "The custom environment variables on Heroku are taken from the config vars. Open your Heroku dashboard, under your project settings, under config vars, key in your secret key. Note that this secret key can be anything (of course it must be secure enough)."
+                }),
+                new Image({
+                    src: secretKeyConfig,
+                    caption: "Configure secret key on Heroku."
+                }),
+                new Paragraph({
+                    text: "If your Django site is using user authentication and POST requests, you would need to configure session cookie and CSRF token cookie, respectively, for production. Add the following settings to your ~settings.py~:"
+                }),
+                new Image({
+                    src: sessionAndCSRFToken,
+                    caption: "Session and CSRF token settings for production."
+                }),
+                new Paragraph({
+                    text: "Here the ~CSRF_TRUSTED_ORIGIN~ is the same domain that you deployed your Django project."
+                }),
+                new Paragraph({
+                    text: "Now your project in production appears and behaves exactly the same as your local host (or at least, within the first day of your deployment ...)."
+                })
             ]
+        },
+        {
+            header: "Data storage",
+            body: [
+                new Paragraph({
+                    text: "If you stick to Django's default data storage, which is SQLite3, you will only be able to store it for 1 day. That is because Heroku erase files created by your Django server everyday! Since SQLite3 is created only upon launch, you will not be able to keep the same SQLite3 for more than 1 day, and a new SQLite3 database is created everyday. Hence, you need to find a permanent data storage system. Here, I introduce to you Heroku's PostgreSQL plan."
+                }),
+                new Image({
+                    src: herokuPostgreSQL,
+                    caption: "Heroku PostgreSQL plan."
+                }),
+                new Paragraph({
+                    text: "To configure PostgreSQL plan, head over to 'resources' tab of your app in Heroku dashboard, under addons, key in 'postgres', and choose to add Heroku Postgres to your app."
+                }),
+                new Image({
+                    src: herokuAddons,
+                    caption: "Heroku add-on list, where you can add postgreSQL."
+                }),
+                new Paragraph({
+                    text: "It may take a few minutes to configure and provision a new database for you. Once it is done, the middle column indicates the environment variable that the information of the database is attached to. In my case, it is ~DATABASE~, so in my config vars, ~DATABASE~ is the config var that contains credentials to the database."
+                }),
+                new Image({
+                    src: dbConfig,
+                    caption: "Database config var in Heroku dashboard."
+                }),
+                new Paragraph({
+                    text: "Caution! Do not share this config var with anyone not managing your project. This config var contains all credentials to your database, including database name, username and password. It should start with ~postgres://~. You may do the parsing of the value yourself if you know which part represents which, but you can also use the python library ~dj_database_url~ to parse the given value, and configure the database in your ~settings.py~. "
+                }),
+                new Image({
+                    src: dbSettings,
+                    caption: "My database settings in production using dj_database_url library."
+                }),
+                new Paragraph({
+                    text: "For setup on Heroku to recognise ~dj_database_url~, you need to indicate it in ~requirements.txt~. You also need to indicate Django's postgreSQL library in order to read from and write to PostgreSQL database during production."
+                }),
+                new Image({
+                    src: dbRequirements,
+                    caption: "Requirements necessary to run PostgreSQL on Heroku, which are psycopg2 and dj_database_url"
+                }),
+                new Paragraph({
+                    text: "Now, your project should function normally (or at least, parts that do not require image or file storage ...)."
+                })
+            ]
+        },
+        {
+            header: "File storage",
+            body: [],
+        },
+        {
+            header: "Websocket configuration",
+            body: [],
         },
         {
             header: "References",
@@ -248,6 +353,8 @@ const data: DjangoHerokuGuide = {
                     list: [
                         "https://www.heroku.com/github-students",
                         "https://medium.com/quick-code/deploying-django-app-to-heroku-full-guide-6ff7252578d7",
+                        "https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/",
+                        "https://devcenter.heroku.com/articles/heroku-postgresql",
                     ]
                 })
             ]

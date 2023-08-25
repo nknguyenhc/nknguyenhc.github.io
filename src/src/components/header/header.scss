@@ -86,6 +86,19 @@ header {
             }
         }
     }
+
+    &-close {
+        position: absolute;
+        top: $normal-gap;
+        right: $normal-gap;
+        cursor: pointer;
+
+        line {
+            stroke: black;
+            stroke-width: 2px;
+            stroke-linecap: round;
+        }
+    }
 }
 
 @media (max-width: $desktop) {

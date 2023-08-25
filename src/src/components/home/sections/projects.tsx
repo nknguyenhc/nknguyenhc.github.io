@@ -1,10 +1,14 @@
 import MatchMinerLogo from '../../../assets/projects/matchminer-logo.png';
 import MatchMinerWeb from '../../../assets/projects/matchminer-web.png';
 import MatchMinerMobile from '../../../assets/projects/matchminer-mobile.jpeg';
+import DragonStamp from '../../../assets/projects/dragon-stamp.png';
+import DragonGameplay1 from '../../../assets/projects/dragon-gameplay1.png';
+import DragonGameplay2 from '../../../assets/projects/dragon-gameplay2.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
 import GithubIcon from '../../../assets/icons/github.png';
+import ItchIcon from '../../../assets/icons/itch.png';
 import { splitToParagraphs } from '../../../utils/text-processing';
 import { useState } from 'react';
 import Pagination from '../../pagination/index';
@@ -69,6 +73,24 @@ const projects: Array<ProjectData> = [
             right: MatchMinerLogo,
         },
         deployed: [],
+    },
+    {
+        name: "Guardian of the Dreamy World",
+        description: "The evil dragon has arrived! Not only has it brought slimes, bats and disastrous fires, but also stolen everyone's good dreams, leaving only nightmares! The dreamy world needs you! In this role-playing game, you will be travelling towards the end, fighting bats and slimes, and defeat the dragon boss, to save everyone.",
+        readme: "https://flamboyyy.itch.io/guardian-of-the-dreamy-world",
+        code: "https://github.com/nknguyenhc/dreaming-dragons",
+        images: {
+            main: DragonStamp,
+            left: DragonGameplay1,
+            right: DragonGameplay2,
+        },
+        deployed: [
+            {
+                link: "https://flamboyyy.itch.io/guardian-of-the-dreamy-world",
+                description: "itch.io",
+                icon: ItchIcon,
+            }
+        ],
     }
 ];
 

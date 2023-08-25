@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import useViewportWidth from './viewport';
 
 export const scrollToId = (id: string, offset: number): void => {
     const div = document.querySelector(`#${id}`);
@@ -34,4 +35,33 @@ export function useScrollDirection(excludeTop: boolean) {
     }, [excludeTop]);
 
     return scrollStatus.direction;
+}
+
+export const useCheckAndScrollToId = (id: string, offset: number): void => {
+    const scrollDirection = useScrollDirection(true);
+    const [isScrolling, setIsScrolling] = useState<boolean>(false);
+    const topOffset = 50;
+    const isDesktop = useViewportWidth();
+
+    const handleScroll = useCallback<() => void>(() => {
+        if (isDesktop) {
+            const div = document.querySelector(`#${id}`);
+            if (!isScrolling && div) {
+                const rect: DOMRect = div.getBoundingClientRect();
+                if ((
+                        (rect.top > offset && rect.top < window.innerHeight - offset && scrollDirection === 'down') || 
+                        (rect.bottom > offset && rect.bottom < window.innerHeight - offset && scrollDirection === 'up')
+                    ) && window.scrollY > topOffset) {
+                    scrollToId(id, 0);
+                    setIsScrolling(true);
+                    setTimeout(() => setIsScrolling(false), 500);
+                }
+            }
+        }
+    }, [isScrolling, scrollDirection, isDesktop, offset, id]);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [handleScroll]);
 }

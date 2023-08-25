@@ -174,4 +174,83 @@
             }
         }
     }
+
+    &-small-icon {
+        transition: opacity 0.4s linear;
+
+        line {
+            stroke: black;
+            stroke-width: 2px;
+            stroke-linecap: round;
+        }
+    }
+
+    &-techstack {
+        min-height: calc(100vh - 2 * #{$large-gap});
+        width: calc(100vw - 2 * #{$large-gap});
+        padding: $large-gap;
+        background-color: $purple;
+        align-self: center;
+
+        &-title {
+            text-align: center;
+            font-size: $large-fs;
+            padding-bottom: $large-gap;
+        }
+        
+        &-container {
+            display: flex;
+            flex-direction: row;
+            gap: $x-large-gap;
+            flex-wrap: wrap;
+        }
+
+        &-item {
+            border: $lightgrey 1px solid;
+            border-radius: $small-border-radius;
+            background-color: white;
+            width: 300px;
+            transition: height 0.4s cubic-bezier(0.58, 0.15, 0.72, 0.96);
+            overflow: hidden;
+
+            &-header {
+                padding: $normal-gap;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            &-icon {
+                height: 60px;
+                width: 60px;
+
+                img {
+                    max-height: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            &-name {
+                flex-grow: 1;
+                text-align: center;
+                font-size: $slightly-large-fs;
+            }
+
+            &-text {
+                padding: $normal-gap;
+            }
+        }
+
+        &-icon {
+            height: 20px;
+            width: 20px;
+            position: relative;
+
+            & .matchminer-small-icon {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+        }
+    }
 }

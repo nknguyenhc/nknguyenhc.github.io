@@ -1,6 +1,6 @@
-import { videoLink, availablePlatforms, projectMotivation, ProjectMotivationProps, ElaborationProps } from './data';
+import { videoLink, availablePlatforms, projectMotivation, ProjectMotivationProps, ElaborationProps, techStacks, TechStack } from './data';
 import { useCheckAndScrollToId } from '../../../utils/scroll';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, CSSProperties } from 'react';
 import TooltipDesktop from '../../tooltip/desktop';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipMobile from '../../tooltip/mobile';
@@ -29,6 +29,7 @@ export default function MatchMiner() {
         </div>
         <MatchMinerVideo />
         <ProjectMotivation />
+        <TechStacks />
     </div>;
 }
 
@@ -219,3 +220,83 @@ const ProjectElaborationItem = ({ text, tooltipText, isElaborationVisible }: {
         />}
     </div>;
 }
+
+const TechStacks = (): JSX.Element => {
+    useCheckAndScrollToId("matchminer-techstack", 0);
+
+    return <div className="matchminer-techstack" id="matchminer-techstack">
+        <div className="matchminer-techstack-title">Tech Stacks</div>
+        <div className="matchminer-techstack-container">
+            {techStacks.map((tech, techIndex) => (
+                <TechItem
+                    item={tech}
+                    key={techIndex}
+                />
+            ))}
+        </div>
+    </div>;
+}
+
+const TechItem = ({ item }: {
+    item: TechStack
+}) => {
+    const [showDropdown, setShowDropdown] = useState<boolean>(false);
+    const textDiv = useRef<HTMLDivElement>(null);
+    const headerDiv = useRef<HTMLDivElement>(null);
+    const [height, setHeight] = useState<number>(0);
+
+    useEffect(() => {
+        const headerHeight = headerDiv.current!.clientHeight;
+        const textHeight = textDiv.current!.clientHeight;
+        setHeight(showDropdown ? headerHeight + textHeight : headerHeight);
+    }, [showDropdown]);
+
+    return <div 
+        className="matchminer-techstack-item"
+        style={{
+            height: height
+        }}
+    >
+        <div 
+            className="matchminer-techstack-item-header" 
+            onClick={() => setShowDropdown(state => !state)}
+            ref={headerDiv}
+        >
+            <div className="matchminer-techstack-item-icon">
+                <img src={item.icon} alt="tech stack" />
+            </div>
+            <div className="matchminer-techstack-item-name">{item.name}</div>
+            <div className="matchminer-techstack-icon">
+                <PlusIcon style={{
+                    opacity: showDropdown ? 0 : 1,
+                }} />
+                <MinusIcon style={{
+                    opacity: showDropdown ? 1 : 0,
+                }} />
+            </div>
+        </div>
+        <div 
+            className="matchminer-techstack-item-text"
+            ref={textDiv}
+        >
+            {item.elaboration}
+        </div>
+    </div>;
+}
+
+const PlusIcon = ({ style }: {
+    style?: CSSProperties,
+}): JSX.Element => (
+    <svg style={style} className="matchminer-small-icon" height="20" width="20">
+        <line x1="2" x2="18" y1="10" y2="10" />
+        <line x1="10" x2="10" y1="2" y2="18" />
+    </svg>
+);
+
+const MinusIcon = ({ style }: {
+    style?: CSSProperties,
+}): JSX.Element => (
+    <svg style={style} className="matchminer-small-icon" height="20" width="20">
+        <line x1="2" x2="18" y1="10" y2="10" />
+    </svg>
+);

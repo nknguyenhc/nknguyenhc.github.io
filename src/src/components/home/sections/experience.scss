@@ -41,6 +41,12 @@ $techstack-scale: 1.4;
             display: flex;
             flex-direction: row;
             gap: $large-gap;
+
+            @media (max-width: $desktop) {
+                flex-direction: column;
+                gap: $normal-gap;
+                align-items: center;
+            }
         }
 
         &-left {
@@ -121,6 +127,10 @@ $techstack-scale: 1.4;
                 display: flex;
                 flex-direction: row;
                 gap: $normal-gap;
+
+                @media (max-width: $desktop) {
+                    flex-direction: column;
+                }
             }
         }
     }
@@ -132,6 +142,7 @@ $techstack-scale: 1.4;
 
         &-title {
             text-align: center;
+            font-weight: $bold-fw;
         }
 
         &-details {

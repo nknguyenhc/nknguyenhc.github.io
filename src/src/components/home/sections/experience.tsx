@@ -7,7 +7,8 @@ import tailwindIcon from '../../../assets/icons/tailwind.png';
 import pugIcon from '../../../assets/icons/pug.png';
 import emotionCssIcon from '../../../assets/icons/emotion-css.png';
 import dsLogo from '../../../assets/home/DS-logo.jpg';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import useViewportWidth from '../../../utils/viewport';
 
 type InternProject = {
     title: string,
@@ -105,10 +106,11 @@ const ExperienceItem = ({ experience }: {
 }): JSX.Element => {
     const [isInView, setIsInView] = useState<boolean>(false);
     const experienceDiv = useRef<HTMLDivElement>(null);
-    const bottomTolerance = 200;
+    const isDesktop = useViewportWidth();
+    const bottomTolerance = useMemo(() => isDesktop ? 200 : 100, [isDesktop]);
 
     const calculateInView = useCallback<() => void>(() => {
-        setIsInView(experienceDiv.current!.getBoundingClientRect().bottom < window.innerHeight + bottomTolerance);
+        setIsInView(experienceDiv.current!.getBoundingClientRect().top < window.innerHeight - bottomTolerance);
     }, []);
 
     useEffect(() => {
@@ -157,6 +159,7 @@ const TechStackRow = ({ row }: {
     row: Array<TechStack>
 }): JSX.Element => {
     const [highlightIndex, setHighlightIndex] = useState<number>(-1);
+    const isDesktop = useViewportWidth();
 
     return <div className="experience-item-techstacks-row">
         {row.map((techstack, techstackIndex) => (
@@ -172,7 +175,7 @@ const TechStackRow = ({ row }: {
                 <div className={
                     "experience-item-techstack"
                     + (
-                        highlightIndex !== -1
+                        highlightIndex !== -1 && isDesktop
                         ? techstackIndex === highlightIndex
                             ? " experience-item-techstack-highlight"
                             : techstackIndex < highlightIndex

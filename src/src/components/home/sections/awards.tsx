@@ -113,7 +113,7 @@ const AwardListing = ({ award }: {
     const awardDiv = useRef<HTMLDivElement>(null);
     const bottomTolerance = 200;
 
-    const calculateInView = useCallback(() => {
+    const calculateInView = useCallback<() => void>(() => {
         setIsInView(awardDiv.current!.getBoundingClientRect().bottom < window.innerHeight + bottomTolerance);
     }, []);
 
@@ -121,7 +121,7 @@ const AwardListing = ({ award }: {
         calculateInView();
         window.addEventListener('scroll', calculateInView);
         return () => window.removeEventListener('scroll', calculateInView);
-    })
+    }, [calculateInView]);
 
     return <div className="award" ref={awardDiv}>
         <div className="award-image">

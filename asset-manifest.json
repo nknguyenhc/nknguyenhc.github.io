@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba39817b.css",
-    "main.js": "/static/js/main.2f8027ac.js",
+    "main.css": "/static/css/main.bfa207fd.css",
+    "main.js": "/static/js/main.8e4a1bd2.js",
     "static/media/SPhO.png": "/static/media/SPhO.7d78cffee55b8ae29a95.png",
     "static/media/CDDC.png": "/static/media/CDDC.8fce81a71764cbce7d8e.png",
     "static/media/SMO20.png": "/static/media/SMO20.93bc432275623bc9ca3d.png",
     "static/media/SMO8.png": "/static/media/SMO8.660d7022d61f0b556201.png",
+    "static/media/emotion-css.png": "/static/media/emotion-css.e7c5171d414020397499.png",
     "static/media/SJPO.png": "/static/media/SJPO.1bb83e35d35ae436169d.png",
     "static/media/dragon-gameplay2.png": "/static/media/dragon-gameplay2.0df9e2d047a8f5dd5466.png",
     "static/media/dragon-gameplay1.png": "/static/media/dragon-gameplay1.8e0d8c8cd4f57a8bb3cb.png",
@@ -33,6 +34,7 @@
     "static/media/heroku-acc-settings.png": "/static/media/heroku-acc-settings.be2011d220a8abe3c59e.png",
     "static/media/amazons3.png": "/static/media/amazons3.4e63242c1343473e815e.png",
     "static/media/deployment-tab.png": "/static/media/deployment-tab.f62a3891edfa0d021899.png",
+    "static/media/pug.png": "/static/media/pug.269d26516582f08c4b26.png",
     "static/media/matchminer-web.png": "/static/media/matchminer-web.ae716232fbc904528915.png",
     "static/media/secret-key-config.png": "/static/media/secret-key-config.10c6f9b17cc294884479.png",
     "static/media/project-path-config.png": "/static/media/project-path-config.f74cebb6ceebb3b7938b.png",
@@ -42,6 +44,7 @@
     "static/media/deploy-button.png": "/static/media/deploy-button.c1057767d5403d69316a.png",
     "static/media/web.png": "/static/media/web.10a2be69190b69626a3e.png",
     "static/media/itch.png": "/static/media/itch.01212b46e4ec536af64e.png",
+    "static/media/tailwind.png": "/static/media/tailwind.013659ff99c4cec2d7ce.png",
     "static/media/whitenoise-middleware.png": "/static/media/whitenoise-middleware.6af14d332fa4817d137a.png",
     "static/media/flutter.png": "/static/media/flutter.f4406299c32eab2be683.png",
     "static/media/firebase.png": "/static/media/firebase.6ea3b0b39b97b0e49515.png",
@@ -49,12 +52,15 @@
     "static/media/django-ready.png": "/static/media/django-ready.31f0d40e55d3b90fd87c.png",
     "static/media/css.png": "/static/media/css.4a6549b8c2b4cda8bb88.png",
     "static/media/javascript.webp": "/static/media/javascript.bb41b35e77975f0c88b0.webp",
+    "static/media/scss.png": "/static/media/scss.5e9edffeb2e392a63e04.png",
+    "static/media/typescript.svg": "/static/media/typescript.32fb130a1a03eac5cd3d509d5b96f188.svg",
     "index.html": "/index.html",
-    "main.ba39817b.css.map": "/static/css/main.ba39817b.css.map",
-    "main.2f8027ac.js.map": "/static/js/main.2f8027ac.js.map"
+    "static/media/alpine.svg": "/static/media/alpine.4e611822964aa973ea678dfeff684abc.svg",
+    "main.bfa207fd.css.map": "/static/css/main.bfa207fd.css.map",
+    "main.8e4a1bd2.js.map": "/static/js/main.8e4a1bd2.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba39817b.css",
-    "static/js/main.2f8027ac.js"
+    "static/css/main.bfa207fd.css",
+    "static/js/main.8e4a1bd2.js"
   ]
 }

@@ -13,7 +13,7 @@ import amazons3Icon from '../../../assets/icons/amazons3.png';
 import firebaseIcon from '../../../assets/icons/firebase.png';
 import xcodeIcon from '../../../assets/icons/xcode.png';
 
-export const videoLink: string = "https://www.youtube.com/embed/Y3bpdRcZiCI";
+export const videoLink: string = "https://www.youtube.com/embed/sUtJHqzU9dc";
 
 type AvailablePlatform = {
     icon: string,

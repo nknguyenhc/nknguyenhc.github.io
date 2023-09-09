@@ -1,0 +1,143 @@
+$techstack-icon-dimension: 50px;
+$techstack-transition: 0.3s cubic-bezier(0.24, 0.26, 0.59, 0.92);
+$techstack-translate: 10px;
+$techstack-scale: 1.4;
+
+.experience {
+    width: 70vw;
+    max-width: 900px;
+    margin: auto;
+
+    &-title {
+        font-size: $large-fs;
+        font-weight: $bold-fw;
+        padding-top: 100px;
+        padding-bottom: $large-gap;
+        padding-left: $large-gap;
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: $large-gap;
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+        transition: opacity 1s cubic-bezier(0.25, 0.6, 0.33, 0.99);
+
+        &-hide {
+            opacity: 0;
+        }
+
+        &-title {
+            font-size: $slightly-large-fs;
+            font-weight: $light-bold-fw;
+        }
+
+        &-body {
+            display: flex;
+            flex-direction: row;
+            gap: $large-gap;
+        }
+
+        &-left {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: $normal-gap;
+            flex-shrink: 0;
+        }
+
+        &-photo {
+            width: 100%;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &-techstacks {
+            display: flex;
+            flex-direction: column;
+            gap: $small-gap;
+
+            &-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &-techstack {
+            position: absolute;
+            height: $techstack-icon-dimension;
+            width: $techstack-icon-dimension;
+            transition: transform $techstack-transition;
+
+            &-container {
+                position: relative;
+                height: $techstack-icon-dimension;
+                width: $techstack-icon-dimension;
+            }
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+
+            &-left {
+                transform: translateX(-$techstack-translate);
+            }
+
+            &-right {
+                transform: translateX($techstack-translate);
+            }
+
+            &-highlight {
+                transform: scale($techstack-scale);
+            }
+        }
+
+        &-details {
+            display: flex;
+            flex-direction: column;
+            gap: $normal-gap;
+        }
+
+        &-projects {
+            display: flex;
+            flex-direction: column;
+            gap: $normal-gap;
+
+            &-header {
+                font-size: $slightly-large-fs;
+                text-align: center;
+            }
+
+            &-details {
+                display: flex;
+                flex-direction: row;
+                gap: $normal-gap;
+            }
+        }
+    }
+
+    &-project {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+
+        &-title {
+            text-align: center;
+        }
+
+        &-details {
+            display: flex;
+            flex-direction: column;
+            gap: $small-gap;
+        }
+    }
+}

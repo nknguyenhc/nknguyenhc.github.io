@@ -111,7 +111,7 @@ const ExperienceItem = ({ experience }: {
 
     const calculateInView = useCallback<() => void>(() => {
         setIsInView(experienceDiv.current!.getBoundingClientRect().top < window.innerHeight - bottomTolerance);
-    }, []);
+    }, [bottomTolerance]);
 
     useEffect(() => {
         calculateInView();

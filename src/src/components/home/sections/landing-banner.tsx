@@ -1,5 +1,5 @@
 import landing1 from '../../../assets/home/landing-1.jpeg';
-import landing2 from '../../../assets/home/landing-2.jpeg';
+import landing2 from '../../../assets/home/landing-2.jpg';
 import landing3 from '../../../assets/home/landing-3.jpeg';
 import { useState, useEffect } from 'react';
 
@@ -15,7 +15,7 @@ const images: Array<Image> = [
     },
     {
         src: landing2,
-        circleCrop: false,
+        circleCrop: true,
     },
     {
         src: landing3,

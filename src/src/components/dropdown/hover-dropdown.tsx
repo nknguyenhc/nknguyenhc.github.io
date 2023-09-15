@@ -31,7 +31,10 @@ export default function HoverDropdown({ text, items }: {
         onMouseEnter={setHovering}
         onMouseLeave={setNotHovering}
     >
-        <div className="dropdown-hover-button">{text}</div>
+        <div className="dropdown-hover-button">
+            <div>{text}</div>
+            <ArrowRight />
+        </div>
         {isHovering && <div className="dropdown-hover-items">
             {items.map((item, itemIndex) => (
                 <div 
@@ -44,4 +47,11 @@ export default function HoverDropdown({ text, items }: {
             ))}
         </div>}
     </div>;
+}
+
+const ArrowRight = (): JSX.Element => {
+    return <svg height='18' width='10'>
+        <line x1='1' x2='9' y1='1' y2='9' />
+        <line x1='9' x2='1' y1='9' y2='17' />
+    </svg>
 }

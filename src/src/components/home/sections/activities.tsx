@@ -173,6 +173,9 @@ const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown
     const isTransitionDisabled = (position === 'top' && !isGoingDown) || (position === 'bottom' && isGoingDown);
 
     useEffect(() => {
+        if (isDesktop) {
+            return;
+        }
         switch (position) {
             case 'top':
                 if (!isGoingDown) {
@@ -211,7 +214,7 @@ const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown
             default:
                 break;
         }
-    }, [isGoingDown, position]);
+    }, [isGoingDown, position, isDesktop]);
 
     return <div 
         className={"activities-activity-detail" 

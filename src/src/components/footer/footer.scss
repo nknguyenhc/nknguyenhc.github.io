@@ -4,8 +4,12 @@
     flex-direction: row;
     gap: $x-large-gap;
     justify-content: center;
-    flex-wrap: wrap;
     padding: $normal-gap;
+
+    @media (max-width: $desktop) {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 
     &-column {
         display: flex;

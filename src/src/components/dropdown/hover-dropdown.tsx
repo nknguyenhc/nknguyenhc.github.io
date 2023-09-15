@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useCallback, useRef, useState } from "react";
 
 
-type DropdownItem = {
+export type DropdownItem = {
     text: string,
     set: Dispatch<SetStateAction<number>>,
 }
@@ -37,6 +37,7 @@ export default function HoverDropdown({ text, items }: {
                 <div 
                     className="dropdown-hover-item"
                     onClick={() => item.set(itemIndex)}
+                    key={itemIndex}
                 >
                     {item.text}
                 </div>

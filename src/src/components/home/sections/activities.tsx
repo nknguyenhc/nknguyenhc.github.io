@@ -4,8 +4,10 @@ import dreamyImage from '../../../assets/home/dreamy.png';
 import spSpeedImage from '../../../assets/home/SP-speed.jpg';
 import cchessBoulderImage from '../../../assets/home/cchess-boulder.jpg';
 import spBowImage from '../../../assets/home/SP-bow.jpg';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import HoverDropdown from '../../dropdown/hover-dropdown';
+import useViewportWidth from '../../../utils/viewport';
+import ClickDropdown from '../../dropdown/click-dropdown';
 
 type ActivityDetail = {
     image: string,
@@ -61,17 +63,24 @@ const dropdownItems = [
 
 export default function Activities(): JSX.Element {
     const [showIndex, setShowIndex] = useState<number>(0);
+    const isDesktop = useViewportWidth();
 
     return <div id="activities" className="activities">
         <div className="home-section-title">Extra-curricular activities</div>
         <div className="activities-dropdown">
-            <HoverDropdown
-                items={dropdownItems.map((item, itemIndex) => ({
+            {isDesktop ? <HoverDropdown
+                items={dropdownItems.map((item) => ({
                     text: item,
                     set: setShowIndex,
                 }))}
                 text="Activities"
-            />
+            /> : <ClickDropdown 
+                items={dropdownItems.map((item) => ({
+                    text: item,
+                    set: setShowIndex,
+                }))}
+                text="Activities"
+            />}
         </div>
         <div className="central-body activities-list">
             {data.map((activity, activityIndex) => (
@@ -90,6 +99,25 @@ const ActivityElaboration = ({ activity, isShow }: {
     isShow: boolean,
 }): JSX.Element => {
     const root = useRef<HTMLDivElement>(null);
+    const [highlightIndex, setHighlightIndex] = useState<number>(1);
+    const [isGoingDown, setIsGoingDown] = useState<boolean>(false);
+
+    const highlightHandler = useCallback<(x: number) => () => void>((index) => {
+        return () => {
+            switch (index) {
+                case (highlightIndex - 1 + activity.details.length) % activity.details.length:
+                    setHighlightIndex(state => (state - 1 + activity.details.length) % activity.details.length);
+                    setIsGoingDown(false);
+                    break;
+                case (highlightIndex + 1) % activity.details.length:
+                    setHighlightIndex(state => (state + 1) % activity.details.length);
+                    setIsGoingDown(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }, [activity, highlightIndex]);
 
     useEffect(() => {
         if (isShow) {
@@ -113,16 +141,94 @@ const ActivityElaboration = ({ activity, isShow }: {
         <div className="activities-activity-header">{activity.name}</div>
         <div className="activities-activity-body">
             {activity.details.map((detail, detailIndex) => (
-                <ActivityDetailElaboration detail={detail} key={detailIndex} />
+                <ActivityDetailElaboration 
+                    detail={detail}
+                    position={
+                        detailIndex === (highlightIndex - 1 + activity.details.length) % activity.details.length
+                        ? 'top'
+                        : detailIndex === highlightIndex
+                        ? 'highlight'
+                        : detailIndex === (highlightIndex + 1) % activity.details.length
+                        ? 'bottom'
+                        : null
+                    }
+                    setHighlight={highlightHandler(detailIndex)}
+                    isGoingDown={isGoingDown}
+                    key={detailIndex}
+                />
             ))}
         </div>
     </div>;
 }
 
-const ActivityDetailElaboration = ({ detail }: {
+const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown }: {
     detail: ActivityDetail,
+    position: 'top' | 'highlight' | 'bottom' | null,
+    setHighlight: () => void,
+    isGoingDown: boolean,
 }): JSX.Element => {
-    return <div className="activities-activity-detail">
+    const isDesktop = useViewportWidth();
+    const root = useRef<HTMLDivElement>(null);
+    const animationDuration = 400;
+    const isTransitionDisabled = (position === 'top' && !isGoingDown) || (position === 'bottom' && isGoingDown);
+
+    useEffect(() => {
+        switch (position) {
+            case 'top':
+                if (!isGoingDown) {
+                    console.log("animating down");
+                    root.current!.animate([
+                        {
+                            top: "-190px",
+                            opacity: 0,
+                        },
+                        {
+                            top: 0,
+                            opacity: 1,
+                        },
+                    ], {
+                        duration: animationDuration,
+                    });
+                }
+                break;
+            case 'bottom':
+                if (isGoingDown) {
+                    console.log("animating up");
+                    root.current!.animate([
+                        {
+                            top: "560px",
+                            opacity: 0,
+                        },
+                        {
+                            top: "370px",
+                            opacity: 1,
+                        },
+                    ], {
+                        duration: animationDuration,
+                    });
+                }
+                break;
+            default:
+                break;
+        }
+    }, [isGoingDown, position]);
+
+    return <div 
+        className={"activities-activity-detail" 
+            + (!isDesktop ? (
+                position === 'top'
+                ? " activities-activity-detail-top"
+                : position === 'highlight'
+                ? " activities-activity-detail-middle"
+                : position === 'bottom'
+                ? " activities-activity-detail-bottom"
+                : " activities-activity-detail-hide"
+            ) : "")
+            + (!isDesktop && isTransitionDisabled ? " activities-activity-detail-transition-disabled" : "")
+        }
+        onClick={setHighlight}
+        ref={root}
+    >
         <div className="activities-activity-image">
             <img src={detail.image} alt="activity" />
         </div>

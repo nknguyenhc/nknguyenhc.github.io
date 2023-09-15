@@ -26,12 +26,12 @@ const data: Array<Activity> = [
                 detail: "Lead workshops on Godot game development engine for new members in Academic Year 2023-2024, equipping members with game development skills within 4 weeks.",
             },
             {
-                image: overchargedImage,
-                detail: "Collaborated with group members to produce a platformer game using Godot engine within a less than half a year, available on itch.io.",
+                image: dreamyImage,
+                detail: "Collaborated with group members to produce a platformer game (Guardian of the Dreamy World) using Godot engine within a less than half a year, available on itch.io.",
             },
             {
-                image: dreamyImage,
-                detail: "Cooperated with club member to develop bullet-hell game within one week using Godot engine, available on itch.io.",
+                image: overchargedImage,
+                detail: "Cooperated with club member to develop bullet-hell game (Overcharged Magic) within one week using Godot engine, available on itch.io.",
             },
         ],
     },

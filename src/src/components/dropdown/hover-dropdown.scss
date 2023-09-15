@@ -10,12 +10,13 @@
         border: 1px $blue solid;
         color: $blue;
         cursor: pointer;
+        height: fit-content;
+        flex-shrink: 0;
     }
 
     &-items {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
         gap: $normal-gap;
         width: fit-content;
     }

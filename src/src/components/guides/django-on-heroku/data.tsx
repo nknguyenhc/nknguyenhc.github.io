@@ -23,6 +23,22 @@ import herokuAddons from '../../../assets/django-heroku-guide/heroku-addons.png'
 import dbConfig from '../../../assets/django-heroku-guide/db-config.png';
 import dbSettings from '../../../assets/django-heroku-guide/database-settings.png';
 import dbRequirements from '../../../assets/django-heroku-guide/db-requirements.png';
+import awsConsole from '../../../assets/django-heroku-guide/aws-console.png';
+import iamSearch from '../../../assets/django-heroku-guide/IAM-search.png';
+import iamConsole from '../../../assets/django-heroku-guide/iam-console.png';
+import s3FullAcess from '../../../assets/django-heroku-guide/s3-fullaccess.png';
+import iamSelectUser from '../../../assets/django-heroku-guide/iam-select-user.png';
+import iamCreateAccessKey from '../../../assets/django-heroku-guide/iam-create-access-key.png';
+import iamKeyAccess from '../../../assets/django-heroku-guide/iam-key-access.png';
+import iamKeyShow from '../../../assets/django-heroku-guide/iam-access-key-created.png';
+import herokuIamAccess from '../../../assets/django-heroku-guide/heroku-iam-keys.png';
+import S3Search from '../../../assets/django-heroku-guide/aws-s3-search.png';
+import S3CreateBucket from '../../../assets/django-heroku-guide/s3-create-bucket.png';
+import S3EnableAccess from '../../../assets/django-heroku-guide/s3-enable-access.png';
+import herokuS3BucketName from '../../../assets/django-heroku-guide/heroku-s3-bucket-name.png';
+import awsSettings from '../../../assets/django-heroku-guide/aws-settings.png';
+import herokuRedis from '../../../assets/django-heroku-guide/heroku-redis.png';
+import djangoRedis from '../../../assets/django-heroku-guide/django-redis.png';
 
 type DjangoHerokuGuide = {
     header: string,
@@ -340,11 +356,140 @@ const data: DjangoHerokuGuide = {
         },
         {
             header: "File storage",
-            body: [],
+            body: [
+                new Paragraph({
+                    text: "Heroku deletes any new file created after deployment everyday. This means that any user-uploaded files and images will be deleted after one day. Take note that Django does not store the entire file in SQL database, it only stores a reference of the file, and the file must still exist in the indicated path. Hence, you would need an external file storage system, so that user-uploaded file will not be deleted."
+                }),
+                new Paragraph({
+                    text: "Heroku does not provide a file storage system service, hence I recommend to you Amazon S3 data storage service. Django directly supports Amazon S3 file storage, so you do not need to do too much to configure the file storage system."
+                }),
+                new Paragraph({
+                    text: "First step is to create a AWS account with your email. Once done, from AWS main page, hover over your account and go to console."
+                }),
+                new Image({
+                    src: awsConsole,
+                    caption: "Sign into AWS console from the main page"
+                }),
+                new Paragraph({
+                    text: "Once in the console, in the search bar on top, type 'IAM' and search. Click on IAM."
+                }),
+                new Image({
+                    src: iamSearch,
+                    caption: "Find and navigate to IAM console"
+                }),
+                new Paragraph({
+                    text: "Click on 'users' on the right, and add a new IAM user."
+                }),
+                new Image({
+                    src: iamConsole,
+                    caption: "IAM console"
+                }),
+                new Paragraph({
+                    text: "At step 1, you may indicate any username you would like. At step 2, choose attach policies direct, search for S3, and add 'AmazonS3FullAccess'."
+                }),
+                new Image({
+                    src: s3FullAcess,
+                    caption: "Provide S3 full access to the new IAM user",
+                }),
+                new Paragraph({
+                    text: "Once you have confirmed creating the new iam user, click select the user in the main IAM console."
+                }),
+                new Image({
+                    src: iamSelectUser,
+                    caption: "Select the new IAM user from the main console"
+                }),
+                new Paragraph({
+                    text: "Upon landing on the page to manage the new IAM user, click on creating a new access key."
+                }),
+                new Image({
+                    src: iamCreateAccessKey,
+                    caption: "Create a new access"
+                }),
+                new Paragraph({
+                    text: "Since we are creating this key so that our Django application can access file storage, select the purpose of the key as for third-party usage."
+                }),
+                new Image({
+                    src: iamKeyAccess,
+                    caption: "Select purpose as third-party access"
+                }),
+                new Paragraph({
+                    text: "Once done, copy and save the access key and secret key."
+                }),
+                new Image({
+                    src: iamKeyShow,
+                    caption: "Save keep the IAM access key and secret key"
+                }),
+                new Paragraph({
+                    text: "Back to your app's dashboard on Heroku, add those 2 keys to the set of environment variables."
+                }),
+                new Image({
+                    src: herokuIamAccess,
+                    caption: "Put AWS IAM user access keys into the environment variables on Heroku"
+                }),
+                new Paragraph({
+                    text: "Next, we need to go and create an S3 bucket for file storage. In AWS console, in the search bar on top, type 'S3' and search."
+                }),
+                new Image({
+                    src: S3Search,
+                    caption: "Search for S3 in AWS console"
+                }),
+                new Paragraph({
+                    text: "Upon landing on the dashboard, click on create bucket."
+                }),
+                new Image({
+                    src: S3CreateBucket,
+                    caption: "Create a new S3 bucket"
+                }),
+                new Paragraph({
+                    text: "You can keep all the default settings, however, ensure that you disable blocking access. This is so that your IAM user you created previously can access the bucket from your Django application"
+                }),
+                new Image({
+                    src: S3EnableAccess,
+                    caption: "Enable S3 bucket access"
+                }),
+                new Paragraph({
+                    text: "Once all that is done, take note of your bucket name, and add that name to the list of environment variables to your Django application on Heroku."
+                }),
+                new Image({
+                    src: herokuS3BucketName,
+                    caption: "Add the S3 bucket name to the list of Heroku environment variables"
+                }),
+                new Paragraph({
+                    text: "You have created an external file storage system! The last step is to point your Django application file storage system to the AWS S3 bucket you just created. In ~settings.py~, add the following lines."
+                }),
+                new Image({
+                    src: awsSettings,
+                    caption: "Add the these lines to your Django settings"
+                }),
+                new Paragraph({
+                    text: "Where the environment variable names should match the names you created in Heroku dashboard. You may change the region name to the region you registered the bucket with. As simple as that, you may redeploy your app and observe that your user-uploaded files are no longer deleted everyday!"
+                }),
+            ],
         },
         {
             header: "Websocket configuration",
-            body: [],
+            body: [
+                new Paragraph({
+                    text: "Last but not least, websocket! If your project involves real-time updates such as instant messaging, you would need a redis host for your application. This is the main reason why I switched from Python Anywhere to Heroku. You would need to register a redis host with Heroku in order to set up websocket for your deployment. Here, I assume that you have set up redis host locally with Docker and have followed Django's tutorial to setup ASGI for websocket."
+                }),
+                new Paragraph({
+                    text: "In your app's dashboard on Heroku, simply configure add-ons, and search for redis."
+                }),
+                new Image({
+                    src: herokuRedis,
+                    caption: "Add redis to your Django app on Heroku"
+                }),
+                new Paragraph({
+                    text: "Once you have added redis to your app, you should see ~REDIS_URL~ as one of the environment variables on Heroku for your app. The last step is to indicate the redis host url as that provided by Heroku in ~settings.py~:"
+                }),
+                new Image({
+                    src: djangoRedis,
+                    caption: "Indicate redis url in settings as that provided by Heroku"
+                }),
+                new Paragraph({
+                    text: "Remember to change any websocket connection instantiated in your js scripts from ~ws://~ to ~wss://~. This is so that your document connected via https can connect websocket through secure channel. With that, once redeployed, your websocket should work similar to your local development server. Congratulations! You have come to the end of this deployment guide."
+                }),
+            ],
         },
         {
             header: "References",

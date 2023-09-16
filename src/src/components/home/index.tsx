@@ -3,6 +3,7 @@ import Projects from "./sections/projects";
 import Stepper, { StepperStep } from '../stepper/index';
 import Awards from "./sections/awards";
 import Experience from "./sections/experience";
+import Activities from "./sections/activities";
 
 export default function Home(): JSX.Element {
     const stepperSteps: Array<StepperStep> = [
@@ -21,13 +22,18 @@ export default function Home(): JSX.Element {
         {
             displayText: 'Awards',
             id: "awards"
-        }
+        },
+        {
+            displayText: 'Activities',
+            id: 'activities',
+        },
     ]
     return <div className="home">
         <LandingBanner />
         <Projects />
         <Experience />
         <Awards />
+        <Activities />
         <Stepper steps={stepperSteps} scrollOffset={0} />
     </div>;
 }

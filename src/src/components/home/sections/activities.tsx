@@ -179,7 +179,6 @@ const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown
         switch (position) {
             case 'top':
                 if (!isGoingDown) {
-                    console.log("animating down");
                     root.current!.animate([
                         {
                             top: "-190px",
@@ -196,7 +195,6 @@ const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown
                 break;
             case 'bottom':
                 if (isGoingDown) {
-                    console.log("animating up");
                     root.current!.animate([
                         {
                             top: "560px",

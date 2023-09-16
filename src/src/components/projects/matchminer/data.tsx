@@ -12,6 +12,7 @@ import postgresIcon from '../../../assets/icons/postgres.png';
 import amazons3Icon from '../../../assets/icons/amazons3.png';
 import firebaseIcon from '../../../assets/icons/firebase.png';
 import xcodeIcon from '../../../assets/icons/xcode.png';
+import flyioIcon from '../../../assets/icons/flyio.png';
 
 export const videoLink: string = "https://www.youtube.com/embed/sUtJHqzU9dc";
 
@@ -55,27 +56,36 @@ export const projectMotivation: Array<ProjectMotivationProps> = [
         elaboration: [
             {
                 displayText: "No likes and shares",
-                tooltipText: "Instead of the 'like' and 'share' functionalities that produce no more than superficial interaction, we hope to allow users to feel unpressured to share their interests and connect with like-minded individuals at a deeper level."
+                tooltipText: "Instead of the 'like' and 'share' functionalities that produce no more than superficial interaction, we hope to allow users to feel unpressured to share their interests and connect with like-minded individuals at a deeper level.",
             },
             {
                 displayText: "Decide who you share with",
-                tooltipText: "We hope to"
-            }
-        ]
+                tooltipText: "We hope to enable users to create their own cellars of niche hobbies and interests, and choose who they want to share their hobbies with.",
+            },
+        ],
     },
     {
         text: "Interest sharing",
         elaboration: [
             {
                 displayText: "Unpressured sharing",
-                tooltipText: "We hope users are able to share their interests without the pressure of social media, through the ability to control their posts' visibility, and direct their posts towards others with the same interests via a system of tags."
+                tooltipText: "We hope users are able to share their interests without the pressure of social media, through the ability to control their posts' visibility, and direct their posts towards others with the same interests via a system of tags.",
             },
             {
                 displayText: "High-quality communities",
-                tooltipText: "Over time, we hope users are able to form high-quality communities where socialising and sharing are exclusive to those truly passionate about a hobby. This is done through a strict system of tags and group chats."
-            }
-        ]
-    }
+                tooltipText: "Over time, we hope users are able to form high-quality communities where socialising and sharing are exclusive to those truly passionate about a hobby. This is done through a strict system of tags and group chats.",
+            },
+        ],
+    },
+    {
+        text: "Social interaction",
+        elaboration: [
+            {
+                displayText: "Group chat themes",
+                tooltipText: "As avid board gamers we hope to implement themes and social deduction games that group chats can make use of to customise themselves according to their topic of interest, in a future instalment.",
+            },
+        ],
+    },
 ]
 
 export type TechStack = {
@@ -140,4 +150,9 @@ export const techStacks: Array<TechStack> = [
         icon: xcodeIcon,
         elaboration: "XCode is used to deploy iOS (testing) versions on Test Flight.",
     },
+    {
+        name: "Flyio",
+        icon: flyioIcon,
+        elaboration: "Flyio is another host we hope to use in the next release.The deployment environment has been set up, however product is not yet ready for the next release.",
+    }
 ];

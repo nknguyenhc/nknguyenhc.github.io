@@ -4,6 +4,9 @@ import MatchMinerMobile from '../../../assets/projects/matchminer-mobile.jpeg';
 import DragonStamp from '../../../assets/projects/dragon-stamp.png';
 import DragonGameplay1 from '../../../assets/projects/dragon-gameplay1.png';
 import DragonGameplay2 from '../../../assets/projects/dragon-gameplay2.png';
+import Coding1 from '../../../assets/projects/coding-convolutional-decode.png';
+import Coding2 from '../../../assets/projects/coding-convolutional-encode.png';
+import Coding3 from '../../../assets/projects/coding-hamming-decode.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -68,9 +71,9 @@ const projects: Array<ProjectData> = [
         readme: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
         code: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
         images: {
-            main: MatchMinerLogo,
-            left: MatchMinerLogo,
-            right: MatchMinerLogo,
+            main: Coding1,
+            left: Coding2,
+            right: Coding3,
         },
         deployed: [],
     },

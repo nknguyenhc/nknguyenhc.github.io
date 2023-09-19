@@ -7,6 +7,7 @@ import SPhO from '../../../assets/home/SPhO.png';
 import SMO8 from '../../../assets/home/SMO8.png';
 import SMO20 from '../../../assets/home/SMO20.png';
 import SJPO from '../../../assets/home/SJPO.png';
+import tiktokHackthon from '../../../assets/home/tiktok-hackathon.png';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 type Award = {
@@ -25,6 +26,15 @@ const awards: Array<Award> = [
             "Overall GPA: 5.0",
         ],
         img: DeansList,
+    },
+    {
+        name: "Tiktok Hackathon 2023, Finalist",
+        description: "Tiktok Hackathon was divided into 4 problem statements, and 12 best teams were shortlisted to the final round. Our team tackled problem statement 4, reshaping payment, and created an e-wallet with special features of guardian linking and integration with Stripe.",
+        details: [
+            "Shorted to final",
+            "Obtained in September 2023",
+        ],
+        img: tiktokHackthon,
     },
     {
         name: "Top in Programming Methodology module (CS1101S)",

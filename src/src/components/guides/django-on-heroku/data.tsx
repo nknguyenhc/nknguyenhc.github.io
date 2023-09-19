@@ -500,6 +500,7 @@ const data: DjangoHerokuGuide = {
                         "https://medium.com/quick-code/deploying-django-app-to-heroku-full-guide-6ff7252578d7",
                         "https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/",
                         "https://devcenter.heroku.com/articles/heroku-postgresql",
+                        "https://devcenter.heroku.com/articles/heroku-redis",
                     ]
                 })
             ]

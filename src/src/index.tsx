@@ -8,12 +8,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DjangoHerokuGuide from './components/guides/django-on-heroku/index';
 import Home from './components/home/index';
 import MatchMiner from './components/projects/matchminer';
+import NotFound from './components/notfound/not-found';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <div>Not found</div>,
     children: [
       {
         path: '',
@@ -36,7 +36,11 @@ const router = createBrowserRouter([
             element: <MatchMiner />
           }
         ]
-      }
+      },
+      {
+        path: '*',
+        element: <NotFound />
+      },
     ]
   }
 ]);

@@ -25,6 +25,7 @@ type TechStack = {
 type InternExperience = {
     image: string,
     position: string,
+    duration: string,
     projects: Array<InternProject>,
     techstacks: Array<TechStack>,
 }
@@ -33,6 +34,7 @@ const experienceData: Array<InternExperience> = [
     {
         image: dsLogo,
         position: "Frontend software engineer at Decision Science Agency",
+        duration: "May 2023 - Aug 2023",
         projects: [
             {
                 title: "Singlife - NISL",
@@ -124,6 +126,7 @@ const ExperienceItem = ({ experience }: {
         ref={experienceDiv}
     >
         <div className="experience-item-title">{experience.position}</div>
+        <div className="experience-item-duration">{experience.duration}</div>
         <div className="experience-item-body">
             <div className="experience-item-left">
                 <div className="experience-item-photo">

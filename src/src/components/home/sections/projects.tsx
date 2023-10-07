@@ -7,11 +7,18 @@ import DragonGameplay2 from '../../../assets/projects/dragon-gameplay2.png';
 import Coding1 from '../../../assets/projects/coding-convolutional-decode.png';
 import Coding2 from '../../../assets/projects/coding-convolutional-encode.png';
 import Coding3 from '../../../assets/projects/coding-hamming-decode.png';
+import Payday1 from '../../../assets/projects/payday-1.png';
+import Payday2 from '../../../assets/projects/payday-2.png';
+import Payday3 from '../../../assets/projects/payday-3.png';
+import UndercoverDucksLogo from '../../../assets/projects/undercoverducks-logo.png';
+import UndercoverDucksGraph from '../../../assets/projects/undercoverducks-prediction.png';
+import UndercoverDucksStats from '../../../assets/projects/undercoverducks-movement.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
 import GithubIcon from '../../../assets/icons/github.png';
 import ItchIcon from '../../../assets/icons/itch.png';
+import APKIcon from '../../../assets/icons/apk.png';
 import { splitToParagraphs } from '../../../utils/text-processing';
 import { useState } from 'react';
 import Pagination from '../../pagination/index';
@@ -66,6 +73,24 @@ const projects: Array<ProjectData> = [
         ],
     },
     {
+        name: "Payday Digital Wallet",
+        description: "Imagine a world where everyone can securely manage their finances with confidence. We aim to create a safe, accessible and user-friendly digital wallet.\nBesides our own authentication system, we integrate our system with Stripe, which is also used for pay-in and pay-out. OTP is used for transactions for better security. Moreover, we employed Stripe AI insights to provide users with risk assessments of transactions. Lastly, we implemented guardian linking, which allows the guardian to be notified of the user's activities.",
+        readme: "https://devpost.com/software/payday-digital-wallet",
+        code: "https://github.com/Vanessamae23/project007backend",
+        images: {
+            main: Payday1,
+            left: Payday2,
+            right: Payday3,
+        },
+        deployed: [
+            {
+                link: "https://drive.google.com/drive/folders/16v7VBmBWC6Bvl2IMpt3x84GLOGJOiC9y",
+                description: "apk file",
+                icon: APKIcon,
+            },
+        ],
+    },
+    {
         name: "Coding Scheme Simulation",
         description: "While transmitting data, errors might be introduced. if raw data is sent, the receiving ends has no means of reversing the errors. Hence, instead of sending raw data, both sender and receiver agrees on an encryption mechanism such that encrypted data can be decrypted, and errors can be auto-corrected in the process.\nWe explore three such encryption mechanisms varying in complexity and effectiveness, the Hamming code, the convolutional code, and the Reed-Solomon code.",
         readme: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
@@ -76,6 +101,24 @@ const projects: Array<ProjectData> = [
             right: Coding3,
         },
         deployed: [],
+    },
+    {
+        name: "Undercover Ducks",
+        description: "PSA prediction of ship volume remains largely manual, which leaves room for errors. We introduce to capability to quantify impacts of real world events on Singapore ports.\nWe use the knowledge on current worldwide ship movements, and current situation to predict future ship volumes at ports worldwide, via a Markov chain model. This would allow ports to scale up or down its operation accordingly.\nOur web interface allows users to adjust knowledge on current ship movements and port details, subsequently simulate the changes to ship volumes to ports worldwide in future weeks.",
+        readme: "https://github.com/nknguyenhc/UndercoverDucks#undercoverducks",
+        code: "https://github.com/nknguyenhc/UndercoverDucks",
+        images: {
+            main: UndercoverDucksLogo,
+            left: UndercoverDucksGraph,
+            right: UndercoverDucksStats,
+        },
+        deployed: [
+            {
+                link: "https://undercover-ducks.fly.dev/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
     },
     {
         name: "Guardian of the Dreamy World",

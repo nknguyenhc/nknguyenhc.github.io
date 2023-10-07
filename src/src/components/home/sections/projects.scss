@@ -127,6 +127,8 @@ $project-image-mobile-width: 80vw;
         border: 1px black solid;
         max-height: 50%;
         display: flex;
+        justify-content: center;
+        align-items: center;
 
         &-main {
             width: 65%;

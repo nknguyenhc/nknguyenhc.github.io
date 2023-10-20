@@ -20,9 +20,11 @@ import GithubIcon from '../../../assets/icons/github.png';
 import ItchIcon from '../../../assets/icons/itch.png';
 import APKIcon from '../../../assets/icons/apk.png';
 import { splitToParagraphs } from '../../../utils/text-processing';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Pagination from '../../pagination/index';
 import useViewportWidth from '../../../utils/viewport';
+import { useAppDispatch } from '../../../redux/store';
+import { setImage } from '../../../redux/modalSlice';
 
 type DeployData = {
     link: string,
@@ -172,6 +174,11 @@ const Project = ({ project, isShow, isStatic }: {
 }): JSX.Element => {
     const isDesktop = useViewportWidth();
     const [indexOfImgShown, setIndexOfImgShown] = useState<number>(0);
+    const dispatch = useAppDispatch();
+    
+    const handleImageClick = useCallback((image: string) => () => {
+        dispatch(setImage(image));
+    }, [dispatch]);
 
     return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>
         <div className={"project-panel" + (isDesktop ? " project-left" : "")}>
@@ -185,6 +192,7 @@ const Project = ({ project, isShow, isStatic }: {
                                 "project-mobile-image" 
                                 + ` project-mobile-image-shift-${imageIndex - indexOfImgShown}`
                             }
+                            onClick={handleImageClick(image)}
                         >
                             <img src={image} alt="project demo" />
                         </div>
@@ -214,14 +222,14 @@ const Project = ({ project, isShow, isStatic }: {
         </div>
         <div className={"project-panel" + (isDesktop ? " project-right" : "")}>
             {isDesktop && <div className="project-images">
-                <div className="project-image project-image-main">
+                <div className="project-image project-image-main" onClick={handleImageClick(project.images.main)}>
                     <img src={project.images.main} alt="project logo" />
                 </div>
                 <div className="project-image-secondary">
-                    <div className="project-image project-image-panel">
+                    <div className="project-image project-image-panel" onClick={handleImageClick(project.images.left)}>
                         <img src={project.images.left} alt="project demo" />
                     </div>
-                    <div className="project-image project-image-panel">
+                    <div className="project-image project-image-panel" onClick={handleImageClick(project.images.right)}>
                         <img src={project.images.right} alt="project demo" />
                     </div>
                 </div>

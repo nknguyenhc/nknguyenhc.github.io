@@ -9,6 +9,8 @@ import SMO20 from '../../../assets/home/SMO20.png';
 import SJPO from '../../../assets/home/SJPO.png';
 import tiktokHackthon from '../../../assets/home/tiktok-hackathon.png';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { useAppDispatch } from '../../../redux/store';
+import { setImage } from '../../../redux/modalSlice';
 
 type Award = {
     name: string,
@@ -122,6 +124,11 @@ const AwardListing = ({ award }: {
     const [isInView, setIsInView] = useState<boolean>(false);
     const awardDiv = useRef<HTMLDivElement>(null);
     const bottomTolerance = 200;
+    const dispatch = useAppDispatch();
+
+    const handleImageClick = useCallback(() => {
+        dispatch(setImage(award.img));
+    }, [dispatch, award.img]);
 
     const calculateInView = useCallback<() => void>(() => {
         setIsInView(awardDiv.current!.getBoundingClientRect().bottom < window.innerHeight + bottomTolerance);
@@ -134,7 +141,7 @@ const AwardListing = ({ award }: {
     }, [calculateInView]);
 
     return <div className="award" ref={awardDiv}>
-        <div className="award-image">
+        <div className="award-image" onClick={handleImageClick}>
             <img src={award.img} alt="award certificate/medal" />
         </div>
         <div className={"award-text" + (isInView ? " award-text-show" : "")}>

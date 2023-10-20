@@ -8,7 +8,7 @@ import SMO8 from '../../../assets/home/SMO8.png';
 import SMO20 from '../../../assets/home/SMO20.png';
 import SJPO from '../../../assets/home/SJPO.png';
 import tiktokHackthon from '../../../assets/home/tiktok-hackathon.png';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import {MouseEvent, useState, useEffect, useRef, useCallback } from 'react';
 import { useAppDispatch } from '../../../redux/store';
 import { setImage } from '../../../redux/modalSlice';
 
@@ -126,8 +126,15 @@ const AwardListing = ({ award }: {
     const bottomTolerance = 200;
     const dispatch = useAppDispatch();
 
-    const handleImageClick = useCallback(() => {
-        dispatch(setImage(award.img));
+    const handleImageClick = useCallback((e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        dispatch(setImage({
+            image: award.img,
+            height: target.clientHeight,
+            width: target.clientWidth,
+            top: target.getBoundingClientRect().top,
+            left: target.getBoundingClientRect().left,
+        }));
     }, [dispatch, award.img]);
 
     const calculateInView = useCallback<() => void>(() => {

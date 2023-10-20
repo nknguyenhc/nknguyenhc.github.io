@@ -20,7 +20,7 @@ import GithubIcon from '../../../assets/icons/github.png';
 import ItchIcon from '../../../assets/icons/itch.png';
 import APKIcon from '../../../assets/icons/apk.png';
 import { splitToParagraphs } from '../../../utils/text-processing';
-import { useCallback, useState } from 'react';
+import { MouseEvent, useCallback, useState } from 'react';
 import Pagination from '../../pagination/index';
 import useViewportWidth from '../../../utils/viewport';
 import { useAppDispatch } from '../../../redux/store';
@@ -176,8 +176,15 @@ const Project = ({ project, isShow, isStatic }: {
     const [indexOfImgShown, setIndexOfImgShown] = useState<number>(0);
     const dispatch = useAppDispatch();
     
-    const handleImageClick = useCallback((image: string) => () => {
-        dispatch(setImage(image));
+    const handleImageClick = useCallback((image: string) => (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        dispatch(setImage({
+            image,
+            height: target.clientHeight,
+            width: target.clientWidth,
+            top: target.getBoundingClientRect().top,
+            left: target.getBoundingClientRect().left,
+        }));
     }, [dispatch]);
 
     return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>

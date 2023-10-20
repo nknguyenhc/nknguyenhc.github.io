@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useRef, useState, WheelEvent } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { setImage } from "../../redux/modalSlice";
 import { useWindowDimensions } from "../../utils/viewport";
@@ -8,6 +8,7 @@ type Dimensions = {
     width?: number,
     left?: number,
     top?: number,
+    scale?: number,
 };
 
 type MousePosition = {
@@ -30,7 +31,6 @@ export default function ImageModal(): JSX.Element {
 
     const handleMouseDown = useCallback((e: MouseEvent) => {
         setIsHolding(true);
-        console.log(dimensions);
         setMousePosition({
             top: e.clientY - dimensions.top!,
             left: e.clientX - dimensions.left!,
@@ -43,10 +43,6 @@ export default function ImageModal(): JSX.Element {
 
     const handleMouseMove = useCallback((e: MouseEvent) => {
         if (isHolding) {
-            console.log({
-                top: e.clientY - mousePosition.top,
-                left: e.clientX - mousePosition.left,
-            })
             setDimensions(dimensions => ({
                 ...dimensions,
                 top: e.clientY - mousePosition.top,
@@ -54,6 +50,20 @@ export default function ImageModal(): JSX.Element {
             }));
         }
     }, [isHolding, mousePosition]);
+
+    const handleWheel = useCallback((e: WheelEvent) => {
+        if (e.deltaY < 0) {
+            setDimensions(dimensions => ({
+                ...dimensions,
+                scale: dimensions.scale! + 0.1
+            }));
+        } else {
+            setDimensions(dimensions => ({
+                ...dimensions,
+                scale: dimensions.scale! - 0.1
+            }));
+        }
+    }, [dimensions]);
 
     useEffect(() => {
         if (modalInfo.image !== '') {
@@ -66,6 +76,7 @@ export default function ImageModal(): JSX.Element {
                     width: modalInfo.width,
                     left: modalInfo.left,
                     top: modalInfo.top,
+                    scale: 1,
                 });
                 window.setTimeout(() => {
                     setDimensions({
@@ -73,6 +84,7 @@ export default function ImageModal(): JSX.Element {
                         width: rect.width,
                         top: windowHeight / 2 - rect.height / 2,
                         left: windowWidth / 2 - rect.width / 2,
+                        scale: 1,
                     });
                     setIsShow(true);
                 }, 10);
@@ -103,10 +115,12 @@ export default function ImageModal(): JSX.Element {
             backgroundColor: isShow ? "rgba(119, 119, 119, 0.86)" : "",
         }}
         onMouseMove={handleMouseMove}
+        onWheel={handleWheel}
     >
         <img src={modalInfo.image} alt="" ref={imageElem}
             style={{
                 ...dimensions,
+                transform: dimensions.scale ? `scale(${dimensions.scale})` : "",
                 cursor: isHolding ? "grabbing" : "grab",
             }}
             onMouseDown={handleMouseDown}

@@ -16,5 +16,6 @@ $modal-img-transition: 0.3s cubic-bezier(0.19, 0.47, 0.46, 0.76);
             width $modal-img-transition,
             top $modal-img-transition,
             left $modal-img-transition;
+        transform-origin: 50% 50%;
     }
 }

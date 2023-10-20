@@ -10,6 +10,11 @@ type Dimensions = {
     top?: number,
 };
 
+type MousePosition = {
+    top: number,
+    left: number,
+}
+
 export default function ImageModal(): JSX.Element {
     const imageElem = useRef<HTMLImageElement>(null);
     const modalInfo = useAppSelector(state => state.modal);
@@ -17,6 +22,38 @@ export default function ImageModal(): JSX.Element {
     const [dimensions, setDimensions] = useState<Dimensions>({});
     const dispatch = useAppDispatch();
     const { windowHeight, windowWidth } = useWindowDimensions();
+    const [isHolding, setIsHolding] = useState<boolean>(false);
+    const [mousePosition, setMousePosition] = useState<MousePosition>({
+        top: 0,
+        left: 0,
+    });
+
+    const handleMouseDown = useCallback((e: MouseEvent) => {
+        setIsHolding(true);
+        console.log(dimensions);
+        setMousePosition({
+            top: e.clientY - dimensions.top!,
+            left: e.clientX - dimensions.left!,
+        });
+    }, [dimensions]);
+
+    const handleMouseUp = useCallback(() => {
+        setIsHolding(false);
+    }, []);
+
+    const handleMouseMove = useCallback((e: MouseEvent) => {
+        if (isHolding) {
+            console.log({
+                top: e.clientY - mousePosition.top,
+                left: e.clientX - mousePosition.left,
+            })
+            setDimensions(dimensions => ({
+                ...dimensions,
+                top: e.clientY - mousePosition.top,
+                left: e.clientX - mousePosition.left,
+            }));
+        }
+    }, [isHolding, mousePosition]);
 
     useEffect(() => {
         if (modalInfo.image !== '') {
@@ -65,9 +102,16 @@ export default function ImageModal(): JSX.Element {
             opacity: isShow ? 1 : 0,
             backgroundColor: isShow ? "rgba(119, 119, 119, 0.86)" : "",
         }}
+        onMouseMove={handleMouseMove}
     >
         <img src={modalInfo.image} alt="" ref={imageElem}
-            style={dimensions}
+            style={{
+                ...dimensions,
+                cursor: isHolding ? "grabbing" : "grab",
+            }}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            draggable="false"
         />
     </div>;
 }

@@ -8,7 +8,8 @@ import SMO8 from '../../../assets/home/SMO8.png';
 import SMO20 from '../../../assets/home/SMO20.png';
 import SJPO from '../../../assets/home/SJPO.png';
 import tiktokHackthon from '../../../assets/home/tiktok-hackathon.png';
-import {MouseEvent, useState, useEffect, useRef, useCallback } from 'react';
+import terminal from '../../../assets/home/terminal.png';
+import { MouseEvent, useState, useEffect, useRef, useCallback } from 'react';
 import { useAppDispatch } from '../../../redux/store';
 import { setImage } from '../../../redux/modalSlice';
 
@@ -20,6 +21,15 @@ type Award = {
 }
 
 const awards: Array<Award> = [
+    {
+        name: "Terminal Fall 2023, 3rd place",
+        description: "Terminal is an AI competition where teams code algorithms for a tower-defense game and compete in a group round-robin format.",
+        details: [
+            "Overall 3rd place with cash prize",
+            "Fall 2023 APAC region",
+        ],
+        img: terminal,
+    },
     {
         name: "Dean's List, NUS School of Computing",
         description: "Dean's List certificate in NUS School of Computing was awarded to students with top performance (5-10%).",

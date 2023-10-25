@@ -1,6 +1,6 @@
 .landing-banner {
     width: 100vw;
-    height: 90vh;
+    height: 110vh;
     margin-top: 10vh;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     gap: 60px;
 
     @media (max-width: $desktop) {
-        height: 100vh;
+        height: 110vh;
         margin-top: 0px;
     }
 
@@ -62,6 +62,26 @@
             @media (max-width: $desktop) {
                 font-size: $large-fs;
             }
+        }
+    }
+
+    &-techstacks {
+        display: flex;
+        flex-direction: row;
+        gap: $small-gap;
+        max-width: 60vw;
+
+        @media (max-width: $desktop) {
+            max-width: 90vw;
+        }
+    }
+
+    &-techstack {
+        height: 40px;
+        width: 40px;
+        img {
+            max-height: 100%;
+            max-width: 100%;
         }
     }
 }

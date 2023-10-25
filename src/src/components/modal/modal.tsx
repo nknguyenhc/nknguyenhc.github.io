@@ -1,7 +1,7 @@
 import { MouseEvent, useCallback, useEffect, useRef, useState, WheelEvent } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { setImage } from "../../redux/modalSlice";
-import { useWindowDimensions } from "../../utils/viewport";
+import useViewportWidth, { useWindowDimensions } from "../../utils/viewport";
 
 type Dimensions = {
     height?: number,
@@ -28,20 +28,30 @@ export default function ImageModal(): JSX.Element {
         top: 0,
         left: 0,
     });
+    const isDesktop = useViewportWidth();
 
     const handleMouseDown = useCallback((e: MouseEvent) => {
+        if (!isDesktop) {
+            return;
+        }
         setIsHolding(true);
         setMousePosition({
             top: e.clientY - dimensions.top!,
             left: e.clientX - dimensions.left!,
         });
-    }, [dimensions]);
+    }, [dimensions, isDesktop]);
 
     const handleMouseUp = useCallback(() => {
+        if (!isDesktop) {
+            return;
+        }
         setIsHolding(false);
-    }, []);
+    }, [isDesktop]);
 
     const handleMouseMove = useCallback((e: MouseEvent) => {
+        if (!isDesktop) {
+            return;
+        }
         if (isHolding) {
             setDimensions(dimensions => ({
                 ...dimensions,
@@ -49,9 +59,12 @@ export default function ImageModal(): JSX.Element {
                 left: e.clientX - mousePosition.left,
             }));
         }
-    }, [isHolding, mousePosition]);
+    }, [isHolding, mousePosition, isDesktop]);
 
     const handleWheel = useCallback((e: WheelEvent) => {
+        if (!isDesktop) {
+            return;
+        }
         if (e.deltaY < 0) {
             setDimensions(dimensions => ({
                 ...dimensions,
@@ -63,7 +76,7 @@ export default function ImageModal(): JSX.Element {
                 scale: dimensions.scale! - 0.1
             }));
         }
-    }, [dimensions]);
+    }, [isDesktop]);
 
     useEffect(() => {
         if (modalInfo.image !== '') {

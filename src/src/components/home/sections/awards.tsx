@@ -17,7 +17,8 @@ type Award = {
     name: string,
     description: string,
     details: Array<string>,
-    img: string
+    img: string,
+    certificate?: string,
 }
 
 const awards: Array<Award> = [
@@ -29,6 +30,7 @@ const awards: Array<Award> = [
             "Fall 2023 APAC region",
         ],
         img: terminal,
+        certificate: "https://www.credential.net/df292229-cd75-4a2b-b4d0-5ece96dc208a#gs.6u1366",
     },
     {
         name: "Dean's List, NUS School of Computing",
@@ -38,6 +40,7 @@ const awards: Array<Award> = [
             "Overall GPA: 5.0",
         ],
         img: DeansList,
+        certificate: "https://credentials.nus.edu.sg/49219b34-3455-4734-958f-e48ce44a5b9e",
     },
     {
         name: "Tiktok Hackathon 2023, Finalist",
@@ -56,6 +59,7 @@ const awards: Array<Award> = [
             "Overall module score: A+",
         ],
         img: CS1101S,
+        certificate: "https://credentials.nus.edu.sg/6954d80c-4252-435c-b3b2-30eb97f9ff09",
     },
     {
         name: "Top in Discrete Structure module (CS1231S)",
@@ -65,6 +69,7 @@ const awards: Array<Award> = [
             "Overall module score: A+",
         ],
         img: CS1231S,
+        certificate: "https://credentials.nus.edu.sg/00d2b02f-4f16-4431-98fe-2f6d547a077a",
     },
     {
         name: "Cyber Defense Discovery Camp (CDDC), 8th (Uni category)",
@@ -73,6 +78,7 @@ const awards: Array<Award> = [
             "Obtained in Jun 2023",
         ],
         img: CDDC,
+        certificate: "https://certificates.nextid.com/certificate?id=3d39b28e-d9f0-4037-a71f-c9df35c78146",
     },
     {
         name: "Singapore Physics League, 8th and Gold Award",
@@ -174,6 +180,12 @@ const AwardListing = ({ award }: {
                         <div className="award-detail-text">{detail}</div>
                     </div>
                 ))}
+                {award.certificate && <div className="award-detail">
+                    <BulletListing />
+                    <div className="award-detail-text">
+                        View <a className="award-detail-certificate" href={award.certificate}>certificate</a>
+                    </div>
+                </div>}
             </div>
         </div>
     </div>

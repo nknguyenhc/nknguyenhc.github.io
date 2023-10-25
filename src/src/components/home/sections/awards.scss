@@ -104,5 +104,9 @@ $fade-in-anim: 1s cubic-bezier(0.23, 0.38, 0.27, 0.99);
                 stroke-width: 1px;
             }
         }
+
+        &-certificate {
+            text-decoration: underline;
+        }
     }
 }

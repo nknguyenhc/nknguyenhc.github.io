@@ -108,13 +108,16 @@ const awards: Array<Award> = [
 ]
 
 export default function Awards(): JSX.Element {
+    const [count, setCount] = useState<number>(3);
+
     return <div className="awards" id="awards">
         <div className="home-section-title">Awards and Certificates</div>
         <div className="awards-list">
-            {awards.map((award, awardIndex) => (
+            {awards.slice(0, count).map((award, awardIndex) => (
                 <AwardListing award={award} key={awardIndex} />
             ))}
         </div>
+        {count < awards.length && <div className="awards-showmore" onClick={() => setCount(count => count + 3)}>See more</div>}
     </div>;
 }
 

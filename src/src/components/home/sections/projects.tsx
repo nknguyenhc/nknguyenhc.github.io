@@ -20,14 +20,34 @@ import GithubIcon from '../../../assets/icons/github.png';
 import ItchIcon from '../../../assets/icons/itch.png';
 import APKIcon from '../../../assets/icons/apk.png';
 import { splitToParagraphs } from '../../../utils/text-processing';
-import { useState } from 'react';
+import { MouseEvent, useCallback, useState } from 'react';
 import Pagination from '../../pagination/index';
 import useViewportWidth from '../../../utils/viewport';
+import { useAppDispatch } from '../../../redux/store';
+import { setImage } from '../../../redux/modalSlice';
+import djangoIcon from '../../../assets/icons/django.png';
+import reactIcon from '../../../assets/icons/react.png';
+import typescriptIcon from '../../../assets/icons/typescript.svg';
+import scssIcon from '../../../assets/icons/scss.png';
+import sqlIcon from '../../../assets/icons/sql.png';
+import flutterIcon from '../../../assets/icons/flutter.png';
+import nodeIcon from '../../../assets/icons/nodejs.png';
+import firebaseIcon from '../../../assets/icons/firebase.png';
+import cppIcon from '../../../assets/icons/cpp.png';
+import emotionIcon from '../../../assets/icons/emotion-css.png';
+import flaskIcon from '../../../assets/icons/flask.png';
+import numpyIcon from '../../../assets/icons/numpy.svg';
+import godotIcon from '../../../assets/icons/godot.png';
 
 type DeployData = {
     link: string,
     description: string,
     icon: string,
+}
+
+type TechStackType = {
+    icon: string,
+    link: string,
 }
 
 type ProjectData = {
@@ -40,6 +60,7 @@ type ProjectData = {
         left: string,
         right: string,
     },
+    techstacks: Array<TechStackType>,
     deployed: Array<DeployData>,
 }
 
@@ -54,6 +75,32 @@ const projects: Array<ProjectData> = [
             left: MatchMinerWeb,
             right: MatchMinerMobile,
         },
+        techstacks: [
+            {
+                icon: djangoIcon,
+                link: "https://www.djangoproject.com/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+            {
+                icon: sqlIcon,
+                link: "https://en.wikipedia.org/wiki/SQL",
+            },
+            {
+                icon: flutterIcon,
+                link: "https://flutter.dev/",
+            },
+        ],
         deployed: [
             {
                 link: "https://matchminer-d5ebcada4488.herokuapp.com/",
@@ -82,6 +129,20 @@ const projects: Array<ProjectData> = [
             left: Payday2,
             right: Payday3,
         },
+        techstacks: [
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: firebaseIcon,
+                link: "https://firebase.google.com/",
+            },
+        ],
         deployed: [
             {
                 link: "https://drive.google.com/drive/folders/16v7VBmBWC6Bvl2IMpt3x84GLOGJOiC9y",
@@ -100,6 +161,24 @@ const projects: Array<ProjectData> = [
             left: Coding2,
             right: Coding3,
         },
+        techstacks: [
+            {
+                icon: cppIcon,
+                link: "https://en.wikipedia.org/wiki/C%2B%2B",
+            },
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: emotionIcon,
+                link: "https://emotion.sh/docs/introduction",
+            },
+        ],
         deployed: [],
     },
     {
@@ -112,6 +191,24 @@ const projects: Array<ProjectData> = [
             left: UndercoverDucksGraph,
             right: UndercoverDucksStats,
         },
+        techstacks: [
+            {
+                icon: flaskIcon,
+                link: "https://flask.palletsprojects.com/",
+            },
+            {
+                icon: numpyIcon,
+                link: "https://numpy.org/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+        ],
         deployed: [
             {
                 link: "https://undercover-ducks.fly.dev/",
@@ -130,6 +227,12 @@ const projects: Array<ProjectData> = [
             left: DragonGameplay1,
             right: DragonGameplay2,
         },
+        techstacks: [
+            {
+                icon: godotIcon,
+                link: "https://godotengine.org/",
+            },
+        ],
         deployed: [
             {
                 link: "https://flamboyyy.itch.io/guardian-of-the-dreamy-world",
@@ -172,6 +275,18 @@ const Project = ({ project, isShow, isStatic }: {
 }): JSX.Element => {
     const isDesktop = useViewportWidth();
     const [indexOfImgShown, setIndexOfImgShown] = useState<number>(0);
+    const dispatch = useAppDispatch();
+    
+    const handleImageClick = useCallback((image: string) => (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        dispatch(setImage({
+            image,
+            height: target.clientHeight,
+            width: target.clientWidth,
+            top: target.getBoundingClientRect().top,
+            left: target.getBoundingClientRect().left,
+        }));
+    }, [dispatch]);
 
     return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>
         <div className={"project-panel" + (isDesktop ? " project-left" : "")}>
@@ -185,6 +300,7 @@ const Project = ({ project, isShow, isStatic }: {
                                 "project-mobile-image" 
                                 + ` project-mobile-image-shift-${imageIndex - indexOfImgShown}`
                             }
+                            onClick={handleImageClick(image)}
                         >
                             <img src={image} alt="project demo" />
                         </div>
@@ -214,18 +330,25 @@ const Project = ({ project, isShow, isStatic }: {
         </div>
         <div className={"project-panel" + (isDesktop ? " project-right" : "")}>
             {isDesktop && <div className="project-images">
-                <div className="project-image project-image-main">
+                <div className="project-image project-image-main" onClick={handleImageClick(project.images.main)}>
                     <img src={project.images.main} alt="project logo" />
                 </div>
                 <div className="project-image-secondary">
-                    <div className="project-image project-image-panel">
+                    <div className="project-image project-image-panel" onClick={handleImageClick(project.images.left)}>
                         <img src={project.images.left} alt="project demo" />
                     </div>
-                    <div className="project-image project-image-panel">
+                    <div className="project-image project-image-panel" onClick={handleImageClick(project.images.right)}>
                         <img src={project.images.right} alt="project demo" />
                     </div>
                 </div>
             </div>}
+            <div className="project-techstacks">
+                {project.techstacks.map(techstack => (
+                    <a href={techstack.link} className="project-techstack" key={techstack.link}>
+                        <img src={techstack.icon} alt="" />
+                    </a>
+                ))}
+            </div>
             <div className="project-deploy">
                 <div className="project-deploy-title">We are available on:</div>
                 <div className="project-deploy-links">

@@ -20,7 +20,7 @@ export default function Pagination({
         if (currIndex > 0) {
             setIndex(currIndex - 1);
         }
-    }, [currIndex, numOfItems, setIndex]);
+    }, [currIndex, setIndex]);
 
     const handleRight = useCallback<() => void>(() => {
         if (currIndex < numOfItems - 1) {

@@ -18,7 +18,7 @@ export default function TooltipDesktop({
     place,
 }: {
     height?: number,
-    width: number,
+    width?: number,
     text: string,
     place: "top" | "bottom" | "left" | "right"
 }): JSX.Element {
@@ -97,7 +97,7 @@ export default function TooltipDesktop({
                 top: topStyle,
                 left: leftStyle,
                 height: height ? height : "",
-                width: width,
+                width: width ? width : "",
             }}
             ref={textDiv}
         >

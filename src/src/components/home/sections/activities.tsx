@@ -4,10 +4,12 @@ import dreamyImage from '../../../assets/home/dreamy.png';
 import spSpeedImage from '../../../assets/home/SP-speed.jpg';
 import cchessBoulderImage from '../../../assets/home/cchess-boulder.jpg';
 import spBowImage from '../../../assets/home/SP-bow.jpg';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import HoverDropdown from '../../dropdown/hover-dropdown';
 import useViewportWidth from '../../../utils/viewport';
 import ClickDropdown from '../../dropdown/click-dropdown';
+import { useAppDispatch } from '../../../redux/store';
+import { setImage } from '../../../redux/modalSlice';
 
 type ActivityDetail = {
     image: string,
@@ -172,6 +174,19 @@ const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown
     const animationDuration = 400;
     const isTransitionDisabled = (position === 'top' && !isGoingDown) || (position === 'bottom' && isGoingDown);
 
+    const dispatch = useAppDispatch();
+
+    const handleImageClick = useCallback((e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        dispatch(setImage({
+            image: detail.image,
+            height: target.clientHeight,
+            width: target.clientWidth,
+            top: target.getBoundingClientRect().top,
+            left: target.getBoundingClientRect().left,
+        }))
+    }, [dispatch, detail]);
+
     useEffect(() => {
         if (isDesktop) {
             return;
@@ -227,12 +242,11 @@ const ActivityDetailElaboration = ({ detail, position, setHighlight, isGoingDown
             ) : "")
             + (!isDesktop && isTransitionDisabled ? " activities-activity-detail-transition-disabled" : "")
         }
-        onClick={setHighlight}
         ref={root}
     >
-        <div className="activities-activity-image">
+        <div className="activities-activity-image" onClick={handleImageClick}>
             <img src={detail.image} alt="activity" />
         </div>
-        <div className="activities-activity-text">{detail.detail}</div>
+        <div className="activities-activity-text" onClick={setHighlight}>{detail.detail}</div>
     </div>;
 }

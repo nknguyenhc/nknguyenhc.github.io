@@ -1,56 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import AppRouterProvider from './router/router';
+import { AppProvider } from './redux/store';
+import ImageModal from './components/modal/modal';
 // import reportWebVitals from './reportWebVitals';
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import DjangoHerokuGuide from './components/guides/django-on-heroku/index';
-import Home from './components/home/index';
-import MatchMiner from './components/projects/matchminer';
-import NotFound from './components/notfound/not-found';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        path: '',
-        element: <Home />
-      },
-      {
-        path: 'guide/',
-        children: [
-          {
-            path: 'deploy-django-on-heroku',
-            element: <DjangoHerokuGuide />
-          }
-        ]
-      },
-      {
-        path: 'project/',
-        children: [
-          {
-            path: 'matchminer',
-            element: <MatchMiner />
-          }
-        ]
-      },
-      {
-        path: '*',
-        element: <NotFound />
-      },
-    ]
-  }
-]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <AppRouterProvider />
+      <ImageModal />
+    </AppProvider>
   </React.StrictMode>
 );
 

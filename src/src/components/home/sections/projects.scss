@@ -247,4 +247,19 @@ $project-image-mobile-width: 80vw;
             }
         }
     }
+
+    &-techstacks {
+        display: flex;
+        flex-direction: row;
+        gap: $small-gap;
+    }
+
+    &-techstack {
+        height: 30px;
+        width: 30px;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
 }

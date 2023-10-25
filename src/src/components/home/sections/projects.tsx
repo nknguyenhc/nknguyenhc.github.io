@@ -25,11 +25,29 @@ import Pagination from '../../pagination/index';
 import useViewportWidth from '../../../utils/viewport';
 import { useAppDispatch } from '../../../redux/store';
 import { setImage } from '../../../redux/modalSlice';
+import djangoIcon from '../../../assets/icons/django.png';
+import reactIcon from '../../../assets/icons/react.png';
+import typescriptIcon from '../../../assets/icons/typescript.svg';
+import scssIcon from '../../../assets/icons/scss.png';
+import sqlIcon from '../../../assets/icons/sql.png';
+import flutterIcon from '../../../assets/icons/flutter.png';
+import nodeIcon from '../../../assets/icons/nodejs.png';
+import firebaseIcon from '../../../assets/icons/firebase.png';
+import cppIcon from '../../../assets/icons/cpp.png';
+import emotionIcon from '../../../assets/icons/emotion-css.png';
+import flaskIcon from '../../../assets/icons/flask.png';
+import numpyIcon from '../../../assets/icons/numpy.svg';
+import godotIcon from '../../../assets/icons/godot.png';
 
 type DeployData = {
     link: string,
     description: string,
     icon: string,
+}
+
+type TechStackType = {
+    icon: string,
+    link: string,
 }
 
 type ProjectData = {
@@ -42,6 +60,7 @@ type ProjectData = {
         left: string,
         right: string,
     },
+    techstacks: Array<TechStackType>,
     deployed: Array<DeployData>,
 }
 
@@ -56,6 +75,32 @@ const projects: Array<ProjectData> = [
             left: MatchMinerWeb,
             right: MatchMinerMobile,
         },
+        techstacks: [
+            {
+                icon: djangoIcon,
+                link: "https://www.djangoproject.com/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+            {
+                icon: sqlIcon,
+                link: "https://en.wikipedia.org/wiki/SQL",
+            },
+            {
+                icon: flutterIcon,
+                link: "https://flutter.dev/",
+            },
+        ],
         deployed: [
             {
                 link: "https://matchminer-d5ebcada4488.herokuapp.com/",
@@ -84,6 +129,20 @@ const projects: Array<ProjectData> = [
             left: Payday2,
             right: Payday3,
         },
+        techstacks: [
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: firebaseIcon,
+                link: "https://firebase.google.com/",
+            },
+        ],
         deployed: [
             {
                 link: "https://drive.google.com/drive/folders/16v7VBmBWC6Bvl2IMpt3x84GLOGJOiC9y",
@@ -102,6 +161,24 @@ const projects: Array<ProjectData> = [
             left: Coding2,
             right: Coding3,
         },
+        techstacks: [
+            {
+                icon: cppIcon,
+                link: "https://en.wikipedia.org/wiki/C%2B%2B",
+            },
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: emotionIcon,
+                link: "https://emotion.sh/docs/introduction",
+            },
+        ],
         deployed: [],
     },
     {
@@ -114,6 +191,24 @@ const projects: Array<ProjectData> = [
             left: UndercoverDucksGraph,
             right: UndercoverDucksStats,
         },
+        techstacks: [
+            {
+                icon: flaskIcon,
+                link: "https://flask.palletsprojects.com/",
+            },
+            {
+                icon: numpyIcon,
+                link: "https://numpy.org/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+        ],
         deployed: [
             {
                 link: "https://undercover-ducks.fly.dev/",
@@ -132,6 +227,12 @@ const projects: Array<ProjectData> = [
             left: DragonGameplay1,
             right: DragonGameplay2,
         },
+        techstacks: [
+            {
+                icon: godotIcon,
+                link: "https://godotengine.org/",
+            },
+        ],
         deployed: [
             {
                 link: "https://flamboyyy.itch.io/guardian-of-the-dreamy-world",
@@ -241,6 +342,13 @@ const Project = ({ project, isShow, isStatic }: {
                     </div>
                 </div>
             </div>}
+            <div className="project-techstacks">
+                {project.techstacks.map(techstack => (
+                    <a href={techstack.link} className="project-techstack" key={techstack.link}>
+                        <img src={techstack.icon} alt="" />
+                    </a>
+                ))}
+            </div>
             <div className="project-deploy">
                 <div className="project-deploy-title">We are available on:</div>
                 <div className="project-deploy-links">

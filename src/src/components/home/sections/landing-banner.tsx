@@ -6,6 +6,7 @@ import djangoIcon from '../../../assets/icons/django.png';
 import reactIcon from '../../../assets/icons/react.png';
 import typescriptIcon from '../../../assets/icons/typescript.svg';
 import nodejsIcon from '../../../assets/icons/nodejs.png';
+import flaskIcon from '../../../assets/icons/flask.png';
 import sqlIcon from '../../../assets/icons/sql.png';
 import cppIcon from '../../../assets/icons/cpp.png';
 import javaIcon from '../../../assets/icons/java.png';
@@ -16,6 +17,7 @@ import emotionIcon from '../../../assets/icons/emotion-css.png';
 import pugIcon from '../../../assets/icons/pug.png';
 import tailwindIcon from '../../../assets/icons/tailwind.png';
 import bootstrapIcon from '../../../assets/icons/bootstrap.png';
+import godotIcon from '../../../assets/icons/godot.png';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipDesktop from '../../tooltip/desktop';
 
@@ -96,6 +98,11 @@ const techstackData: Array<TechStackType> = [
         note: "Node.js",
     },
     {
+        image: flaskIcon,
+        link: "https://flask.palletsprojects.com/",
+        note: "Flask",
+    },
+    {
         image: sqlIcon,
         link: "https://en.wikipedia.org/wiki/SQL",
         note: "SQL",
@@ -145,12 +152,17 @@ const techstackData: Array<TechStackType> = [
         link: "https://getbootstrap.com/",
         note: "Bootstrap",
     },
+    {
+        image: godotIcon,
+        link: "https://godotengine.org/",
+        note: "Godot",
+    },
 ];
 
 const TechStacks = (): JSX.Element => {
     return <div className="landing-banner-techstacks">
         {techstackData.map(techstack => (
-            <TechStack data={techstack} />
+            <TechStack data={techstack} key={techstack.note} />
         ))}
     </div>;
 }

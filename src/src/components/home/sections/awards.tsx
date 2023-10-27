@@ -30,7 +30,7 @@ const awards: Array<Award> = [
             "Fall 2023 APAC region",
         ],
         img: terminal,
-        certificate: "https://www.credential.net/df292229-cd75-4a2b-b4d0-5ece96dc208a#gs.6u1366",
+        certificate: "https://www.credential.net/ed4be9a2-7057-43ec-8c10-777a9917fd3e#gs.6wfj2l",
     },
     {
         name: "Dean's List, NUS School of Computing",

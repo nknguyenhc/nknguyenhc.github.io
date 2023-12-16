@@ -22,7 +22,7 @@
 $panel-top: 23%;
 $panel-left: 12%;
 $panel-width: 85%;
-$panel-height: 70%;
+$panel-height: 73%;
 $project-image-mobile-width: 80vw;
 
 .project {
@@ -109,6 +109,10 @@ $project-image-mobile-width: 80vw;
         display: flex;
         flex-direction: column;
         gap: $small-gap;
+    }
+
+    &-period {
+        font-weight: $light-bold-fw;
     }
 
     &-links {

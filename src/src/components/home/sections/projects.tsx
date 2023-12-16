@@ -73,6 +73,7 @@ type ProjectData = {
     },
     techstacks: Array<TechStackType>,
     deployed: Array<DeployData>,
+    period: string,
 }
 
 const projects: Array<ProjectData> = [
@@ -129,6 +130,7 @@ const projects: Array<ProjectData> = [
                 icon: IOSIcon,
             }
         ],
+        period: "May 2023 - present",
     },
     {
         name: "Coding Scheme Simulation",
@@ -173,6 +175,7 @@ const projects: Array<ProjectData> = [
                 icon: WebIcon,
             },
         ],
+        period: "Jul 2023 - present",
     },
     {
         name: "Guardian of the Dreamy World",
@@ -197,6 +200,7 @@ const projects: Array<ProjectData> = [
                 icon: ItchIcon,
             }
         ],
+        period: "Sep 2022 - Dec 2022",
     }
 ];
 
@@ -218,6 +222,7 @@ const hackathons: Array<ProjectData> = [
             },
         ],
         deployed: [],
+        period: "Oct 2023",
     },
     {
         name: "Payday Digital Wallet",
@@ -250,6 +255,7 @@ const hackathons: Array<ProjectData> = [
                 icon: APKIcon,
             },
         ],
+        period: "Sep 2023",
     },
     {
         name: "NeuralCats",
@@ -294,6 +300,7 @@ const hackathons: Array<ProjectData> = [
                 icon: WebIcon,
             },
         ],
+        period: "Nov 2023 - Dec 2023",
     },
     {
         name: "Undercover Ducks",
@@ -334,6 +341,7 @@ const hackathons: Array<ProjectData> = [
                 icon: WebIcon,
             },
         ],
+        period: "Oct 2023",
     },
 ];
 
@@ -434,6 +442,7 @@ const Project = ({ project, isShow, isStatic }: {
             <div className="project-description" dangerouslySetInnerHTML={{
                 __html: splitToParagraphs(project.description)
             }} />
+            <div className="project-period">{project.period}</div>
             <div className="project-links">
                 <div className="project-readme">Read our full description <a className='link' href={project.readme}>here</a>.</div>
                 <div className="project-code">

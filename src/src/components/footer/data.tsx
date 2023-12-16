@@ -21,7 +21,12 @@ export const footerColumns: Array<FooterColumn> = [
     {
         top: 'Home',
         href: '/',
-        items: [],
+        items: [
+            {
+                text: "Resume",
+                href: process.env.PUBLIC_URL + "Resume.pdf",
+            },
+        ],
     },
     {
         top: 'Projects',

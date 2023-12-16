@@ -36,6 +36,20 @@ $modal-transition: 0.3s cubic-bezier(0.19, 0.47, 0.46, 0.76);
         padding: $normal-gap;
         border-radius: $small-border-radius;
         position: relative;
+        max-width: 700px;
+        white-space: pre-wrap;
+
+        @media (max-width: $desktop) {
+            max-width: 90vw;
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+        overflow-y: auto;
+        max-height: 85vh;
     }
 
     &-close {

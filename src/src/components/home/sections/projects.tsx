@@ -15,7 +15,7 @@ import UndercoverDucksGraph from '../../../assets/projects/undercoverducks-predi
 import UndercoverDucksStats from '../../../assets/projects/undercoverducks-movement.png';
 import Terminal1 from '../../../assets/projects/terminal-1.png';
 import Terminal2 from '../../../assets/projects/terminal-2.png';
-import Terminal3 from '../../../assets/projects/terminal-3.jpg';
+import Terminal3 from '../../../assets/projects/terminal-3.png';
 import NeuralCatsIcon from '../../../assets/projects/neuralcats.png';
 import NeuralCatsUi from '../../../assets/projects/neuralcats-UI.png';
 import NeuralCatsUi2 from '../../../assets/projects/neuralcats-UI2.png';

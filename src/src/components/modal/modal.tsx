@@ -183,7 +183,9 @@ export const TextModal = (): JSX.Element => {
         }}
     >
         <div className="text-modal-window" ref={windowRef}>
-            <div>{modalInfo.text}</div>
+            <div className="text-modal-content" dangerouslySetInnerHTML={{
+                __html: modalInfo.text,
+            }}/>
             <div className="text-modal-close" onClick={handleClose}>
                 <ModalClose />
             </div>

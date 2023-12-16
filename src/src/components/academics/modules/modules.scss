@@ -3,7 +3,11 @@
     flex-direction: column;
     align-items: center;
     gap: $large-gap;
-    padding: 120px 0px;
+    padding: 120px $xx-large-gap;
+
+    @media (max-width: $desktop) {
+        padding: 60px $large-gap;
+    }
 
     &-title {
         font-size: $large-fs;
@@ -15,6 +19,7 @@
         flex-direction: row;
         gap: $large-gap;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 }
 
@@ -22,6 +27,11 @@
     display: flex;
     flex-direction: column;
     gap: $small-gap;
+    width: 40%;
+
+    @media (max-width: $desktop) {
+        width: 100%;
+    }
 
     &-name {
         font-weight: $light-bold-fw;

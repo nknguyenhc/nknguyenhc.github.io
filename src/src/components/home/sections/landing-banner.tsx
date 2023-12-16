@@ -18,6 +18,11 @@ import pugIcon from '../../../assets/icons/pug.png';
 import tailwindIcon from '../../../assets/icons/tailwind.png';
 import bootstrapIcon from '../../../assets/icons/bootstrap.png';
 import godotIcon from '../../../assets/icons/godot.png';
+import fastApiIcon from '../../../assets/icons/fastapi.svg';
+import dockerIcon from '../../../assets/icons/docker.webp';
+import azureIcon from '../../../assets/icons/azure.png';
+import awsIcon from '../../../assets/icons/aws.png';
+import openAiIcon from '../../../assets/icons/openai.png';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipDesktop from '../../tooltip/desktop';
 
@@ -103,6 +108,11 @@ const techstackData: Array<TechStackType> = [
         note: "Flask",
     },
     {
+        image: fastApiIcon,
+        link: "https://fastapi.tiangolo.com/",
+        note: "FastAPI",
+    },
+    {
         image: sqlIcon,
         link: "https://en.wikipedia.org/wiki/SQL",
         note: "SQL",
@@ -156,6 +166,26 @@ const techstackData: Array<TechStackType> = [
         image: godotIcon,
         link: "https://godotengine.org/",
         note: "Godot",
+    },
+    {
+        image: dockerIcon,
+        link: "https://www.docker.com/",
+        note: "Docker",
+    },
+    {
+        image: azureIcon,
+        link: "https://azure.microsoft.com/en-us",
+        note: "Azure",
+    },
+    {
+        image: awsIcon,
+        link: "https://aws.amazon.com/",
+        note: "AWS",
+    },
+    {
+        image: openAiIcon,
+        link: "https://platform.openai.com/",
+        note: "OpenAI",
     },
 ];
 

@@ -2,7 +2,6 @@
     height: 120vh;
     width: 100vw;
     position: relative;
-    background-color: $purple;
 
     @media (max-width: $desktop) {
         height: auto;
@@ -10,6 +9,13 @@
         flex-direction: column;
         gap: $large-gap;
         padding-bottom: $x-large-gap;
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+        background-color: $purple;
     }
 }
 

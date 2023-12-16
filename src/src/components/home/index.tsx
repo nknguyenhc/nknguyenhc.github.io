@@ -16,6 +16,10 @@ export default function Home(): JSX.Element {
             id: 'my-projects'
         },
         {
+            displayText: 'Hackathons/Competitions',
+            id: 'hackathons',
+        },
+        {
             displayText: 'Experience',
             id: 'experience',
         },

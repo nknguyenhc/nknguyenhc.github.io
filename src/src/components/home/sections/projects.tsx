@@ -13,6 +13,12 @@ import Payday3 from '../../../assets/projects/payday-3.png';
 import UndercoverDucksLogo from '../../../assets/projects/undercoverducks-logo.png';
 import UndercoverDucksGraph from '../../../assets/projects/undercoverducks-prediction.png';
 import UndercoverDucksStats from '../../../assets/projects/undercoverducks-movement.png';
+import Terminal1 from '../../../assets/projects/terminal-1.png';
+import Terminal2 from '../../../assets/projects/terminal-2.png';
+import Terminal3 from '../../../assets/projects/terminal-3.jpg';
+import NeuralCatsIcon from '../../../assets/projects/neuralcats.png';
+import NeuralCatsUi from '../../../assets/projects/neuralcats-UI.png';
+import NeuralCatsUi2 from '../../../assets/projects/neuralcats-UI2.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -38,6 +44,11 @@ import emotionIcon from '../../../assets/icons/emotion-css.png';
 import flaskIcon from '../../../assets/icons/flask.png';
 import numpyIcon from '../../../assets/icons/numpy.svg';
 import godotIcon from '../../../assets/icons/godot.png';
+import pythonIcon from '../../../assets/icons/python.png';
+import dockerIcon from '../../../assets/icons/docker.webp';
+import azureIcon from '../../../assets/icons/azure.png';
+import fastApiIcon from '../../../assets/icons/fastapi.svg';
+import openAiIcon from '../../../assets/icons/openai.png';
 
 type DeployData = {
     link: string,
@@ -120,38 +131,6 @@ const projects: Array<ProjectData> = [
         ],
     },
     {
-        name: "Payday Digital Wallet",
-        description: "Imagine a world where everyone can securely manage their finances with confidence. We aim to create a safe, accessible and user-friendly digital wallet.\nBesides our own authentication system, we integrate our system with Stripe, which is also used for pay-in and pay-out. OTP is used for transactions for better security. Moreover, we employed Stripe AI insights to provide users with risk assessments of transactions. Lastly, we implemented guardian linking, which allows the guardian to be notified of the user's activities.",
-        readme: "https://devpost.com/software/payday-digital-wallet",
-        code: "https://github.com/Vanessamae23/project007backend",
-        images: {
-            main: Payday1,
-            left: Payday2,
-            right: Payday3,
-        },
-        techstacks: [
-            {
-                icon: nodeIcon,
-                link: "https://nodejs.org/en",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: firebaseIcon,
-                link: "https://firebase.google.com/",
-            },
-        ],
-        deployed: [
-            {
-                link: "https://drive.google.com/drive/folders/16v7VBmBWC6Bvl2IMpt3x84GLOGJOiC9y",
-                description: "apk file",
-                icon: APKIcon,
-            },
-        ],
-    },
-    {
         name: "Coding Scheme Simulation",
         description: "While transmitting data, errors might be introduced. if raw data is sent, the receiving ends has no means of reversing the errors. Hence, instead of sending raw data, both sender and receiver agrees on an encryption mechanism such that encrypted data can be decrypted, and errors can be auto-corrected in the process.\nWe explore three such encryption mechanisms varying in complexity and effectiveness, the Hamming code, the convolutional code, and the Reed-Solomon code.",
         readme: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
@@ -178,40 +157,18 @@ const projects: Array<ProjectData> = [
                 icon: emotionIcon,
                 link: "https://emotion.sh/docs/introduction",
             },
-        ],
-        deployed: [],
-    },
-    {
-        name: "Undercover Ducks",
-        description: "PSA prediction of ship volume remains largely manual, which leaves room for errors. We introduce to capability to quantify impacts of real world events on Singapore ports.\nWe use the knowledge on current worldwide ship movements, and current situation to predict future ship volumes at ports worldwide, via a Markov chain model. This would allow ports to scale up or down its operation accordingly.\nOur web interface allows users to adjust knowledge on current ship movements and port details, subsequently simulate the changes to ship volumes to ports worldwide in future weeks.",
-        readme: "https://github.com/nknguyenhc/UndercoverDucks#undercoverducks",
-        code: "https://github.com/nknguyenhc/UndercoverDucks",
-        images: {
-            main: UndercoverDucksLogo,
-            left: UndercoverDucksGraph,
-            right: UndercoverDucksStats,
-        },
-        techstacks: [
             {
-                icon: flaskIcon,
-                link: "https://flask.palletsprojects.com/",
+                icon: dockerIcon,
+                link: "https://www.docker.com/",
             },
             {
-                icon: numpyIcon,
-                link: "https://numpy.org/",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: scssIcon,
-                link: "https://sass-lang.com/",
+                icon: azureIcon,
+                link: "https://azure.microsoft.com/en-us",
             },
         ],
         deployed: [
             {
-                link: "https://undercover-ducks.fly.dev/",
+                link: "https://coding-scheme-simulation.azurewebsites.net/",
                 description: "Web",
                 icon: WebIcon,
             },
@@ -243,28 +200,187 @@ const projects: Array<ProjectData> = [
     }
 ];
 
+const hackathons: Array<ProjectData> = [
+    {
+        name: "Terminal AI Live",
+        description: "Terminal AI Live competition is an AI competition where teams coded algorithms to compete in head-to-head battles, in multiple-round group round-robin format.\nOur team designed an algorithm where we put less walls on the side but more defensive interceptors and turrets, so that our troops can easily attack.\nCombined with our algorithm's predictive power, we were able to clinch third place in the competition (Fall APAC 2023).",
+        readme: "https://github.com/nknguyenhc/Terminal-Lostkids?tab=readme-ov-file#terminal-lostkids-python-2l-aet",
+        code: "https://github.com/nknguyenhc/Terminal-Lostkids",
+        images: {
+            main: Terminal1,
+            left: Terminal2,
+            right: Terminal3,
+        },
+        techstacks: [
+            {
+                icon: pythonIcon,
+                link: "https://www.python.org/",
+            },
+        ],
+        deployed: [],
+    },
+    {
+        name: "Payday Digital Wallet",
+        description: "Imagine a world where everyone can securely manage their finances with confidence. We aim to create a safe, accessible and user-friendly digital wallet.\nBesides our own authentication system, we integrate our system with Stripe, which is also used for pay-in and pay-out. OTP is used for transactions for better security. Moreover, we employed Stripe AI insights to provide users with risk assessments of transactions. Lastly, we implemented guardian linking, which allows the guardian to be notified of the user's activities.\nOur team was shortlisted for the finals.",
+        readme: "https://devpost.com/software/payday-digital-wallet",
+        code: "https://github.com/Vanessamae23/project007backend",
+        images: {
+            main: Payday1,
+            left: Payday2,
+            right: Payday3,
+        },
+        techstacks: [
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: firebaseIcon,
+                link: "https://firebase.google.com/",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://drive.google.com/drive/folders/16v7VBmBWC6Bvl2IMpt3x84GLOGJOiC9y",
+                description: "apk file",
+                icon: APKIcon,
+            },
+        ],
+    },
+    {
+        name: "NeuralCats",
+        description: "As NUS students, we all feel that NUS sometimes does not provide enough practices for us for exams. Often times, we only have 1-2 past year papers that barely help us assess whether we are ready for the exams.\nSome of us do try to use ChatGPT to consolidate our understanding. However, it does only provide explanation to our question, but does not provide further questions to check our understanding if we do not know how to craft our prompts.\nUsing the power of OpenAI, we hope to systematically generate quizzes that check our understanding of the content taught in our modules.",
+        readme: "https://github.com/nknguyenhc/NeuralCats?tab=readme-ov-file#neuralcats",
+        code: "https://github.com/nknguyenhc/Neuralcats",
+        images: {
+            main: NeuralCatsIcon,
+            left: NeuralCatsUi,
+            right: NeuralCatsUi2,
+        },
+        techstacks: [
+            {
+                icon: fastApiIcon,
+                link: "https://fastapi.tiangolo.com/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: emotionIcon,
+                link: "https://emotion.sh/docs/introduction",
+            },
+            {
+                icon: dockerIcon,
+                link: "https://www.docker.com/",
+            },
+            {
+                icon: azureIcon,
+                link: "https://azure.microsoft.com/en-us",
+            },
+            {
+                icon: openAiIcon,
+                link: "https://platform.openai.com/",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://neuralcats.azurewebsites.net/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+    },
+    {
+        name: "Undercover Ducks",
+        description: "PSA prediction of ship volume remains largely manual, which leaves room for errors. We introduce to capability to quantify impacts of real world events on Singapore ports.\nWe use the knowledge on current worldwide ship movements, and current situation to predict future ship volumes at ports worldwide, via a Markov chain model. This would allow ports to scale up or down its operation accordingly.\nOur web interface allows users to adjust knowledge on current ship movements and port details, subsequently simulate the changes to ship volumes to ports worldwide in future weeks.",
+        readme: "https://github.com/nknguyenhc/UndercoverDucks#undercoverducks",
+        code: "https://github.com/nknguyenhc/UndercoverDucks",
+        images: {
+            main: UndercoverDucksLogo,
+            left: UndercoverDucksGraph,
+            right: UndercoverDucksStats,
+        },
+        techstacks: [
+            {
+                icon: flaskIcon,
+                link: "https://flask.palletsprojects.com/",
+            },
+            {
+                icon: numpyIcon,
+                link: "https://numpy.org/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+            {
+                icon: sqlIcon,
+                link: "https://en.wikipedia.org/wiki/SQL",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://undercover-ducks.fly.dev/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+    },
+];
+
 export default function Projects(): JSX.Element {
     const [showIndex, setShowIndex] = useState<number>(0);
+    const [hackathonShowIndex, setHackathonShowIndex] = useState<number>(0);
     const isDesktop = useViewportWidth();
 
-    return <div className="projects" id="my-projects">
-        <div className="home-section-title">My Projects</div>
-        {projects.map((project, projectIndex) => (
-            <Project 
-                project={project} 
-                key={projectIndex} 
-                isShow={showIndex === projectIndex} 
-                isStatic={showIndex <= projectIndex}
-            />
-        ))}
-        {isDesktop && <Pagination
-            leftPositionClass='project-arrow-left'
-            rightPositionClass='project-arrow-right'
-            indicatorPositionClass=''
-            setIndex={setShowIndex}
-            currIndex={showIndex}
-            numOfItems={projects.length}
-        />}
+    return <div className="projects-container">
+        <div className="projects" id="my-projects">
+            <div className="home-section-title">My Projects</div>
+            {projects.map((project, projectIndex) => (
+                <Project 
+                    project={project} 
+                    key={projectIndex} 
+                    isShow={showIndex === projectIndex} 
+                    isStatic={showIndex <= projectIndex}
+                />
+            ))}
+            {isDesktop && <Pagination
+                leftPositionClass='project-arrow-left'
+                rightPositionClass='project-arrow-right'
+                indicatorPositionClass=''
+                setIndex={setShowIndex}
+                currIndex={showIndex}
+                numOfItems={projects.length}
+            />}
+        </div>
+        <div className="projects" id="hackathons">
+            <div className="home-section-title">Hackathons & Competitions</div>
+            {hackathons.map((hackathon, hackathonIndex) => (
+                <Project
+                    project={hackathon}
+                    key={hackathonIndex}
+                    isShow={hackathonShowIndex === hackathonIndex}
+                    isStatic={hackathonShowIndex <= hackathonIndex}
+                />
+            ))}
+            {isDesktop && <Pagination
+                leftPositionClass='project-arrow-left'
+                rightPositionClass='project-arrow-right'
+                indicatorPositionClass=''
+                setIndex={setHackathonShowIndex}
+                currIndex={hackathonShowIndex}
+                numOfItems={hackathons.length}
+            />}
+        </div>
     </div>;
 }
 

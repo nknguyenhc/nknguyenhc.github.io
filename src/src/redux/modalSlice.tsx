@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type ModalState = {
+type ImageModalState = {
     image: string,
     height: number,
     width: number,
@@ -8,7 +8,7 @@ type ModalState = {
     left: number,
 };
 
-const initialState: ModalState = {
+const initialImageModalState: ImageModalState = {
     image: '',
     height: 0,
     width: 0,
@@ -16,11 +16,19 @@ const initialState: ModalState = {
     left: 0,
 };
 
-const modalSlice = createSlice({
-    name: 'modal',
-    initialState,
+type TextModalState = {
+    text: string,
+};
+
+const initialTextModalState: TextModalState = {
+    text: '',
+};
+
+const imageModalSlice = createSlice({
+    name: 'imageModal',
+    initialState: initialImageModalState,
     reducers: {
-        setImage: (state, action: PayloadAction<ModalState> ) => {
+        setImage: (state, action: PayloadAction<ImageModalState> ) => {
             state.image = action.payload.image;
             state.height = action.payload.height;
             state.width = action.payload.width;
@@ -30,6 +38,20 @@ const modalSlice = createSlice({
     }
 });
 
-export const { setImage } = modalSlice.actions;
+const textModalSlice = createSlice({
+    name: 'textModal',
+    initialState: initialTextModalState,
+    reducers: {
+        setText: (state, action: PayloadAction<TextModalState>) => {
+            state.text = action.payload.text;
+        },
+    },
+})
 
-export default modalSlice.reducer;
+export const { setImage } = imageModalSlice.actions;
+
+export const { setText } = textModalSlice.actions;
+
+export const imageModalReducer =  imageModalSlice.reducer;
+
+export const textModalReducer = textModalSlice.reducer;

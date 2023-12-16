@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import AppRouterProvider from './router/router';
 import { AppProvider } from './redux/store';
-import ImageModal from './components/modal/modal';
+import { ImageModal, TextModal } from './components/modal/modal';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -14,6 +14,7 @@ root.render(
     <AppProvider>
       <AppRouterProvider />
       <ImageModal />
+      <TextModal />
     </AppProvider>
   </React.StrictMode>
 );

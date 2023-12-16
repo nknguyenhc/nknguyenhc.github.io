@@ -16,7 +16,17 @@ export default function Footer(): JSX.Element {
                 : <div className="footer-column-header">{column.top}</div>}
                 <div className="footer-column-items">
                     {column.items.map((item, itemIndex) => (
-                        <Link 
+                        item.newTab
+                        ? <a
+                            href={item.href} 
+                            className="footer-column-item"
+                            target="_blank"
+                            rel="noreferrer"
+                            key={itemIndex}
+                        >
+                            {item.text}
+                        </a>
+                        : <Link 
                             to={item.href} 
                             className="footer-column-item" 
                             key={itemIndex}

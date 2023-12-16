@@ -9,6 +9,7 @@ import emailIcon from '../../assets/icons/email.png';
 type FooterItem = {
     text: string,
     href: string,
+    newTab?: boolean,
 };
 
 type FooterColumn = {
@@ -24,7 +25,8 @@ export const footerColumns: Array<FooterColumn> = [
         items: [
             {
                 text: "Resume",
-                href: process.env.PUBLIC_URL + "Resume.pdf",
+                href: process.env.PUBLIC_URL + "/Resume.pdf",
+                newTab: true,
             },
         ],
     },

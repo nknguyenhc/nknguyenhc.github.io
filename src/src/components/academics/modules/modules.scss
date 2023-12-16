@@ -1,0 +1,41 @@
+.modules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $large-gap;
+    padding: 120px 0px;
+
+    &-title {
+        font-size: $large-fs;
+        font-weight: $bold-fw;
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: row;
+        gap: $large-gap;
+        flex-wrap: wrap;
+    }
+}
+
+.module {
+    display: flex;
+    flex-direction: column;
+    gap: $small-gap;
+
+    &-name {
+        font-weight: $light-bold-fw;
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        gap: $x-small-gap;
+    }
+
+    &-review {
+        text-decoration: underline;
+        cursor: pointer;
+        width: fit-content;
+    }
+}

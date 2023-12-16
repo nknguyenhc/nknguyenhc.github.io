@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import modalReducer from './modalSlice';
+import { imageModalReducer, textModalReducer } from './modalSlice';
 import { Provider, TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { PropsWithChildren } from 'react';
 
 const store = configureStore({
     reducer: {
-        modal: modalReducer,
+        imageModal: imageModalReducer,
+        textModal: textModalReducer,
     },
 });
 

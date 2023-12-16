@@ -1,6 +1,6 @@
 import { MouseEvent, useCallback, useEffect, useRef, useState, WheelEvent } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { setImage } from "../../redux/modalSlice";
+import { setImage, setText } from "../../redux/modalSlice";
 import useViewportWidth, { useWindowDimensions } from "../../utils/viewport";
 
 type Dimensions = {
@@ -16,9 +16,9 @@ type MousePosition = {
     left: number,
 }
 
-export default function ImageModal(): JSX.Element {
+export const ImageModal = (): JSX.Element => {
     const imageElem = useRef<HTMLImageElement>(null);
-    const modalInfo = useAppSelector(state => state.modal);
+    const modalInfo = useAppSelector(state => state.imageModal);
     const [isShow, setIsShow] = useState<boolean>(false);
     const [dimensions, setDimensions] = useState<Dimensions>({});
     const dispatch = useAppDispatch();
@@ -121,7 +121,7 @@ export default function ImageModal(): JSX.Element {
         }
     }, [dispatch]);
 
-    return <div className="modal" onClick={handleClick}
+    return <div className="image-modal" onClick={handleClick}
         style={{
             zIndex: isShow ? 1000 : -1,
             opacity: isShow ? 1 : 0,
@@ -142,3 +142,58 @@ export default function ImageModal(): JSX.Element {
         />
     </div>;
 }
+
+export const TextModal = (): JSX.Element => {
+    const modalInfo = useAppSelector(state => state.textModal);
+    const [isShow, setIsShow] = useState<boolean>(false);
+    const dispatch = useAppDispatch();
+    const windowRef = useRef<HTMLDivElement>(null);
+
+    const handleClose = useCallback(() => {
+        dispatch(setText({
+            text: '',
+        }));
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (modalInfo.text !== '') {
+            document.body.style.overflow = 'hidden';
+            setIsShow(true);
+            windowRef.current!.animate([
+                {
+                    scale: 0,
+                },
+                {
+                    scale: 1,
+                },
+            ], {
+                duration: 300,
+            })
+        } else {
+            document.body.style.overflow = '';
+            setIsShow(false);
+        }
+    }, [modalInfo]);
+
+    return <div className="text-modal"
+        style={{
+            zIndex: isShow ? 1000 : -1,
+            opacity: isShow ? 1 : 0,
+            backgroundColor: isShow ? "rgba(119, 119, 119, 0.86)" : "",
+        }}
+    >
+        <div className="text-modal-window" ref={windowRef}>
+            <div>{modalInfo.text}</div>
+            <div className="text-modal-close" onClick={handleClose}>
+                <ModalClose />
+            </div>
+        </div>
+    </div>
+};
+
+const ModalClose = (): JSX.Element => (
+    <svg height="16" width="16">
+        <line x1="1" x2="15" y1="1" y2="15" />
+        <line x1="1" x2="15" y1="15" y2="1" />
+    </svg>
+);

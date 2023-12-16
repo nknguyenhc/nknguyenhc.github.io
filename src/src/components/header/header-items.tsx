@@ -32,18 +32,31 @@ export class HeaderItemWithDropdown {
 const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
     new HeaderItemWithLink({
         text: 'Home',
-        url: '/'
+        url: '/',
+    }),
+    new HeaderItemWithDropdown({
+        text: 'Academics',
+        dropdown: [
+            {
+                text: 'Modules',
+                url: '/academics/modules',
+            },
+            {
+                text: 'TA Positions',
+                url: '/academics/ta',
+            },
+        ],
     }),
     new HeaderItemWithDropdown({
         text: 'Projects',
         dropdown: [
             {
                 text: 'MatchMiner',
-                url: '/project/matchminer'
+                url: '/project/matchminer',
             },
             {
                 text: 'Coding Scheme Simulation',
-                url: '/'
+                url: '/project/coding-scheme-simulation',
             }
         ]
     }),
@@ -52,7 +65,7 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
         dropdown: [
             {
                 text: 'Deploy Django on Heroku',
-                url: '/guide/deploy-django-on-heroku'
+                url: '/guide/deploy-django-on-heroku',
             }
         ]
     }),

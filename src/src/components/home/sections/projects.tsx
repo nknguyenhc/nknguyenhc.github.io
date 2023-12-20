@@ -16,6 +16,9 @@ import UndercoverDucksStats from '../../../assets/projects/undercoverducks-movem
 import Terminal1 from '../../../assets/projects/terminal-1.png';
 import Terminal2 from '../../../assets/projects/terminal-2.png';
 import Terminal3 from '../../../assets/projects/terminal-3.png';
+import QuackNkn1 from '../../../assets/projects/quack-nkn-1.png';
+import QuackNkn2 from '../../../assets/projects/quack-nkn-2.png';
+import QuackNkn3 from '../../../assets/projects/quack-nkn-3.png';
 import NeuralCatsIcon from '../../../assets/projects/neuralcats.png';
 import NeuralCatsUi from '../../../assets/projects/neuralcats-UI.png';
 import NeuralCatsUi2 from '../../../assets/projects/neuralcats-UI2.png';
@@ -49,6 +52,8 @@ import dockerIcon from '../../../assets/icons/docker.webp';
 import azureIcon from '../../../assets/icons/azure.png';
 import fastApiIcon from '../../../assets/icons/fastapi.svg';
 import openAiIcon from '../../../assets/icons/openai.png';
+import telegramIcon from '../../../assets/icons/telegram.png';
+import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 
 type DeployData = {
     link: string,
@@ -115,7 +120,7 @@ const projects: Array<ProjectData> = [
         ],
         deployed: [
             {
-                link: "https://matchminer-d5ebcada4488.herokuapp.com/",
+                link: "https://matchminer.fly.dev/",
                 description: "Web",
                 icon: WebIcon,
             },
@@ -131,6 +136,39 @@ const projects: Array<ProjectData> = [
             }
         ],
         period: "May 2023 - present",
+    },
+    {
+        name: "Quack NKN",
+        description: "Have you ever wanted to track when a particular job opening will be open for application? Or when a particular information is out? Fret not! My Telegram bot sends you screenshots of those websites to you at the frequency you want, either everyday, every week, or once. My bot also has an accompanying reminder feature if you wish to reminder yourselves with tasks related to your website trackers.",
+        readme: "https://github.com/nknguyenhc/quack-nkn?tab=readme-ov-file#quack-nkn",
+        code: "https://github.com/nknguyenhc/quack-nkn",
+        images: {
+            main: QuackNkn1,
+            left: QuackNkn2,
+            right: QuackNkn3,
+        },
+        techstacks: [
+            {
+                icon: telegramIcon,
+                link: "https://www.npmjs.com/package/node-telegram-bot-api",
+            },
+            {
+                icon: puppeteerIcon,
+                link: "https://pptr.dev/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://t.me/website_tracker_bot",
+                description: "Telegram",
+                icon: telegramIcon,
+            }
+        ],
+        period: "Oct 2023 - present",
     },
     {
         name: "Coding Scheme Simulation",
@@ -291,6 +329,10 @@ const hackathons: Array<ProjectData> = [
             {
                 icon: openAiIcon,
                 link: "https://platform.openai.com/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
             },
         ],
         deployed: [

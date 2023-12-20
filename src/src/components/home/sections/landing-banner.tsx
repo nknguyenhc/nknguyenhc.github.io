@@ -23,6 +23,7 @@ import dockerIcon from '../../../assets/icons/docker.webp';
 import azureIcon from '../../../assets/icons/azure.png';
 import awsIcon from '../../../assets/icons/aws.png';
 import openAiIcon from '../../../assets/icons/openai.png';
+import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipDesktop from '../../tooltip/desktop';
 
@@ -181,6 +182,11 @@ const techstackData: Array<TechStackType> = [
         image: awsIcon,
         link: "https://aws.amazon.com/",
         note: "AWS",
+    },
+    {
+        image: puppeteerIcon,
+        link: "https://pptr.dev/",
+        note: "Puppeteer",
     },
     {
         image: openAiIcon,

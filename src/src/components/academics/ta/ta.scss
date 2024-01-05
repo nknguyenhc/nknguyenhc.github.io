@@ -29,6 +29,10 @@
     background-color: white;
     transform-origin: 30% 10%;
     transition: scale 0.5s cubic-bezier(0.39, 0.1, 0.22, 1);
+    
+    @media (max-width: $desktop) {
+        flex-direction: column;
+    }
 
     &-zoomed {
         scale: 1.1;
@@ -45,6 +49,11 @@
         img {
             max-height: 100%;
             max-width: 100%;
+        }
+
+        @media (max-width: $desktop) {
+            height: 300px;
+            width: 300px;
         }
     }
 

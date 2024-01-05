@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CS1101SIcon from '../../../assets/academics/CS1101S.png';
+import useViewportWidth from '../../../utils/viewport';
 
 type DepartmentAverageDictType = {
     [key: string]: number,
@@ -64,9 +65,10 @@ const TaPosition = ({ data }: {
     data: TaDataType,
 }): JSX.Element => {
     const [isHovering, setIsHovering] = useState<boolean>(false);
+    const isDesktop = useViewportWidth();
 
     return <div
-        className={"ta" + (isHovering ? " ta-zoomed" : "")}
+        className={"ta" + (isDesktop && isHovering ? " ta-zoomed" : "")}
         onMouseOver={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
     >

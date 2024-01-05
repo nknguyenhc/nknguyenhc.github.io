@@ -54,6 +54,8 @@ import fastApiIcon from '../../../assets/icons/fastapi.svg';
 import openAiIcon from '../../../assets/icons/openai.png';
 import telegramIcon from '../../../assets/icons/telegram.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
+import pugIcon from '../../../assets/icons/pug.png';
+import alpineIcon from '../../../assets/icons/alpine.svg';
 
 type DeployData = {
     link: string,
@@ -159,6 +161,26 @@ const projects: Array<ProjectData> = [
             {
                 icon: typescriptIcon,
                 link: "https://www.typescriptlang.org/",
+            },
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: sqlIcon,
+                link: "https://en.wikipedia.org/wiki/SQL",
+            },
+            {
+                icon: pugIcon,
+                link: "https://pugjs.org/api/getting-started.html",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+            {
+                icon: alpineIcon,
+                link: "https://alpinejs.dev/",
             },
         ],
         deployed: [

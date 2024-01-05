@@ -5,6 +5,7 @@ import Home from '../components/home/index';
 import MatchMiner from '../components/projects/matchminer';
 import NotFound from '../components/notfound/not-found';
 import Modules from '../components/academics/modules/modules';
+import Ta from '../components/academics/ta/ta';
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,11 @@ const router = createBrowserRouter([
                     {
                         path: 'modules',
                         element: <Modules />,
-                    }
+                    },
+                    {
+                        path: 'ta',
+                        element: <Ta />,
+                    },
                 ],
             },
             {

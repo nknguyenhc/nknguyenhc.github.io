@@ -108,6 +108,17 @@ export const ImageModal = (): JSX.Element => {
         }
     }, [modalInfo, windowHeight, windowWidth]);
 
+    useEffect(() => {
+        const callback = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                document.body.style.overflow = '';
+                setIsShow(false);
+            }
+        }
+        document.addEventListener('keydown', callback);
+        return () => document.removeEventListener('keydown', callback);
+    }, []);
+
     const handleClick = useCallback((e: MouseEvent) => {
         if (e.target !== imageElem.current) {
             dispatch(setImage({

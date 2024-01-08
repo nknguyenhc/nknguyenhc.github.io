@@ -8,6 +8,10 @@
     &-title {
         font-size: $large-fs;
         font-weight: $bold-fw;
+
+        @media (max-width: $desktop) {
+            padding: 0px $normal-gap;
+        }
     }
 
     &-list {

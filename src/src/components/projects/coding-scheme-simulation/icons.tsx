@@ -40,3 +40,16 @@ export const ShowHideIcon = ({ onClick, isShow }: {
         <line x1="10" x2="15" y1="14" y2="9" />
     </svg>
 );
+
+export const FoldGutter = ({ isShow }: {
+    isShow: boolean,
+}): JSX.Element => (
+    <svg
+        height="10"
+        width="10"
+        className={"css-source-code-content-icon" + (isShow ? "" : " css-source-code-content-icon-hide")}
+    >
+        <line x1="2" x2="5" y1="4" y2="7" />
+        <line x1="5" x2="8" y1="7" y2="4" />
+    </svg>
+);

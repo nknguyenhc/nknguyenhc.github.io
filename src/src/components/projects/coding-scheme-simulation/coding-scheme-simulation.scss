@@ -119,6 +119,20 @@ $css-code-transformation: 1s linear;
                 * {
                     font-size: $small-fs;
                 }
+
+                &-icon {
+                    cursor: pointer;
+
+                    line {
+                        stroke: black;
+                        stroke-width: 1px;
+                        stroke-linecap: round;
+                    }
+
+                    &-hide {
+                        transform: rotate(-90deg);
+                    }
+                }
             }
         }
     }

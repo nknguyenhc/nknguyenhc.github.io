@@ -1,9 +1,11 @@
 import { createRef, useCallback, useEffect, useMemo, useState } from "react";
 import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { cpp } from "@codemirror/lang-cpp";
-import { CopyIcon, DownloadIcon, ShowHideIcon } from "./icons";
+import { foldGutter } from "@codemirror/language";
+import { CopyIcon, DownloadIcon, FoldGutter, ShowHideIcon } from "./icons";
 import { useAppDispatch } from "../../../redux/store";
 import { setText } from "../../../redux/modalSlice";
+import { renderToStaticMarkup } from "react-dom/server";
 
 export default function CodingSchemeSimulation(): JSX.Element {
     return <div className="css">
@@ -86,6 +88,7 @@ const CodeContent = ({ name }: {
     const [isShow, setIsShow] = useState<boolean>(true);
     const codeRef = createRef<ReactCodeMirrorRef>();
     const [editorHeight, setEditorHeight] = useState<number | undefined>(undefined);
+    const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
     const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(content);
@@ -103,17 +106,31 @@ const CodeContent = ({ name }: {
 
     const handleShowHide = useCallback(() => {
         setIsShow(isShow => !isShow);
+        setIsTransitioning(true);
     }, []);
+
+    const updateHeight = useCallback(() => {
+        const possibleHeight = codeRef.current?.editor?.children[0].clientHeight;
+        if (possibleHeight && !isTransitioning) {
+            setEditorHeight(possibleHeight);
+        }
+    }, [codeRef, isTransitioning]);
+
+    const foldGutterExtension = useMemo(() => foldGutter({
+        markerDOM: (isOpen) => {
+            const div = document.createElement('div');
+            div.onclick = () => setTimeout(updateHeight, 100);
+            div.innerHTML = renderToStaticMarkup(<FoldGutter isShow={isOpen} />);
+            return div;
+        }
+    }), [updateHeight]);
 
     useEffect(() => {
         if (content === '') {
             return;
         }
-        const possibleHeight = codeRef.current?.editor?.clientHeight;
-        if (possibleHeight && editorHeight === undefined) {
-            setEditorHeight(possibleHeight);
-        }
-    }, [content, codeRef, editorHeight]);
+        updateHeight();
+    }, [content, updateHeight]);
 
     return <div className="css-source-code">
         <div className="css-source-code-header">
@@ -127,7 +144,7 @@ const CodeContent = ({ name }: {
             </div>
         </div>
         <CodeMirror
-            extensions={[cpp()]}
+            extensions={[cpp(), foldGutterExtension]}
             value={content}
             readOnly
             className="css-source-code-content"
@@ -135,6 +152,8 @@ const CodeContent = ({ name }: {
             style={{
                 height: isShow ? editorHeight ? editorHeight : "" : 0,
             }}
+            onTransitionEnd={() => setIsTransitioning(false)}
+            basicSetup={{ foldGutter: false }}
         />
     </div>
 };

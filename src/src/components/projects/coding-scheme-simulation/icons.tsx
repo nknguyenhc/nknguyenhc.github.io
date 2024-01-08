@@ -24,4 +24,19 @@ export const DownloadIcon = ({ onClick }: {
         <line x1="6" x2="10" y1="11" y2="15" />
         <line x1="10" x2="14" y1="15" y2="11" />
     </svg>
-)
+);
+
+export const ShowHideIcon = ({ onClick, isShow }: {
+    onClick: () => void,
+    isShow: boolean,
+}): JSX.Element => (
+    <svg
+        height="20"
+        width="20"
+        className={"css-source-code-header-icon" + (isShow ? "" : " css-source-code-header-icon-hide")}
+        onClick={onClick}
+    >
+        <line x1="5" x2="10" y1="9" y2="14" />
+        <line x1="10" x2="15" y1="14" y2="9" />
+    </svg>
+);

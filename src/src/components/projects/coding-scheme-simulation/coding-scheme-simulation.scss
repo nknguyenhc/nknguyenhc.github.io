@@ -1,3 +1,5 @@
+$css-code-transformation: 1s linear;
+
 .css {
     padding: 100px 0px;
     display: flex;
@@ -38,6 +40,7 @@
         display: flex;
         flex-direction: column;
         gap: $normal-gap;
+        align-items: center;
 
         @media (max-width: $desktop) {
             width: 90vw;
@@ -77,25 +80,42 @@
                 justify-content: space-between;
                 align-items: center;
 
+                &-name {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: $normal-gap;
+                }
+
+                &-icon {
+                    transition: transform $css-code-transformation;
+
+                    &-hide {
+                        transform: rotate(-90deg);
+                    }
+                }
+
                 &-control {
                     display: flex;
                     flex-direction: row;
                     gap: $small-gap;
                     align-items: center;
+                }
 
-                    svg {
-                        cursor: pointer;
-                        
-                        line {
-                            stroke: black;
-                            stroke-width: 1px;
-                            stroke-linecap: round;
-                        }
+                svg {
+                    cursor: pointer;
+
+                    line {
+                        stroke: black;
+                        stroke-width: 1px;
+                        stroke-linecap: round;
                     }
                 }
             }
 
             &-content {
+                transition: height $css-code-transformation;
+
                 * {
                     font-size: $small-fs;
                 }

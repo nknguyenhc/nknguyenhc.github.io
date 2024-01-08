@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import CodeMirror from "@uiw/react-codemirror";
+import { createRef, useCallback, useEffect, useMemo, useState } from "react";
+import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { cpp } from "@codemirror/lang-cpp";
-import { CopyIcon, DownloadIcon } from "./icons";
+import { CopyIcon, DownloadIcon, ShowHideIcon } from "./icons";
 import { useAppDispatch } from "../../../redux/store";
 import { setText } from "../../../redux/modalSlice";
 
@@ -83,6 +83,9 @@ const CodeContent = ({ name }: {
 }): JSX.Element => {
     const content = useCssCodeContent(name);
     const dispatch = useAppDispatch();
+    const [isShow, setIsShow] = useState<boolean>(true);
+    const codeRef = createRef<ReactCodeMirrorRef>();
+    const [editorHeight, setEditorHeight] = useState<number | undefined>(undefined);
 
     const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(content);
@@ -98,9 +101,26 @@ const CodeContent = ({ name }: {
         element.click();
     }, [name, content]);
 
+    const handleShowHide = useCallback(() => {
+        setIsShow(isShow => !isShow);
+    }, []);
+
+    useEffect(() => {
+        if (content === '') {
+            return;
+        }
+        const possibleHeight = codeRef.current?.editor?.clientHeight;
+        if (possibleHeight && editorHeight === undefined) {
+            setEditorHeight(possibleHeight);
+        }
+    }, [content, codeRef, editorHeight]);
+
     return <div className="css-source-code">
         <div className="css-source-code-header">
-            <div className="css-source-code-header-name">{name}</div>
+            <div className="css-source-code-header-name">
+                <ShowHideIcon onClick={handleShowHide} isShow={isShow} />
+                <div>{name}</div>
+            </div>
             <div className="css-source-code-header-control">
                 <CopyIcon onClick={handleCopy} />
                 <DownloadIcon onClick={handleDownload} />
@@ -111,6 +131,10 @@ const CodeContent = ({ name }: {
             value={content}
             readOnly
             className="css-source-code-content"
+            ref={codeRef}
+            style={{
+                height: isShow ? editorHeight ? editorHeight : "" : 0,
+            }}
         />
     </div>
-}
+};

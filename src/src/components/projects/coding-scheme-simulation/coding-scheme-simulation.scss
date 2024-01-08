@@ -1,0 +1,105 @@
+.css {
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: $large-gap;
+    align-items: center;
+
+    &-title {
+        font-size: $large-fs;
+        font-weight: $bold-fw;
+    }
+
+    &-description {
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+
+        @media (max-width: $desktop) {
+            width: 85vw;
+        }
+
+        &-code-listing {
+            display: flex;
+            flex-direction: column;
+            gap: $x-small-gap;
+        }
+    }
+
+    &-page {
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+    }
+
+    &-source {
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+
+        @media (max-width: $desktop) {
+            width: 90vw;
+        }
+
+        &-description {
+            width: 60vw;
+            display: flex;
+            flex-direction: column;
+            gap: $small-gap;
+
+            div {
+                text-align: justify;
+            }
+
+            @media (max-width: $desktop) {
+                width: 85vw;
+            }
+        }
+
+        &-block {
+            display: flex;
+            flex-direction: column;
+            gap: $large-gap;
+            width: 100%;
+        }
+
+        &-code {
+            border-radius: $small-border-radius;
+            overflow: hidden;
+
+            &-header {
+                background-color: white;
+                padding: $x-small-gap $small-gap;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                &-control {
+                    display: flex;
+                    flex-direction: row;
+                    gap: $small-gap;
+                    align-items: center;
+
+                    svg {
+                        cursor: pointer;
+                        
+                        line {
+                            stroke: black;
+                            stroke-width: 1px;
+                            stroke-linecap: round;
+                        }
+                    }
+                }
+            }
+
+            &-content {
+                * {
+                    font-size: $small-fs;
+                }
+            }
+        }
+    }
+}

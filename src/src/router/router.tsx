@@ -6,6 +6,7 @@ import MatchMiner from '../components/projects/matchminer';
 import NotFound from '../components/notfound/not-found';
 import Modules from '../components/academics/modules/modules';
 import Ta from '../components/academics/ta/ta';
+import CodingSchemeSimulation from '../components/projects/coding-scheme-simulation/coding-scheme-simulation';
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
                     {
                         path: 'matchminer',
                         element: <MatchMiner />,
-                    }
+                    },
+                    {
+                        path: 'coding-scheme-simulation',
+                        element: <CodingSchemeSimulation />,
+                    },
                 ]
             },
             {

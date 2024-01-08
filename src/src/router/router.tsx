@@ -7,6 +7,7 @@ import NotFound from '../components/notfound/not-found';
 import Modules from '../components/academics/modules/modules';
 import Ta from '../components/academics/ta/ta';
 import CodingSchemeSimulation from '../components/projects/coding-scheme-simulation/coding-scheme-simulation';
+import QuackNkn from '../components/projects/quack-nkn/quack-nkn';
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
                     {
                         path: 'coding-scheme-simulation',
                         element: <CodingSchemeSimulation />,
+                    },
+                    {
+                        path: 'quack-nkn',
+                        element: <QuackNkn />,
                     },
                 ]
             },

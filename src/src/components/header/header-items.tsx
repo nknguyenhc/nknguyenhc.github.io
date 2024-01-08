@@ -57,7 +57,11 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
             {
                 text: 'Coding Scheme Simulation',
                 url: '/project/coding-scheme-simulation',
-            }
+            },
+            {
+                text: 'Quack Nkn',
+                url: '/project/quack-nkn',
+            },
         ]
     }),
     new HeaderItemWithDropdown({

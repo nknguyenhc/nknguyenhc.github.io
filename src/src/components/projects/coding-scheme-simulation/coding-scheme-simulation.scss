@@ -1,4 +1,4 @@
-$css-code-transformation: 1s linear;
+$css-code-transformation-duration: 0.3s;
 
 .css {
     padding: 100px 0px;
@@ -88,7 +88,7 @@ $css-code-transformation: 1s linear;
                 }
 
                 &-icon {
-                    transition: transform $css-code-transformation;
+                    transition: transform $css-code-transformation-duration linear;
 
                     &-hide {
                         transform: rotate(-90deg);
@@ -114,7 +114,11 @@ $css-code-transformation: 1s linear;
             }
 
             &-content {
-                transition: height $css-code-transformation;
+                transition: height $css-code-transformation-duration cubic-bezier(0.93, 0.01, 0.98, 0.24);
+
+                &-hidden {
+                    transition: height $css-code-transformation-duration cubic-bezier(0.04, 0.93, 0.35, 0.96);
+                }
 
                 * {
                     font-size: $small-fs;

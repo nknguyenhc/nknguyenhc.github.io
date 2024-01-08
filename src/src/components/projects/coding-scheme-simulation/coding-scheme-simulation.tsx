@@ -147,7 +147,7 @@ const CodeContent = ({ name }: {
             extensions={[cpp(), foldGutterExtension]}
             value={content}
             readOnly
-            className="css-source-code-content"
+            className={"css-source-code-content" + (isShow ? "" : " css-source-code-content-hidden")}
             ref={codeRef}
             style={{
                 height: isShow ? editorHeight ? editorHeight : "" : 0,

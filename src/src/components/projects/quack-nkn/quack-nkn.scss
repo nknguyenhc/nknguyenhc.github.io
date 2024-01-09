@@ -139,11 +139,23 @@
 
         &-static {
             background: $purple;
+
+            &-container {
+                height: 100vh;
+                width: 100vw;
+            }
         }
 
         &-dynamic {
-            margin-top: -80px;
-            background: $red;
+            background: $dark-red;
+            z-index: 1;
+
+            &-container {
+                margin-top: -80px;
+                height: calc(100vh + 5000px);
+                width: 100vw;
+                position: relative;
+            }
         }
 
         &-text {
@@ -151,6 +163,7 @@
             flex-direction: column;
             gap: $x-large-gap;
             width: 50%;
+            padding-top: $x-large-gap;
         }
 
         &-description {
@@ -179,6 +192,22 @@
 
         &-video {
             max-height: 80vh;
+        }
+
+        &-pics {
+            &-frame {
+                max-height: 80vh;
+                position: absolute;
+                z-index: 2;
+            }
+
+            &-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+            }
         }
     }
 }

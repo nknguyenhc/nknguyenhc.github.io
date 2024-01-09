@@ -4,7 +4,7 @@ import webIcon from '../../../assets/icons/web.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import typescriptIcon from '../../../assets/icons/typescript.svg';
 import { useScrollPosition } from '../../../utils/scroll';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 export default function QuackNkn(): JSX.Element {
     return <div className="quack-nkn">
@@ -110,58 +110,153 @@ const FeedbackForm = (): JSX.Element => (
 const Features = (): JSX.Element => {
     const scrollPosition = useScrollPosition();
 
+    const staticRef = useRef<HTMLDivElement>(null);
+    const staticPosition = useMemo(() => 
+        scrollPosition - (staticRef.current ? staticRef.current.getBoundingClientRect().top : 1) 
+            - window.scrollY, [scrollPosition]);
+    
+    const dynamicRef = useRef<HTMLDivElement>(null);
+    const dynamicPosition = useMemo(() =>
+        scrollPosition - (dynamicRef.current ? dynamicRef.current.getBoundingClientRect().top : 1)
+            - window.scrollY, [scrollPosition]);
+    
+    const frameCount = useMemo(() => 150, []);
+    const frames = useMemo<Array<string>>(() => {
+        const toFrameNumber = (i: number): string => '0'.repeat(2 - Math.floor(Math.log(i) / Math.log(10))) + i;
+        return Array.from(Array(frameCount).keys())
+            .map(i => `${process.env.PUBLIC_URL}/videos/quack-nkn-tracker/frame-${toFrameNumber(i + 1)}.jpg`);
+    }, [frameCount]);
+    const scrollBreakpoints = useMemo(() => ({
+        start: 200,
+        translate: 800,
+        morph: 1400,
+        fade: 4400,
+        end: 5000,
+    }), []);
+    const picsRef = useRef<HTMLDivElement>(null);
+    const [translateDistance, setTranslateDistance] = useState<number>(0);
+
+    useEffect(() => {
+        const callback = () => {
+            const picWidth = picsRef.current!.children[0].clientWidth;
+            setTranslateDistance(window.innerWidth / 2 - picWidth / 2 - 40);
+        };
+        callback();
+        window.addEventListener('resize', callback);
+        return () => window.removeEventListener('resize', callback);
+    }, []);
+
     return <div className="quack-nkn-features">
-        <div
-            className="quack-nkn-features-block quack-nkn-features-static"
-        >
-            <div className="quack-nkn-features-text">
-                <div className="quack-nkn-features-techstacks">
-                    {techstacks.map(techstack => (
-                        <div key={techstack.name} className="small-img-container">
-                            <img src={techstack.icon} alt="" />
+        <div ref={staticRef} className="quack-nkn-features-static-container">
+            <div
+                className="quack-nkn-features-block quack-nkn-features-static"
+                style={{
+                    position: staticPosition > 0 && staticPosition < scrollBreakpoints.fade ? 'fixed' : undefined,
+                    top: 0,
+                }}
+            >
+                <div className="quack-nkn-features-text">
+                    <div className="quack-nkn-features-techstacks">
+                        {techstacks.map(techstack => (
+                            <div key={techstack.name} className="small-img-container">
+                                <img src={techstack.icon} alt="" />
+                            </div>
+                        ))}
+                    </div>
+                    <div className="quack-nkn-features-description">
+                        <div className="quack-nkn-features-description-title">Reminders</div>
+                        <div className="quack-nkn-features-description-details">
+                            <div>Add your reminders, and the bot will deliver the reminders to you on your requested times.</div>
+                            <ul>
+                                <li><code>/add</code></li>
+                                <li><code>/reminder</code></li>
+                                <li><code>&lt;your reminder&gt;</code></li>
+                                <li><code>&lt;your frequency&gt;</code></li>
+                            </ul>
                         </div>
-                    ))}
-                </div>
-                <div className="quack-nkn-features-description">
-                    <div className="quack-nkn-features-description-title">Reminders</div>
-                    <div className="quack-nkn-features-description-details">
-                        <div>Add your reminders, and the bot will deliver the reminders to you on your requested times.</div>
-                        <ul>
-                            <li><code>/add</code></li>
-                            <li><code>/reminder</code></li>
-                            <li><code>&lt;your reminder&gt;</code></li>
-                            <li><code>&lt;your frequency&gt;</code></li>
-                        </ul>
                     </div>
                 </div>
+                <video
+                    src={process.env.PUBLIC_URL + "/videos/quack-nkn-reminder.mp4"}
+                    className="quack-nkn-features-video"
+                    autoPlay={true}
+                    muted={true}
+                    loop={true}
+                />
             </div>
-            <video
-                src={process.env.PUBLIC_URL + "/videos/quack-nkn-reminder.mp4"}
-                className="quack-nkn-features-video"
-                autoPlay={true}
-                muted={true}
-                loop={true}
-            />
         </div>
-        <div className="quack-nkn-features-block quack-nkn-features-dynamic">
-            <div className="quack-nkn-features-text">
-                <div className="quack-nkn-features-techstacks">
-                    {techstacks.map(techstack => (
-                        <div className="small-img-container" key={techstack.name}>
-                            <img src={techstack.icon} alt="" />
-                        </div>
-                    ))}
-                </div>
-                <div className="quack-nkn-features-description">
-                    <div className="quack-nkn-features-description-title">Website trackers</div>
-                    <div className="quack-nkn-features-description-details">
-                        <div>Add the website you want to track, and the bot will send you screenshots on your requested times.</div>
-                        <ul>
-                            <li><code>/add</code></li>
-                            <li><code>/track</code></li>
-                            <li><code>&lt;your website URL&gt;</code></li>
-                        </ul>
+        <div ref={dynamicRef} className="quack-nkn-features-dynamic-container">
+            <div
+                className="quack-nkn-features-block quack-nkn-features-dynamic"
+                style={{
+                    position: dynamicPosition > 0 && dynamicPosition < scrollBreakpoints.end
+                        ? 'fixed'
+                        : dynamicPosition >= scrollBreakpoints.end
+                        ? 'absolute'
+                        : 'relative',
+                    top: dynamicPosition <= scrollBreakpoints.end ? 0 : '',
+                    bottom: dynamicPosition >= scrollBreakpoints.end ? 0 : '',
+                }}
+            >
+                <div className="quack-nkn-features-text">
+                    <div className="quack-nkn-features-techstacks">
+                        {techstacks.map(techstack => (
+                            <div className="small-img-container" key={techstack.name}>
+                                <img src={techstack.icon} alt="" />
+                            </div>
+                        ))}
                     </div>
+                    <div className="quack-nkn-features-description">
+                        <div className="quack-nkn-features-description-title">Website trackers</div>
+                        <div className="quack-nkn-features-description-details">
+                            <div>Add the website you want to track, and the bot will send you screenshots on your requested times.</div>
+                            <ul>
+                                <li><code>/add</code></li>
+                                <li><code>/track</code></li>
+                                <li><code>&lt;your website URL&gt;</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="quack-nkn-features-pics-background"
+                    style={{
+                        zIndex: dynamicPosition > scrollBreakpoints.start ? 1 : -1,
+                        backgroundColor: dynamicPosition > scrollBreakpoints.start && dynamicPosition <= scrollBreakpoints.morph
+                            ? `rgba(0, 0, 0, ${(dynamicPosition - scrollBreakpoints.start) / (scrollBreakpoints.translate - scrollBreakpoints.start)})`
+                            : dynamicPosition > scrollBreakpoints.morph && dynamicPosition <= scrollBreakpoints.fade
+                            ? 'rgba(0, 0, 0)'
+                            : dynamicPosition > scrollBreakpoints.fade && dynamicPosition <= scrollBreakpoints.end
+                            ? `rgba(0, 0, 0, ${(scrollBreakpoints.end - dynamicPosition) / (scrollBreakpoints.end - scrollBreakpoints.fade)})`
+                            : '',
+                    }}
+                />
+                <div className="quack-nkn-features-pics" ref={picsRef}>
+                    {frames.map((frame, i) => (
+                        <img
+                            src={frame}
+                            alt=""
+                            className="quack-nkn-features-pics-frame"
+                            style={{
+                                top: `70px`,
+                                right: dynamicPosition > scrollBreakpoints.translate && dynamicPosition <= scrollBreakpoints.morph
+                                    ? (dynamicPosition - scrollBreakpoints.translate) / (scrollBreakpoints.morph - scrollBreakpoints.translate) * translateDistance + 40
+                                    : dynamicPosition <= scrollBreakpoints.translate || dynamicPosition > scrollBreakpoints.end
+                                    ? 40
+                                    : dynamicPosition > scrollBreakpoints.fade && dynamicPosition <= scrollBreakpoints.end
+                                    ? (scrollBreakpoints.end - dynamicPosition) / (scrollBreakpoints.end - scrollBreakpoints.fade) * translateDistance + 40
+                                    : translateDistance + 40,
+                                zIndex: (dynamicPosition <= scrollBreakpoints.morph && i === 1)
+                                        || (dynamicPosition > scrollBreakpoints.fade && i === frameCount - 1)
+                                    ? 2
+                                    : (dynamicPosition - scrollBreakpoints.morph) / (scrollBreakpoints.fade - scrollBreakpoints.morph) > i / frameCount
+                                        && (dynamicPosition - scrollBreakpoints.morph) / (scrollBreakpoints.fade - scrollBreakpoints.morph) < (i + 1) / frameCount
+                                    ? 2
+                                    : -1
+                            }}
+                            key={i}
+                        />
+                    ))}
                 </div>
             </div>
         </div>

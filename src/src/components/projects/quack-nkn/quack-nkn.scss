@@ -135,13 +135,18 @@
             padding: $large-gap;
             border-radius: $large-border-radius;
             box-sizing: border-box;
+
+            @media (max-width: $desktop) {
+                flex-direction: column;
+                gap: $normal-gap;
+                height: fit-content;
+            }
         }
 
         &-static {
             background: $purple;
 
             &-container {
-                height: 100vh;
                 width: 100vw;
             }
         }
@@ -152,9 +157,12 @@
 
             &-container {
                 margin-top: -80px;
-                height: calc(100vh + 5000px);
                 width: 100vw;
                 position: relative;
+
+                @media (max-width: $desktop) {
+                    margin-top: 0;
+                }
             }
         }
 
@@ -195,6 +203,10 @@
         }
 
         &-pics {
+            @media (max-width: $desktop) {
+                align-self: center;
+            }
+
             &-frame {
                 max-height: 80vh;
                 position: absolute;
@@ -207,6 +219,11 @@
                 left: 0;
                 height: 100vh;
                 width: 100vw;
+
+                @media (max-width: $desktop) {
+                    bottom: 0;
+                    top: auto;
+                }
             }
         }
     }

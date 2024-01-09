@@ -5,6 +5,7 @@ import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import typescriptIcon from '../../../assets/icons/typescript.svg';
 import { useScrollPosition } from '../../../utils/scroll';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import useViewportWidth, { useWindowDimensions } from '../../../utils/viewport';
 
 export default function QuackNkn(): JSX.Element {
     return <div className="quack-nkn">
@@ -109,6 +110,12 @@ const FeedbackForm = (): JSX.Element => (
 
 const Features = (): JSX.Element => {
     const scrollPosition = useScrollPosition();
+    const { windowWidth, windowHeight } = useWindowDimensions();
+    const isDesktop = useViewportWidth();
+
+    const padding = useMemo(() => 40, []);
+    const [staticHeight, setStaticHeight] = useState<number>(0);
+    const [dynamicHeight, setDynamicHeight] = useState<number>(0);
 
     const staticRef = useRef<HTMLDivElement>(null);
     const staticPosition = useMemo(() => 
@@ -116,10 +123,11 @@ const Features = (): JSX.Element => {
             - window.scrollY, [scrollPosition]);
     
     const dynamicRef = useRef<HTMLDivElement>(null);
-    const dynamicPosition = useMemo(() =>
-        scrollPosition - (dynamicRef.current ? dynamicRef.current.getBoundingClientRect().top : 1)
-            - window.scrollY, [scrollPosition]);
-    
+    const dynamicPosition = useMemo(() => isDesktop
+        ? scrollPosition - (dynamicRef.current ? dynamicRef.current.getBoundingClientRect().top : 1) - window.scrollY
+        : - (dynamicRef.current ? dynamicRef.current.getBoundingClientRect().top : -1) - dynamicHeight
+            + windowHeight, [isDesktop, scrollPosition, dynamicHeight, windowHeight]);
+
     const frameCount = useMemo(() => 150, []);
     const frames = useMemo<Array<string>>(() => {
         const toFrameNumber = (i: number): string => '0'.repeat(2 - Math.floor(Math.log(i) / Math.log(10))) + i;
@@ -136,23 +144,51 @@ const Features = (): JSX.Element => {
     const picsRef = useRef<HTMLDivElement>(null);
     const [translateDistance, setTranslateDistance] = useState<number>(0);
 
+    const [picDim, setPicDim] = useState<{
+        height: number,
+        width: number,
+    }>({
+        height: 0,
+        width: 0,
+    });
+
+    useEffect(() => {
+        const picWidth = picsRef.current!.children[0].clientWidth;
+        const picHeight = picsRef.current!.children[0].clientHeight;
+        setPicDim({
+            height: picHeight,
+            width: picWidth,
+        });
+        setTranslateDistance(windowWidth / 2 - picWidth / 2 - padding);
+    }, [windowWidth, padding]);
+
     useEffect(() => {
         const callback = () => {
-            const picWidth = picsRef.current!.children[0].clientWidth;
-            setTranslateDistance(window.innerWidth / 2 - picWidth / 2 - 40);
+            setStaticHeight(staticRef.current!.children[0].clientHeight);
+            setDynamicHeight(dynamicRef.current!.children[0].clientHeight);
         };
         callback();
         window.addEventListener('resize', callback);
         return () => window.removeEventListener('resize', callback);
-    }, []);
+    }, [scrollBreakpoints]);
 
     return <div className="quack-nkn-features">
-        <div ref={staticRef} className="quack-nkn-features-static-container">
+        <div
+            ref={staticRef}
+            className="quack-nkn-features-static-container"
+            style={{
+                height: staticHeight,
+            }}
+        >
             <div
                 className="quack-nkn-features-block quack-nkn-features-static"
                 style={{
-                    position: staticPosition > 0 && staticPosition < scrollBreakpoints.fade ? 'fixed' : undefined,
-                    top: 0,
+                    position: ((isDesktop ? staticPosition > 0 : staticPosition > staticHeight - windowHeight)
+                            && staticPosition < scrollBreakpoints.fade)
+                        ? 'fixed'
+                        : undefined,
+                    top: isDesktop ? 0 : '',
+                    bottom: isDesktop ? '' : 0,
                 }}
             >
                 <div className="quack-nkn-features-text">
@@ -185,7 +221,13 @@ const Features = (): JSX.Element => {
                 />
             </div>
         </div>
-        <div ref={dynamicRef} className="quack-nkn-features-dynamic-container">
+        <div
+            ref={dynamicRef}
+            className="quack-nkn-features-dynamic-container"
+            style={{
+                height: dynamicHeight + scrollBreakpoints.end,
+            }}
+        >
             <div
                 className="quack-nkn-features-block quack-nkn-features-dynamic"
                 style={{
@@ -194,8 +236,8 @@ const Features = (): JSX.Element => {
                         : dynamicPosition >= scrollBreakpoints.end
                         ? 'absolute'
                         : 'relative',
-                    top: dynamicPosition <= scrollBreakpoints.end ? 0 : '',
-                    bottom: dynamicPosition >= scrollBreakpoints.end ? 0 : '',
+                    top: isDesktop && dynamicPosition <= scrollBreakpoints.end ? 0 : '',
+                    bottom: (!isDesktop || dynamicPosition >= scrollBreakpoints.end) ? 0 : '',
                 }}
             >
                 <div className="quack-nkn-features-text">
@@ -225,27 +267,35 @@ const Features = (): JSX.Element => {
                         backgroundColor: dynamicPosition > scrollBreakpoints.start && dynamicPosition <= scrollBreakpoints.morph
                             ? `rgba(0, 0, 0, ${(dynamicPosition - scrollBreakpoints.start) / (scrollBreakpoints.translate - scrollBreakpoints.start)})`
                             : dynamicPosition > scrollBreakpoints.morph && dynamicPosition <= scrollBreakpoints.fade
-                            ? 'rgba(0, 0, 0)'
+                            ? 'rgb(0, 0, 0)'
                             : dynamicPosition > scrollBreakpoints.fade && dynamicPosition <= scrollBreakpoints.end
                             ? `rgba(0, 0, 0, ${(scrollBreakpoints.end - dynamicPosition) / (scrollBreakpoints.end - scrollBreakpoints.fade)})`
                             : '',
                     }}
                 />
-                <div className="quack-nkn-features-pics" ref={picsRef}>
+                <div
+                    className="quack-nkn-features-pics"
+                    ref={picsRef}
+                    style={{
+                        position: isDesktop ? undefined : 'relative',
+                        height: picDim.height,
+                        width: picDim.width,
+                    }}
+                >
                     {frames.map((frame, i) => (
                         <img
                             src={frame}
                             alt=""
                             className="quack-nkn-features-pics-frame"
                             style={{
-                                top: `70px`,
-                                right: dynamicPosition > scrollBreakpoints.translate && dynamicPosition <= scrollBreakpoints.morph
-                                    ? (dynamicPosition - scrollBreakpoints.translate) / (scrollBreakpoints.morph - scrollBreakpoints.translate) * translateDistance + 40
+                                top: isDesktop ? `70px` : 0,
+                                right: isDesktop ? dynamicPosition > scrollBreakpoints.translate && dynamicPosition <= scrollBreakpoints.morph
+                                    ? (dynamicPosition - scrollBreakpoints.translate) / (scrollBreakpoints.morph - scrollBreakpoints.translate) * translateDistance + padding
                                     : dynamicPosition <= scrollBreakpoints.translate || dynamicPosition > scrollBreakpoints.end
-                                    ? 40
+                                    ? padding
                                     : dynamicPosition > scrollBreakpoints.fade && dynamicPosition <= scrollBreakpoints.end
-                                    ? (scrollBreakpoints.end - dynamicPosition) / (scrollBreakpoints.end - scrollBreakpoints.fade) * translateDistance + 40
-                                    : translateDistance + 40,
+                                    ? (scrollBreakpoints.end - dynamicPosition) / (scrollBreakpoints.end - scrollBreakpoints.fade) * translateDistance + padding
+                                    : translateDistance + padding : 0,
                                 zIndex: (dynamicPosition <= scrollBreakpoints.morph && i === 1)
                                         || (dynamicPosition > scrollBreakpoints.fade && i === frameCount - 1)
                                     ? 2

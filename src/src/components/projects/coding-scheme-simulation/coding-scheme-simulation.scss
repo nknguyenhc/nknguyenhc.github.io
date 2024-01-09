@@ -10,6 +10,10 @@ $css-code-transformation-duration: 0.3s;
     &-title {
         font-size: $x-large-fs;
         font-weight: $bold-fw;
+        
+        @media (max-width: $desktop) {
+            padding-left: $normal-gap;
+        }
     }
 
     &-description {

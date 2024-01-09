@@ -97,6 +97,11 @@
                         gap: $small-gap;
                         width: fit-content;
                         border-radius: $x-small-border-radius;
+                        transition: background-color 0.1s linear;
+
+                        &:hover {
+                            background-color: rgb(0, 197, 197);
+                        }
                     }
                 }
             }
@@ -110,6 +115,70 @@
 
         @media (max-width: $desktop) {
             width: 100vw;
+        }
+    }
+
+    &-features {
+        &-techstacks {
+            display: flex;
+            flex-direction: row;
+            gap: $normal-gap;
+            padding-left: $large-gap;
+        }
+
+        &-block {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: $large-gap;
+            border-radius: $large-border-radius;
+            box-sizing: border-box;
+        }
+
+        &-static {
+            background: $purple;
+        }
+
+        &-dynamic {
+            margin-top: -80px;
+            background: $red;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            gap: $x-large-gap;
+            width: 50%;
+        }
+
+        &-description {
+            display: flex;
+            flex-direction: column;
+            gap: $large-gap;
+
+            &-title {
+                font-size: $large-fs;
+                font-weight: $light-bold-fw;
+            }
+
+            &-details {
+                display: flex;
+                flex-direction: column;
+                gap: $normal-gap;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $small-gap;
+                    padding-left: $normal-gap;
+                }
+            }
+        }
+
+        &-video {
+            max-height: 80vh;
         }
     }
 }

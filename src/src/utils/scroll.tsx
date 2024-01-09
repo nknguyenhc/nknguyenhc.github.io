@@ -65,3 +65,16 @@ export const useCheckAndScrollToId = (id: string, offset: number): void => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [handleScroll]);
 }
+
+export const useScrollPosition = (): number => {
+    const [position, setPosition] = useState<number>(0);
+
+    useEffect(() => {
+        const callback = () => setPosition(window.scrollY);
+        callback();
+        window.addEventListener('scroll', callback);
+        return () => window.removeEventListener('scroll', callback);
+    }, []);
+
+    return position;
+}

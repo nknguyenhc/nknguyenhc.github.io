@@ -3,6 +3,8 @@ import telegramIcon from '../../../assets/icons/telegram.png';
 import webIcon from '../../../assets/icons/web.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import typescriptIcon from '../../../assets/icons/typescript.svg';
+import { useScrollPosition } from '../../../utils/scroll';
+import { useEffect, useRef, useState } from 'react';
 
 export default function QuackNkn(): JSX.Element {
     return <div className="quack-nkn">
@@ -12,6 +14,7 @@ export default function QuackNkn(): JSX.Element {
             <Readme />
             <FeedbackForm />
         </div>
+        <Features />
     </div>;
 }
 
@@ -103,3 +106,64 @@ const Readme = (): JSX.Element => (
 const FeedbackForm = (): JSX.Element => (
     <iframe src="https://nknguyenhc.alwaysdata.net/feedback" className="quack-nkn-feedback" title="Quack Nkn Feedback" />
 );
+
+const Features = (): JSX.Element => {
+    const scrollPosition = useScrollPosition();
+
+    return <div className="quack-nkn-features">
+        <div
+            className="quack-nkn-features-block quack-nkn-features-static"
+        >
+            <div className="quack-nkn-features-text">
+                <div className="quack-nkn-features-techstacks">
+                    {techstacks.map(techstack => (
+                        <div key={techstack.name} className="small-img-container">
+                            <img src={techstack.icon} alt="" />
+                        </div>
+                    ))}
+                </div>
+                <div className="quack-nkn-features-description">
+                    <div className="quack-nkn-features-description-title">Reminders</div>
+                    <div className="quack-nkn-features-description-details">
+                        <div>Add your reminders, and the bot will deliver the reminders to you on your requested times.</div>
+                        <ul>
+                            <li><code>/add</code></li>
+                            <li><code>/reminder</code></li>
+                            <li><code>&lt;your reminder&gt;</code></li>
+                            <li><code>&lt;your frequency&gt;</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <video
+                src={process.env.PUBLIC_URL + "/videos/quack-nkn-reminder.mp4"}
+                className="quack-nkn-features-video"
+                autoPlay={true}
+                muted={true}
+                loop={true}
+            />
+        </div>
+        <div className="quack-nkn-features-block quack-nkn-features-dynamic">
+            <div className="quack-nkn-features-text">
+                <div className="quack-nkn-features-techstacks">
+                    {techstacks.map(techstack => (
+                        <div className="small-img-container" key={techstack.name}>
+                            <img src={techstack.icon} alt="" />
+                        </div>
+                    ))}
+                </div>
+                <div className="quack-nkn-features-description">
+                    <div className="quack-nkn-features-description-title">Website trackers</div>
+                    <div className="quack-nkn-features-description-details">
+                        <div>Add the website you want to track, and the bot will send you screenshots on your requested times.</div>
+                        <ul>
+                            <li><code>/add</code></li>
+                            <li><code>/track</code></li>
+                            <li><code>&lt;your website URL&gt;</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>;
+};

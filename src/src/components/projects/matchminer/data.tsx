@@ -25,7 +25,7 @@ type AvailablePlatform = {
 export const availablePlatforms: Array<AvailablePlatform> = [
     {
         icon: webIcon,
-        link: "https://matchminer-d5ebcada4488.herokuapp.com/",
+        link: "https://matchminer.fly.dev/",
         text: "Web"
     },
     {

@@ -128,6 +128,12 @@ const Features = (): JSX.Element => {
         : - (dynamicRef.current ? dynamicRef.current.getBoundingClientRect().top : -1) - dynamicHeight
             + windowHeight, [isDesktop, scrollPosition, dynamicHeight, windowHeight]);
 
+    const techstackScrollBreakpoints = useMemo(() => ({
+        mid: 200,
+        end: 400,
+    }), []);
+    const techstackTranslateDistance = useMemo(() => 10, []);
+
     const frameCount = useMemo(() => 150, []);
     const frames = useMemo<Array<string>>(() => {
         const toFrameNumber = (i: number): string => '0'.repeat(2 - Math.floor(Math.log(i) / Math.log(10))) + i;
@@ -152,6 +158,11 @@ const Features = (): JSX.Element => {
         width: 0,
     });
 
+    const setBlockHeights = useCallback(() => {
+        setStaticHeight(staticRef.current!.children[0].clientHeight);
+        setDynamicHeight(dynamicRef.current!.children[0].clientHeight);
+    }, []);
+
     const processPicDim = useCallback(() => {
         if (picDim.height !== 0) {
             return;
@@ -169,14 +180,10 @@ const Features = (): JSX.Element => {
     }, [windowWidth, picDim, padding]);
 
     useEffect(() => {
-        const callback = () => {
-            setStaticHeight(staticRef.current!.children[0].clientHeight);
-            setDynamicHeight(dynamicRef.current!.children[0].clientHeight);
-        };
-        callback();
-        window.addEventListener('resize', callback);
-        return () => window.removeEventListener('resize', callback);
-    }, [scrollBreakpoints]);
+        setBlockHeights();
+        window.addEventListener('resize', setBlockHeights);
+        return () => window.removeEventListener('resize', setBlockHeights);
+    }, [setBlockHeights]);
 
     return <div className="quack-nkn-features">
         <div
@@ -189,7 +196,7 @@ const Features = (): JSX.Element => {
             <div
                 className="quack-nkn-features-block quack-nkn-features-static"
                 style={{
-                    position: ((isDesktop ? staticPosition > 0 : staticPosition > staticHeight - windowHeight)
+                    position: ((isDesktop ? staticPosition > 0 : staticPosition > staticHeight - windowHeight && staticPosition !== -1)
                             && staticPosition < scrollBreakpoints.fade)
                         ? 'fixed'
                         : undefined,
@@ -198,7 +205,18 @@ const Features = (): JSX.Element => {
                 }}
             >
                 <div className="quack-nkn-features-text">
-                    <div className="quack-nkn-features-techstacks">
+                    <div
+                        className="quack-nkn-features-techstacks"
+                        style={{
+                            transform: `translateX(${
+                                staticPosition <= 0 || staticPosition > techstackScrollBreakpoints.end
+                                ? '0px'
+                                : staticPosition > 0 && staticPosition <= techstackScrollBreakpoints.mid
+                                ? `${staticPosition / techstackScrollBreakpoints.mid * techstackTranslateDistance}px`
+                                : `${(techstackScrollBreakpoints.end - staticPosition) / (techstackScrollBreakpoints.end - techstackScrollBreakpoints.mid) * techstackTranslateDistance}px`
+                            })`,
+                        }}
+                    >
                         {techstacks.map(techstack => (
                             <div key={techstack.name} className="small-img-container">
                                 <img src={techstack.icon} alt="" />
@@ -224,6 +242,7 @@ const Features = (): JSX.Element => {
                     autoPlay={true}
                     muted={true}
                     loop={true}
+                    onCanPlay={setBlockHeights}
                 />
             </div>
         </div>
@@ -247,7 +266,18 @@ const Features = (): JSX.Element => {
                 }}
             >
                 <div className="quack-nkn-features-text">
-                    <div className="quack-nkn-features-techstacks">
+                    <div
+                        className="quack-nkn-features-techstacks"
+                        style={{
+                            transform: `translateX(${
+                                dynamicPosition <= 0 || dynamicPosition > techstackScrollBreakpoints.end
+                                ? '0px'
+                                : dynamicPosition > 0 && dynamicPosition <= techstackScrollBreakpoints.mid
+                                ? `${dynamicPosition / techstackScrollBreakpoints.mid * techstackTranslateDistance}px`
+                                : `${(techstackScrollBreakpoints.end - dynamicPosition) / (techstackScrollBreakpoints.end - techstackScrollBreakpoints.mid) * techstackTranslateDistance}px`
+                            })`,
+                        }}
+                    >
                         {techstacks.map(techstack => (
                             <div className="small-img-container" key={techstack.name}>
                                 <img src={techstack.icon} alt="" />
@@ -262,6 +292,8 @@ const Features = (): JSX.Element => {
                                 <li><code>/add</code></li>
                                 <li><code>/track</code></li>
                                 <li><code>&lt;your website URL&gt;</code></li>
+                                <li><code>&lt;your tracking details&gt;</code></li>
+                                <li><code>&lt;your time & frequency&gt;</code></li>
                             </ul>
                         </div>
                     </div>

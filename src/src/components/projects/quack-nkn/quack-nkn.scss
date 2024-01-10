@@ -124,6 +124,10 @@
             flex-direction: row;
             gap: $normal-gap;
             padding-left: $large-gap;
+
+            @media (max-width: $desktop) {
+                flex-direction: column;
+            }
         }
 
         &-block {
@@ -172,6 +176,13 @@
             gap: $x-large-gap;
             width: 50%;
             padding-top: $x-large-gap;
+
+            @media (max-width: $desktop) {
+                flex-direction: row;
+                gap: $large-gap;
+                align-items: flex-end;
+                width: auto;
+            }
         }
 
         &-description {

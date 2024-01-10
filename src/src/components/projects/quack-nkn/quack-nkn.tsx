@@ -4,7 +4,7 @@ import webIcon from '../../../assets/icons/web.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import typescriptIcon from '../../../assets/icons/typescript.svg';
 import { useScrollPosition } from '../../../utils/scroll';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useViewportWidth, { useWindowDimensions } from '../../../utils/viewport';
 
 export default function QuackNkn(): JSX.Element {
@@ -152,15 +152,21 @@ const Features = (): JSX.Element => {
         width: 0,
     });
 
-    useEffect(() => {
-        const picWidth = picsRef.current!.children[0].clientWidth;
-        const picHeight = picsRef.current!.children[0].clientHeight;
+    const processPicDim = useCallback(() => {
+        if (picDim.height !== 0) {
+            return;
+        }
+        const picWidth = (picsRef.current!.children[0] as HTMLImageElement).width;
+        const picHeight = (picsRef.current!.children[0] as HTMLImageElement).height;
         setPicDim({
             height: picHeight,
             width: picWidth,
         });
-        setTranslateDistance(windowWidth / 2 - picWidth / 2 - padding);
-    }, [windowWidth, padding]);
+    }, [picDim]);
+
+    useEffect(() => {
+        setTranslateDistance(windowWidth / 2 - picDim.width / 2 - padding);
+    }, [windowWidth, picDim, padding]);
 
     useEffect(() => {
         const callback = () => {
@@ -304,6 +310,7 @@ const Features = (): JSX.Element => {
                                     ? 2
                                     : -1
                             }}
+                            onLoad={processPicDim}
                             key={i}
                         />
                     ))}

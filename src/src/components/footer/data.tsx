@@ -83,7 +83,7 @@ export const socialLinks: Array<SocialLink> = [
     },
     {
         image: whatsappIcon,
-        href: "https://wa.me/87390544",
+        href: "https://wa.me/+6587390544",
         text: "Whatsapp",
     },
 ];

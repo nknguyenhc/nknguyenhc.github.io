@@ -8,6 +8,10 @@
     &-title {
         font-size: $x-large-fs;
         font-weight: $bold-fw;
+
+        @media (max-width: $desktop) {
+            padding: $normal-gap;
+        }
     }
 
     &-landing {
@@ -127,6 +131,7 @@
 
             @media (max-width: $desktop) {
                 flex-direction: column;
+                padding-left: 0;
             }
         }
 

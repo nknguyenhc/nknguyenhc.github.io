@@ -12,7 +12,7 @@ $css-code-transformation-duration: 0.3s;
         font-weight: $bold-fw;
         
         @media (max-width: $desktop) {
-            padding-left: $normal-gap;
+            padding: $normal-gap;
         }
     }
 

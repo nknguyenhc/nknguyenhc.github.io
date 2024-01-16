@@ -9,6 +9,7 @@ $transition-style: linear;
     flex-direction: column;
     gap: $normal-gap;
     user-select: none;
+    z-index: 10;
 
     @media (max-width: $desktop) {
         top: 0px;

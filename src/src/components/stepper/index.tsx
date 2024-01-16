@@ -73,7 +73,7 @@ const Stepper = ({ steps, scrollOffset }: {
                 text={step.displayText} 
                 targetId={step.id}
                 scrollOffset={scrollOffset}
-                scroll={left => scrollToStep(left)}
+                scroll={scrollToStep}
                 showWords={showWords}
             />
         ))}

@@ -1,6 +1,7 @@
 import DeansList from '../../../assets/home/deans-list.png';
 import CS1101S from '../../../assets/home/CS1101S.png';
 import CS1231S from '../../../assets/home/CS1231S.png';
+import CS2103T from '../../../assets/home/CS2103T.png';
 import SPL from '../../../assets/home/SPL.png';
 import CDDC from '../../../assets/home/CDDC.png';
 import SPhO from '../../../assets/home/SPhO.png';
@@ -50,6 +51,16 @@ const awards: Array<Award> = [
             "Obtained in September 2023",
         ],
         img: tiktokHackthon,
+    },
+    {
+        name: "Top in Software Engineering (CS2103T)",
+        description: "Top Student certificate was awared to students with top performance in Software Engineering module (CS2103T).",
+        details: [
+            "Obtained in Semester 1 of AY 2023-2024",
+            "Overall module score: A+",
+        ],
+        img: CS2103T,
+        certificate: "https://credentials.nus.edu.sg/f67bcbf3-c840-4670-81ad-96d67206d783",
     },
     {
         name: "Top in Programming Methodology module (CS1101S)",

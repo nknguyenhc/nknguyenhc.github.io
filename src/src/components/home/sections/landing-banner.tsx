@@ -24,6 +24,7 @@ import azureIcon from '../../../assets/icons/azure.png';
 import awsIcon from '../../../assets/icons/aws.png';
 import openAiIcon from '../../../assets/icons/openai.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
+import stabilityIcon from '../../../assets/icons/stability.png';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipDesktop from '../../tooltip/desktop';
 
@@ -187,6 +188,11 @@ const techstackData: Array<TechStackType> = [
         image: puppeteerIcon,
         link: "https://pptr.dev/",
         note: "Puppeteer",
+    },
+    {
+        image: stabilityIcon,
+        link: "https://platform.stability.ai/",
+        note: "StabilityAI",
     },
     {
         image: openAiIcon,

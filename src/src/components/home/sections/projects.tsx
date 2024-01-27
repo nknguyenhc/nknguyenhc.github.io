@@ -22,6 +22,9 @@ import QuackNkn3 from '../../../assets/projects/quack-nkn-3.png';
 import NeuralCatsIcon from '../../../assets/projects/neuralcats.png';
 import NeuralCatsUi from '../../../assets/projects/neuralcats-UI.png';
 import NeuralCatsUi2 from '../../../assets/projects/neuralcats-UI2.png';
+import ParodyGenerator1 from '../../../assets/projects/parody-generator-sample.png';
+import ParodyGenerator2 from '../../../assets/projects/parody-generator-sample-2.png';
+import ParodyGenerator3 from '../../../assets/projects/parody-generator-sample-3.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -56,6 +59,7 @@ import telegramIcon from '../../../assets/icons/telegram.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import pugIcon from '../../../assets/icons/pug.png';
 import alpineIcon from '../../../assets/icons/alpine.svg';
+import stabilityIcon from '../../../assets/icons/stability.png';
 
 type DeployData = {
     link: string,
@@ -316,6 +320,37 @@ const hackathons: Array<ProjectData> = [
             },
         ],
         period: "Sep 2023",
+    },
+    {
+        name: "Parody Generator",
+        description: "The inspiration behind Parody Generator lies in our desire to revolutionise the music video industry. Imagine if you could generate an entire music video just at the touch of your fingers. We observed that there was a demand for such services, but there was no convenient way of doing so and the user has to have a certain level of coding knowledge. Hence, we decided to create and deploy a website that will allow the user to automate this entire process.\nThe user can simply upload a youtube link, confirm the video title, and wait! Our website will then generate a full music video with accompanying subtitles for the user to view and download.",
+        readme: "https://github.com/nknguyenhc/HacknRoll2024?tab=readme-ov-file#hacknroll2024",
+        code: "https://github.com/nknguyenhc/HacknRoll2024",
+        images: {
+            main: ParodyGenerator1,
+            left: ParodyGenerator2,
+            right: ParodyGenerator3,
+        },
+        techstacks: [
+            {
+                icon: openAiIcon,
+                link: "https://platform.openai.com/",
+            },
+            {
+                icon: stabilityIcon,
+                link: "https://platform.stability.ai/",
+            },
+            {
+                icon: fastApiIcon,
+                link: "https://fastapi.tiangolo.com/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+        ],
+        deployed: [],
+        period: "Jan 2024",
     },
     {
         name: "NeuralCats",

@@ -25,6 +25,9 @@ import awsIcon from '../../../assets/icons/aws.png';
 import openAiIcon from '../../../assets/icons/openai.png';
 import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import stabilityIcon from '../../../assets/icons/stability.png';
+import angularIcon from '../../../assets/icons/angular.png';
+import javascriptIcon from '../../../assets/icons/javascript.webp';
+import graphqlIcon from '../../../assets/icons/graphql.png';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipDesktop from '../../tooltip/desktop';
 
@@ -100,6 +103,11 @@ const techstackData: Array<TechStackType> = [
         note: "Typescript",
     },
     {
+        image: angularIcon,
+        link: "https://angular.io/",
+        note: "Angular",
+    },
+    {
         image: nodejsIcon,
         link: "https://nodejs.org/en",
         note: "Node.js",
@@ -135,9 +143,19 @@ const techstackData: Array<TechStackType> = [
         note: "Firebase",
     },
     {
+        image: graphqlIcon,
+        link: "https://graphql.org/",
+        note: "GraphQL",
+    },
+    {
         image: alpineIcon,
         link: "https://alpinejs.dev/",
         note: "Alpine.js",
+    },
+    {
+        image: javascriptIcon,
+        link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
+        note: "JS DOM manipulation",
     },
     {
         image: scssIcon,

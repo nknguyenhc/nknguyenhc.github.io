@@ -25,6 +25,18 @@ import NeuralCatsUi2 from '../../../assets/projects/neuralcats-UI2.png';
 import ParodyGenerator1 from '../../../assets/projects/parody-generator-sample.png';
 import ParodyGenerator2 from '../../../assets/projects/parody-generator-sample-2.png';
 import ParodyGenerator3 from '../../../assets/projects/parody-generator-sample-3.png';
+import WATcherWATcher from '../../../assets/projects/WATcher-WATcher.png';
+import WATcherLogin from '../../../assets/projects/WATcher-login.png';
+import WATcherTp from '../../../assets/projects/WATcher-tp.png';
+import XiangqiWelcome from '../../../assets/projects/Xiangqi-welcome.png';
+import XiangqiGameplay from '../../../assets/projects/Xiangqi-gameplay.png';
+import XiangqiBoard from '../../../assets/projects/Xiangqi-board.png';
+import YpsBrowser from '../../../assets/projects/Yps-browser.png';
+import YpsIcon from '../../../assets/projects/Yps-icon.png';
+import YpsPopup from '../../../assets/projects/Yps-popup.png';
+import SudokuSolverSolved from '../../../assets/projects/sudoku-solver-solved.png';
+import SudokuSolverUnsolved from '../../../assets/projects/sudoku-solver-unsolved.png';
+import SudokuSolverKiller from '../../../assets/projects/sudoku-solver-killer.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -60,6 +72,10 @@ import puppeteerIcon from '../../../assets/icons/puppeteer.png';
 import pugIcon from '../../../assets/icons/pug.png';
 import alpineIcon from '../../../assets/icons/alpine.svg';
 import stabilityIcon from '../../../assets/icons/stability.png';
+import angularIcon from '../../../assets/icons/angular.png';
+import javascriptIcon from '../../../assets/icons/javascript.webp';
+import chromeWebStoreIcon from '../../../assets/icons/chrome-web-store.png';
+import graphqlIcon from '../../../assets/icons/graphql.png';
 
 type DeployData = {
     link: string,
@@ -88,6 +104,157 @@ type ProjectData = {
 }
 
 const projects: Array<ProjectData> = [
+    {
+        name: "WATcher",
+        description: "WATcher is an application to monitor software development projects. We support displaying issues and pull requests in a consolidated, interactive dashboard, with various filters for the user to highlight one part of the project.\nWe also support preset views, with \"currently active\" view to highlight the work of contributors towards the current milestone, and \"contributions\" view to highlight the total work of contributors.",
+        readme: "https://github.com/CATcher-org/WATcher?tab=readme-ov-file#watcher",
+        code: "https://github.com/CATcher-org/WATcher",
+        images: {
+            main: WATcherWATcher,
+            left: WATcherLogin,
+            right: WATcherTp,
+        },
+        techstacks: [
+            {
+                icon: angularIcon,
+                link: "https://angular.io/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
+            },
+            {
+                icon: graphqlIcon,
+                link: "https://graphql.org/",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://catcher-org.github.io/WATcher/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Jan 2024 - present",
+    },
+    {
+        name: "Xiangqi engine",
+        description: "We attempted at making a Xiangqi using principal variation search as the core algorithm.\nBoard representation is done using a 2D array of objects, exploiting OOP features. Board evaluation makes use of material value, piece activity and special activity.\nMove is generated with 3 labels: capture, quiet and check. Move is ordered using various heuristics to first score a move, then order by score.\nSearch routine is enhanced with transposition table and quiescence search.",
+        readme: "https://github.com/nknguyenhc/CS3263-project?tab=readme-ov-file#cs3263-project",
+        code: "https://github.com/nknguyenhc/CS3263-project",
+        images: {
+            main: XiangqiBoard,
+            left: XiangqiWelcome,
+            right: XiangqiGameplay,
+        },
+        techstacks: [
+            {
+                link: "https://www.python.org/",
+                icon: pythonIcon,
+            },
+        ],
+        deployed: [],
+        period: "Mar 2024 - Apr 2024",
+    },
+    {
+        name: "Quack NKN",
+        description: "Have you ever wanted to track when a particular job opening will be open for application? Or when a particular information is out? Fret not! My Telegram bot sends you screenshots of those websites to you at the frequency you want, either everyday, every week, or once. My bot also has an accompanying reminder feature if you wish to reminder yourselves with tasks related to your website trackers.",
+        readme: "https://github.com/nknguyenhc/quack-nkn?tab=readme-ov-file#quack-nkn",
+        code: "https://github.com/nknguyenhc/quack-nkn",
+        images: {
+            main: QuackNkn1,
+            left: QuackNkn2,
+            right: QuackNkn3,
+        },
+        techstacks: [
+            {
+                icon: telegramIcon,
+                link: "https://www.npmjs.com/package/node-telegram-bot-api",
+            },
+            {
+                icon: puppeteerIcon,
+                link: "https://pptr.dev/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
+            },
+            {
+                icon: nodeIcon,
+                link: "https://nodejs.org/en",
+            },
+            {
+                icon: sqlIcon,
+                link: "https://en.wikipedia.org/wiki/SQL",
+            },
+            {
+                icon: pugIcon,
+                link: "https://pugjs.org/api/getting-started.html",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+            {
+                icon: alpineIcon,
+                link: "https://alpinejs.dev/",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://t.me/website_tracker_bot",
+                description: "Telegram",
+                icon: telegramIcon,
+            },
+            {
+                link: "https://nknguyenhc.alwaysdata.net/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Oct 2023 - present",
+    },
+    {
+        name: "Sudoku Solver",
+        description: "Sudoku belongs to the class of constraint-satisfaction problem. Domain is first reduced according to the numbers in the same row, column and sub-board. Minimum remaining value heuristic to determine the next cell to try values. Boards and domains are deep-copied as backtracking strategy.\nI created a website for you to try out my algorithm.",
+        readme: "https://github.com/nknguyenhc/sudoku-solver?tab=readme-ov-file#sudoku-solver",
+        code: "https://github.com/nknguyenhc/sudoku-solver",
+        images: {
+            main: SudokuSolverSolved,
+            left: SudokuSolverUnsolved,
+            right: SudokuSolverKiller,
+        },
+        techstacks: [
+            {
+                icon: pythonIcon,
+                link: "https://www.python.org/",
+            },
+            {
+                icon: reactIcon,
+                link: "https://react.dev/",
+            },
+            {
+                icon: typescriptIcon,
+                link: "https://www.typescriptlang.org/",
+            },
+            {
+                icon: fastApiIcon,
+                link: "https://fastapi.tiangolo.com/",
+            },
+            {
+                icon: scssIcon,
+                link: "https://sass-lang.com/",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://sudoku-solution.azurewebsites.net/",
+                icon: WebIcon,
+                description: "Web",
+            },
+        ],
+        period: "Feb 2024 - Apr 2024",
+    },
     {
         name: "MatchMiner",
         description: "While we may wish to share our interests online, we all at times get the anxiety about the number of likes and comments. This stifles our desire to share our interests with others online.\nOur app is set out to exactly tackle that! Beyond the absence of \"like\" and \"share\" functionalities, we allow users to curate their own cellars of niche hobbies and connect with like-minded others, through a system of pre-defined tags. Through the same system, users can easily find like-minded others. We hope to create an environment where you feel at ease sharing your interests and find others with the same interests.",
@@ -141,60 +308,7 @@ const projects: Array<ProjectData> = [
                 icon: IOSIcon,
             }
         ],
-        period: "May 2023 - present",
-    },
-    {
-        name: "Quack NKN",
-        description: "Have you ever wanted to track when a particular job opening will be open for application? Or when a particular information is out? Fret not! My Telegram bot sends you screenshots of those websites to you at the frequency you want, either everyday, every week, or once. My bot also has an accompanying reminder feature if you wish to reminder yourselves with tasks related to your website trackers.",
-        readme: "https://github.com/nknguyenhc/quack-nkn?tab=readme-ov-file#quack-nkn",
-        code: "https://github.com/nknguyenhc/quack-nkn",
-        images: {
-            main: QuackNkn1,
-            left: QuackNkn2,
-            right: QuackNkn3,
-        },
-        techstacks: [
-            {
-                icon: telegramIcon,
-                link: "https://www.npmjs.com/package/node-telegram-bot-api",
-            },
-            {
-                icon: puppeteerIcon,
-                link: "https://pptr.dev/",
-            },
-            {
-                icon: typescriptIcon,
-                link: "https://www.typescriptlang.org/",
-            },
-            {
-                icon: nodeIcon,
-                link: "https://nodejs.org/en",
-            },
-            {
-                icon: sqlIcon,
-                link: "https://en.wikipedia.org/wiki/SQL",
-            },
-            {
-                icon: pugIcon,
-                link: "https://pugjs.org/api/getting-started.html",
-            },
-            {
-                icon: scssIcon,
-                link: "https://sass-lang.com/",
-            },
-            {
-                icon: alpineIcon,
-                link: "https://alpinejs.dev/",
-            },
-        ],
-        deployed: [
-            {
-                link: "https://t.me/website_tracker_bot",
-                description: "Telegram",
-                icon: telegramIcon,
-            }
-        ],
-        period: "Oct 2023 - present",
+        period: "May 2023 - Feb 2024",
     },
     {
         name: "Coding Scheme Simulation",
@@ -239,7 +353,32 @@ const projects: Array<ProjectData> = [
                 icon: WebIcon,
             },
         ],
-        period: "Jul 2023 - present",
+        period: "Jul 2023 - Jan 2024",
+    },
+    {
+        name: "Youtube Playlist Shuffle",
+        description: "Listen to Youtube music frequently? Youtube shuffling only randomises the first video, but play in order for the second video onwards.\nAdd this extension to your browser! We will automatically shuffle playlists.\n1. Generate a fixed order for one full cycle, ensuring that all songs are played within one cycle.\n2. Allow disabling shuffling or stop at the last song for playlists you indicate.",
+        readme: "https://github.com/nknguyenhc/Youtube-playlist-shuffle?tab=readme-ov-file#youtube-playlist-shuffle",
+        code: "https://github.com/nknguyenhc/Youtube-playlist-shuffle",
+        images: {
+            main: YpsIcon,
+            left: YpsBrowser,
+            right: YpsPopup,
+        },
+        techstacks: [
+            {
+                icon: javascriptIcon,
+                link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
+            },
+        ],
+        deployed: [
+            {
+                link: "https://chromewebstore.google.com/detail/youtube-playlist-shuffle/chapgjhgjhkfifgfiodmcjadieejfalc",
+                description: "Chrome Web Store",
+                icon: chromeWebStoreIcon,
+            }
+        ],
+        period: "Jan 2024 - Mar 2024",
     },
     {
         name: "Guardian of the Dreamy World",

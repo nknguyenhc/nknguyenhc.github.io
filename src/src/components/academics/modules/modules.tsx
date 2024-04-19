@@ -12,6 +12,30 @@ type ModuleType = {
 
 const data: Array<ModuleType> = [
     {
+        name: "CS3263 - Foundation of Artificial Intelligence",
+        grade: "pending",
+        sem: "AY2324-S2",
+        review: "This module builds on what you have learnt about AI in CS2109S. It focuses more on algorithm aspects of AI. Do not be discouraged by the first lecture on ethics, that is only for the first lecture. I thoroughly enjoyed the module. We started out with knowledge representation and how to go about generating knowledge from known statements. Then, we moved on to online search algorithms, those that work in problems where the environment is not fully observable. We then moved on with constraint satisfaction problem - choosing a set of values while satisfying constraints. A lot of lectures were on probability: Bayesian network - representing probabilistic events, Bayesian causal network - representing causality, decision network and decision tree - representing cases where human decisions are part of the situation. We learned about Markov decision process, where probabilistic events are repeated. Finally, we learned about reinforcement learning, which are model-free agents that learn the optimal policy.\n Grade breakdown:\nHomework: 20%\nTutorials: 10%\nQuizzes: 20%\nMidterm exam: 25%\nProject: 25%\nHomework are coding assignments, they are usually only basic application of the concepts in lectures.\nNote that for tutorials, you would need to write up your own answer and submit your answer in teams. It was not a problem for me, because I enjoyed the content. All I needed to do was to listen attentively in tutorials.\nThere are 4 quizzes along the way, they are usually just basic questions on lecture content. I don't agree with all answers, partly on how questions are interpreted.\nWeirdly enough, there is midterm exam but no final exam.\nFor the project, my team did a Xiangqi engine. It was entirely algorithm-based, no machine learning, no learning agent. In fact, we learned after Pikafish, an engine derived from Stockfish, to make our engine. It was a fun being able to make such an engine and showing it to my Xiangqi members.",
+    },
+    {
+        name: "CS3281 - Thematic System I",
+        grade: "pending",
+        sem: "AY2324-S2",
+        review: "This module allows you to work with large-scale projects with real impact under prof Damith. The projects are Teammates, Markbind, Reposense and CATcher. I have worked on WATcher and CATcher. CATcher is the peer-testing software used in CS2103T that allows precise formatting for automated scripts in CS2103T to work. WATcher is a sister application to CATcher that allows users to interactively monitor software development projects.\nI have learnt a lot from working with Angular and GraphQL, and was able to make significant contributions to WATcher. The workload is not too high, it usually own time own target. I usually spend around 5 hours on the projects every week, with the exception in weeks 9 - 11 where our team rushed to make releases. Besides, this module offers a free A grade, because prof only takes in people that can score within the A range for the module.\nIf you want to work on the projects and want to become senior developers/team lead for the projects, I would recommend you try to take the module.",
+    },
+    {
+        name: "CS2100 - Computer Organisation",
+        grade: "pending",
+        sem: "AY2324-S2",
+        review: "The module teaches you how computers work down to the lowest levels. The module starts out with C programming and what are the principles behind underlying data structures, as well as C pointers. It then continues with MIPS, where you would learn about instructions and how that translate to high-level language semantics. Going even to a level lower, you would learn about binary code, of those instructions. You would also learn about various logic gates, devices that are formed from logic gates. Finally, you would learn about pipelining and caching, which are techniques to speed up the processor.\nGrade breakdown:\nTutorial attendance - 5%\nLabs - 10%\nAssignments - 12%\nQuizzes - 3%\nMidterm exam - 20%\nFinal exam - 50%\nThe content is not difficult to absorb. Usually, you just need to understand the lecture material go by the formulae to obtain answers.\nLectures in this module is non-existent - you would need to read lecture slides or watch lecture videos at your own time to then be able to answer the quizzes.\nI have learnt a lot from this module, particularly how C programming works. However, I do not thoroughly enjoy the low-level coding concepts in this module.",
+    },
+    {
+        name: "MA2101 - Linear Algebra II",
+        grade: "pending",
+        sem: "AY2324-S2",
+        review: "This module does not exactly build up from MA2001, but rather gives you a different view of linear algebra. Chapter 1 focuses more on revision of linear algebra concepts, while the rest of the course content focuses on the abstractions away from matrices. The module is quite difficult, I initially had trouble understanding the notation and what exactly is going on. While the tutorials focus on conceptual problems, including proving problems, but the tests focus on application of the concepts. It is of course not easy to put those concepts into application, especially for the whole time I was dealing with abstract concepts.\nGrade breakdown:\n2 tests, each - 25%\nFinal exam: 50%\nOverall, an interesting and difficult module, I would not recommend this module if you are not Math major/second major. Moreover, I would not take 3k-level Math modules in this area of Maths.",
+    },
+    {
         name: "CS2103T - Software Engineering",
         grade: "A+",
         sem: "AY2324-S1",

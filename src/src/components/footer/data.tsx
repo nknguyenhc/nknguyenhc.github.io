@@ -31,6 +31,19 @@ export const footerColumns: Array<FooterColumn> = [
         ],
     },
     {
+        top: 'Academics',
+        items: [
+            {
+                text: "Modules",
+                href: "/academics/modules",
+            },
+            {
+                text: "TA Positions",
+                href: "/academics/ta",
+            },
+        ],
+    },
+    {
         top: 'Projects',
         items: [
             {
@@ -39,7 +52,7 @@ export const footerColumns: Array<FooterColumn> = [
             },
             {
                 text: "Coding Scheme Simulation",
-                href: "/",
+                href: "/project/coding-scheme-simulation",
             },
         ],
     },

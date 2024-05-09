@@ -1,7 +1,7 @@
 import landing1 from '../../../assets/home/landing-1.jpeg';
 import landing2 from '../../../assets/home/landing-2.jpg';
 import landing3 from '../../../assets/home/landing-3.jpeg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
     TechStackType,
     alpine,
@@ -144,20 +144,48 @@ const techstackData: Array<TechStackSection> = [
 const TechStacks = (): JSX.Element => {
     return <div className="landing-banner-techstacks">
         {techstackData.map(group => (
-            <div className="landing-banner-techstacks-row" key={group.name}>
-                <div className="landing-banner-techstacks-row-name">{group.name}</div>
-                <div className="landing-banner-techstacks-row-techstacks">
-                    {group.techstacks.map(techstack => (
-                        <TechStack data={techstack} key={techstack.note} />
-                    ))}
-                </div>
-            </div>
+            <TechStackRow group={group} key={group.name} />
         ))}
     </div>;
-}
+};
 
-const TechStack = ({ data }: {
-    data: TechStackType
+const TechStackRow = ({ group }: {
+    group: TechStackSection,
+}): JSX.Element => {
+    const isDesktop = useViewportWidth();
+    const [isInView, setIsInView] = useState<boolean>(false);
+    const root = useRef<HTMLDivElement>(null);
+    const bottomTolerance = useMemo(() => 50, []);
+
+    const calculateInView = useCallback<() => void>(() => {
+        setIsInView(root.current!.getBoundingClientRect().top < window.innerHeight - bottomTolerance);
+    }, [bottomTolerance]);
+
+    useEffect(() => {
+        calculateInView();
+        window.addEventListener('scroll', calculateInView);
+        return () => window.removeEventListener('scroll', calculateInView);
+    }, [calculateInView]);
+
+    return <div className="landing-banner-techstacks-row" ref={root}>
+        <div className="landing-banner-techstacks-row-name">{group.name}</div>
+        <div className="landing-banner-techstacks-row-techstacks">
+            {group.techstacks.map((techstack, i) => (
+                <TechStack
+                    data={techstack}
+                    index={i}
+                    isInView={isInView}
+                    key={techstack.note}
+                />
+            ))}
+        </div>
+    </div>
+};
+
+const TechStack = ({ data, index, isInView }: {
+    data: TechStackType,
+    index: number,
+    isInView: boolean,
 }): JSX.Element => {
     const isDesktop = useViewportWidth();
     const [isHovering, setIsHovering] = useState<boolean>(false);
@@ -166,7 +194,10 @@ const TechStack = ({ data }: {
         href={data.link} 
         target="_blank" 
         rel="noreferrer" 
-        className="landing-banner-techstack"
+        className={
+            "landing-banner-techstack "
+            + (isInView ? `landing-banner-techstack-anim-${index}` : 'landing-banner-techstack-hide')
+        }
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
     >

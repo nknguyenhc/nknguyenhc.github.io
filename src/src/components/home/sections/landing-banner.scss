@@ -96,6 +96,19 @@
     &-techstack {
         height: 40px;
         width: 40px;
+
+        @for $i from 0 through 15 {
+            &-anim-#{$i} {
+                opacity: 1;
+                transition: opacity 0.3s linear;
+                transition-delay: #{$i * 0.1}s;
+            }
+        }
+
+        &-hide {
+            opacity: 0;
+        }
+
         img {
             max-height: 100%;
             max-width: 100%;

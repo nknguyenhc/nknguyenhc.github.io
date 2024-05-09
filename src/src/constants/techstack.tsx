@@ -29,6 +29,14 @@ import telegramIcon from '../assets/icons/telegram.png';
 import flutterIcon from '../assets/icons/flutter.png';
 import numpyIcon from '../assets/icons/numpy.svg';
 import cIcon from '../assets/icons/c.png';
+import expressIcon from '../assets/icons/express.png';
+import pytorchIcon from '../assets/icons/pytorch.png';
+import herokuIcon from '../assets/icons/heroku.png';
+import pipIcon from '../assets/icons/pip.png';
+import anacondaIcon from '../assets/icons/anaconda.png';
+import npmIcon from '../assets/icons/npm.svg';
+import gradleIcon from '../assets/icons/gradle.png';
+import mavenIcon from '../assets/icons/maven.png';
 
 export type TechStackType = {
     image: string,
@@ -40,6 +48,11 @@ export const alpine: TechStackType = {
     image: alpineIcon,
     link: "https://alpinejs.dev/",
     note: "Alpine.js",
+};
+export const anaconda: TechStackType = {
+    image: anacondaIcon,
+    link: "https://www.anaconda.com/",
+    note: "Anaconda",
 };
 export const angular: TechStackType = {
     image: angularIcon,
@@ -86,6 +99,11 @@ export const emotion: TechStackType = {
     link: "https://emotion.sh/docs/introduction",
     note: "EmotionCSS",
 };
+export const express: TechStackType = {
+    image: expressIcon,
+    link: "https://expressjs.com/",
+    note: "Express.js",
+};
 export const fastApi: TechStackType = {
     image: fastApiIcon,
     link: "https://fastapi.tiangolo.com/",
@@ -106,6 +124,11 @@ export const flutter: TechStackType = {
     link: "https://flutter.dev/",
     note: "Flutter",
 };
+export const gradle: TechStackType = {
+    image: gradleIcon,
+    link: "https://gradle.org/",
+    note: "Gradle",
+};
 export const godot: TechStackType = {
     image: godotIcon,
     link: "https://godotengine.org/",
@@ -116,20 +139,40 @@ export const graphql: TechStackType = {
     link: "https://graphql.org/",
     note: "GraphQL",
 };
+export const heroku: TechStackType = {
+    image: herokuIcon,
+    link: "https://www.heroku.com/",
+    note: "Heroku",
+};
 export const java: TechStackType = {
     image: javaIcon,
     link: "https://www.java.com/en/",
     note: "Java",
+};
+export const javascript: TechStackType = {
+    image: javascriptIcon,
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    note: "Javascript",
 };
 export const jsDomManipulation: TechStackType = {
     image: javascriptIcon,
     link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
     note: "JS DOM manipulation",
 };
+export const maven: TechStackType = {
+    image: mavenIcon,
+    link: "https://maven.apache.org/",
+    note: "Maven",
+};
 export const nodejs: TechStackType = {
     image: nodejsIcon,
     link: "https://nodejs.org/en",
     note: "Node.js",
+};
+export const npm: TechStackType = {
+    image: npmIcon,
+    link: "https://www.npmjs.com/",
+    note: "NPM",
 };
 export const numpy: TechStackType = {
     image: numpyIcon,
@@ -140,6 +183,11 @@ export const openai: TechStackType = {
     image: openAiIcon,
     link: "https://platform.openai.com/",
     note: "OpenAI",
+};
+export const pip: TechStackType = {
+    image: pipIcon,
+    link: "https://pip.pypa.io/en/stable/",
+    note: "PIP",
 };
 export const pug: TechStackType = {
     image: pugIcon,
@@ -155,6 +203,11 @@ export const python: TechStackType = {
     image: pythonIcon,
     link: "https://www.python.org/",
     note: "Python",
+};
+export const pytorch: TechStackType = {
+    image: pytorchIcon,
+    link: "https://pytorch.org/",
+    note: "Pytorch",
 };
 export const react: TechStackType = {
     image: reactIcon,

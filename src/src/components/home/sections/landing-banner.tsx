@@ -5,30 +5,44 @@ import { useState, useEffect } from 'react';
 import {
     TechStackType,
     alpine,
+    anaconda,
     angular,
     aws,
     azure,
     bootstrap,
+    c,
     cpp,
     django,
     docker,
     emotion,
+    express,
     fastApi,
     firebase,
     flask,
+    flutter,
     godot,
+    gradle,
     graphql,
+    heroku,
     java,
+    javascript,
     jsDomManipulation,
+    maven,
     nodejs,
+    npm,
+    numpy,
     openai,
+    pip,
     pug,
     puppeteer,
+    python,
+    pytorch,
     react,
     scss,
     sql,
     stabilityai,
     tailwind,
+    telegram,
     typescript
 } from '../../../constants/techstack';
 import useViewportWidth from '../../../utils/viewport';
@@ -83,39 +97,61 @@ export default function LandingBanner(): JSX.Element {
     </div>
 }
 
-const techstackData: Array<TechStackType> = [
-    django,
-    react,
-    typescript,
-    angular,
-    nodejs,
-    flask,
-    fastApi,
-    sql,
-    cpp,
-    java,
-    firebase,
-    graphql,
-    alpine,
-    jsDomManipulation,
-    scss,
-    emotion,
-    pug,
-    tailwind,
-    bootstrap,
-    godot,
-    docker,
-    azure,
-    aws,
-    puppeteer,
-    stabilityai,
-    openai,
+type TechStackSection = {
+    name: string,
+    techstacks: Array<TechStackType>,
+};
+
+const techstackData: Array<TechStackSection> = [
+    {
+        name: "Frontend",
+        techstacks: [react, angular, typescript, graphql, alpine, scss, emotion, pug, tailwind, bootstrap, flutter],
+    },
+    {
+        name: "Backend",
+        techstacks: [django, flask, fastApi, express],
+    },
+    {
+        name: "Database",
+        techstacks: [sql, firebase],
+    },
+    {
+        name: "Build automation",
+        techstacks: [docker, pip, anaconda, npm, gradle, maven],
+    },
+    {
+        name: "Cloud",
+        techstacks: [azure, aws, heroku],
+    },
+    {
+        name: "Artificial Intelligence",
+        techstacks: [stabilityai, openai, numpy, pytorch],
+    },
+    {
+        name: "Programming Languages",
+        techstacks: [python, java, javascript, nodejs, typescript, c, cpp],
+    },
+    {
+        name: "Game Development",
+        techstacks: [godot],
+    },
+    {
+        name: "Scripting/Bot",
+        techstacks: [jsDomManipulation, puppeteer, telegram],
+    },
 ];
 
 const TechStacks = (): JSX.Element => {
     return <div className="landing-banner-techstacks">
-        {techstackData.map(techstack => (
-            <TechStack data={techstack} key={techstack.note} />
+        {techstackData.map(group => (
+            <div className="landing-banner-techstacks-row" key={group.name}>
+                <div className="landing-banner-techstacks-row-name">{group.name}</div>
+                <div className="landing-banner-techstacks-row-techstacks">
+                    {group.techstacks.map(techstack => (
+                        <TechStack data={techstack} key={techstack.note} />
+                    ))}
+                </div>
+            </div>
         ))}
     </div>;
 }

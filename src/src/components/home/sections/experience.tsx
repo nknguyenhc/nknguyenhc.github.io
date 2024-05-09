@@ -1,14 +1,8 @@
 import { splitArray } from '../../../utils/array';
-import reactIcon from '../../../assets/icons/react.png';
-import typescriptIcon from '../../../assets/icons/typescript.svg';
-import scssIcon from '../../../assets/icons/scss.png';
-import alpineIcon from '../../../assets/icons/alpine.svg';
-import tailwindIcon from '../../../assets/icons/tailwind.png';
-import pugIcon from '../../../assets/icons/pug.png';
-import emotionCssIcon from '../../../assets/icons/emotion-css.png';
 import dsLogo from '../../../assets/home/DS-logo.jpg';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useViewportWidth from '../../../utils/viewport';
+import { TechStackType, alpine, emotion, pug, react, scss, tailwind, typescript } from '../../../constants/techstack';
 
 type InternProject = {
     title: string,
@@ -16,18 +10,12 @@ type InternProject = {
     result: string,
 }
 
-type TechStack = {
-    image: string,
-    note: string,
-    link: string,
-}
-
 type InternExperience = {
     image: string,
     position: string,
     duration: string,
     projects: Array<InternProject>,
-    techstacks: Array<TechStack>,
+    techstacks: Array<TechStackType>,
 }
 
 const experienceData: Array<InternExperience> = [
@@ -53,41 +41,13 @@ const experienceData: Array<InternExperience> = [
             },
         ],
         techstacks: [
-            {
-                image: reactIcon,
-                note: 'React',
-                link: 'https://react.dev/',
-            },
-            {
-                image: typescriptIcon,
-                note: 'Typescript',
-                link: 'https://www.typescriptlang.org/',
-            },
-            {
-                image: scssIcon,
-                note: 'SCSS',
-                link: 'https://sass-lang.com/',
-            },
-            {
-                image: alpineIcon,
-                note: 'Alpine',
-                link: 'https://alpinejs.dev/',
-            },
-            {
-                image: tailwindIcon,
-                note: 'Tailwind',
-                link: 'https://tailwindcss.com/',
-            },
-            {
-                image: pugIcon,
-                note: 'PUG HTML Templating',
-                link: 'https://pugjs.org/api/getting-started.html',
-            },
-            {
-                image: emotionCssIcon,
-                note: 'Emotion CSS',
-                link: 'https://emotion.sh/docs/introduction',
-            }
+            react,
+            typescript,
+            scss,
+            alpine,
+            tailwind,
+            pug,
+            emotion,
         ]
     }
 ]
@@ -133,7 +93,7 @@ const ExperienceItem = ({ experience }: {
                     <img src={experience.image} alt="company" />
                 </div>
                 <div className="experience-item-techstacks">
-                    {splitArray<TechStack>(experience.techstacks, 3).map((techstackRow, techstackIndex) => (
+                    {splitArray<TechStackType>(experience.techstacks, 3).map((techstackRow, techstackIndex) => (
                         <TechStackRow row={techstackRow} key={techstackIndex} />
                     ))}
                 </div>
@@ -159,7 +119,7 @@ const ExperienceItem = ({ experience }: {
 }
 
 const TechStackRow = ({ row }: {
-    row: Array<TechStack>
+    row: Array<TechStackType>
 }): JSX.Element => {
     const [highlightIndex, setHighlightIndex] = useState<number>(-1);
     const isDesktop = useViewportWidth();

@@ -49,43 +49,43 @@ import Pagination from '../../pagination/index';
 import useViewportWidth from '../../../utils/viewport';
 import { useAppDispatch } from '../../../redux/store';
 import { setImage } from '../../../redux/modalSlice';
-import djangoIcon from '../../../assets/icons/django.png';
-import reactIcon from '../../../assets/icons/react.png';
-import typescriptIcon from '../../../assets/icons/typescript.svg';
-import scssIcon from '../../../assets/icons/scss.png';
-import sqlIcon from '../../../assets/icons/sql.png';
-import flutterIcon from '../../../assets/icons/flutter.png';
-import nodeIcon from '../../../assets/icons/nodejs.png';
-import firebaseIcon from '../../../assets/icons/firebase.png';
-import cppIcon from '../../../assets/icons/cpp.png';
-import emotionIcon from '../../../assets/icons/emotion-css.png';
-import flaskIcon from '../../../assets/icons/flask.png';
-import numpyIcon from '../../../assets/icons/numpy.svg';
-import godotIcon from '../../../assets/icons/godot.png';
-import pythonIcon from '../../../assets/icons/python.png';
-import dockerIcon from '../../../assets/icons/docker.webp';
-import azureIcon from '../../../assets/icons/azure.png';
-import fastApiIcon from '../../../assets/icons/fastapi.svg';
-import openAiIcon from '../../../assets/icons/openai.png';
 import telegramIcon from '../../../assets/icons/telegram.png';
-import puppeteerIcon from '../../../assets/icons/puppeteer.png';
-import pugIcon from '../../../assets/icons/pug.png';
-import alpineIcon from '../../../assets/icons/alpine.svg';
-import stabilityIcon from '../../../assets/icons/stability.png';
-import angularIcon from '../../../assets/icons/angular.png';
-import javascriptIcon from '../../../assets/icons/javascript.webp';
 import chromeWebStoreIcon from '../../../assets/icons/chrome-web-store.png';
-import graphqlIcon from '../../../assets/icons/graphql.png';
+import {
+    TechStackType,
+    alpine,
+    angular,
+    aws,
+    azure,
+    cpp,
+    django,
+    docker,
+    emotion,
+    fastApi,
+    firebase,
+    flask,
+    flutter,
+    godot,
+    graphql,
+    jsDomManipulation,
+    nodejs,
+    numpy,
+    openai,
+    pug,
+    puppeteer,
+    python,
+    react,
+    scss,
+    sql,
+    stabilityai,
+    telegram,
+    typescript
+} from '../../../constants/techstack';
 
 type DeployData = {
     link: string,
     description: string,
     icon: string,
-}
-
-type TechStackType = {
-    icon: string,
-    link: string,
 }
 
 type ProjectData = {
@@ -115,18 +115,9 @@ const projects: Array<ProjectData> = [
             right: WATcherTp,
         },
         techstacks: [
-            {
-                icon: angularIcon,
-                link: "https://angular.io/",
-            },
-            {
-                icon: typescriptIcon,
-                link: "https://www.typescriptlang.org/",
-            },
-            {
-                icon: graphqlIcon,
-                link: "https://graphql.org/",
-            },
+            angular,
+            typescript,
+            graphql,
         ],
         deployed: [
             {
@@ -148,10 +139,7 @@ const projects: Array<ProjectData> = [
             right: XiangqiGameplay,
         },
         techstacks: [
-            {
-                link: "https://www.python.org/",
-                icon: pythonIcon,
-            },
+            python,
         ],
         deployed: [],
         period: "Mar 2024 - Apr 2024",
@@ -167,38 +155,14 @@ const projects: Array<ProjectData> = [
             right: QuackNkn3,
         },
         techstacks: [
-            {
-                icon: telegramIcon,
-                link: "https://www.npmjs.com/package/node-telegram-bot-api",
-            },
-            {
-                icon: puppeteerIcon,
-                link: "https://pptr.dev/",
-            },
-            {
-                icon: typescriptIcon,
-                link: "https://www.typescriptlang.org/",
-            },
-            {
-                icon: nodeIcon,
-                link: "https://nodejs.org/en",
-            },
-            {
-                icon: sqlIcon,
-                link: "https://en.wikipedia.org/wiki/SQL",
-            },
-            {
-                icon: pugIcon,
-                link: "https://pugjs.org/api/getting-started.html",
-            },
-            {
-                icon: scssIcon,
-                link: "https://sass-lang.com/",
-            },
-            {
-                icon: alpineIcon,
-                link: "https://alpinejs.dev/",
-            },
+            telegram,
+            puppeteer,
+            typescript,
+            nodejs,
+            sql,
+            pug,
+            scss,
+            alpine,
         ],
         deployed: [
             {
@@ -225,26 +189,11 @@ const projects: Array<ProjectData> = [
             right: SudokuSolverKiller,
         },
         techstacks: [
-            {
-                icon: pythonIcon,
-                link: "https://www.python.org/",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: typescriptIcon,
-                link: "https://www.typescriptlang.org/",
-            },
-            {
-                icon: fastApiIcon,
-                link: "https://fastapi.tiangolo.com/",
-            },
-            {
-                icon: scssIcon,
-                link: "https://sass-lang.com/",
-            },
+            python,
+            react,
+            typescript,
+            fastApi,
+            scss,
         ],
         deployed: [
             {
@@ -266,30 +215,13 @@ const projects: Array<ProjectData> = [
             right: MatchMinerMobile,
         },
         techstacks: [
-            {
-                icon: djangoIcon,
-                link: "https://www.djangoproject.com/",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: typescriptIcon,
-                link: "https://www.typescriptlang.org/",
-            },
-            {
-                icon: scssIcon,
-                link: "https://sass-lang.com/",
-            },
-            {
-                icon: sqlIcon,
-                link: "https://en.wikipedia.org/wiki/SQL",
-            },
-            {
-                icon: flutterIcon,
-                link: "https://flutter.dev/",
-            },
+            django,
+            react,
+            typescript,
+            scss,
+            sql,
+            flutter,
+            aws,
         ],
         deployed: [
             {
@@ -321,30 +253,12 @@ const projects: Array<ProjectData> = [
             right: Coding3,
         },
         techstacks: [
-            {
-                icon: cppIcon,
-                link: "https://en.wikipedia.org/wiki/C%2B%2B",
-            },
-            {
-                icon: nodeIcon,
-                link: "https://nodejs.org/en",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: emotionIcon,
-                link: "https://emotion.sh/docs/introduction",
-            },
-            {
-                icon: dockerIcon,
-                link: "https://www.docker.com/",
-            },
-            {
-                icon: azureIcon,
-                link: "https://azure.microsoft.com/en-us",
-            },
+            cpp,
+            nodejs,
+            react,
+            emotion,
+            docker,
+            azure,
         ],
         deployed: [
             {
@@ -366,10 +280,7 @@ const projects: Array<ProjectData> = [
             right: YpsPopup,
         },
         techstacks: [
-            {
-                icon: javascriptIcon,
-                link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
-            },
+            jsDomManipulation,
         ],
         deployed: [
             {
@@ -391,10 +302,7 @@ const projects: Array<ProjectData> = [
             right: DragonGameplay2,
         },
         techstacks: [
-            {
-                icon: godotIcon,
-                link: "https://godotengine.org/",
-            },
+            godot,
         ],
         deployed: [
             {
@@ -419,10 +327,7 @@ const hackathons: Array<ProjectData> = [
             right: Terminal3,
         },
         techstacks: [
-            {
-                icon: pythonIcon,
-                link: "https://www.python.org/",
-            },
+            python,
         ],
         deployed: [],
         period: "Oct 2023",
@@ -438,18 +343,9 @@ const hackathons: Array<ProjectData> = [
             right: Payday3,
         },
         techstacks: [
-            {
-                icon: nodeIcon,
-                link: "https://nodejs.org/en",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: firebaseIcon,
-                link: "https://firebase.google.com/",
-            },
+            nodejs,
+            react,
+            firebase,
         ],
         deployed: [
             {
@@ -471,22 +367,10 @@ const hackathons: Array<ProjectData> = [
             right: ParodyGenerator3,
         },
         techstacks: [
-            {
-                icon: openAiIcon,
-                link: "https://platform.openai.com/",
-            },
-            {
-                icon: stabilityIcon,
-                link: "https://platform.stability.ai/",
-            },
-            {
-                icon: fastApiIcon,
-                link: "https://fastapi.tiangolo.com/",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
+            openai,
+            stabilityai,
+            fastApi,
+            react,
         ],
         deployed: [],
         period: "Jan 2024",
@@ -502,34 +386,13 @@ const hackathons: Array<ProjectData> = [
             right: NeuralCatsUi2,
         },
         techstacks: [
-            {
-                icon: fastApiIcon,
-                link: "https://fastapi.tiangolo.com/",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: emotionIcon,
-                link: "https://emotion.sh/docs/introduction",
-            },
-            {
-                icon: dockerIcon,
-                link: "https://www.docker.com/",
-            },
-            {
-                icon: azureIcon,
-                link: "https://azure.microsoft.com/en-us",
-            },
-            {
-                icon: openAiIcon,
-                link: "https://platform.openai.com/",
-            },
-            {
-                icon: typescriptIcon,
-                link: "https://www.typescriptlang.org/",
-            },
+            fastApi,
+            react,
+            emotion,
+            docker,
+            azure,
+            openai,
+            typescript,
         ],
         deployed: [
             {
@@ -551,26 +414,11 @@ const hackathons: Array<ProjectData> = [
             right: UndercoverDucksStats,
         },
         techstacks: [
-            {
-                icon: flaskIcon,
-                link: "https://flask.palletsprojects.com/",
-            },
-            {
-                icon: numpyIcon,
-                link: "https://numpy.org/",
-            },
-            {
-                icon: reactIcon,
-                link: "https://react.dev/",
-            },
-            {
-                icon: scssIcon,
-                link: "https://sass-lang.com/",
-            },
-            {
-                icon: sqlIcon,
-                link: "https://en.wikipedia.org/wiki/SQL",
-            },
+            flask,
+            numpy,
+            react,
+            scss,
+            sql,
         ],
         deployed: [
             {
@@ -708,7 +556,7 @@ const Project = ({ project, isShow, isStatic }: {
             <div className="project-techstacks">
                 {project.techstacks.map(techstack => (
                     <a href={techstack.link} className="project-techstack" key={techstack.link}>
-                        <img src={techstack.icon} alt="" />
+                        <img src={techstack.image} alt="" />
                     </a>
                 ))}
             </div>

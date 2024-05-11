@@ -29,6 +29,7 @@ const Terminal = (): JSX.Element => {
     const isStarted = useRef<boolean>(false);
     const [inputValue, setInputValue] = useState<string>('');
     const logRef = useRef<HTMLDivElement>(null);
+    const [isGameEnded, setIsGameEnded] = useState<boolean>(false);
 
     const scrollToBottom = useCallback(() => {
         setTimeout(() => {
@@ -45,6 +46,9 @@ const Terminal = (): JSX.Element => {
             ...dialog,
             response,
         ]);
+        if (response[response.length - 1] === '!') {
+            setIsGameEnded(true);
+        }
         scrollToBottom();
     }, [scrollToBottom]);
 
@@ -56,10 +60,14 @@ const Terminal = (): JSX.Element => {
             response,
         ]);
         setInputValue('');
+        scrollToBottom();
+        if (response[response.length - 1] === '!') {
+            setIsGameEnded(true);
+            return;
+        }
         if (response[response.length - 1] !== ':') {
             setTimeout(updateDialog, 400);
         }
-        scrollToBottom();
     }, [inputValue, updateDialog, scrollToBottom]);
 
     const handleKeyUp = useCallback((e: KeyboardEvent) => {
@@ -88,6 +96,7 @@ const Terminal = (): JSX.Element => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyUp={handleKeyUp}
                 value={inputValue}
+                disabled={isGameEnded}
                 autoFocus
             />
         </div>

@@ -152,7 +152,6 @@ const TechStacks = (): JSX.Element => {
 const TechStackRow = ({ group }: {
     group: TechStackSection,
 }): JSX.Element => {
-    const isDesktop = useViewportWidth();
     const [isInView, setIsInView] = useState<boolean>(false);
     const root = useRef<HTMLDivElement>(null);
     const bottomTolerance = useMemo(() => 50, []);

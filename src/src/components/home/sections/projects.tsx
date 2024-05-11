@@ -37,6 +37,9 @@ import YpsPopup from '../../../assets/projects/Yps-popup.png';
 import SudokuSolverSolved from '../../../assets/projects/sudoku-solver-solved.png';
 import SudokuSolverUnsolved from '../../../assets/projects/sudoku-solver-unsolved.png';
 import SudokuSolverKiller from '../../../assets/projects/sudoku-solver-killer.png';
+import UltimateTicTacToeWelcome from '../../../assets/projects/ultimate-tictactoe-welcome.png';
+import UltimateTicTacToeLocal from '../../../assets/projects/ultimate-tictactoe-local.png';
+import UltimateTicTacToeBrowser from '../../../assets/projects/ultimate-tictactoe-browser.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -67,7 +70,9 @@ import {
     flutter,
     godot,
     graphql,
+    java,
     jsDomManipulation,
+    maven,
     nodejs,
     numpy,
     openai,
@@ -145,6 +150,29 @@ const projects: Array<ProjectData> = [
         period: "Mar 2024 - Apr 2024",
     },
     {
+        name: "Ultimate tictactoe",
+        description: "The game of ultimate tictactoe is played on a 9x9 board. The board is divided into 3x3 small boards, where players have to win the small boards to construct their lines in the overall board. Each player's move determines the small board that the opponent has to move in on the next move.\nI explored various algorithms to play the game. The most prominent, requiring the least effort to code, is Monte Carlo Tree Search. Reinforcement learning algorithms, including Q-learning and SARSA, requires more tuning and does not perform as well.\nI managed to use java-to-javascript transpiler plugin to display the algorithm on this website.",
+        readme: "https://github.com/nknguyenhc/ultimate-tictactoe?tab=readme-ov-file#ultimate-tictactoe",
+        code: "https://github.com/nknguyenhc/ultimate-tictactoe",
+        images: {
+            main: UltimateTicTacToeWelcome,
+            left: UltimateTicTacToeBrowser,
+            right: UltimateTicTacToeLocal,
+        },
+        techstacks: [
+            java,
+            maven,
+        ],
+        deployed: [
+            {
+                link: "/project/ultimate-tictactoe",
+                icon: WebIcon,
+                description: "This site",
+            },
+        ],
+        period: "Apr 2024 - present",
+    },
+    {
         name: "Quack NKN",
         description: "Have you ever wanted to track when a particular job opening will be open for application? Or when a particular information is out? Fret not! My Telegram bot sends you screenshots of those websites to you at the frequency you want, either everyday, every week, or once. My bot also has an accompanying reminder feature if you wish to reminder yourselves with tasks related to your website trackers.",
         readme: "https://github.com/nknguyenhc/quack-nkn?tab=readme-ov-file#quack-nkn",
@@ -207,7 +235,7 @@ const projects: Array<ProjectData> = [
     {
         name: "MatchMiner",
         description: "While we may wish to share our interests online, we all at times get the anxiety about the number of likes and comments. This stifles our desire to share our interests with others online.\nOur app is set out to exactly tackle that! Beyond the absence of \"like\" and \"share\" functionalities, we allow users to curate their own cellars of niche hobbies and connect with like-minded others, through a system of pre-defined tags. Through the same system, users can easily find like-minded others. We hope to create an environment where you feel at ease sharing your interests and find others with the same interests.",
-        readme: "https://matchminer-d5ebcada4488.herokuapp.com/about",
+        readme: "https://matchminer.fly.dev/about",
         code: "https://github.com/nknguyenhc/SuperCellMates",
         images: {
             main: MatchMinerLogo,

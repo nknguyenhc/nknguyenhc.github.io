@@ -62,6 +62,10 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
                 text: 'Quack Nkn',
                 url: '/project/quack-nkn',
             },
+            {
+                text: 'Ultimate Tictactoe',
+                url: '/project/ultimate-tictactoe',
+            },
         ]
     }),
     new HeaderItemWithDropdown({

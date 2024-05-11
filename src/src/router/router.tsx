@@ -8,6 +8,7 @@ import Modules from '../components/academics/modules/modules';
 import Ta from '../components/academics/ta/ta';
 import CodingSchemeSimulation from '../components/projects/coding-scheme-simulation/coding-scheme-simulation';
 import QuackNkn from '../components/projects/quack-nkn/quack-nkn';
+import UltimateTictactoe from '../components/projects/ultimate-tictactoe/ultimate-tictactoe';
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
                     {
                         path: 'quack-nkn',
                         element: <QuackNkn />,
+                    },
+                    {
+                        path: 'ultimate-tictactoe',
+                        element: <UltimateTictactoe />,
                     },
                 ]
             },

@@ -54,6 +54,14 @@ export const footerColumns: Array<FooterColumn> = [
                 text: "Coding Scheme Simulation",
                 href: "/project/coding-scheme-simulation",
             },
+            {
+                text: "Quack NKN",
+                href: "/project/quack-nkn",
+            },
+            {
+                text: "Ultimate Tictactoe",
+                href: "/project/ultimate-tictactoe",
+            },
         ],
     },
     {

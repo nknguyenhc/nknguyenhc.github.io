@@ -201,7 +201,7 @@ const projects: Array<ProjectData> = [
                 icon: telegramIcon,
             },
             {
-                link: "https://nknguyenhc.alwaysdata.net/",
+                link: "https://quacknkn.click",
                 description: "Web",
                 icon: WebIcon,
             },

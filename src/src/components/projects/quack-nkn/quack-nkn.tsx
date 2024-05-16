@@ -34,7 +34,7 @@ const LandingBanner = (): JSX.Element => (
                 <img src={telegramIcon} alt="" />
             </a>
             <a
-                href="https://nknguyenhc.alwaysdata.net/"
+                href="https://quacknkn.click"
                 target="_blank" 
                 rel="noreferrer"
                 className="quack-nkn-landing-link"
@@ -105,7 +105,7 @@ const Readme = (): JSX.Element => (
 );
 
 const FeedbackForm = (): JSX.Element => (
-    <iframe src="https://nknguyenhc.alwaysdata.net/feedback" className="quack-nkn-feedback" title="Quack Nkn Feedback" />
+    <iframe src="https://quacknkn.click/feedback" className="quack-nkn-feedback" title="Quack Nkn Feedback" />
 );
 
 const Features = (): JSX.Element => {

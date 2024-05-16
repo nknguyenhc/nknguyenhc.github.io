@@ -329,6 +329,7 @@ const algorithms: Array<ProjectData> = [
             typescript,
             fastApi,
             scss,
+            azure,
         ],
         deployed: [
             {

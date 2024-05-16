@@ -135,45 +135,6 @@ const projects: Array<ProjectData> = [
         period: "Jan 2024 - present",
     },
     {
-        name: "Xiangqi engine",
-        description: "We attempted at making a Xiangqi using principal variation search as the core algorithm.\nBoard representation is done using a 2D array of objects, exploiting OOP features. Board evaluation makes use of material value, piece activity and special activity.\nMove is generated with 3 labels: capture, quiet and check. Move is ordered using various heuristics to first score a move, then order by score.\nSearch routine is enhanced with transposition table and quiescence search.",
-        readme: "https://github.com/nknguyenhc/CS3263-project?tab=readme-ov-file#cs3263-project",
-        code: "https://github.com/nknguyenhc/CS3263-project",
-        images: {
-            main: XiangqiBoard,
-            left: XiangqiWelcome,
-            right: XiangqiGameplay,
-        },
-        techstacks: [
-            python,
-        ],
-        deployed: [],
-        period: "Mar 2024 - Apr 2024",
-    },
-    {
-        name: "Ultimate tictactoe",
-        description: "The game of ultimate tictactoe is played on a 9x9 board. The board is divided into 3x3 small boards, where players have to win the small boards to construct their lines in the overall board. Each player's move determines the small board that the opponent has to move in on the next move.\nI explored various algorithms to play the game. The most prominent, requiring the least effort to code, is Monte Carlo Tree Search. Reinforcement learning algorithms, including Q-learning and SARSA, requires more tuning and does not perform as well.\nI managed to use java-to-javascript transpiler plugin to display the algorithm on this website.",
-        readme: "https://github.com/nknguyenhc/ultimate-tictactoe?tab=readme-ov-file#ultimate-tictactoe",
-        code: "https://github.com/nknguyenhc/ultimate-tictactoe",
-        images: {
-            main: UltimateTicTacToeWelcome,
-            left: UltimateTicTacToeBrowser,
-            right: UltimateTicTacToeLocal,
-        },
-        techstacks: [
-            java,
-            maven,
-        ],
-        deployed: [
-            {
-                link: "/project/ultimate-tictactoe",
-                icon: WebIcon,
-                description: "This site",
-            },
-        ],
-        period: "Apr 2024 - present",
-    },
-    {
         name: "Quack NKN",
         description: "Have you ever wanted to track when a particular job opening will be open for application? Or when a particular information is out? Fret not! My Telegram bot sends you screenshots of those websites to you at the frequency you want, either everyday, every week, or once. My bot also has an accompanying reminder feature if you wish to reminder yourselves with tasks related to your website trackers.",
         readme: "https://github.com/nknguyenhc/quack-nkn?tab=readme-ov-file#quack-nkn",
@@ -206,33 +167,7 @@ const projects: Array<ProjectData> = [
                 icon: WebIcon,
             },
         ],
-        period: "Oct 2023 - present",
-    },
-    {
-        name: "Sudoku Solver",
-        description: "Sudoku belongs to the class of constraint-satisfaction problem. Domain is first reduced according to the numbers in the same row, column and sub-board. Minimum remaining value heuristic to determine the next cell to try values. Boards and domains are deep-copied as backtracking strategy.\nI created a website for you to try out my algorithm.",
-        readme: "https://github.com/nknguyenhc/sudoku-solver?tab=readme-ov-file#sudoku-solver",
-        code: "https://github.com/nknguyenhc/sudoku-solver",
-        images: {
-            main: SudokuSolverSolved,
-            left: SudokuSolverUnsolved,
-            right: SudokuSolverKiller,
-        },
-        techstacks: [
-            python,
-            react,
-            typescript,
-            fastApi,
-            scss,
-        ],
-        deployed: [
-            {
-                link: "https://sudoku-solution.azurewebsites.net/",
-                icon: WebIcon,
-                description: "Web",
-            },
-        ],
-        period: "Feb 2024 - Apr 2024",
+        period: "Oct 2023 - May 2024",
     },
     {
         name: "MatchMiner",
@@ -271,33 +206,6 @@ const projects: Array<ProjectData> = [
             }
         ],
         period: "May 2023 - Feb 2024",
-    },
-    {
-        name: "Coding Scheme Simulation",
-        description: "While transmitting data, errors might be introduced. if raw data is sent, the receiving ends has no means of reversing the errors. Hence, instead of sending raw data, both sender and receiver agrees on an encryption mechanism such that encrypted data can be decrypted, and errors can be auto-corrected in the process.\nWe explore three such encryption mechanisms varying in complexity and effectiveness, the Hamming code, the convolutional code, and the Reed-Solomon code.",
-        readme: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
-        code: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
-        images: {
-            main: Coding1,
-            left: Coding2,
-            right: Coding3,
-        },
-        techstacks: [
-            cpp,
-            nodejs,
-            react,
-            emotion,
-            docker,
-            azure,
-        ],
-        deployed: [
-            {
-                link: "https://coding-scheme-simulation.azurewebsites.net/",
-                description: "Web",
-                icon: WebIcon,
-            },
-        ],
-        period: "Jul 2023 - Jan 2024",
     },
     {
         name: "Youtube Playlist Shuffle",
@@ -343,6 +251,101 @@ const projects: Array<ProjectData> = [
         ],
         period: "Sep 2022 - Dec 2022",
     }
+];
+
+const algorithms: Array<ProjectData> = [
+    {
+        name: "Xiangqi engine",
+        description: "We attempted at making a Xiangqi using principal variation search as the core algorithm.\nBoard representation is done using a 2D array of objects, exploiting OOP features. Board evaluation makes use of material value, piece activity and special activity.\nMove is generated with 3 labels: capture, quiet and check. Move is ordered using various heuristics to first score a move, then order by score.\nSearch routine is enhanced with transposition table and quiescence search.",
+        readme: "https://github.com/nknguyenhc/CS3263-project?tab=readme-ov-file#cs3263-project",
+        code: "https://github.com/nknguyenhc/CS3263-project",
+        images: {
+            main: XiangqiBoard,
+            left: XiangqiWelcome,
+            right: XiangqiGameplay,
+        },
+        techstacks: [
+            python,
+        ],
+        deployed: [],
+        period: "Mar 2024 - Apr 2024",
+    },
+    {
+        name: "Ultimate tictactoe",
+        description: "The game of ultimate tictactoe is played on a 9x9 board. The board is divided into 3x3 small boards, where players have to win the small boards to construct their lines in the overall board. Each player's move determines the small board that the opponent has to move in on the next move.\nI explored various algorithms to play the game. The most prominent, requiring the least effort to code, is Monte Carlo Tree Search. Reinforcement learning algorithms, including Q-learning and SARSA, requires more tuning and does not perform as well.\nI managed to use java-to-javascript transpiler plugin to display the algorithm on this website.",
+        readme: "https://github.com/nknguyenhc/ultimate-tictactoe?tab=readme-ov-file#ultimate-tictactoe",
+        code: "https://github.com/nknguyenhc/ultimate-tictactoe",
+        images: {
+            main: UltimateTicTacToeWelcome,
+            left: UltimateTicTacToeBrowser,
+            right: UltimateTicTacToeLocal,
+        },
+        techstacks: [
+            java,
+            maven,
+        ],
+        deployed: [
+            {
+                link: "/project/ultimate-tictactoe",
+                icon: WebIcon,
+                description: "This site",
+            },
+        ],
+        period: "Apr 2024 - present",
+    },
+    {
+        name: "Sudoku Solver",
+        description: "Sudoku belongs to the class of constraint-satisfaction problem. Domain is first reduced according to the numbers in the same row, column and sub-board. Minimum remaining value heuristic to determine the next cell to try values. Boards and domains are deep-copied as backtracking strategy.\nI created a website for you to try out my algorithm.",
+        readme: "https://github.com/nknguyenhc/sudoku-solver?tab=readme-ov-file#sudoku-solver",
+        code: "https://github.com/nknguyenhc/sudoku-solver",
+        images: {
+            main: SudokuSolverSolved,
+            left: SudokuSolverUnsolved,
+            right: SudokuSolverKiller,
+        },
+        techstacks: [
+            python,
+            react,
+            typescript,
+            fastApi,
+            scss,
+        ],
+        deployed: [
+            {
+                link: "https://sudoku-solution.azurewebsites.net/",
+                icon: WebIcon,
+                description: "Web",
+            },
+        ],
+        period: "Feb 2024 - Apr 2024",
+    },
+    {
+        name: "Coding Scheme Simulation",
+        description: "While transmitting data, errors might be introduced. if raw data is sent, the receiving ends has no means of reversing the errors. Hence, instead of sending raw data, both sender and receiver agrees on an encryption mechanism such that encrypted data can be decrypted, and errors can be auto-corrected in the process.\nWe explore three such encryption mechanisms varying in complexity and effectiveness, the Hamming code, the convolutional code, and the Reed-Solomon code.",
+        readme: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
+        code: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
+        images: {
+            main: Coding1,
+            left: Coding2,
+            right: Coding3,
+        },
+        techstacks: [
+            cpp,
+            nodejs,
+            react,
+            emotion,
+            docker,
+            azure,
+        ],
+        deployed: [
+            {
+                link: "https://coding-scheme-simulation.azurewebsites.net/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Jul 2023 - Jan 2024",
+    },
 ];
 
 const hackathons: Array<ProjectData> = [
@@ -463,6 +466,7 @@ const hackathons: Array<ProjectData> = [
 
 export default function Projects(): JSX.Element {
     const [showIndex, setShowIndex] = useState<number>(0);
+    const [algoShowIndex, setAlgoShowIndex] = useState<number>(0);
     const [hackathonShowIndex, setHackathonShowIndex] = useState<number>(0);
     const isDesktop = useViewportWidth();
 
@@ -484,6 +488,25 @@ export default function Projects(): JSX.Element {
                 setIndex={setShowIndex}
                 currIndex={showIndex}
                 numOfItems={projects.length}
+            />}
+        </div>
+        <div className="projects" id="my-algorithms">
+            <div className="home-section-title">My Algorithms</div>
+            {algorithms.map((algorithm, algorithmIndex) => (
+                <Project
+                    project={algorithm}
+                    key={algorithmIndex}
+                    isShow={algoShowIndex === algorithmIndex}
+                    isStatic={algoShowIndex <= algorithmIndex}
+                />
+            ))}
+            {isDesktop && <Pagination
+                leftPositionClass='project-arrow-left'
+                rightPositionClass='project-arrow-right'
+                indicatorPositionClass=''
+                setIndex={setAlgoShowIndex}
+                currIndex={algoShowIndex}
+                numOfItems={algorithms.length}
             />}
         </div>
         <div className="projects" id="hackathons">

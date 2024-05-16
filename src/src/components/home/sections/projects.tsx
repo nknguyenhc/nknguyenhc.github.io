@@ -59,6 +59,7 @@ import {
     alpine,
     angular,
     aws,
+    awsS3,
     azure,
     cpp,
     django,
@@ -191,6 +192,7 @@ const projects: Array<ProjectData> = [
             pug,
             scss,
             alpine,
+            aws,
         ],
         deployed: [
             {
@@ -249,7 +251,7 @@ const projects: Array<ProjectData> = [
             scss,
             sql,
             flutter,
-            aws,
+            awsS3,
         ],
         deployed: [
             {

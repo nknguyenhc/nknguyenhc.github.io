@@ -8,7 +8,16 @@ import {
     anaconda,
     angular,
     aws,
+    awsCertificateManager,
+    awsEc2,
+    awsLoadBalancer,
+    awsRoute53,
+    awsS3,
     azure,
+    azureAppService,
+    azureBlobStorage,
+    azureContainerRegistry,
+    azureCosmosDb,
     bootstrap,
     c,
     cpp,
@@ -113,7 +122,7 @@ const techstackData: Array<TechStackSection> = [
     },
     {
         name: "Database",
-        techstacks: [sql, firebase],
+        techstacks: [sql, firebase, azureCosmosDb],
     },
     {
         name: "Build automation",
@@ -122,6 +131,13 @@ const techstackData: Array<TechStackSection> = [
     {
         name: "Cloud",
         techstacks: [azure, aws, heroku],
+    },
+    {
+        name: "DevOps",
+        techstacks: [
+            awsEc2, awsLoadBalancer, awsCertificateManager, awsRoute53, awsS3,
+            azureContainerRegistry, azureAppService, azureBlobStorage,
+        ],
     },
     {
         name: "Artificial Intelligence",

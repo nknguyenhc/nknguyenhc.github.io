@@ -37,6 +37,15 @@ import anacondaIcon from '../assets/icons/anaconda.png';
 import npmIcon from '../assets/icons/npm.svg';
 import gradleIcon from '../assets/icons/gradle.png';
 import mavenIcon from '../assets/icons/maven.png';
+import awsRoute53Icon from '../assets/icons/aws-route-53.png';
+import awsCertificateManagerIcon from '../assets/icons/aws-certificate-manager.png';
+import awsLoadBalancerIcon from '../assets/icons/aws-load-balancer.png';
+import awsEc2Icon from '../assets/icons/aws-ec2.png';
+import awsS3Icon from '../assets/icons/amazons3.png';
+import azureCosmosDbIcon from '../assets/icons/azure-cosmos-db.png';
+import azureContainerRegistryIcon from '../assets/icons/azure-container-registry.png';
+import azureBlobStorageIcon from '../assets/icons/azure-blob-storage.png';
+import azureAppServiceIcon from '../assets/icons/azure-app-service.png';
 
 export type TechStackType = {
     image: string,
@@ -64,10 +73,55 @@ export const aws: TechStackType = {
     link: "https://aws.amazon.com/",
     note: "AWS",
 };
+export const awsCertificateManager: TechStackType = {
+    image: awsCertificateManagerIcon,
+    link: "https://aws.amazon.com/certificate-manager/",
+    note: "AWS Certificate Manager",
+};
+export const awsEc2: TechStackType = {
+    image: awsEc2Icon,
+    link: "https://aws.amazon.com/pm/ec2/",
+    note: "AWS EC2",
+};
+export const awsLoadBalancer: TechStackType = {
+    image: awsLoadBalancerIcon,
+    link: "https://aws.amazon.com/elasticloadbalancing/",
+    note: "AWS Load Balancer",
+};
+export const awsRoute53: TechStackType = {
+    image: awsRoute53Icon,
+    link: "https://aws.amazon.com/route53/",
+    note: "AWS Route 53",
+};
+export const awsS3: TechStackType = {
+    image: awsS3Icon,
+    link: "https://aws.amazon.com/pm/serv-s3/",
+    note: "AWS S3",
+};
 export const azure: TechStackType = {
     image: azureIcon,
     link: "https://azure.microsoft.com/en-us",
     note: "Azure",
+};
+export const azureAppService: TechStackType = {
+    image: azureAppServiceIcon,
+    link: "https://azure.microsoft.com/en-us/products/app-service",
+    note: "Azure App Service",
+};
+export const azureBlobStorage: TechStackType = {
+    image: azureBlobStorageIcon,
+    link: "https://azure.microsoft.com/en-us/products/storage/blobs",
+    note: "Azure Blob Storage",
+};
+export const azureContainerRegistry: TechStackType = {
+    image: azureContainerRegistryIcon,
+    link: "https://azure.microsoft.com/en-us/products/container-registry",
+    note: "Azure Container Registry",
+};
+export const azureCosmosDb: TechStackType = {
+    image: azureCosmosDbIcon,
+    link: "https://azure.microsoft.com/en-gb/free/cosmos-db/search/",
+    note: "Azure Cosmos DB",
 };
 export const bootstrap: TechStackType = {
     image: bootstrapIcon,

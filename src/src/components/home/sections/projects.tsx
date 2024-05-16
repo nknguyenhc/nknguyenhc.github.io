@@ -40,6 +40,9 @@ import SudokuSolverKiller from '../../../assets/projects/sudoku-solver-killer.pn
 import UltimateTicTacToeWelcome from '../../../assets/projects/ultimate-tictactoe-welcome.png';
 import UltimateTicTacToeLocal from '../../../assets/projects/ultimate-tictactoe-local.png';
 import UltimateTicTacToeBrowser from '../../../assets/projects/ultimate-tictactoe-browser.png';
+import MinesweepererSS from '../../../assets/projects/minesweeper-ss.png';
+import MinesweepererEasy from '../../../assets/projects/minesweeper-easy.jpg';
+import MinesweepererHard from '../../../assets/projects/minesweeper-hard.jpg';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -292,6 +295,23 @@ const algorithms: Array<ProjectData> = [
             },
         ],
         period: "Apr 2024 - present",
+    },
+    {
+        name: "Minesweeperer",
+        description: "Have you ever thought about completing a minesweeper game within seconds? That is exactly what my algorithm is set out to do!\nThe game of minesweeper is a classic problem of knowledge representation. The agent continually synthesise new knowledge to derive positions of mines and safe cells. Upon opening cells, the agent is updated and continues synthesising new knowledge.\nPuppeteer was used to control the browser and derive numbers. HTML classes and canvas colours were read to derive the cell numbers.",
+        readme: "https://github.com/nknguyenhc/minesweeperer?tab=readme-ov-file#minesweeperer",
+        code: "https://github.com/nknguyenhc/minesweeperer",
+        images: {
+            main: MinesweepererHard,
+            left: MinesweepererEasy,
+            right: MinesweepererSS,
+        },
+        techstacks: [
+            puppeteer,
+            typescript,
+        ],
+        deployed: [],
+        period: "May 2024",
     },
     {
         name: "Sudoku Solver",

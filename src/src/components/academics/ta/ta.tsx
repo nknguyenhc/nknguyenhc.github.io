@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import CS1101SIcon from '../../../assets/academics/CS1101S.png';
+import CS2030SIcon from '../../../assets/academics/CS2030S.jpg';
+import CS2040SIcon from '../../../assets/academics/CS2040S.png';
 import useViewportWidth from '../../../utils/viewport';
 
 type DepartmentAverageDictType = {
@@ -46,6 +48,65 @@ const taData: Array<TaDataType> = [
             'Streams',
             'Memoization',
             'Metalinguistic abstraction',
+        ],
+    },
+    {
+        name: 'CS2030S',
+        fullname: 'Programming Methodology II',
+        icon: CS2030SIcon,
+        rating: 4.5,
+        term: 'AY2324-S2',
+        scope: [
+            'Received 4 recommendations for teaching award',
+            'Prepare materials and conduct tutorial classes',
+            'Grade weekly exercises',
+        ],
+        topics: [
+            'Encapsulation & Information hiding',
+            'Class fields & methods',
+            'Composition',
+            'Inheritance',
+            'Heap and stack',
+            'Overriding & overloading',
+            'Polymorphism & method invocation',
+            'Liskov substitution principle',
+            'Abstract classes & interfaces',
+            'Exceptions',
+            'Generics, wildcards & type erasure, type inference',
+            'Nested class',
+            'Immutability & side-effect free programming',
+            'Lazy evaluation',
+            'Infinite list & stream',
+            'Monad',
+            'Parallel streams, threads & asynchronous programming',
+        ],
+    },
+    {
+        name: 'CS2040S',
+        fullname: 'Data Structures and Algorithms',
+        icon: CS2040SIcon,
+        rating: 4.4,
+        term: 'AY2324-S2',
+        scope: [
+            'Received 4 recommendations for teaching award',
+            'Prepare materials and conduct tutorial classes',
+            'Grade problem sets',
+            'Audit problem sets',
+            'Patrol students\' forum',
+        ],
+        topics: [
+            'Binary search',
+            'Sorting algorithms',
+            'Quick select',
+            'Balanced binary tree, AVL tree, augmented trees',
+            'Binary heap, heap sort',
+            'Union-find',
+            'Hashing',
+            'Graphs',
+            'Single-source shortest path',
+            'Direct acyclic graphs',
+            'Minimum spanning tree',
+            'Dynamic programming',
         ],
     },
 ];

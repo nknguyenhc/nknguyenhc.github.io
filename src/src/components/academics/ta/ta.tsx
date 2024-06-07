@@ -10,6 +10,7 @@ type DepartmentAverageDictType = {
 
 const departmentAverage: DepartmentAverageDictType = {
     'AY2324-S1': 4.3,
+    'AY2324-S2': 4.3,
 };
 
 type TaDataType = {

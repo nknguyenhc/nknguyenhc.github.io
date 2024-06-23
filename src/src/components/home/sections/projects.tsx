@@ -170,7 +170,7 @@ const projects: Array<ProjectData> = [
                 icon: WebIcon,
             },
         ],
-        period: "Oct 2023 - May 2024",
+        period: "Oct 2023 - Jun 2024",
     },
     {
         name: "MatchMiner",
@@ -230,7 +230,7 @@ const projects: Array<ProjectData> = [
                 icon: chromeWebStoreIcon,
             }
         ],
-        period: "Jan 2024 - Mar 2024",
+        period: "Jan 2024 - Jun 2024",
     },
     {
         name: "Guardian of the Dreamy World",

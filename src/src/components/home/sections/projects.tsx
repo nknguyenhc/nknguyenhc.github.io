@@ -173,6 +173,28 @@ const projects: Array<ProjectData> = [
         period: "Oct 2023 - Jun 2024",
     },
     {
+        name: "Youtube Playlist Shuffle",
+        description: "Listen to Youtube music frequently? Youtube shuffling only randomises the first video, but play in order for the second video onwards.\nAdd this extension to your browser! We will automatically shuffle playlists.\n1. Generate a fixed order for one full cycle, ensuring that all songs are played within one cycle.\n2. Allow disabling shuffling or stop at the last song for playlists you indicate.\n3. Press next to go to the next random song.",
+        readme: "https://github.com/nknguyenhc/Youtube-playlist-shuffle?tab=readme-ov-file#youtube-playlist-shuffle",
+        code: "https://github.com/nknguyenhc/Youtube-playlist-shuffle",
+        images: {
+            main: YpsIcon,
+            left: YpsBrowser,
+            right: YpsPopup,
+        },
+        techstacks: [
+            jsDomManipulation,
+        ],
+        deployed: [
+            {
+                link: "https://chromewebstore.google.com/detail/youtube-playlist-shuffle/chapgjhgjhkfifgfiodmcjadieejfalc",
+                description: "Chrome Web Store",
+                icon: chromeWebStoreIcon,
+            }
+        ],
+        period: "Jan 2024 - Jun 2024",
+    },
+    {
         name: "MatchMiner",
         description: "While we may wish to share our interests online, we all at times get the anxiety about the number of likes and comments. This stifles our desire to share our interests with others online.\nOur app is set out to exactly tackle that! Beyond the absence of \"like\" and \"share\" functionalities, we allow users to curate their own cellars of niche hobbies and connect with like-minded others, through a system of pre-defined tags. Through the same system, users can easily find like-minded others. We hope to create an environment where you feel at ease sharing your interests and find others with the same interests.",
         readme: "https://matchminer.fly.dev/about",
@@ -209,28 +231,6 @@ const projects: Array<ProjectData> = [
             }
         ],
         period: "May 2023 - Feb 2024",
-    },
-    {
-        name: "Youtube Playlist Shuffle",
-        description: "Listen to Youtube music frequently? Youtube shuffling only randomises the first video, but play in order for the second video onwards.\nAdd this extension to your browser! We will automatically shuffle playlists.\n1. Generate a fixed order for one full cycle, ensuring that all songs are played within one cycle.\n2. Allow disabling shuffling or stop at the last song for playlists you indicate.",
-        readme: "https://github.com/nknguyenhc/Youtube-playlist-shuffle?tab=readme-ov-file#youtube-playlist-shuffle",
-        code: "https://github.com/nknguyenhc/Youtube-playlist-shuffle",
-        images: {
-            main: YpsIcon,
-            left: YpsBrowser,
-            right: YpsPopup,
-        },
-        techstacks: [
-            jsDomManipulation,
-        ],
-        deployed: [
-            {
-                link: "https://chromewebstore.google.com/detail/youtube-playlist-shuffle/chapgjhgjhkfifgfiodmcjadieejfalc",
-                description: "Chrome Web Store",
-                icon: chromeWebStoreIcon,
-            }
-        ],
-        period: "Jan 2024 - Jun 2024",
     },
     {
         name: "Guardian of the Dreamy World",

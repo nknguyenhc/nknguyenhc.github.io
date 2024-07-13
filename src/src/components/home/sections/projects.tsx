@@ -67,6 +67,7 @@ import {
     aws,
     awsS3,
     azure,
+    azureCosmosDb,
     cpp,
     django,
     docker,
@@ -471,6 +472,7 @@ const hackathons: Array<ProjectData> = [
         },
         techstacks: [
             fastApi,
+            azureCosmosDb,
             react,
             emotion,
             docker,
@@ -478,13 +480,7 @@ const hackathons: Array<ProjectData> = [
             openai,
             typescript,
         ],
-        deployed: [
-            {
-                link: "https://neuralcats.azurewebsites.net/",
-                description: "Web",
-                icon: WebIcon,
-            },
-        ],
+        deployed: [],
         period: "Nov 2023 - Dec 2023",
     },
     {

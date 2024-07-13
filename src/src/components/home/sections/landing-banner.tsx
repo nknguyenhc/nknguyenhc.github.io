@@ -42,6 +42,7 @@ import {
     javascript,
     jsDomManipulation,
     maven,
+    mui,
     nodejs,
     npm,
     numpy,
@@ -119,7 +120,7 @@ type TechStackSection = {
 const techstackData: Array<TechStackSection> = [
     {
         name: "Frontend",
-        techstacks: [react, angular, typescript, graphql, alpine, scss, emotion, pug, tailwind, bootstrap, flutter],
+        techstacks: [react, angular, typescript, graphql, alpine, scss, emotion, mui, pug, tailwind, bootstrap, flutter],
     },
     {
         name: "Backend",

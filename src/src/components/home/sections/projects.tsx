@@ -46,6 +46,9 @@ import MinesweepererHard from '../../../assets/projects/minesweeper-hard.jpg';
 import LumninousZephyrBanner from '../../../assets/projects/luminous-zephyr-banner.jpg';
 import LuminousZephyrHome from '../../../assets/projects/luminous-zephyr-home.png';
 import LuminousZephyrSample from '../../../assets/projects/luminous-zephyr-sample.jpg';
+import TextAnalyserHome from '../../../assets/projects/text-analyser-home.png';
+import TextAnalyserTextCount from '../../../assets/projects/text-analyser-text-count.png';
+import TextAnalyserDayIndivCount from '../../../assets/projects/text-analyser-day-indiv-frequency.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -84,6 +87,7 @@ import {
     java,
     jsDomManipulation,
     maven,
+    mui,
     numpy,
     openai,
     pug,
@@ -199,6 +203,31 @@ const projects: Array<ProjectData> = [
             }
         ],
         period: "Jan 2024 - Jun 2024",
+    },
+    {
+        name: "Text Analyser",
+        description: "Want to get more insights into your Telegram chats? Fret not! Upload your chats in exported HTML files to my website and get more insights.",
+        readme: "https://github.com/nknguyenhc/text-analyser?tab=readme-ov-file#text-analyser",
+        code: "https://github.com/nknguyenhc/text-analyser",
+        images: {
+            main: TextAnalyserHome,
+            left: TextAnalyserTextCount,
+            right: TextAnalyserDayIndivCount,
+        },
+        techstacks: [
+            react,
+            typescript,
+            scss,
+            mui,
+        ],
+        deployed: [
+            {
+                link: "https://nknguyenhc.github.io/text-analyser/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Jun 2024 - Jul 2024",
     },
     {
         name: "MatchMiner",

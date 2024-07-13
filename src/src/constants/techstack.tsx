@@ -51,6 +51,7 @@ import googleCloudIcon from '../assets/icons/google-cloud.png';
 import googleCloudVmIcon from '../assets/icons/google-cloud-vm.png';
 import googleCloudLoadBalancerIcon from '../assets/icons/google-cloud-load-balancer.svg';
 import googleCloudDnsIcon from '../assets/icons/google-cloud-dns.png';
+import muiIcon from '../assets/icons/mui.png';
 
 export type TechStackType = {
     image: string,
@@ -247,6 +248,11 @@ export const maven: TechStackType = {
     image: mavenIcon,
     link: "https://maven.apache.org/",
     note: "Maven",
+};
+export const mui: TechStackType = {
+    image: muiIcon,
+    link: "https://mui.com/",
+    note: "Material UI",
 };
 export const nodejs: TechStackType = {
     image: nodejsIcon,

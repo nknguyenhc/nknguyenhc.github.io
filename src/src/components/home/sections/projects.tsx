@@ -43,6 +43,9 @@ import UltimateTicTacToeBrowser from '../../../assets/projects/ultimate-tictacto
 import MinesweepererSS from '../../../assets/projects/minesweeper-ss.png';
 import MinesweepererEasy from '../../../assets/projects/minesweeper-easy.jpg';
 import MinesweepererHard from '../../../assets/projects/minesweeper-hard.jpg';
+import LumninousZephyrBanner from '../../../assets/projects/luminous-zephyr-banner.jpg';
+import LuminousZephyrHome from '../../../assets/projects/luminous-zephyr-home.png';
+import LuminousZephyrSample from '../../../assets/projects/luminous-zephyr-sample.jpg';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -73,7 +76,9 @@ import {
     firebase,
     flask,
     flutter,
+    gemini,
     godot,
+    googleCloud,
     graphql,
     java,
     jsDomManipulation,
@@ -409,6 +414,31 @@ const hackathons: Array<ProjectData> = [
             },
         ],
         period: "Sep 2023",
+    },
+    {
+        name: "Luminous Zephyr",
+        description: "We often find ourselves scrolling endlessly searching for the perfect product to get. Whether it is a gift for others or something we genuinely need, we are lost in the plethora of choices and often find ourselves difficult to decide what to purchase.\nShopping for products should not be a hassle! With AI technology and the vast variety of options on the TikTok Shop, there must be a better way to find exactly what we want with just natural spoken language.\nWe, Lost Kids, have set on the journey to discover solutions to enhance shopping experiences!",
+        readme: "https://devpost.com/software/luminous-zephyr",
+        code: "https://github.com/nknguyenhc/luminous-zephyr",
+        images: {
+            main: LumninousZephyrBanner,
+            left: LuminousZephyrHome,
+            right: LuminousZephyrSample,
+        },
+        techstacks: [
+            react,
+            fastApi,
+            gemini,
+            googleCloud,
+        ],
+        deployed: [
+            {
+                link: "https://luminous-zephyr.web.app/",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Jun 2023 - Jul 2023",
     },
     {
         name: "Parody Generator",

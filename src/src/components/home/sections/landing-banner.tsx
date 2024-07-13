@@ -29,7 +29,12 @@ import {
     firebase,
     flask,
     flutter,
+    gemini,
     godot,
+    googleCloud,
+    googleCloudDns,
+    googleCloudLoadBalancer,
+    googleCloudVm,
     gradle,
     graphql,
     heroku,
@@ -130,18 +135,19 @@ const techstackData: Array<TechStackSection> = [
     },
     {
         name: "Cloud",
-        techstacks: [azure, aws, heroku],
+        techstacks: [googleCloud, azure, aws, heroku],
     },
     {
         name: "DevOps",
         techstacks: [
             awsEc2, awsLoadBalancer, awsCertificateManager, awsRoute53, awsS3,
             azureContainerRegistry, azureAppService, azureBlobStorage,
+            googleCloudVm, googleCloudLoadBalancer, googleCloudDns,
         ],
     },
     {
         name: "Artificial Intelligence",
-        techstacks: [stabilityai, openai, numpy, pytorch],
+        techstacks: [stabilityai, openai, gemini, numpy, pytorch],
     },
     {
         name: "Programming Languages",

@@ -46,6 +46,11 @@ import azureCosmosDbIcon from '../assets/icons/azure-cosmos-db.png';
 import azureContainerRegistryIcon from '../assets/icons/azure-container-registry.png';
 import azureBlobStorageIcon from '../assets/icons/azure-blob-storage.png';
 import azureAppServiceIcon from '../assets/icons/azure-app-service.png';
+import geminiIcon from '../assets/icons/gemini.webp';
+import googleCloudIcon from '../assets/icons/google-cloud.png';
+import googleCloudVmIcon from '../assets/icons/google-cloud-vm.png';
+import googleCloudLoadBalancerIcon from '../assets/icons/google-cloud-load-balancer.svg';
+import googleCloudDnsIcon from '../assets/icons/google-cloud-dns.png';
 
 export type TechStackType = {
     image: string,
@@ -178,6 +183,11 @@ export const flutter: TechStackType = {
     link: "https://flutter.dev/",
     note: "Flutter",
 };
+export const gemini: TechStackType = {
+    image: geminiIcon,
+    link: "https://ai.google.dev/",
+    note: "Gemini",
+}
 export const gradle: TechStackType = {
     image: gradleIcon,
     link: "https://gradle.org/",
@@ -187,6 +197,26 @@ export const godot: TechStackType = {
     image: godotIcon,
     link: "https://godotengine.org/",
     note: "Godot",
+};
+export const googleCloud: TechStackType = {
+    image: googleCloudIcon,
+    link: "https://cloud.google.com/",
+    note: "Google Cloud",
+};
+export const googleCloudDns: TechStackType = {
+    image: googleCloudDnsIcon,
+    link: "https://cloud.google.com/dns",
+    note: "Google Cloud DNS",
+};
+export const googleCloudLoadBalancer: TechStackType = {
+    image: googleCloudLoadBalancerIcon,
+    link: "https://cloud.google.com/load-balancing",
+    note: "Google Cloud Load Balancer",
+};
+export const googleCloudVm: TechStackType = {
+    image: googleCloudVmIcon,
+    link: "https://cloud.google.com/compute",
+    note: "Google Cloud VM",
 };
 export const graphql: TechStackType = {
     image: graphqlIcon,

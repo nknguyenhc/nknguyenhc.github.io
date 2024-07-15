@@ -26,10 +26,8 @@ const toBytecoderString: ToBytecoderString = (bytecoder.toBytecoderString as unk
 
 const Terminal = (): JSX.Element => {
     const [dialog, setDialog] = useState<Array<string>>([]);
-    const isStarted = useRef<boolean>(false);
     const [inputValue, setInputValue] = useState<string>('');
     const logRef = useRef<HTMLDivElement>(null);
-    const [isGameEnded, setIsGameEnded] = useState<boolean>(false);
 
     const scrollToBottom = useCallback(() => {
         setTimeout(() => {
@@ -46,11 +44,13 @@ const Terminal = (): JSX.Element => {
             ...dialog,
             response,
         ]);
-        if (response[response.length - 1] === '!') {
-            setIsGameEnded(true);
-        }
         scrollToBottom();
     }, [scrollToBottom]);
+
+    const startup = useCallback(() => {
+        const response = agent.getResponse(toBytecoderString('startup')).nativeObject;
+        setDialog([response]);
+    }, []);
 
     const getResponse = useCallback(() => {
         const response = agent.getResponse(toBytecoderString(inputValue)).nativeObject;
@@ -61,10 +61,6 @@ const Terminal = (): JSX.Element => {
         ]);
         setInputValue('');
         scrollToBottom();
-        if (response[response.length - 1] === '!') {
-            setIsGameEnded(true);
-            return;
-        }
         if (response[response.length - 1] !== ':') {
             setTimeout(updateDialog, 400);
         }
@@ -77,11 +73,11 @@ const Terminal = (): JSX.Element => {
     }, [getResponse]);
 
     useEffect(() => {
-        if (!isStarted.current) {
-            updateDialog();
-            isStarted.current = true;
+        startup();
+        return () => {
+            agent.getResponse(toBytecoderString('refresh'));
         }
-    }, [updateDialog]);
+    }, [startup]);
 
     return <div className="ultimate-tictactoe-terminal">
         <div className="ultimate-tictactoe-terminal-log" ref={logRef}>
@@ -96,7 +92,6 @@ const Terminal = (): JSX.Element => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyUp={handleKeyUp}
                 value={inputValue}
-                disabled={isGameEnded}
                 autoFocus
             />
         </div>

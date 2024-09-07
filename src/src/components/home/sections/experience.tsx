@@ -1,8 +1,21 @@
 import { splitArray } from '../../../utils/array';
 import dsLogo from '../../../assets/home/DS-logo.jpg';
+import temusLogo from '../../../assets/home/Temus-logo.webp';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useViewportWidth from '../../../utils/viewport';
-import { TechStackType, alpine, emotion, pug, react, scss, tailwind, typescript } from '../../../constants/techstack';
+import {
+    TechStackType,
+    alpine,
+    emotion,
+    fastApi,
+    gemini,
+    openai,
+    pug,
+    react,
+    scss,
+    tailwind,
+    typescript,
+} from '../../../constants/techstack';
 
 type InternProject = {
     title: string,
@@ -48,6 +61,38 @@ const experienceData: Array<InternExperience> = [
             tailwind,
             pug,
             emotion,
+        ]
+    },
+    {
+        image: temusLogo,
+        position: "AI Engineer at Temus",
+        duration: "May 2024 - Aug 2024",
+        projects: [
+            {
+                title: "RSAF Demo",
+                text: "Engineered two-agent system to train airport personnel within one week.",
+                result: "Securing a valuable contract between Temus and RSAF.",
+            },
+            {
+                title: "Talent Acquisition",
+                text: "Managed new resume evaluation modules to integrate in-house resume scanner with Greenhouse.",
+                result: "Benefitting thousands of recruiters on Greenhouse.",
+            },
+            {
+                title: "Temasek Foundation",
+                text: "Developed server for Temasek Foundation to scan for applicant companies' scandals.",
+                result: "Enabling Temasek Foundation to conduct thorough background check on every of its grant applications.",
+            },
+            {
+                title: "Data Reconciliation",
+                text: "Created data reconciliation app to facilitate data column mapping suggestions",
+                result: "Expediting dozens of data reconciliation processes.",
+            },
+        ],
+        techstacks: [
+            openai,
+            gemini,
+            fastApi,
         ]
     }
 ]

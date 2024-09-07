@@ -40,7 +40,7 @@ import SudokuSolverKiller from '../../../assets/projects/sudoku-solver-killer.pn
 import UltimateTicTacToeWelcome from '../../../assets/projects/ultimate-tictactoe-welcome.png';
 import UltimateTicTacToeLocal from '../../../assets/projects/ultimate-tictactoe-local.png';
 import UltimateTicTacToeBrowser from '../../../assets/projects/ultimate-tictactoe-browser.png';
-import MinesweepererSS from '../../../assets/projects/minesweeper-ss.png';
+import MinesweepererCodingame from '../../../assets/projects/minesweeper-codingame.png';
 import MinesweepererEasy from '../../../assets/projects/minesweeper-easy.jpg';
 import MinesweepererHard from '../../../assets/projects/minesweeper-hard.jpg';
 import LumninousZephyrBanner from '../../../assets/projects/luminous-zephyr-banner.jpg';
@@ -339,14 +339,14 @@ const algorithms: Array<ProjectData> = [
         images: {
             main: MinesweepererHard,
             left: MinesweepererEasy,
-            right: MinesweepererSS,
+            right: MinesweepererCodingame,
         },
         techstacks: [
             puppeteer,
             typescript,
         ],
         deployed: [],
-        period: "May 2024",
+        period: "May 2024 - Aug 2024",
     },
     {
         name: "Sudoku Solver",

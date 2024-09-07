@@ -17,6 +17,15 @@
         gap: $normal-gap;
         background-color: $purple;
     }
+
+    &-show-more {
+        margin: auto;
+        padding: $normal-gap;
+        background: $cyan;
+        font-size: $slightly-large-fs;
+        border-radius: $small-border-radius;
+        cursor: pointer;
+    }
 }
 
 $panel-top: 23%;

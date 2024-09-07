@@ -541,20 +541,32 @@ const hackathons: Array<ProjectData> = [
 ];
 
 export default function Projects(): JSX.Element {
+    return <div className="projects-container">
+        <ProjectsSection projects={projects} title="My Projects" id="my-projects" />
+        <ProjectsSection projects={algorithms} title="My Algorithms" id="my-algorithms" />
+        <ProjectsSection projects={hackathons} title="Hackathons" id="hackathons" />
+    </div>;
+}
+
+const ProjectsSection = ({ projects, title, id }: {
+    projects: Array<ProjectData>,
+    title: string,
+    id: string,
+}): JSX.Element => {
     const [showIndex, setShowIndex] = useState<number>(0);
-    const [algoShowIndex, setAlgoShowIndex] = useState<number>(0);
-    const [hackathonShowIndex, setHackathonShowIndex] = useState<number>(0);
+    const [showCount, setShowCount] = useState<number>(3);
     const isDesktop = useViewportWidth();
 
-    return <div className="projects-container">
-        <div className="projects" id="my-projects">
-            <div className="home-section-title">My Projects</div>
+    return (
+        <div className="projects" id={id}>
+            <div className="home-section-title">{title}</div>
             {projects.map((project, projectIndex) => (
                 <Project 
                     project={project} 
                     key={projectIndex} 
                     isShow={showIndex === projectIndex} 
                     isStatic={showIndex <= projectIndex}
+                    isDisplayedOnMobile={showCount > projectIndex}
                 />
             ))}
             {isDesktop && <Pagination
@@ -565,52 +577,18 @@ export default function Projects(): JSX.Element {
                 currIndex={showIndex}
                 numOfItems={projects.length}
             />}
+            {showCount < projects.length && (
+                <div className="projects-show-more" onClick={() => setShowCount(showCount => showCount + 3)}>Show More</div>
+            )}
         </div>
-        <div className="projects" id="my-algorithms">
-            <div className="home-section-title">My Algorithms</div>
-            {algorithms.map((algorithm, algorithmIndex) => (
-                <Project
-                    project={algorithm}
-                    key={algorithmIndex}
-                    isShow={algoShowIndex === algorithmIndex}
-                    isStatic={algoShowIndex <= algorithmIndex}
-                />
-            ))}
-            {isDesktop && <Pagination
-                leftPositionClass='project-arrow-left'
-                rightPositionClass='project-arrow-right'
-                indicatorPositionClass=''
-                setIndex={setAlgoShowIndex}
-                currIndex={algoShowIndex}
-                numOfItems={algorithms.length}
-            />}
-        </div>
-        <div className="projects" id="hackathons">
-            <div className="home-section-title">Hackathons & Competitions</div>
-            {hackathons.map((hackathon, hackathonIndex) => (
-                <Project
-                    project={hackathon}
-                    key={hackathonIndex}
-                    isShow={hackathonShowIndex === hackathonIndex}
-                    isStatic={hackathonShowIndex <= hackathonIndex}
-                />
-            ))}
-            {isDesktop && <Pagination
-                leftPositionClass='project-arrow-left'
-                rightPositionClass='project-arrow-right'
-                indicatorPositionClass=''
-                setIndex={setHackathonShowIndex}
-                currIndex={hackathonShowIndex}
-                numOfItems={hackathons.length}
-            />}
-        </div>
-    </div>;
-}
+    );
+};
 
-const Project = ({ project, isShow, isStatic }: {
+const Project = ({ project, isShow, isStatic, isDisplayedOnMobile }: {
     project: ProjectData,
     isShow: boolean,
     isStatic: boolean,
+    isDisplayedOnMobile: boolean,
 }): JSX.Element => {
     const isDesktop = useViewportWidth();
     const [indexOfImgShown, setIndexOfImgShown] = useState<number>(0);
@@ -626,6 +604,10 @@ const Project = ({ project, isShow, isStatic }: {
             left: target.getBoundingClientRect().left,
         }));
     }, [dispatch]);
+
+    if (!isDesktop && !isDisplayedOnMobile) {
+        return (<></>);
+    }
 
     return <div className={"project" + (isShow ? " project-show" : "") + (isStatic ? " project-static": "")}>
         <div className={"project-panel" + (isDesktop ? " project-left" : "")}>

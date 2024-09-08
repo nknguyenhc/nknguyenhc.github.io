@@ -577,7 +577,7 @@ const ProjectsSection = ({ projects, title, id }: {
                 currIndex={showIndex}
                 numOfItems={projects.length}
             />}
-            {showCount < projects.length && (
+            {!isDesktop && showCount < projects.length && (
                 <div className="projects-show-more" onClick={() => setShowCount(showCount => showCount + 3)}>Show More</div>
             )}
         </div>

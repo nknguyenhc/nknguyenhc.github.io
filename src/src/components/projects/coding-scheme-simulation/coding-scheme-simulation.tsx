@@ -34,7 +34,7 @@ const Description = (): JSX.Element => {
 
 const WebPage = (): JSX.Element => {
     return <iframe
-        src="https://coding-scheme-simulation.azurewebsites.net/"
+        src="https://coding-scheme-simulation.nknguyenhc.net/"
         title="CSS page"
         className="css-page"
     />

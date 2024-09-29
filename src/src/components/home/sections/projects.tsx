@@ -175,7 +175,7 @@ const projects: Array<ProjectData> = [
                 icon: telegramIcon,
             },
             {
-                link: "https://quacknkn.click",
+                link: "https://quack-nkn.nknguyenhc.net",
                 description: "Web",
                 icon: WebIcon,
             },
@@ -368,7 +368,7 @@ const algorithms: Array<ProjectData> = [
         ],
         deployed: [
             {
-                link: "https://sudoku-solution.azurewebsites.net/",
+                link: "https://sudoku-solver.nknguyenhc.net/",
                 icon: WebIcon,
                 description: "Web",
             },
@@ -395,7 +395,7 @@ const algorithms: Array<ProjectData> = [
         ],
         deployed: [
             {
-                link: "https://coding-scheme-simulation.azurewebsites.net/",
+                link: "https://coding-scheme-simulation.nknguyenhc.net/",
                 description: "Web",
                 icon: WebIcon,
             },

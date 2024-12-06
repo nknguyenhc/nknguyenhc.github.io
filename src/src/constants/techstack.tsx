@@ -51,7 +51,15 @@ import googleCloudIcon from '../assets/icons/google-cloud.png';
 import googleCloudVmIcon from '../assets/icons/google-cloud-vm.png';
 import googleCloudLoadBalancerIcon from '../assets/icons/google-cloud-load-balancer.svg';
 import googleCloudDnsIcon from '../assets/icons/google-cloud-dns.png';
+import googleCloudStorageIcon from '../assets/icons/google-cloud-storage.webp';
+import googleCloudRunIcon from '../assets/icons/google-cloud-run.png';
 import muiIcon from '../assets/icons/mui.png';
+import mongodbIcon from '../assets/icons/mongodb.svg';
+import cloudflareIcon from '../assets/icons/cloudflare.png';
+import nginxIcon from '../assets/icons/nginx.png';
+import redisIcon from '../assets/icons/redis.webp';
+import rabbitmqIcon from '../assets/icons/rabbitmq.png';
+import kamateraIcon from '../assets/icons/kamatera.png';
 
 export type TechStackType = {
     image: string,
@@ -139,6 +147,11 @@ export const c: TechStackType = {
     link: "https://en.wikipedia.org/wiki/C_(programming_language)",
     note: "C",
 };
+export const cloudflare: TechStackType = {
+    image: cloudflareIcon,
+    link: "https://cloudflare.com/",
+    note: "Cloudflare",
+};
 export const cpp: TechStackType = {
     image: cppIcon,
     link: "https://en.wikipedia.org/wiki/C%2B%2B",
@@ -214,6 +227,16 @@ export const googleCloudLoadBalancer: TechStackType = {
     link: "https://cloud.google.com/load-balancing",
     note: "Google Cloud Load Balancer",
 };
+export const googleCloudRun: TechStackType = {
+    image: googleCloudRunIcon,
+    link: "https://cloud.google.com/run",
+    note: "Google Cloud Run",
+};
+export const googleCloudStorage: TechStackType = {
+    image: googleCloudStorageIcon,
+    link: "https://cloud.google.com/storage",
+    note: "Google Cloud Storage",
+};
 export const googleCloudVm: TechStackType = {
     image: googleCloudVmIcon,
     link: "https://cloud.google.com/compute",
@@ -244,15 +267,30 @@ export const jsDomManipulation: TechStackType = {
     link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
     note: "JS DOM manipulation",
 };
+export const kamatera: TechStackType = {
+    image: kamateraIcon,
+    link: "https://kamatera.com/",
+    note: "Kamatera",
+};
 export const maven: TechStackType = {
     image: mavenIcon,
     link: "https://maven.apache.org/",
     note: "Maven",
 };
+export const mongodb: TechStackType = {
+    image: mongodbIcon,
+    link: "https://mongodb.com/",
+    note: "MongoDB",
+};
 export const mui: TechStackType = {
     image: muiIcon,
     link: "https://mui.com/",
     note: "Material UI",
+};
+export const nginx: TechStackType = {
+    image: nginxIcon,
+    link: "https://nginx.org/",
+    note: "Nginx",
 };
 export const nodejs: TechStackType = {
     image: nodejsIcon,
@@ -303,6 +341,16 @@ export const react: TechStackType = {
     image: reactIcon,
     link: "https://react.dev/",
     note: "React",
+};
+export const rabbitmq: TechStackType = {
+    image: rabbitmqIcon,
+    link: "https://rabbitmq.com/",
+    note: "RabbitMQ",
+};
+export const redis: TechStackType = {
+    image: redisIcon,
+    link: "https://redis.io/",
+    note: "Redis",
 };
 export const scss: TechStackType = {
     image: scssIcon,

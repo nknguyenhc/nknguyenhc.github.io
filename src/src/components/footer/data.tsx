@@ -117,7 +117,7 @@ export const contactLinks: Array<SocialLink> = [
     },
     {
         image: emailIcon,
-        href: "mailto:nknguyentdn@gmail.com",
-        text: "nknguyentdn@gmail.com",
+        href: "mailto:hello@nknguyenhc.net",
+        text: "hello@nknguyenhc.net",
     },
 ];

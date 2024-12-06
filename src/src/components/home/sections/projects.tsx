@@ -49,6 +49,15 @@ import LuminousZephyrSample from '../../../assets/projects/luminous-zephyr-sampl
 import TextAnalyserHome from '../../../assets/projects/text-analyser-home.png';
 import TextAnalyserTextCount from '../../../assets/projects/text-analyser-text-count.png';
 import TextAnalyserDayIndivCount from '../../../assets/projects/text-analyser-day-indiv-frequency.png';
+import LuckyJinxMain from '../../../assets/projects/luckyjinx-main.png';
+import LuckyJinxLeft from '../../../assets/projects/luckyjinx-left.png';
+import LuckyJinxRight from '../../../assets/projects/luckyjinx-right.png';
+import DokyuLanding from '../../../assets/projects/dokyu-landing.png';
+import DokyuPoster from '../../../assets/projects/dokyu-poster.png';
+import DokyuTechstacks from '../../../assets/projects/dokyu-techstacks.png';
+import StellarLanding from '../../../assets/projects/stellar-landing.png';
+import StellarComment from '../../../assets/projects/stellar-comment.png';
+import StellarGeneralComment from '../../../assets/projects/stellar-general-comment.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -71,6 +80,7 @@ import {
     awsS3,
     azure,
     azureCosmosDb,
+    cloudflare,
     cpp,
     django,
     docker,
@@ -86,17 +96,23 @@ import {
     graphql,
     java,
     jsDomManipulation,
+    kamatera,
     maven,
+    mongodb,
     mui,
+    nginx,
     numpy,
     openai,
     pug,
     puppeteer,
     python,
+    rabbitmq,
     react,
+    redis,
     scss,
     sql,
     stabilityai,
+    tailwind,
     telegram,
     typescript
 } from '../../../constants/techstack';
@@ -124,6 +140,65 @@ type ProjectData = {
 
 const projects: Array<ProjectData> = [
     {
+        name: "Dokyu",
+        description: "Dokyu is a digital keepsake platform designed to facilitate collaboration among friends and families in preserving meaningful memories. Derived from the Japanese word for “document”, Dokyu addresses the inevitable fading of memories over time, whether they are retained in our minds or captured in digital formats such as photos and videos, or in physical forms like photo albums and heirlooms. As time elapses, the emotional context and vividness of these memories can become obscured, presenting a challenge that Dokyu aims to solve.",
+        readme: "#",
+        code: "#",
+        images: {
+            main: DokyuLanding,
+            left: DokyuPoster,
+            right: DokyuTechstacks,
+        },
+        techstacks: [
+            react,
+            typescript,
+            tailwind,
+            django,
+            sql,
+            nginx,
+            redis,
+            cloudflare,
+            docker,
+            googleCloud,
+            kamatera,
+        ],
+        deployed: [
+            {
+                link: "https://dokyu.app",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Sep 2024 - present",
+    },
+    {
+        name: "Stellar",
+        description: "Our application tackles the problem of high prices of consultancy services and feedback delays, by providing personalised guidance on personal statements, conducting mock interviews and reviewing mock interviews for Oxbridge applications and Jardine scholarship applications. Using LLMs, our carefully-crafted prompts ensure that the feedback provided is no less effective than human-provided feedback.",
+        readme: "https://github.com/nknguyenhc/CS3216-A3/blob/main/group-2-milestones.pdf",
+        code: "https://github.com/nknguyenhc/CS3216-A3",
+        images: {
+            main: StellarLanding,
+            left: StellarComment,
+            right: StellarGeneralComment,
+        },
+        techstacks: [
+            react,
+            typescript,
+            tailwind,
+            django,
+            sql,
+            googleCloud,
+        ],
+        deployed: [
+            {
+                link: "https://stellar.nknguyenhc.net",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Sep 2024 - Oct 2024",
+    },
+    {
         name: "WATcher",
         description: "WATcher is an application to monitor software development projects. We support displaying issues and pull requests in a consolidated, interactive dashboard, with various filters for the user to highlight one part of the project.\nWe also support preset views, with \"currently active\" view to highlight the work of contributors towards the current milestone, and \"contributions\" view to highlight the total work of contributors.",
         readme: "https://github.com/CATcher-org/WATcher?tab=readme-ov-file#watcher",
@@ -148,6 +223,38 @@ const projects: Array<ProjectData> = [
         period: "Jan 2024 - present",
     },
     {
+        name: "LuckyJinx",
+        description: "LuckyJinx is a platform for coders to practice for coding interviews. Users start a new session and will be matched with another user. They will be given a coding question to solve.\nThe platform supports features like synced editor, chat, video call, AI hint, and code execution.\nUsers can also see the list of available questions, for reference.",
+        readme: "https://github.com/cs3219-AY2425S1/cs3219-ay2425s1-project-g06/",
+        code: "https://github.com/cs3219-AY2425S1/cs3219-ay2425s1-project-g06/",
+        images: {
+            main: LuckyJinxMain,
+            left: LuckyJinxLeft,
+            right: LuckyJinxRight,
+        },
+        techstacks: [
+            react,
+            typescript,
+            mui,
+            fastApi,
+            express,
+            mongodb,
+            nginx,
+            redis,
+            rabbitmq,
+            docker,
+            googleCloud,
+        ],
+        deployed: [
+            {
+                link: "https://luckyjinx.nknguyenhc.net",
+                description: "Web",
+                icon: WebIcon,
+            },
+        ],
+        period: "Sep 2024 - Nov 2024",
+    },
+    {
         name: "Quack NKN",
         description: "Have you ever wanted to track when a particular job opening will be open for application? Or when a particular information is out? Fret not! My Telegram bot sends you screenshots of those websites to you at the frequency you want, either everyday, every week, or once. My bot also has an accompanying reminder feature if you wish to reminder yourselves with tasks related to your website trackers.",
         readme: "https://github.com/nknguyenhc/quack-nkn?tab=readme-ov-file#quack-nkn",
@@ -167,6 +274,7 @@ const projects: Array<ProjectData> = [
             scss,
             alpine,
             aws,
+            kamatera,
         ],
         deployed: [
             {
@@ -365,6 +473,7 @@ const algorithms: Array<ProjectData> = [
             fastApi,
             scss,
             azure,
+            googleCloud,
         ],
         deployed: [
             {
@@ -392,6 +501,7 @@ const algorithms: Array<ProjectData> = [
             emotion,
             docker,
             azure,
+            googleCloud,
         ],
         deployed: [
             {

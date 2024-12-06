@@ -126,8 +126,8 @@ type DeployData = {
 type ProjectData = {
     name: string,
     description: string,
-    readme: string,
-    code: string,
+    readme?: string,
+    code?: string,
     images: {
         main: string,
         left: string,
@@ -142,8 +142,6 @@ const projects: Array<ProjectData> = [
     {
         name: "Dokyu",
         description: "Dokyu is a digital keepsake platform designed to facilitate collaboration among friends and families in preserving meaningful memories. Derived from the Japanese word for “document”, Dokyu addresses the inevitable fading of memories over time, whether they are retained in our minds or captured in digital formats such as photos and videos, or in physical forms like photo albums and heirlooms. As time elapses, the emotional context and vividness of these memories can become obscured, presenting a challenge that Dokyu aims to solve.",
-        readme: "#",
-        code: "#",
         images: {
             main: DokyuLanding,
             left: DokyuPoster,
@@ -225,7 +223,6 @@ const projects: Array<ProjectData> = [
     {
         name: "LuckyJinx",
         description: "LuckyJinx is a platform for coders to practice for coding interviews. Users start a new session and will be matched with another user. They will be given a coding question to solve.\nThe platform supports features like synced editor, chat, video call, AI hint, and code execution.\nUsers can also see the list of available questions, for reference.",
-        readme: "https://github.com/cs3219-AY2425S1/cs3219-ay2425s1-project-g06/",
         code: "https://github.com/cs3219-AY2425S1/cs3219-ay2425s1-project-g06/",
         images: {
             main: LuckyJinxMain,
@@ -378,7 +375,6 @@ const projects: Array<ProjectData> = [
     {
         name: "Guardian of the Dreamy World",
         description: "The evil dragon has arrived! Not only has it brought slimes, bats and disastrous fires, but also stolen everyone's good dreams, leaving only nightmares! The dreamy world needs you! In this role-playing game, you will be travelling towards the end, fighting bats and slimes, and defeat the dragon boss, to save everyone.",
-        readme: "https://flamboyyy.itch.io/guardian-of-the-dreamy-world",
         code: "https://github.com/nknguyenhc/dreaming-dragons",
         images: {
             main: DragonStamp,
@@ -487,7 +483,6 @@ const algorithms: Array<ProjectData> = [
     {
         name: "Coding Scheme Simulation",
         description: "While transmitting data, errors might be introduced. if raw data is sent, the receiving ends has no means of reversing the errors. Hence, instead of sending raw data, both sender and receiver agrees on an encryption mechanism such that encrypted data can be decrypted, and errors can be auto-corrected in the process.\nWe explore three such encryption mechanisms varying in complexity and effectiveness, the Hamming code, the convolutional code, and the Reed-Solomon code.",
-        readme: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
         code: "https://github.com/tranvietkhoa/Coding-Schemes-Simulation",
         images: {
             main: Coding1,
@@ -751,13 +746,15 @@ const Project = ({ project, isShow, isStatic, isDisplayedOnMobile }: {
             }} />
             <div className="project-period">{project.period}</div>
             <div className="project-links">
-                <div className="project-readme">Read our full description <a className='link' href={project.readme}>here</a>.</div>
-                <div className="project-code">
-                    <div className="project-code-text">Fork me!</div> 
-                    <a className="small-img-container" href={project.code}>
-                        <img src={GithubIcon} alt="github icon" />
-                    </a>
-                </div>
+                {project.readme && <div className="project-readme">Read our full description <a className='link' href={project.readme}>here</a>.</div>}
+                {project.code && (
+                    <div className="project-code">
+                        <div className="project-code-text">Fork me!</div> 
+                        <a className="small-img-container" href={project.code}>
+                            <img src={GithubIcon} alt="github icon" />
+                        </a>
+                    </div>
+                )}
             </div>
         </div>
         <div className={"project-panel" + (isDesktop ? " project-right" : "")}>

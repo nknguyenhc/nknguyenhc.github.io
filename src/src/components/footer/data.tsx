@@ -89,7 +89,7 @@ export const socialLinks: Array<SocialLink> = [
     },
     {
         image: linkedinIcon,
-        href: "https://www.linkedin.com/in/nguyen-khoi-nguyen-6279341a8/",
+        href: "https://www.linkedin.com/in/nknguyenhc",
         text: "Linkedin",
     },
     {

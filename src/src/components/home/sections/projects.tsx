@@ -58,6 +58,12 @@ import DokyuTechstacks from '../../../assets/projects/dokyu-techstacks.png';
 import StellarLanding from '../../../assets/projects/stellar-landing.png';
 import StellarComment from '../../../assets/projects/stellar-comment.png';
 import StellarGeneralComment from '../../../assets/projects/stellar-general-comment.png';
+import BallsorterGameplay from '../../../assets/projects/ballsorter-gameplay.jpg';
+import BallsorterMidgame from '../../../assets/projects/ballsorter-midgame.jpg';
+import BallsorterSolver from '../../../assets/projects/ballsorter-solver.png';
+import Connect4Engine from '../../../assets/projects/connect4-engine.png';
+import Connect4AnotherEngine from '../../../assets/projects/connect4-another-engine.png';
+import Connect4Codingame from '../../../assets/projects/connect4-codingame.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -479,6 +485,38 @@ const algorithms: Array<ProjectData> = [
             },
         ],
         period: "Feb 2024 - Apr 2024",
+    },
+    {
+        name: "Connect4",
+        description: "Connect4 is a two-player connection game in which the players first choose a colour and then take turns dropping coloured discs from the top into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column.\nI explored Monte Carlo Tree Search to solve the game, reaching upper league in the codingame competition.",
+        readme: "https://github.com/nknguyenhc/connect-4?tab=readme-ov-file#connect-4",
+        code: "https://github.com/nknguyenhc/connect-4",
+        images: {
+            main: Connect4Codingame,
+            left: Connect4Engine,
+            right: Connect4AnotherEngine,
+        },
+        techstacks: [
+            python,
+        ],
+        deployed: [],
+        period: "May 2024 - Oct 2024",
+    },
+    {
+        name: "Ballsorting",
+        description: "The algorithm takes inspiration from the famously advertised game ballsorting, where the player can only stack balls of the same colour on top of each other. My algorithm solves the game from an image, by first recognising the number of balls and their colours, then suggesting a sequence of moves to solve the game.\n",
+        readme: "https://github.com/nknguyenhc/ballsorting?tab=readme-ov-file#ballsorting",
+        code: "https://github.com/nknguyenhc/ballsorting",
+        images: {
+            main: BallsorterGameplay,
+            left: BallsorterSolver,
+            right: BallsorterMidgame,
+        },
+        techstacks: [
+            python,
+        ],
+        deployed: [],
+        period: "Aug 2024 - Sep 2024",
     },
     {
         name: "Coding Scheme Simulation",

@@ -64,6 +64,9 @@ import BallsorterSolver from '../../../assets/projects/ballsorter-solver.png';
 import Connect4Engine from '../../../assets/projects/connect4-engine.png';
 import Connect4AnotherEngine from '../../../assets/projects/connect4-another-engine.png';
 import Connect4Codingame from '../../../assets/projects/connect4-codingame.png';
+import Kakuro1 from '../../../assets/projects/kakuro-1.png';
+import Kakuro2 from '../../../assets/projects/kakuro-2.png';
+import Kakuro3 from '../../../assets/projects/kakuro-3.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -517,6 +520,33 @@ const algorithms: Array<ProjectData> = [
         ],
         deployed: [],
         period: "Aug 2024 - Sep 2024",
+    },
+    {
+        name: "Kakuro Solver",
+        description: "Kakuro is a puzzle game, where a block of consecutive cells in a row or a column cannot have the same digit more than once, and must satisfy a sum constraint. The algorithm solves the game by first reducing the domain of each cell, then applying the minimum remaining value heuristic to determine the next cell to try values. The algorithm manipulates on only one board, for the purpose of memory efficiency and tracing.",
+        readme: "https://github.com/nknguyenhc/kakuro?tab=readme-ov-file#kakuro",
+        code: "https://github.com/nknguyenhc/kakuro",
+        images: {
+            main: Kakuro3,
+            left: Kakuro2,
+            right: Kakuro1,
+        },
+        techstacks: [
+            python,
+            react,
+            emotion,
+            fastApi,
+            docker,
+            googleCloud,
+        ],
+        deployed: [
+            {
+                link: "https://kakuro.nknguyenhc.net/",
+                icon: WebIcon,
+                description: "Web",
+            },
+        ],
+        period: "Dec 2024",
     },
     {
         name: "Coding Scheme Simulation",

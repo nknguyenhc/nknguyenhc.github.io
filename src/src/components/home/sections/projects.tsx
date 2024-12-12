@@ -208,7 +208,7 @@ const projects: Array<ProjectData> = [
     {
         name: "WATcher",
         description: "WATcher is an application to monitor software development projects. We support displaying issues and pull requests in a consolidated, interactive dashboard, with various filters for the user to highlight one part of the project.\nWe also support preset views, with \"currently active\" view to highlight the work of contributors towards the current milestone, and \"contributions\" view to highlight the total work of contributors.",
-        readme: "https://github.com/CATcher-org/WATcher?tab=readme-ov-file#watcher",
+        readme: "https://catcher-org.github.io/WATcher-docs/",
         code: "https://github.com/CATcher-org/WATcher",
         images: {
             main: WATcherWATcher,
@@ -251,13 +251,7 @@ const projects: Array<ProjectData> = [
             docker,
             googleCloud,
         ],
-        deployed: [
-            {
-                link: "https://luckyjinx.nknguyenhc.net",
-                description: "Web",
-                icon: WebIcon,
-            },
-        ],
+        deployed: [],
         period: "Sep 2024 - Nov 2024",
     },
     {
@@ -336,7 +330,7 @@ const projects: Array<ProjectData> = [
         ],
         deployed: [
             {
-                link: "https://nknguyenhc.github.io/text-analyser/",
+                link: "https://text-analyser.nknguyenhc.net/",
                 description: "Web",
                 icon: WebIcon,
             },

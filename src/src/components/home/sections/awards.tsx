@@ -10,6 +10,8 @@ import SMO20 from '../../../assets/home/SMO20.png';
 import SJPO from '../../../assets/home/SJPO.png';
 import tiktokHackthon from '../../../assets/home/tiktok-hackathon.png';
 import terminal from '../../../assets/home/terminal.png';
+import honourStudentTutors from '../../../assets/home/honour-student-tutors.png';
+import AICTF from '../../../assets/home/AI-CTF.png';
 import { MouseEvent, useState, useEffect, useRef, useCallback } from 'react';
 import { useAppDispatch } from '../../../redux/store';
 import { setImage } from '../../../redux/modalSlice';
@@ -23,6 +25,24 @@ type Award = {
 }
 
 const awards: Array<Award> = [
+    {
+        name: "Honour List of Student Tutors",
+        description: "The honour is awarded to tutors in recognition of their high level of commitment to, and achievement of good teaching.",
+        details: [
+            "Obtained in AY 2023-2024"
+        ],
+        img: honourStudentTutors,
+        certificate: "https://credentials.nus.edu.sg/3e71ebe3-699e-436e-9d8b-9344cc28d7ef#acc.BU4Vgm27",
+    },
+    {
+        name: "AI CTF 2024, top 10",
+        description: "AI CTF is a capture-the-flag competition on AI concepts, with challenges in various domains like model inversion, data analysis, prompt injection, model fingerprinting.",
+        details: [
+            "Overall top 10",
+            "Shortlisted to final round",
+        ],
+        img: AICTF,
+    },
     {
         name: "Terminal Fall 2023, 3rd place",
         description: "Terminal is an AI competition where teams code algorithms for a tower-defense game and compete in a group round-robin format.",

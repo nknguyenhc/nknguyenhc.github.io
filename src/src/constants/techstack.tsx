@@ -60,6 +60,8 @@ import nginxIcon from '../assets/icons/nginx.png';
 import redisIcon from '../assets/icons/redis.webp';
 import rabbitmqIcon from '../assets/icons/rabbitmq.png';
 import kamateraIcon from '../assets/icons/kamatera.png';
+import springbootIcon from '../assets/icons/springboot.png';
+import vueIcon from '../assets/icons/vue.png';
 
 export type TechStackType = {
     image: string,
@@ -357,6 +359,11 @@ export const scss: TechStackType = {
     link: "https://sass-lang.com/",
     note: "SCSS",
 };
+export const springboot: TechStackType = {
+    image: springbootIcon,
+    link: "https://spring.io/projects/spring-boot",
+    note: "Spring Boot",
+};
 export const sql: TechStackType = {
     image: sqlIcon,
     link: "https://en.wikipedia.org/wiki/SQL",
@@ -381,4 +388,9 @@ export const typescript: TechStackType = {
     image: typescriptIcon,
     link: "https://www.typescriptlang.org/",
     note: "Typescript",
+};
+export const vue: TechStackType = {
+    image: vueIcon,
+    link: "https://vuejs.org/",
+    note: "Vue",
 };

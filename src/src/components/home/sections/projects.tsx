@@ -67,6 +67,9 @@ import Connect4Codingame from '../../../assets/projects/connect4-codingame.png';
 import Kakuro1 from '../../../assets/projects/kakuro-1.png';
 import Kakuro2 from '../../../assets/projects/kakuro-2.png';
 import Kakuro3 from '../../../assets/projects/kakuro-3.png';
+import NonogramUnsolved from '../../../assets/projects/nonogram-unsolved.png';
+import NonogramSolved from '../../../assets/projects/nonogram-solved.png';
+import NonogramHalfway from '../../../assets/projects/nonogram-halfway.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -115,15 +118,18 @@ import {
     pug,
     puppeteer,
     python,
+    pytorch,
     rabbitmq,
     react,
     redis,
     scss,
+    springboot,
     sql,
     stabilityai,
     tailwind,
     telegram,
-    typescript
+    typescript,
+    vue
 } from '../../../constants/techstack';
 
 type DeployData = {
@@ -511,9 +517,37 @@ const algorithms: Array<ProjectData> = [
         },
         techstacks: [
             python,
+            pytorch,
         ],
         deployed: [],
         period: "Aug 2024 - Sep 2024",
+    },
+    {
+        name: "Nonogram Solver",
+        description: "Nonogram is a game with the goal of selecting cells on a board, such that all constraints on the rows and columns are satisfied. Each constraint indicate the number of consecutive cells to be selected, and how many of such blocks.\nMy algorithm solves the game by treating it as a constraint-satisfaction problem: in each iteration, the row or column with the lowest number of possible remaining combinations is chosen to resolve.",
+        readme: "https://github.com/nknguyenhc/nonogram?tab=readme-ov-file#nonogram",
+        code: "https://github.com/nknguyenhc/nonogram",
+        images: {
+            main: NonogramSolved,
+            left: NonogramUnsolved,
+            right: NonogramHalfway,
+        },
+        techstacks: [
+            java,
+            vue,
+            springboot,
+            maven,
+            docker,
+            googleCloud,
+        ],
+        deployed: [
+            {
+                link: "https://nonogram.nknguyenhc.net",
+                icon: WebIcon,
+                description: "Web",
+            },
+        ],
+        period: "Dec 2024",
     },
     {
         name: "Kakuro Solver",

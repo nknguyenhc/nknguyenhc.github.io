@@ -62,11 +62,13 @@ import {
     react,
     redis,
     scss,
+    springboot,
     sql,
     stabilityai,
     tailwind,
     telegram,
-    typescript
+    typescript,
+    vue
 } from '../../../constants/techstack';
 import useViewportWidth from '../../../utils/viewport';
 import TooltipDesktop from '../../tooltip/desktop';
@@ -128,11 +130,11 @@ type TechStackSection = {
 const techstackData: Array<TechStackSection> = [
     {
         name: "Frontend",
-        techstacks: [react, angular, typescript, graphql, alpine, scss, emotion, mui, pug, tailwind, bootstrap, flutter],
+        techstacks: [react, angular, vue, typescript, graphql, alpine, scss, emotion, mui, pug, tailwind, bootstrap, flutter],
     },
     {
         name: "Backend",
-        techstacks: [django, flask, fastApi, express, nginx, redis, rabbitmq],
+        techstacks: [django, flask, fastApi, springboot, express, nginx, redis, rabbitmq],
     },
     {
         name: "Database",

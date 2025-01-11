@@ -2,6 +2,7 @@ import { useState } from 'react';
 import CS1101SIcon from '../../../assets/academics/CS1101S.png';
 import CS2030SIcon from '../../../assets/academics/CS2030S.jpg';
 import CS2040SIcon from '../../../assets/academics/CS2040S.png';
+import CS2109SIcon from '../../../assets/academics/CS2109S.svg';
 import useViewportWidth from '../../../utils/viewport';
 
 type DepartmentAverageDictType = {
@@ -11,6 +12,7 @@ type DepartmentAverageDictType = {
 const departmentAverage: DepartmentAverageDictType = {
     'AY2324-S1': 4.3,
     'AY2324-S2': 4.3,
+    'AY2425-S1': 4.3,
 };
 
 type TaDataType = {
@@ -25,30 +27,27 @@ type TaDataType = {
 
 const taData: Array<TaDataType> = [
     {
-        name: 'CS1101S',
-        fullname: 'Programming Methodology',
-        icon: CS1101SIcon,
+        name: 'CS2109S',
+        fullname: 'Introduction to Artificial Intelligence',
+        icon: CS2109SIcon,
         rating: 4.5,
-        term: 'AY2324-S1',
+        term: 'AY2425-S1',
         scope: [
+            'Received 2 recommendations for teaching award',
             'Prepare materials and conduct tutorial classes',
-            'Grade missions, quests (homework)',
-            'Conduct mastery checks',
+            'Grade assignments',
         ],
         topics: [
-            'Constants, functions and variables',
-            'Function evaluation',
-            'Recursion and iteration',
-            'Orders of growth',
-            'Nested declarations',
-            'Higher-order functions',
-            'Scope of name',
-            'Data abstractions and mutations',
-            'Sorting',
-            'Javascript interpreter model',
-            'Streams',
-            'Memoization',
-            'Metalinguistic abstraction',
+            'Tree/graph search, informed search',
+            'Local search',
+            'Alpha-beta pruning',
+            'Decision tree',
+            'Gradient descent (linear/logistic regression)',
+            'Support vector machine',
+            'Neural network',
+            'CNN & RNN',
+            'Singular Value Decomposition & Principal Component Analysis',
+            'Unsupervised learning',
         ],
     },
     {
@@ -108,6 +107,33 @@ const taData: Array<TaDataType> = [
             'Direct acyclic graphs',
             'Minimum spanning tree',
             'Dynamic programming',
+        ],
+    },
+    {
+        name: 'CS1101S',
+        fullname: 'Programming Methodology',
+        icon: CS1101SIcon,
+        rating: 4.5,
+        term: 'AY2324-S1',
+        scope: [
+            'Prepare materials and conduct tutorial classes',
+            'Grade missions, quests (homework)',
+            'Conduct mastery checks',
+        ],
+        topics: [
+            'Constants, functions and variables',
+            'Function evaluation',
+            'Recursion and iteration',
+            'Orders of growth',
+            'Nested declarations',
+            'Higher-order functions',
+            'Scope of name',
+            'Data abstractions and mutations',
+            'Sorting',
+            'Javascript interpreter model',
+            'Streams',
+            'Memoization',
+            'Metalinguistic abstraction',
         ],
     },
 ];

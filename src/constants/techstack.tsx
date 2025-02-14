@@ -64,333 +64,333 @@ import springbootIcon from '../assets/icons/springboot.png';
 import vueIcon from '../assets/icons/vue.png';
 
 export type TechStackType = {
-    image: string,
-    link: string,
-    note: string,
-}
+  image: string;
+  link: string;
+  note: string;
+};
 
 export const alpine: TechStackType = {
-    image: alpineIcon,
-    link: "https://alpinejs.dev/",
-    note: "Alpine.js",
+  image: alpineIcon,
+  link: 'https://alpinejs.dev/',
+  note: 'Alpine.js',
 };
 export const anaconda: TechStackType = {
-    image: anacondaIcon,
-    link: "https://www.anaconda.com/",
-    note: "Anaconda",
+  image: anacondaIcon,
+  link: 'https://www.anaconda.com/',
+  note: 'Anaconda',
 };
 export const angular: TechStackType = {
-    image: angularIcon,
-    link: "https://angular.io/",
-    note: "Angular",
+  image: angularIcon,
+  link: 'https://angular.io/',
+  note: 'Angular',
 };
 export const aws: TechStackType = {
-    image: awsIcon,
-    link: "https://aws.amazon.com/",
-    note: "AWS",
+  image: awsIcon,
+  link: 'https://aws.amazon.com/',
+  note: 'AWS',
 };
 export const awsCertificateManager: TechStackType = {
-    image: awsCertificateManagerIcon,
-    link: "https://aws.amazon.com/certificate-manager/",
-    note: "AWS Certificate Manager",
+  image: awsCertificateManagerIcon,
+  link: 'https://aws.amazon.com/certificate-manager/',
+  note: 'AWS Certificate Manager',
 };
 export const awsEc2: TechStackType = {
-    image: awsEc2Icon,
-    link: "https://aws.amazon.com/pm/ec2/",
-    note: "AWS EC2",
+  image: awsEc2Icon,
+  link: 'https://aws.amazon.com/pm/ec2/',
+  note: 'AWS EC2',
 };
 export const awsLoadBalancer: TechStackType = {
-    image: awsLoadBalancerIcon,
-    link: "https://aws.amazon.com/elasticloadbalancing/",
-    note: "AWS Load Balancer",
+  image: awsLoadBalancerIcon,
+  link: 'https://aws.amazon.com/elasticloadbalancing/',
+  note: 'AWS Load Balancer',
 };
 export const awsRoute53: TechStackType = {
-    image: awsRoute53Icon,
-    link: "https://aws.amazon.com/route53/",
-    note: "AWS Route 53",
+  image: awsRoute53Icon,
+  link: 'https://aws.amazon.com/route53/',
+  note: 'AWS Route 53',
 };
 export const awsS3: TechStackType = {
-    image: awsS3Icon,
-    link: "https://aws.amazon.com/pm/serv-s3/",
-    note: "AWS S3",
+  image: awsS3Icon,
+  link: 'https://aws.amazon.com/pm/serv-s3/',
+  note: 'AWS S3',
 };
 export const azure: TechStackType = {
-    image: azureIcon,
-    link: "https://azure.microsoft.com/en-us",
-    note: "Azure",
+  image: azureIcon,
+  link: 'https://azure.microsoft.com/en-us',
+  note: 'Azure',
 };
 export const azureAppService: TechStackType = {
-    image: azureAppServiceIcon,
-    link: "https://azure.microsoft.com/en-us/products/app-service",
-    note: "Azure App Service",
+  image: azureAppServiceIcon,
+  link: 'https://azure.microsoft.com/en-us/products/app-service',
+  note: 'Azure App Service',
 };
 export const azureBlobStorage: TechStackType = {
-    image: azureBlobStorageIcon,
-    link: "https://azure.microsoft.com/en-us/products/storage/blobs",
-    note: "Azure Blob Storage",
+  image: azureBlobStorageIcon,
+  link: 'https://azure.microsoft.com/en-us/products/storage/blobs',
+  note: 'Azure Blob Storage',
 };
 export const azureContainerRegistry: TechStackType = {
-    image: azureContainerRegistryIcon,
-    link: "https://azure.microsoft.com/en-us/products/container-registry",
-    note: "Azure Container Registry",
+  image: azureContainerRegistryIcon,
+  link: 'https://azure.microsoft.com/en-us/products/container-registry',
+  note: 'Azure Container Registry',
 };
 export const azureCosmosDb: TechStackType = {
-    image: azureCosmosDbIcon,
-    link: "https://azure.microsoft.com/en-gb/free/cosmos-db/search/",
-    note: "Azure Cosmos DB",
+  image: azureCosmosDbIcon,
+  link: 'https://azure.microsoft.com/en-gb/free/cosmos-db/search/',
+  note: 'Azure Cosmos DB',
 };
 export const bootstrap: TechStackType = {
-    image: bootstrapIcon,
-    link: "https://getbootstrap.com/",
-    note: "Bootstrap",
+  image: bootstrapIcon,
+  link: 'https://getbootstrap.com/',
+  note: 'Bootstrap',
 };
 export const c: TechStackType = {
-    image: cIcon,
-    link: "https://en.wikipedia.org/wiki/C_(programming_language)",
-    note: "C",
+  image: cIcon,
+  link: 'https://en.wikipedia.org/wiki/C_(programming_language)',
+  note: 'C',
 };
 export const cloudflare: TechStackType = {
-    image: cloudflareIcon,
-    link: "https://cloudflare.com/",
-    note: "Cloudflare",
+  image: cloudflareIcon,
+  link: 'https://cloudflare.com/',
+  note: 'Cloudflare',
 };
 export const cpp: TechStackType = {
-    image: cppIcon,
-    link: "https://en.wikipedia.org/wiki/C%2B%2B",
-    note: "C++",
+  image: cppIcon,
+  link: 'https://en.wikipedia.org/wiki/C%2B%2B',
+  note: 'C++',
 };
 export const django: TechStackType = {
-    image: djangoIcon,
-    link: "https://www.djangoproject.com/",
-    note: "Django",
+  image: djangoIcon,
+  link: 'https://www.djangoproject.com/',
+  note: 'Django',
 };
 export const docker: TechStackType = {
-    image: dockerIcon,
-    link: "https://www.docker.com/",
-    note: "Docker",
+  image: dockerIcon,
+  link: 'https://www.docker.com/',
+  note: 'Docker',
 };
 export const emotion: TechStackType = {
-    image: emotionIcon,
-    link: "https://emotion.sh/docs/introduction",
-    note: "EmotionCSS",
+  image: emotionIcon,
+  link: 'https://emotion.sh/docs/introduction',
+  note: 'EmotionCSS',
 };
 export const express: TechStackType = {
-    image: expressIcon,
-    link: "https://expressjs.com/",
-    note: "Express.js",
+  image: expressIcon,
+  link: 'https://expressjs.com/',
+  note: 'Express.js',
 };
 export const fastApi: TechStackType = {
-    image: fastApiIcon,
-    link: "https://fastapi.tiangolo.com/",
-    note: "FastAPI",
+  image: fastApiIcon,
+  link: 'https://fastapi.tiangolo.com/',
+  note: 'FastAPI',
 };
 export const firebase: TechStackType = {
-    image: firebaseIcon,
-    link: "https://firebase.google.com/",
-    note: "Firebase",
+  image: firebaseIcon,
+  link: 'https://firebase.google.com/',
+  note: 'Firebase',
 };
 export const flask: TechStackType = {
-    image: flaskIcon,
-    link: "https://flask.palletsprojects.com/",
-    note: "Flask",
+  image: flaskIcon,
+  link: 'https://flask.palletsprojects.com/',
+  note: 'Flask',
 };
 export const flutter: TechStackType = {
-    image: flutterIcon,
-    link: "https://flutter.dev/",
-    note: "Flutter",
+  image: flutterIcon,
+  link: 'https://flutter.dev/',
+  note: 'Flutter',
 };
 export const gemini: TechStackType = {
-    image: geminiIcon,
-    link: "https://ai.google.dev/",
-    note: "Gemini",
-}
+  image: geminiIcon,
+  link: 'https://ai.google.dev/',
+  note: 'Gemini',
+};
 export const gradle: TechStackType = {
-    image: gradleIcon,
-    link: "https://gradle.org/",
-    note: "Gradle",
+  image: gradleIcon,
+  link: 'https://gradle.org/',
+  note: 'Gradle',
 };
 export const godot: TechStackType = {
-    image: godotIcon,
-    link: "https://godotengine.org/",
-    note: "Godot",
+  image: godotIcon,
+  link: 'https://godotengine.org/',
+  note: 'Godot',
 };
 export const googleCloud: TechStackType = {
-    image: googleCloudIcon,
-    link: "https://cloud.google.com/",
-    note: "Google Cloud",
+  image: googleCloudIcon,
+  link: 'https://cloud.google.com/',
+  note: 'Google Cloud',
 };
 export const googleCloudDns: TechStackType = {
-    image: googleCloudDnsIcon,
-    link: "https://cloud.google.com/dns",
-    note: "Google Cloud DNS",
+  image: googleCloudDnsIcon,
+  link: 'https://cloud.google.com/dns',
+  note: 'Google Cloud DNS',
 };
 export const googleCloudLoadBalancer: TechStackType = {
-    image: googleCloudLoadBalancerIcon,
-    link: "https://cloud.google.com/load-balancing",
-    note: "Google Cloud Load Balancer",
+  image: googleCloudLoadBalancerIcon,
+  link: 'https://cloud.google.com/load-balancing',
+  note: 'Google Cloud Load Balancer',
 };
 export const googleCloudRun: TechStackType = {
-    image: googleCloudRunIcon,
-    link: "https://cloud.google.com/run",
-    note: "Google Cloud Run",
+  image: googleCloudRunIcon,
+  link: 'https://cloud.google.com/run',
+  note: 'Google Cloud Run',
 };
 export const googleCloudStorage: TechStackType = {
-    image: googleCloudStorageIcon,
-    link: "https://cloud.google.com/storage",
-    note: "Google Cloud Storage",
+  image: googleCloudStorageIcon,
+  link: 'https://cloud.google.com/storage',
+  note: 'Google Cloud Storage',
 };
 export const googleCloudVm: TechStackType = {
-    image: googleCloudVmIcon,
-    link: "https://cloud.google.com/compute",
-    note: "Google Cloud VM",
+  image: googleCloudVmIcon,
+  link: 'https://cloud.google.com/compute',
+  note: 'Google Cloud VM',
 };
 export const graphql: TechStackType = {
-    image: graphqlIcon,
-    link: "https://graphql.org/",
-    note: "GraphQL",
+  image: graphqlIcon,
+  link: 'https://graphql.org/',
+  note: 'GraphQL',
 };
 export const heroku: TechStackType = {
-    image: herokuIcon,
-    link: "https://www.heroku.com/",
-    note: "Heroku",
+  image: herokuIcon,
+  link: 'https://www.heroku.com/',
+  note: 'Heroku',
 };
 export const java: TechStackType = {
-    image: javaIcon,
-    link: "https://www.java.com/en/",
-    note: "Java",
+  image: javaIcon,
+  link: 'https://www.java.com/en/',
+  note: 'Java',
 };
 export const javascript: TechStackType = {
-    image: javascriptIcon,
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    note: "Javascript",
+  image: javascriptIcon,
+  link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+  note: 'Javascript',
 };
 export const jsDomManipulation: TechStackType = {
-    image: javascriptIcon,
-    link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
-    note: "JS DOM manipulation",
+  image: javascriptIcon,
+  link: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents',
+  note: 'JS DOM manipulation',
 };
 export const kamatera: TechStackType = {
-    image: kamateraIcon,
-    link: "https://kamatera.com/",
-    note: "Kamatera",
+  image: kamateraIcon,
+  link: 'https://kamatera.com/',
+  note: 'Kamatera',
 };
 export const maven: TechStackType = {
-    image: mavenIcon,
-    link: "https://maven.apache.org/",
-    note: "Maven",
+  image: mavenIcon,
+  link: 'https://maven.apache.org/',
+  note: 'Maven',
 };
 export const mongodb: TechStackType = {
-    image: mongodbIcon,
-    link: "https://mongodb.com/",
-    note: "MongoDB",
+  image: mongodbIcon,
+  link: 'https://mongodb.com/',
+  note: 'MongoDB',
 };
 export const mui: TechStackType = {
-    image: muiIcon,
-    link: "https://mui.com/",
-    note: "Material UI",
+  image: muiIcon,
+  link: 'https://mui.com/',
+  note: 'Material UI',
 };
 export const nginx: TechStackType = {
-    image: nginxIcon,
-    link: "https://nginx.org/",
-    note: "Nginx",
+  image: nginxIcon,
+  link: 'https://nginx.org/',
+  note: 'Nginx',
 };
 export const nodejs: TechStackType = {
-    image: nodejsIcon,
-    link: "https://nodejs.org/en",
-    note: "Node.js",
+  image: nodejsIcon,
+  link: 'https://nodejs.org/en',
+  note: 'Node.js',
 };
 export const npm: TechStackType = {
-    image: npmIcon,
-    link: "https://www.npmjs.com/",
-    note: "NPM",
+  image: npmIcon,
+  link: 'https://www.npmjs.com/',
+  note: 'NPM',
 };
 export const numpy: TechStackType = {
-    image: numpyIcon,
-    link: "https://numpy.org/",
-    note: "Numpy",
+  image: numpyIcon,
+  link: 'https://numpy.org/',
+  note: 'Numpy',
 };
 export const openai: TechStackType = {
-    image: openAiIcon,
-    link: "https://platform.openai.com/",
-    note: "OpenAI",
+  image: openAiIcon,
+  link: 'https://platform.openai.com/',
+  note: 'OpenAI',
 };
 export const pip: TechStackType = {
-    image: pipIcon,
-    link: "https://pip.pypa.io/en/stable/",
-    note: "PIP",
+  image: pipIcon,
+  link: 'https://pip.pypa.io/en/stable/',
+  note: 'PIP',
 };
 export const pug: TechStackType = {
-    image: pugIcon,
-    link: "https://pugjs.org/",
-    note: "PUG HTML",
+  image: pugIcon,
+  link: 'https://pugjs.org/',
+  note: 'PUG HTML',
 };
 export const puppeteer: TechStackType = {
-    image: puppeteerIcon,
-    link: "https://pptr.dev/",
-    note: "Puppeteer",
+  image: puppeteerIcon,
+  link: 'https://pptr.dev/',
+  note: 'Puppeteer',
 };
 export const python: TechStackType = {
-    image: pythonIcon,
-    link: "https://www.python.org/",
-    note: "Python",
+  image: pythonIcon,
+  link: 'https://www.python.org/',
+  note: 'Python',
 };
 export const pytorch: TechStackType = {
-    image: pytorchIcon,
-    link: "https://pytorch.org/",
-    note: "Pytorch",
+  image: pytorchIcon,
+  link: 'https://pytorch.org/',
+  note: 'Pytorch',
 };
 export const react: TechStackType = {
-    image: reactIcon,
-    link: "https://react.dev/",
-    note: "React",
+  image: reactIcon,
+  link: 'https://react.dev/',
+  note: 'React',
 };
 export const rabbitmq: TechStackType = {
-    image: rabbitmqIcon,
-    link: "https://rabbitmq.com/",
-    note: "RabbitMQ",
+  image: rabbitmqIcon,
+  link: 'https://rabbitmq.com/',
+  note: 'RabbitMQ',
 };
 export const redis: TechStackType = {
-    image: redisIcon,
-    link: "https://redis.io/",
-    note: "Redis",
+  image: redisIcon,
+  link: 'https://redis.io/',
+  note: 'Redis',
 };
 export const scss: TechStackType = {
-    image: scssIcon,
-    link: "https://sass-lang.com/",
-    note: "SCSS",
+  image: scssIcon,
+  link: 'https://sass-lang.com/',
+  note: 'SCSS',
 };
 export const springboot: TechStackType = {
-    image: springbootIcon,
-    link: "https://spring.io/projects/spring-boot",
-    note: "Spring Boot",
+  image: springbootIcon,
+  link: 'https://spring.io/projects/spring-boot',
+  note: 'Spring Boot',
 };
 export const sql: TechStackType = {
-    image: sqlIcon,
-    link: "https://en.wikipedia.org/wiki/SQL",
-    note: "SQL",
+  image: sqlIcon,
+  link: 'https://en.wikipedia.org/wiki/SQL',
+  note: 'SQL',
 };
 export const stabilityai: TechStackType = {
-    image: stabilityIcon,
-    link: "https://platform.stability.ai/",
-    note: "StabilityAI",
+  image: stabilityIcon,
+  link: 'https://platform.stability.ai/',
+  note: 'StabilityAI',
 };
 export const tailwind: TechStackType = {
-    image: tailwindIcon,
-    link: "https://tailwindcss.com/",
-    note: "Tailwind",
+  image: tailwindIcon,
+  link: 'https://tailwindcss.com/',
+  note: 'Tailwind',
 };
 export const telegram: TechStackType = {
-    image: telegramIcon,
-    link: "https://www.npmjs.com/package/node-telegram-bot-api",
-    note: "Telegram",
+  image: telegramIcon,
+  link: 'https://www.npmjs.com/package/node-telegram-bot-api',
+  note: 'Telegram',
 };
 export const typescript: TechStackType = {
-    image: typescriptIcon,
-    link: "https://www.typescriptlang.org/",
-    note: "Typescript",
+  image: typescriptIcon,
+  link: 'https://www.typescriptlang.org/',
+  note: 'Typescript',
 };
 export const vue: TechStackType = {
-    image: vueIcon,
-    link: "https://vuejs.org/",
-    note: "Vue",
+  image: vueIcon,
+  link: 'https://vuejs.org/',
+  note: 'Vue',
 };

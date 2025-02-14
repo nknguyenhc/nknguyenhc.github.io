@@ -11,65 +11,65 @@ import QuackNkn from '../components/projects/quack-nkn/quack-nkn';
 import UltimateTictactoe from '../components/projects/ultimate-tictactoe/ultimate-tictactoe';
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <App />,
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: 'guide/',
         children: [
-            {
-                path: '',
-                element: <Home />,
-            },
-            {
-                path: 'guide/',
-                children: [
-                    {
-                        path: 'deploy-django-on-heroku',
-                        element: <DjangoHerokuGuide />,
-                    }
-                ]
-            },
-            {
-                path: 'project/',
-                children: [
-                    {
-                        path: 'matchminer',
-                        element: <MatchMiner />,
-                    },
-                    {
-                        path: 'coding-scheme-simulation',
-                        element: <CodingSchemeSimulation />,
-                    },
-                    {
-                        path: 'quack-nkn',
-                        element: <QuackNkn />,
-                    },
-                    {
-                        path: 'ultimate-tictactoe',
-                        element: <UltimateTictactoe />,
-                    },
-                ]
-            },
-            {
-                path: 'academics/',
-                children: [
-                    {
-                        path: 'modules',
-                        element: <Modules />,
-                    },
-                    {
-                        path: 'ta',
-                        element: <Ta />,
-                    },
-                ],
-            },
-            {
-                path: '*',
-                element: <NotFound />,
-            },
-        ]
-    }
+          {
+            path: 'deploy-django-on-heroku',
+            element: <DjangoHerokuGuide />,
+          },
+        ],
+      },
+      {
+        path: 'project/',
+        children: [
+          {
+            path: 'matchminer',
+            element: <MatchMiner />,
+          },
+          {
+            path: 'coding-scheme-simulation',
+            element: <CodingSchemeSimulation />,
+          },
+          {
+            path: 'quack-nkn',
+            element: <QuackNkn />,
+          },
+          {
+            path: 'ultimate-tictactoe',
+            element: <UltimateTictactoe />,
+          },
+        ],
+      },
+      {
+        path: 'academics/',
+        children: [
+          {
+            path: 'modules',
+            element: <Modules />,
+          },
+          {
+            path: 'ta',
+            element: <Ta />,
+          },
+        ],
+      },
+      {
+        path: '*',
+        element: <NotFound />,
+      },
+    ],
+  },
 ]);
 
-const AppRouterProvider = (): JSX.Element => <RouterProvider router={router} />
+const AppRouterProvider = (): JSX.Element => <RouterProvider router={router} />;
 
 export default AppRouterProvider;

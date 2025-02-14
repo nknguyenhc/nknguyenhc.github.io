@@ -1,0 +1,47 @@
+.pagination {
+    &-svg {
+        polygon {
+            fill: black;
+        }
+    }
+
+    &-arrow {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: rgba(200, 200, 200, 0.8);
+        cursor: pointer;
+        z-index: 10;
+
+        svg {
+            position: absolute;
+            top: 50%;
+        }
+
+        &-enabled {
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &-disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        &-left {
+            svg {
+                translate: 120% -50%;
+            }
+        }
+
+        &-right {
+            svg {
+                right: 0px;
+                translate: -120% -50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,125 @@
+.tas {
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $x-large-gap;
+
+    &-title {
+        font-size: $large-fs;
+        font-weight: $bold-fw;
+
+        @media (max-width: $desktop) {
+            padding: 0px $normal-gap;
+        }
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: $large-gap;
+    }
+}
+
+.ta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $normal-gap;
+    border: black 2px solid;
+    border-radius: $large-border-radius;
+    padding: $normal-gap;
+    max-width: 80vw;
+    background-color: white;
+    transform-origin: 30% 10%;
+    transition: scale 0.5s cubic-bezier(0.39, 0.1, 0.22, 1);
+    
+    @media (max-width: $desktop) {
+        flex-direction: column;
+    }
+
+    &-zoomed {
+        scale: 1.1;
+    }
+
+    &-icon {
+        height: 400px;
+        width: 400px;
+        flex-shrink: 0;
+        border: 2px black solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        @media (max-width: $desktop) {
+            height: 300px;
+            width: 300px;
+        }
+    }
+
+    &-data {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+
+        &-title {
+            display: flex;
+            flex-direction: column;
+            gap: $small-gap;
+
+            &-name {
+                font-size: $slightly-large-fs;
+                font-weight: $light-bold-fw;
+            }
+
+            &-term {
+                text-decoration: underline;
+            }
+        }
+
+        &-details {
+            display: flex;
+            flex-direction: column;
+            gap: $normal-gap;
+
+            &-block {
+                display: flex;
+                flex-direction: column;
+                gap: $x-small-gap;
+
+                &-item {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: $small-gap;
+                }
+            }
+
+            &-link {
+                text-decoration: underline;
+            }
+
+            &-topics {
+                display: flex;
+                flex-direction: row;
+                gap: $x-small-gap $large-gap;
+                flex-wrap: wrap;
+            }
+
+            &-topic {
+                font-weight: $light-bold-fw;
+            }
+        }
+    }
+
+    &-bullet {
+        height: 8px;
+        width: 8px;
+        background-color: black;
+        border-radius: 50%;
+    }
+}

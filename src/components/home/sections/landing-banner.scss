@@ -1,0 +1,117 @@
+.landing-banner {
+    width: 100vw;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+
+    @media (max-width: $desktop) {
+        margin-top: 10vh;
+    }
+
+    &-images {
+        height: 50vh;
+        width: 50vh;
+        max-height: 650px;
+        max-width: 650px;
+        position: relative;
+
+        @media (max-width: $desktop) {
+            height: 80vw;
+            width: 80vw;
+        }
+    }
+
+    &-image {
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        clip-path: circle(closest-side);
+        opacity: 0;
+        transition: opacity 0.3s cubic-bezier(0.87, 0.12, 0.44, 0.44);
+
+        &-not-circle {
+            clip-path: none;
+        }
+
+        &-show {
+            opacity: 1;
+        }
+    }
+
+    &-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        &-top {
+            font-size: $large-fs;
+        }
+
+        &-bottom {
+            font-size: $x-large-fs;
+            font-weight: $bold-fw;
+
+            @media (max-width: $desktop) {
+                font-size: $large-fs;
+            }
+        }
+    }
+
+    &-techstacks {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+        justify-content: center;
+
+        &-row {
+            display: flex;
+            flex-direction: row;
+            gap: $normal-gap;
+            width: 65vw;
+
+            &-name {
+                width: 100px;
+                flex-shrink: 0;
+            }
+
+            &-techstacks {
+                display: flex;
+                flex-direction: row;
+                gap: $small-gap;
+                flex-wrap: wrap;
+            }
+
+            @media (max-width: $desktop) {
+                width: 90vw;
+            }
+        }
+    }
+
+    &-techstack {
+        height: 40px;
+        width: 40px;
+
+        @for $i from 0 through 15 {
+            &-anim-#{$i} {
+                opacity: 1;
+                transition: opacity 0.3s linear;
+                transition-delay: #{$i * 0.1}s;
+            }
+        }
+
+        &-hide {
+            opacity: 0;
+        }
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+}

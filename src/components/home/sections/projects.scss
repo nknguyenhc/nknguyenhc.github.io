@@ -1,0 +1,284 @@
+.projects {
+    height: 120vh;
+    width: 100vw;
+    position: relative;
+
+    @media (max-width: $desktop) {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: $large-gap;
+        padding-bottom: $x-large-gap;
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+        background-color: $purple;
+    }
+
+    &-show-more {
+        margin: auto;
+        padding: $normal-gap;
+        background: $cyan;
+        font-size: $slightly-large-fs;
+        border-radius: $small-border-radius;
+        cursor: pointer;
+    }
+}
+
+$panel-top: 23%;
+$panel-left: 12%;
+$panel-width: 85%;
+$panel-height: 73%;
+$project-image-mobile-width: 80vw;
+
+.project {
+    position: absolute;
+    top: $panel-top;
+    left: $panel-left;
+    width: $panel-width;
+    height: $panel-height;
+    background: white;
+    border: 2px $lightgrey solid;
+    border-radius: $large-border-radius;
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
+    z-index: 0;
+    transform: rotate(-30deg);
+    transform-origin: 80% 120%;
+    transition: opacity 0.5s linear, transform 0.5s linear;
+
+    @media (max-width: $desktop) {
+        position: static;
+        width: calc(100% - 4px);
+        height: auto;
+        flex-direction: column;
+        transform: none;
+        transition: none;
+        opacity: 1;
+    }
+
+    &-arrow-left {
+        position: absolute;
+        left: $panel-left;
+        top: $panel-top + $panel-height / 2;
+        translate: -50% -50%;
+    }
+
+    &-arrow-right {
+        position: absolute;
+        left: calc(#{$panel-left} + #{$panel-width} + 4px);
+        top: $panel-top + $panel-height / 2;
+        translate: -50% -50%;
+    }
+
+    &-show {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    &-static {
+        transform: none;
+    }
+    
+    &-panel {
+        padding: $large-gap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: $desktop) {
+            gap: $normal-gap;
+            padding: $normal-gap;
+
+            &:first-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    &-left {
+        width: 35%;
+    }
+
+    &-right {
+        width: 65%;
+        align-items: end;
+    }
+
+    &-title {
+        font-size: $large-fs;
+        font-weight: $light-bold-fw;
+    }
+
+    &-description {
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+    }
+
+    &-period {
+        font-weight: $light-bold-fw;
+    }
+
+    &-links {
+        display: flex;
+        flex-direction: column;
+        gap: $x-small-gap;
+    }
+
+    &-code {
+        display: flex;
+        flex-direction: row;
+        gap: $small-gap;
+    }
+
+    &-images {
+        display: flex;
+        flex-direction: row;
+        max-height: 80%;
+    }
+
+    &-image {
+        border: 1px black solid;
+        max-height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-main {
+            width: 65%;
+            max-height: 100%;
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        &-secondary {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            max-height: 100%;
+        }
+
+        &-panel {
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    &-deploy {
+        display: flex;
+        flex-direction: row;
+        gap: $normal-gap;
+
+        @media (max-width: $desktop) {
+            flex-direction: column;
+        }
+
+        &-links {
+            display: flex;
+            flex-direction: row;
+            gap: $normal-gap;
+        }
+
+        &-link {
+            display: flex;
+            flex-direction: row;
+            gap: $x-small-gap;
+            align-items: center;
+
+            @media (max-width: $desktop) {
+                padding: $x-small-gap;
+                background: $lightgrey;
+                border-radius: $small-border-radius;
+            }
+        }
+    }
+
+    &-mobile {
+        &-images {
+            width: $project-image-mobile-width;
+            height: $project-image-mobile-width;
+            position: relative;
+            box-shadow: 0px 0px 5px black;
+            border-radius: $small-border-radius;
+            overflow: hidden;
+
+            &-container {
+                position: relative;
+                width: $project-image-mobile-width;
+                height: $project-image-mobile-width;
+                margin: auto;
+            }
+        }
+
+        &-image {
+            width: $project-image-mobile-width;
+            height: $project-image-mobile-width;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: none;
+            transition: transform 0.3s linear;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            &-arrow-left {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translate(-50%, -50%);
+            }
+
+            &-arrow-right {
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                transform: translate(-50%, -50%);
+            }
+
+            &-shift {
+                &-1 {
+                    transform: translate(100%);
+                }
+                &-2 {
+                    transform: translate(200%);
+                }
+                &--1 {
+                    transform: translate(-100%);
+                }
+                &--2 {
+                    transform: translate(-200%);
+                }
+            }
+        }
+    }
+
+    &-techstacks {
+        display: flex;
+        flex-direction: row;
+        gap: $small-gap;
+    }
+
+    &-techstack {
+        height: 30px;
+        width: 30px;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+}

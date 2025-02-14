@@ -1,0 +1,20 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: 20vh;
+
+    &-section-title {
+        padding: 20px 20vw;
+        padding-top: 100px;
+        font-size: $large-fs;
+        font-weight: $light-bold-fw;
+
+        @media (max-width: $desktop) {
+            padding: 20px 40px;
+        }
+    }
+}
+
+@import './sections/landing-banner.scss';
+@import './sections/projects.scss';
+@import './sections/awards.scss';

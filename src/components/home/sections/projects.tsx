@@ -445,6 +445,22 @@ const algorithms: Array<ProjectData> = [
     period: 'May 2024 - Aug 2024',
   },
   {
+    name: 'Ballsorting',
+    description:
+      'The algorithm takes inspiration from the famously advertised game ballsorting, where the player can only stack balls of the same colour on top of each other. My algorithm solves the game from an image, by first recognising the number of balls and their colours, then suggesting a sequence of moves to solve the game.\nWith MCTS, my programme is also capable of solving puzzles with hidden balls. As the game progresses, the algorithm suggests a move that maximises chance of survival.',
+    readme:
+      'https://github.com/nknguyenhc/ballsorting?tab=readme-ov-file#ballsorting',
+    code: 'https://github.com/nknguyenhc/ballsorting',
+    images: {
+      main: BallsorterGameplay,
+      left: BallsorterSolver,
+      right: BallsorterMidgame,
+    },
+    techstacks: [python, pytorch],
+    deployed: [],
+    period: 'Aug 2024 - May 2025',
+  },
+  {
     name: 'Sudoku Solver',
     description:
       'Sudoku belongs to the class of constraint-satisfaction problem. Domain is first reduced according to the numbers in the same row, column and sub-board. Minimum remaining value heuristic to determine the next cell to try values. Boards and domains are deep-copied as backtracking strategy.\nI created a website for you to try out my algorithm.',
@@ -481,22 +497,6 @@ const algorithms: Array<ProjectData> = [
     techstacks: [python],
     deployed: [],
     period: 'May 2024 - Oct 2024',
-  },
-  {
-    name: 'Ballsorting',
-    description:
-      'The algorithm takes inspiration from the famously advertised game ballsorting, where the player can only stack balls of the same colour on top of each other. My algorithm solves the game from an image, by first recognising the number of balls and their colours, then suggesting a sequence of moves to solve the game.\n',
-    readme:
-      'https://github.com/nknguyenhc/ballsorting?tab=readme-ov-file#ballsorting',
-    code: 'https://github.com/nknguyenhc/ballsorting',
-    images: {
-      main: BallsorterGameplay,
-      left: BallsorterSolver,
-      right: BallsorterMidgame,
-    },
-    techstacks: [python, pytorch],
-    deployed: [],
-    period: 'Aug 2024 - Sep 2024',
   },
   {
     name: 'Nonogram Solver',

@@ -12,6 +12,41 @@ type ModuleType = {
 
 const data: Array<ModuleType> = [
   {
+    name: 'CS3264 - Foundations in Machine Learning',
+    grade: 'A+',
+    sem: 'AY2425-S2',
+    review:
+      'My favourite module for this semester. The project was amazing: I managed to create an application to categorize a conversation between two people who have just met into three categories: friend - friend, friend - romantic, romantic - romantic. We could not get real-life data, so we generated synthetic data using ChatGPT. Even though the data is AI-generated, the result is shockingly accurate: the F1 score was as high as 0.8. It managed to predict real-life data mostly correct. The underlying architecture is a two-layer LSTM, where the first LSTM runs through each text message, and the second LSTM runs through the results of the first LSTM over all texts. The model also offered explanation, which offers insights into how the model categorizes each conversation. It was a very rewarding experience creating a model on such an interesting topic.\nLecturer Bryan Low was a rather interesting person: it was entertaining coming to his lectures, and debating with him about exams and project timeline, ... oops it was me that convinced him to push the deadline of the project back by 1 day.\nGrade breakdown:\nMidterms: 20%\nProject: 25%\nTutorial homework: 10%\nTutorial attendance: 5%\nFinal exam: 40%\nThe course content was quite easy. Topics include concept learning, Bayesian models, reinforcement learning. Concept learning was rather easy, Bayesian models are repeated in CS4248 which I took in the same semester, and reinforcement learning has been tauhgt in CS3263.\nMidterms were rather easy: I got ample time to check answers back and forth. And the answers were around the same difficulty level as the tutorial questions. Finals were slightly more difficult, due to the time constraint. I managed to only finish the paper when there were 2 minutes left. Nevertheless, the difficulty level was around the same as tutorial questions too.',
+  },
+  {
+    name: 'MA2108 - Mathematical Analysis',
+    grade: 'A+',
+    sem: 'AY2425-S2',
+    review:
+      'This module gives me a throwback at the Mathematics I learned in Vietnam. It was interesting: the topics were mostly on proofs of limits. The module dives deep into the properties of real numbers: least-upper-bound theorem, continuity, topology, etc. There were some topics that are quite abstract, you will probably need to be able to visualise it in terms of real numbers in order to fully grasp the concepts.\nGrade breakdown:\nHomework: 40% - choose best 4 out of 6\nMidterms: 20%\nFinals: 40%\nThis module is not for the faint heart. Do consider this module only if you want to go into theoretical Mathematics.',
+  },
+  {
+    name: 'MA3252 - Linear and Network Optimisation',
+    grade: 'A',
+    sem: 'AY2425-S2',
+    review:
+      'The module is what it is - finding min/max of a linear expression given linear constraints. The concepts taught in this module can be quite difficult to visualise and understand, they require imagination at times beyond the third dimension. Nevertheless, the homework and exams focus more on the application of these formulae. So, you do not need to fully understand the derivation of these formulae - you just need to apply them. As a result, the exams tend to be quite easy, with highest score expected to be fully marks.\nGrade breakdown:\nHomework: 30%\nMidterms: 30%\nFinals: 30%',
+  },
+  {
+    name: 'CS3282 - Thematic Systems II',
+    grade: 'A+',
+    sem: 'AY2425-S2',
+    review:
+      'This is a rather chill mod. Grading criteria include:\nProject management: 50%\nLightning Talks: 20%\nProfessional Conduct: 5%\nExternal Contribution: 25%\nFor me, the highlight was the external contribution! I managed to make two pull requests to VSCode. Yes, the VSCode editor. One was a good-first issue on the UI of the extension window. The other one was a feature to navigate to definition of a built-in key word in javascript within an HTML script. You can actually test this out in VSCode! Simply create a new HTML file with a script tag, and type <code>new Document()</code>. You can now go to definition of <code>Document</code>.\nOther than that, there is a lightning talk component, where you will present on a topic within 7 minutes. I learned quite some presentation techniques! I talked about Google Cloud Run, which is still my current deployment method for most of my projects requiring backend.\nIn terms of project management, it was basically mentoring the juniors. Though they are quite independent, so the work was mostly to review pull requests and make sure they follow coding guidelines of the code base, CATcher and WATcher.',
+  },
+  {
+    name: 'CS4248 - Natural Language Processing',
+    grade: 'A-',
+    sem: 'AY2425-S2',
+    review:
+      'I took the module under lecturer Kan Min Yen. He was very engaging and explained the concepts very well. In this module, you will learn all the basics of natural language processing. Topics include: tokenization (with regex and algorithms), n-gram language models, Bayesian models, RNN, LSTM, context, transformer.\nGrade breakdown:\nAssignments: 30% (10% each)\nProject: 30%\nFinal exam: 40%\nThe assignments are fairly interesting. While the first and third assignments are fairly clear, the second assignment requirements were rather vague. I did not really like the assignments though: they rather stick to the very basics taught in lectures.\nThe finals were rather easy: it touches mostly on the basics taught in lecture. The finals were open book, so you can choose to bring in all printed lecture notes.\nProject was rather constrained. We had to choose between a few datasets available, and build a model based on the chosen dataset. My team chose ConceptNet, which is a graph database on the relations of words in the dictionary. There were a lot of possible directions, however, I would recommend you to start early and push the project timeline as early as possible. In that way, if your results are not as expected, you can explore alternative directions.',
+  },
+  {
     name: 'CS3216 - Software Product Engineering for Digital Markets',
     grade: 'A',
     sem: 'AY2425-S1',

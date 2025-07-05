@@ -62,6 +62,8 @@ import rabbitmqIcon from '../assets/icons/rabbitmq.png';
 import kamateraIcon from '../assets/icons/kamatera.png';
 import springbootIcon from '../assets/icons/springboot.png';
 import vueIcon from '../assets/icons/vue.png';
+import githubIcon from '../assets/icons/github.png';
+import markbindIcon from '../assets/icons/markbind.png';
 
 export type TechStackType = {
   image: string;
@@ -204,6 +206,16 @@ export const gemini: TechStackType = {
   link: 'https://ai.google.dev/',
   note: 'Gemini',
 };
+export const githubActions: TechStackType = {
+  image: githubIcon,
+  link: 'https://github.com/features/actions',
+  note: 'Github Actions',
+};
+export const githubPages: TechStackType = {
+  image: githubIcon,
+  link: 'https://pages.github.com/',
+  note: 'Github Pages',
+};
 export const gradle: TechStackType = {
   image: gradleIcon,
   link: 'https://gradle.org/',
@@ -273,6 +285,11 @@ export const kamatera: TechStackType = {
   image: kamateraIcon,
   link: 'https://kamatera.com/',
   note: 'Kamatera',
+};
+export const markbind: TechStackType = {
+  image: markbindIcon,
+  link: 'https://markbind.org',
+  note: 'Markbind',
 };
 export const maven: TechStackType = {
   image: mavenIcon,

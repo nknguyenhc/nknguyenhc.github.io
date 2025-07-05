@@ -1,5 +1,6 @@
 import DeansList from '../../../assets/home/deans-list.png';
 import DeansList2425S1 from '../../../assets/home/deans-list-ay2425s1.png';
+import DeansList2425S2 from '../../../assets/home/deans-list-ay2425s2.png';
 import CS1101S from '../../../assets/home/CS1101S.png';
 import CS1231S from '../../../assets/home/CS1231S.png';
 import CS2103T from '../../../assets/home/CS2103T.png';
@@ -26,6 +27,15 @@ type Award = {
 };
 
 const awards: Array<Award> = [
+  {
+    name: "Dean's List, NUS School of Computing",
+    description:
+      "Dean's List certificate in NUS School of Computing was awarded to students with top performance (5-10%).",
+    details: ['Obtained in Semester 2 of AY 2024-2025', 'Overall GPA: 4.88'],
+    img: DeansList2425S2,
+    certificate:
+      'https://credentials.nus.edu.sg/c778202a-1d3c-46c3-a535-4a7952a2d57d#acc.76LdmKSO',
+  },
   {
     name: "Dean's List, NUS School of Computing",
     description:

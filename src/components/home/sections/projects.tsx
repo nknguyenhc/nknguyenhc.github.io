@@ -70,6 +70,12 @@ import Kakuro3 from '../../../assets/projects/kakuro-3.png';
 import NonogramUnsolved from '../../../assets/projects/nonogram-unsolved.png';
 import NonogramSolved from '../../../assets/projects/nonogram-solved.png';
 import NonogramHalfway from '../../../assets/projects/nonogram-halfway.png';
+import CatholicBlogPostsMain from '../../../assets/projects/blogposts-landing.png';
+import CatholicBlogPosts1 from '../../../assets/projects/blogposts-cardinal-thuan.png';
+import CatholicBlogPosts2 from '../../../assets/projects/blogposts-martyrs.png';
+import CardinalThuanMain from '../../../assets/projects/cardinal-thuan-landing.png';
+import CardinalThuan1 from '../../../assets/projects/cardinal-thuan-hope.png';
+import CardinalThuan2 from '../../../assets/projects/cardinal-thuan-heaven-assurance.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -103,12 +109,15 @@ import {
   flask,
   flutter,
   gemini,
+  githubActions,
+  githubPages,
   godot,
   googleCloud,
   graphql,
   java,
   jsDomManipulation,
   kamatera,
+  markbind,
   maven,
   mongodb,
   mui,
@@ -206,6 +215,48 @@ const projects: Array<ProjectData> = [
       },
     ],
     period: 'Sep 2024 - Oct 2024',
+  },
+  {
+    name: 'Catholic Blog Posts',
+    description:
+      'This website compiles my exploration of the Catholic faith, and my sharing with my Young Adults Community in the Holy Cross Church. During the summer, I have been actively explored the faith, read up on various topics, and compiled my results in this webpage.\nI have also taken the opportunity to make use of Markbind as the markdown renderer, and integrate Github Actions for automatic style checking and deployment.',
+    readme: 'https://catholic.nknguyenhc.net/',
+    code: 'https://github.com/nknguyenhc/blogposts',
+    images: {
+      main: CatholicBlogPostsMain,
+      left: CatholicBlogPosts1,
+      right: CatholicBlogPosts2,
+    },
+    techstacks: [githubPages, githubActions, markbind],
+    deployed: [
+      {
+        link: 'https://catholic.nknguyenhc.net/',
+        description: 'Web',
+        icon: WebIcon,
+      },
+    ],
+    period: 'May 2025 - Present',
+  },
+  {
+    name: 'Cardinal Thuan Digital Twin',
+    description:
+      "This project comes about as I was preparing for one of my presentations at the Young Adults Community in Holy Cross Church. The idea is simple: to be able to recreate a digital twin of Cardinal Thuan, who was seen as a saint among the Vietnamese Catholics. The bot makes use of context retrieved from Cardinal Thuan's two most famous books: the Road of Hope, and Five Loaves and Two Fish, to answer the user's query. The bot is therefore encouraged to output in alignment with Cardinal Thuan's thinking.",
+    readme: 'https://cardinal-thuan.nknguyenhc.net/',
+    code: 'https://github.com/nknguyenhc/cardinal-thuan',
+    images: {
+      main: CardinalThuanMain,
+      left: CardinalThuan1,
+      right: CardinalThuan2,
+    },
+    techstacks: [fastApi, gemini, react, googleCloud],
+    deployed: [
+      {
+        link: 'https://cardinal-thuan.nknguyenhc.net/',
+        description: 'Web',
+        icon: WebIcon,
+      },
+    ],
+    period: 'Jun 2025 - Jul 2025',
   },
   {
     name: 'WATcher',

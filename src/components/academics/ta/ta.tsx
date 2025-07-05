@@ -36,6 +36,7 @@ const taData: Array<TaDataType> = [
       'Received 2 recommendations for teaching award',
       'Prepare materials and conduct tutorial classes',
       'Grade assignments',
+      "Prepare mini project, which constitutes 10% of each students' grade",
     ],
     topics: [
       'Tree/graph search, informed search',

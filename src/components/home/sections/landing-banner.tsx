@@ -31,6 +31,8 @@ import {
   flask,
   flutter,
   gemini,
+  githubActions,
+  githubPages,
   godot,
   googleCloud,
   googleCloudDns,
@@ -45,6 +47,7 @@ import {
   javascript,
   jsDomManipulation,
   kamatera,
+  markbind,
   maven,
   mongodb,
   mui,
@@ -153,6 +156,8 @@ const techstackData: Array<TechStackSection> = [
       tailwind,
       bootstrap,
       flutter,
+      markbind,
+      githubPages,
     ],
   },
   {
@@ -174,7 +179,7 @@ const techstackData: Array<TechStackSection> = [
   },
   {
     name: 'Build automation',
-    techstacks: [docker, pip, anaconda, npm, gradle, maven],
+    techstacks: [docker, pip, anaconda, npm, gradle, maven, githubActions],
   },
   {
     name: 'Cloud',

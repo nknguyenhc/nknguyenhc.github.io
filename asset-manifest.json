@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.387741e6.css",
-    "main.js": "/static/js/main.0c15f8f8.js",
+    "main.js": "/static/js/main.7001b94b.js",
     "static/media/SP-speed.jpg": "/static/media/SP-speed.5fbc64243376d19a146c.jpg",
     "static/media/parody-generator-sample-2.png": "/static/media/parody-generator-sample-2.30120569dee044cc4a7f.png",
     "static/media/parody-generator-sample-3.png": "/static/media/parody-generator-sample-3.5af90aaab3ea6b0a6891.png",
@@ -27,6 +27,7 @@
     "static/media/dragon-gameplay2.png": "/static/media/dragon-gameplay2.0df9e2d047a8f5dd5466.png",
     "static/media/dragon-gameplay1.png": "/static/media/dragon-gameplay1.8e0d8c8cd4f57a8bb3cb.png",
     "static/media/landing-1.jpeg": "/static/media/landing-1.c730708627f22e59a1bb.jpeg",
+    "static/media/ai-track.png": "/static/media/ai-track.4354b9a4e07fa0da30dc.png",
     "static/media/instagram.png": "/static/media/instagram.776123b8753198399fdd.png",
     "static/media/cchess-boulder.jpg": "/static/media/cchess-boulder.d6ec7ed6f2abf5bd41a9.jpg",
     "static/media/payday-2.png": "/static/media/payday-2.964b510280c600101382.png",
@@ -107,6 +108,7 @@
     "static/media/terminal-3.png": "/static/media/terminal-3.cca36b472504d03f5921.png",
     "static/media/CS1231S.png": "/static/media/CS1231S.e380336572d24c97b791.png",
     "static/media/CS2103T.png": "/static/media/CS2103T.9e63e619abaf6c9c9181.png",
+    "static/media/claude.png": "/static/media/claude.b9b21be50ec95440848a.png",
     "static/media/luckyjinx-right.png": "/static/media/luckyjinx-right.6bc77acf3e8a79274bd4.png",
     "static/media/pytorch.png": "/static/media/pytorch.ced41d5ddd2fd1e5fa1a.png",
     "static/media/deans-list.png": "/static/media/deans-list.30475b7f0155e047f824.png",
@@ -165,6 +167,7 @@
     "static/media/tailwind.png": "/static/media/tailwind.013659ff99c4cec2d7ce.png",
     "static/media/Yps-popup.png": "/static/media/Yps-popup.51b9ec58c024251c63c4.png",
     "static/media/azure-app-service.png": "/static/media/azure-app-service.3dc15e1126ddcc06d91d.png",
+    "static/media/SEA-logo.png": "/static/media/SEA-logo.066ebbd43528ed9f5f33.png",
     "static/media/whitenoise-middleware.png": "/static/media/whitenoise-middleware.6af14d332fa4817d137a.png",
     "static/media/flutter.png": "/static/media/flutter.f4406299c32eab2be683.png",
     "static/media/firebase.png": "/static/media/firebase.6ea3b0b39b97b0e49515.png",
@@ -175,6 +178,7 @@
     "static/media/aws-settings.png": "/static/media/aws-settings.4afa9e771872062c24e1.png",
     "static/media/pip.png": "/static/media/pip.3941a8d707d6124e4870.png",
     "static/media/Xiangqi-gameplay.png": "/static/media/Xiangqi-gameplay.517223a4df23dacec982.png",
+    "static/media/go.png": "/static/media/go.6a3cd1884425f3b03c7d.png",
     "static/media/gemini.webp": "/static/media/gemini.a9281711241a06a66331.webp",
     "static/media/ballsorter-solver.png": "/static/media/ballsorter-solver.f15622782922332e70a7.png",
     "static/media/db-requirements.png": "/static/media/db-requirements.8e0b3f4e20ad4bc61d77.png",
@@ -207,6 +211,6 @@
   },
   "entrypoints": [
     "static/css/main.387741e6.css",
-    "static/js/main.0c15f8f8.js"
+    "static/js/main.7001b94b.js"
   ]
 }

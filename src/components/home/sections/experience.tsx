@@ -1,14 +1,17 @@
 import { splitArray } from '../../../utils/array';
 import dsLogo from '../../../assets/home/DS-logo.jpg';
 import temusLogo from '../../../assets/home/Temus-logo.webp';
+import seaLogo from '../../../assets/home/SEA-logo.png';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useViewportWidth from '../../../utils/viewport';
 import {
   TechStackType,
   alpine,
+  claude,
   emotion,
   fastApi,
   gemini,
+  go,
   openai,
   pug,
   react,
@@ -33,28 +36,17 @@ type InternExperience = {
 
 const experienceData: Array<InternExperience> = [
   {
-    image: dsLogo,
-    position: 'Frontend software engineer at Decision Science Agency',
-    duration: 'May 2023 - Aug 2023',
+    image: seaLogo,
+    position: 'Frontend Engineer Intern at SEA',
+    duration: 'May 2025 - current',
     projects: [
       {
-        title: 'Singlife - NISL',
-        text: "Upgraded NISL Singlife's webpage using AlpineJS, SCSS, Tailwind and PUG HTML templating.",
-        result:
-          'Ensuring smooth communication between Singlife and its collaborators',
-      },
-      {
-        title: 'Singlife - eservice forms',
-        text: "Developed and maintained Singlife's eservices form using React Typescript and Emotion CSS.",
-        result: "Benefitting Singlife and thousands of Singlife's customers.",
-      },
-      {
-        title: 'HDB Change Flat Ownership',
-        text: "Upgraded HDB's flat ownership application page using ReactJS, React Typescript and SCSS.",
-        result: 'Ensuring smooth administration of HDB.',
+        title: 'Alpha Intelligence',
+        text: 'Engineered various critical features for Alpha Intelligence, SEA’s AI platform.',
+        result: 'Enhancing the platform’s capabilities and user experience.',
       },
     ],
-    techstacks: [react, typescript, scss, alpine, tailwind, pug, emotion],
+    techstacks: [openai, gemini, claude, react, tailwind, typescript, go],
   },
   {
     image: temusLogo,
@@ -84,6 +76,30 @@ const experienceData: Array<InternExperience> = [
       },
     ],
     techstacks: [openai, gemini, fastApi],
+  },
+  {
+    image: dsLogo,
+    position: 'Frontend software engineer at Decision Science Agency',
+    duration: 'May 2023 - Aug 2023',
+    projects: [
+      {
+        title: 'Singlife - NISL',
+        text: "Upgraded NISL Singlife's webpage using AlpineJS, SCSS, Tailwind and PUG HTML templating.",
+        result:
+          'Ensuring smooth communication between Singlife and its collaborators',
+      },
+      {
+        title: 'Singlife - eservice forms',
+        text: "Developed and maintained Singlife's eservices form using React Typescript and Emotion CSS.",
+        result: "Benefitting Singlife and thousands of Singlife's customers.",
+      },
+      {
+        title: 'HDB Change Flat Ownership',
+        text: "Upgraded HDB's flat ownership application page using ReactJS, React Typescript and SCSS.",
+        result: 'Ensuring smooth administration of HDB.',
+      },
+    ],
+    techstacks: [react, typescript, scss, alpine, tailwind, pug, emotion],
   },
 ];
 

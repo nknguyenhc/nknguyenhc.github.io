@@ -64,6 +64,8 @@ import springbootIcon from '../assets/icons/springboot.png';
 import vueIcon from '../assets/icons/vue.png';
 import githubIcon from '../assets/icons/github.png';
 import markbindIcon from '../assets/icons/markbind.png';
+import claudeIcon from '../assets/icons/claude.png';
+import goIcon from '../assets/icons/go.png';
 
 export type TechStackType = {
   image: string;
@@ -151,6 +153,11 @@ export const c: TechStackType = {
   link: 'https://en.wikipedia.org/wiki/C_(programming_language)',
   note: 'C',
 };
+export const claude: TechStackType = {
+  image: claudeIcon,
+  link: 'https://claude.ai/',
+  note: 'Claude',
+};
 export const cloudflare: TechStackType = {
   image: cloudflareIcon,
   link: 'https://cloudflare.com/',
@@ -220,6 +227,11 @@ export const gradle: TechStackType = {
   image: gradleIcon,
   link: 'https://gradle.org/',
   note: 'Gradle',
+};
+export const go: TechStackType = {
+  image: goIcon,
+  link: 'https://go.dev/',
+  note: 'Go',
 };
 export const godot: TechStackType = {
   image: godotIcon,

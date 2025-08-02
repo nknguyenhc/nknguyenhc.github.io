@@ -20,6 +20,7 @@ import {
   azureCosmosDb,
   bootstrap,
   c,
+  claude,
   cloudflare,
   cpp,
   django,
@@ -33,6 +34,7 @@ import {
   gemini,
   githubActions,
   githubPages,
+  go,
   godot,
   googleCloud,
   googleCloudDns,
@@ -166,6 +168,7 @@ const techstackData: Array<TechStackSection> = [
       django,
       flask,
       fastApi,
+      go,
       springboot,
       express,
       nginx,
@@ -205,7 +208,7 @@ const techstackData: Array<TechStackSection> = [
   },
   {
     name: 'Artificial Intelligence',
-    techstacks: [stabilityai, openai, gemini, numpy, pytorch],
+    techstacks: [stabilityai, openai, gemini, claude, numpy, pytorch],
   },
   {
     name: 'Programming Languages',

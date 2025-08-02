@@ -1,3 +1,4 @@
+import AITrack from '../../../assets/home/ai-track.png';
 import DeansList from '../../../assets/home/deans-list.png';
 import DeansList2425S1 from '../../../assets/home/deans-list-ay2425s1.png';
 import DeansList2425S2 from '../../../assets/home/deans-list-ay2425s2.png';
@@ -27,6 +28,15 @@ type Award = {
 };
 
 const awards: Array<Award> = [
+  {
+    name: 'Artificial Intelligence Track, Distinction',
+    description:
+      'Completion of the Artificial Intelligence Track with Distinction at NUS School of Computing.',
+    details: ['Completed in Semester 2 of AY 2024-2025'],
+    img: AITrack,
+    certificate:
+      'https://credentials.nus.edu.sg/11ac98da-fb95-4c19-8d97-4beed6b9b9e7#acc.XyWiAL8e',
+  },
   {
     name: "Dean's List, NUS School of Computing",
     description:

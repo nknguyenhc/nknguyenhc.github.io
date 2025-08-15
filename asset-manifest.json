@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.387741e6.css",
-    "main.js": "/static/js/main.7001b94b.js",
+    "main.js": "/static/js/main.317af51f.js",
     "static/media/SP-speed.jpg": "/static/media/SP-speed.5fbc64243376d19a146c.jpg",
     "static/media/parody-generator-sample-2.png": "/static/media/parody-generator-sample-2.30120569dee044cc4a7f.png",
     "static/media/parody-generator-sample-3.png": "/static/media/parody-generator-sample-3.5af90aaab3ea6b0a6891.png",
@@ -211,6 +211,6 @@
   },
   "entrypoints": [
     "static/css/main.387741e6.css",
-    "static/js/main.7001b94b.js"
+    "static/js/main.317af51f.js"
   ]
 }

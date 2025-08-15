@@ -649,7 +649,13 @@ const hackathons: Array<ProjectData> = [
       right: Terminal3,
     },
     techstacks: [python],
-    deployed: [],
+    deployed: [
+      {
+        link: 'https://terminal.c1games.com/competitions/304/learn-rules',
+        description: 'Competition Site',
+        icon: WebIcon,
+      },
+    ],
     period: 'Oct 2023',
   },
   {

@@ -114,4 +114,10 @@
             max-width: 100%;
         }
     }
+
+    &-scroll-btn {
+        font-size: $normal-fs;
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }

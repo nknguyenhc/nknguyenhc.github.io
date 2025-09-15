@@ -101,6 +101,12 @@ const images: Array<Image> = [
 export default function LandingBanner(): JSX.Element {
   const [showOrder, setShowOrder] = useState<number>(0);
 
+  const scrollToBottom = useCallback(
+    () =>
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }),
+    []
+  );
+
   useEffect(() => {
     const interval = setInterval(() => {
       setShowOrder((curr) => (curr + 1) % images.length);
@@ -130,6 +136,9 @@ export default function LandingBanner(): JSX.Element {
       <div className="landing-banner-text">
         <div className="landing-banner-text-top">Hello, I'm</div>
         <div className="landing-banner-text-bottom">Nguyen Khoi Nguyen</div>
+      </div>
+      <div className="landing-banner-scroll-btn" onClick={scrollToBottom}>
+        Contact me ↓
       </div>
       <TechStacks />
     </div>

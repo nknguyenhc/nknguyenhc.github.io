@@ -73,6 +73,7 @@ import {
   tailwind,
   telegram,
   typescript,
+  vscodeExtension,
   vue,
 } from '../../../constants/techstack';
 import useViewportWidth from '../../../utils/viewport';
@@ -221,7 +222,7 @@ const techstackData: Array<TechStackSection> = [
   },
   {
     name: 'Programming Languages',
-    techstacks: [python, java, javascript, nodejs, typescript, c, cpp],
+    techstacks: [python, java, javascript, nodejs, typescript, c, cpp, go],
   },
   {
     name: 'Game Development',
@@ -229,7 +230,7 @@ const techstackData: Array<TechStackSection> = [
   },
   {
     name: 'Scripting/Bot',
-    techstacks: [jsDomManipulation, puppeteer, telegram],
+    techstacks: [jsDomManipulation, puppeteer, telegram, vscodeExtension],
   },
 ];
 

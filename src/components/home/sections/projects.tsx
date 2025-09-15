@@ -79,6 +79,9 @@ import CardinalThuan2 from '../../../assets/projects/cardinal-thuan-heaven-assur
 import FriendzoneModel from '../../../assets/projects/friendzone-model.png';
 import FriendzoneWordCloud from '../../../assets/projects/friendzone-word-cloud.png';
 import FriendzoneWeb from '../../../assets/projects/friendzone-web.png';
+import VSCodeHtml from '../../../assets/projects/vscode-html.png';
+import VSCodeHtmlClick from '../../../assets/projects/vscode-html-click.png';
+import VSCodeHtmlSource from '../../../assets/projects/vscode-html-source.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -141,6 +144,7 @@ import {
   tailwind,
   telegram,
   typescript,
+  vscodeExtension,
   vue,
 } from '../../../constants/techstack';
 
@@ -166,6 +170,20 @@ type ProjectData = {
 };
 
 const projects: Array<ProjectData> = [
+  {
+    name: 'VSCode',
+    description:
+      'VSCode is an open-source code editor by Microsoft that many coders use. I contributed bug fixes and new features to VSCode.\nThe one big feature I contributed is navigating to definitions for built-in javascript classes within script tags of HTML files. This involves understanding how typescript parses scripts within HTML files, and rendering source files for definitions.',
+    code: 'https://github.com/microsoft/vscode/pulls?q=is%3Apr+author%3Anknguyenhc',
+    images: {
+      main: VSCodeHtmlClick,
+      left: VSCodeHtml,
+      right: VSCodeHtmlSource,
+    },
+    techstacks: [typescript, vscodeExtension],
+    deployed: [],
+    period: 'Feb 2025 - Apr 2025',
+  },
   {
     name: 'Dokyu',
     description:

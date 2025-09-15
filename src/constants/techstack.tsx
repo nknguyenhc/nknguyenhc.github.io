@@ -66,6 +66,7 @@ import githubIcon from '../assets/icons/github.png';
 import markbindIcon from '../assets/icons/markbind.png';
 import claudeIcon from '../assets/icons/claude.png';
 import goIcon from '../assets/icons/go.png';
+import vscode from '../assets/icons/vscode.png';
 
 export type TechStackType = {
   image: string;
@@ -417,6 +418,11 @@ export const typescript: TechStackType = {
   image: typescriptIcon,
   link: 'https://www.typescriptlang.org/',
   note: 'Typescript',
+};
+export const vscodeExtension: TechStackType = {
+  image: vscode,
+  link: 'https://code.visualstudio.com/api',
+  note: 'VSCode Extension',
 };
 export const vue: TechStackType = {
   image: vueIcon,

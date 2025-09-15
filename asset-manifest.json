@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.387741e6.css",
-    "main.js": "/static/js/main.317af51f.js",
+    "main.css": "/static/css/main.0d801b8e.css",
+    "main.js": "/static/js/main.12e4f9fc.js",
     "static/media/SP-speed.jpg": "/static/media/SP-speed.5fbc64243376d19a146c.jpg",
     "static/media/parody-generator-sample-2.png": "/static/media/parody-generator-sample-2.30120569dee044cc4a7f.png",
     "static/media/parody-generator-sample-3.png": "/static/media/parody-generator-sample-3.5af90aaab3ea6b0a6891.png",
@@ -85,6 +85,7 @@
     "static/media/landing-3.jpeg": "/static/media/landing-3.6dcb9bf955e7c2f0e509.jpeg",
     "static/media/heroku-addons.png": "/static/media/heroku-addons.1e84afc6a648d0c1ca3e.png",
     "static/media/heroku-2FA.png": "/static/media/heroku-2FA.4e983b20d7c250b0663b.png",
+    "static/media/vscode-html-source.png": "/static/media/vscode-html-source.bbfb6b5d3ef1497dce59.png",
     "static/media/luminous-zephyr-banner.jpg": "/static/media/luminous-zephyr-banner.129a821631a03a03e413.jpg",
     "static/media/azure.png": "/static/media/azure.77336339875136303870.png",
     "static/media/quack-nkn-logo.png": "/static/media/quack-nkn-logo.bfe58da82e9854493de3.png",
@@ -103,6 +104,7 @@
     "static/media/s3-create-bucket.png": "/static/media/s3-create-bucket.ff278184fb4892705b19.png",
     "static/media/luckyjinx-main.png": "/static/media/luckyjinx-main.d0b095ab79db30977291.png",
     "static/media/django.png": "/static/media/django.e2d0ed2e07fbbc1c4dd9.png",
+    "static/media/vscode.png": "/static/media/vscode.b39e8d9fd5dd1a1815cf.png",
     "static/media/SPL.png": "/static/media/SPL.c5734ec741216b16b5ae.png",
     "static/media/neuralcats-UI2.png": "/static/media/neuralcats-UI2.56b262be924e8607505f.png",
     "static/media/terminal-3.png": "/static/media/terminal-3.cca36b472504d03f5921.png",
@@ -158,6 +160,7 @@
     "static/media/web.png": "/static/media/web.10a2be69190b69626a3e.png",
     "static/media/cpp.png": "/static/media/cpp.24a8f93854ab092f17a7.png",
     "static/media/tiktok-hackathon.png": "/static/media/tiktok-hackathon.2caa9c1cd35370e248e8.png",
+    "static/media/vscode-html-click.png": "/static/media/vscode-html-click.f8ac69087873ebc0334f.png",
     "static/media/nodejs.png": "/static/media/nodejs.9fea1c7da2bd42ab93bf.png",
     "static/media/ultimate-tictactoe-local.png": "/static/media/ultimate-tictactoe-local.b1179d1d9efa7c7c6659.png",
     "static/media/coding-hamming-decode.png": "/static/media/coding-hamming-decode.d902b6995ee7c7529a6e.png",
@@ -210,7 +213,7 @@
     "static/media/fastapi.svg": "/static/media/fastapi.6c84dc4ea9626837be0ce2c5523b6d52.svg"
   },
   "entrypoints": [
-    "static/css/main.387741e6.css",
-    "static/js/main.317af51f.js"
+    "static/css/main.0d801b8e.css",
+    "static/js/main.12e4f9fc.js"
   ]
 }

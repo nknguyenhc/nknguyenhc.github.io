@@ -82,6 +82,12 @@ import FriendzoneWeb from '../../../assets/projects/friendzone-web.png';
 import VSCodeHtml from '../../../assets/projects/vscode-html.png';
 import VSCodeHtmlClick from '../../../assets/projects/vscode-html-click.png';
 import VSCodeHtmlSource from '../../../assets/projects/vscode-html-source.png';
+import final4096 from '../../../assets/projects/4096-final.png';
+import mid4096 from '../../../assets/projects/4096-mid.png';
+import win4096 from '../../../assets/projects/4096-win.png';
+import japanHome from '../../../assets/projects/japan-home.png';
+import japanBlog from '../../../assets/projects/japan-blog.png';
+import japanRoute from '../../../assets/projects/japan-route.webp';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -100,6 +106,7 @@ import {
   TechStackType,
   alpine,
   angular,
+  astro,
   aws,
   awsS3,
   azure,
@@ -183,6 +190,27 @@ const projects: Array<ProjectData> = [
     techstacks: [typescript, vscodeExtension],
     deployed: [],
     period: 'Feb 2025 - Apr 2025',
+  },
+  {
+    name: 'Japan blog posts',
+    description:
+      'This is my latest vibing experience, where the whole site was built with Codex, as well as my travel repository for my Japan grad trip. I was in Japan 17 May - 11 June 2026, and managed to explore a variety of places.\nThe repository was set up so that a bot could fetch from my Google document and update the repository via a pull request. During my travel, I could simply update the Google document and command the bot to update the repository. This blog post then served as a convenient way for me to share my travel experience with my friends and family.',
+    readme: 'https://japan.nknguyenhc.net/',
+    code: 'https://github.com/nknguyenhc/japan',
+    images: {
+      main: japanHome,
+      left: japanBlog,
+      right: japanRoute,
+    },
+    techstacks: [astro, githubActions, githubPages, openai],
+    deployed: [
+      {
+        link: 'https://japan.nknguyenhc.net/',
+        description: 'Web',
+        icon: WebIcon,
+      },
+    ],
+    period: 'May 2026 - Jun 2026',
   },
   {
     name: 'Dokyu',
@@ -517,6 +545,20 @@ const algorithms: Array<ProjectData> = [
       },
     ],
     period: 'Apr 2024 - present',
+  },
+  {
+    name: '4096',
+    description:
+      '4096 is an automated engine to play 2048 in browser. Imagine an engine that can reach 8192 without you telling it the strategy? That is quite cool!\nIn testing, the engine ultimately reached 8192 with a 10% chance. However, in practice, my computer was getting old, so it could not reach 8192 :( Until I get a new Mac computer then.\nThis engine however can reach 4096 with a high chance, and can reach 2048 with almost absolute certainty. One interesting observation is, while humans always try to corner the big numbers, the engine just anyhow rotates the big numbers around. Yet it can reach high numbers with impressive success rate.',
+    code: 'https://github.com/nknguyenhc/4096',
+    images: {
+      main: final4096,
+      left: mid4096,
+      right: win4096,
+    },
+    techstacks: [puppeteer, typescript],
+    deployed: [],
+    period: 'Jan 2025 - Oct 2025',
   },
   {
     name: 'Minesweeperer',

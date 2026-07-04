@@ -37,8 +37,9 @@ type InternExperience = {
 const experienceData: Array<InternExperience> = [
   {
     image: seaLogo,
-    position: 'Frontend Engineer Intern at SEA',
-    duration: 'May 2025 - current',
+    position:
+      'Backend Engineer (Full time) & Frontend Engineer (Intern) at SEA',
+    duration: 'May 2025 - Apr 2026 (Intern); June 2026 - current (Full time)',
     projects: [
       {
         title: 'Alpha Intelligence',

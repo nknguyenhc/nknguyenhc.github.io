@@ -39,8 +39,8 @@ export default function Home(): JSX.Element {
   return (
     <div className="home">
       <LandingBanner />
-      <Projects />
       <Experience />
+      <Projects />
       <Awards />
       <Activities />
       <Stepper steps={stepperSteps} scrollOffset={0} />

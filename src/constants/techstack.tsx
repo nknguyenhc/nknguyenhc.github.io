@@ -67,6 +67,7 @@ import markbindIcon from '../assets/icons/markbind.png';
 import claudeIcon from '../assets/icons/claude.png';
 import goIcon from '../assets/icons/go.png';
 import vscode from '../assets/icons/vscode.png';
+import astroIcon from '../assets/icons/astro.png';
 
 export type TechStackType = {
   image: string;
@@ -88,6 +89,11 @@ export const angular: TechStackType = {
   image: angularIcon,
   link: 'https://angular.io/',
   note: 'Angular',
+};
+export const astro: TechStackType = {
+  image: astroIcon,
+  link: 'https://astro.build/',
+  note: 'Astro',
 };
 export const aws: TechStackType = {
   image: awsIcon,

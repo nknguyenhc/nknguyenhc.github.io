@@ -12,6 +12,27 @@ type ModuleType = {
 
 const data: Array<ModuleType> = [
   {
+    name: 'CP4101 - Final Year Project',
+    grade: 'A',
+    sem: 'AY2526',
+    review:
+      'This is my thing in school in my final year. Depending on the professor that you get to work with ig, but you have to be very independent, in your own exploration, learning new concepts, and carrying out the experiments, as well as writing reports. I got some direction from prof Sanka in my journey as well as report writing, but do note that you need to be very independent to carry through this module. FYP benefits you much more if you are considering further studies.\nSee my algorithm report in my home page for more details on my FYP.',
+  },
+  {
+    name: 'MA3264 - Mathematical Modelling',
+    grade: 'A+',
+    sem: 'AY2526-S1',
+    review:
+      'A rather easy module, if you have taken Further Mathematics in JC :) It is basically an extension of Further Mathematics concepts, like the fishing rate problem, half-life, etc, but with much greater details and depth.\nNevertheless, I found the module to be quite easy. Note that I took this module when I was in my final year, and I was about to get my employment, so I no longer put much effort into modules in school.',
+  },
+  {
+    name: 'CS2106 - Operating Systems',
+    grade: 'A',
+    sem: 'AY2526-S1',
+    review:
+      'A module I took as a compulsory module for my CS degree. In all fairness, the concepts learned are quite interesting and cool. But it is also a forgettable module: I did not have much venue to apply what I learned from this module.\nThere were 4 pass/fail assignments, each of which test your knowledge on the concepts learned in lectures. Exams could be difficult, and was a differentiating factor for grades :)',
+  },
+  {
     name: 'CS3264 - Foundations in Machine Learning',
     grade: 'A+',
     sem: 'AY2425-S2',

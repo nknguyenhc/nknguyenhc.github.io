@@ -49,18 +49,6 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
     text: 'Projects',
     dropdown: [
       {
-        text: 'MatchMiner',
-        url: '/project/matchminer',
-      },
-      {
-        text: 'Coding Scheme Simulation',
-        url: '/project/coding-scheme-simulation',
-      },
-      {
-        text: 'Quack Nkn',
-        url: '/project/quack-nkn',
-      },
-      {
         text: 'Ultimate Tictactoe',
         url: '/project/ultimate-tictactoe',
       },

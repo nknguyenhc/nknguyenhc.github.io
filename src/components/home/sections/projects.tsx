@@ -88,6 +88,9 @@ import win4096 from '../../../assets/projects/4096-win.png';
 import japanHome from '../../../assets/projects/japan-home.png';
 import japanBlog from '../../../assets/projects/japan-blog.png';
 import japanRoute from '../../../assets/projects/japan-route.webp';
+import fypOverview from '../../../assets/projects/fyp-overview.png';
+import fypPerformance from '../../../assets/projects/fyp-performance.png';
+import fypCover from '../../../assets/projects/fyp-cover.png';
 import WebIcon from '../../../assets/icons/web.png';
 import AndroidIcon from '../../../assets/icons/android.png';
 import IOSIcon from '../../../assets/icons/ios.png';
@@ -150,6 +153,7 @@ import {
   stabilityai,
   tailwind,
   telegram,
+  transformers,
   typescript,
   vscodeExtension,
   vue,
@@ -488,6 +492,20 @@ const projects: Array<ProjectData> = [
 ];
 
 const algorithms: Array<ProjectData> = [
+  {
+    name: 'Enforce LLMs to follow rules',
+    description:
+      'I developed a framework that enforces LLMs to follow rules, by using PPO fine-tuning combined with LoRA for simpler games like connect-4 and ultimate tic-tac-toe, and curriculum learning for harder games like Xiangqi. My approach is shown to approve rule-following by a large margin.\nThis was also part of my final year project.',
+    code: 'https://github.com/nknguyenhc/fyp',
+    images: {
+      main: fypOverview,
+      left: fypPerformance,
+      right: fypCover,
+    },
+    techstacks: [python, pytorch, transformers],
+    deployed: [],
+    period: 'Aug 2025 - Apr 2026',
+  },
   {
     name: 'Friendzone or Romantic',
     description:

@@ -68,6 +68,7 @@ import claudeIcon from '../assets/icons/claude.png';
 import goIcon from '../assets/icons/go.png';
 import vscode from '../assets/icons/vscode.png';
 import astroIcon from '../assets/icons/astro.png';
+import transformersIcon from '../assets/icons/transformers.png';
 
 export type TechStackType = {
   image: string;
@@ -419,6 +420,11 @@ export const telegram: TechStackType = {
   image: telegramIcon,
   link: 'https://www.npmjs.com/package/node-telegram-bot-api',
   note: 'Telegram',
+};
+export const transformers: TechStackType = {
+  image: transformersIcon,
+  link: 'https://huggingface.co/docs/transformers/en/index',
+  note: 'Transformers',
 };
 export const typescript: TechStackType = {
   image: typescriptIcon,

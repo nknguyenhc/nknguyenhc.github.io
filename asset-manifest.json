@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fcb2a593.css",
-    "main.js": "/static/js/main.ce816eb0.js",
+    "main.js": "/static/js/main.5c6d220f.js",
     "static/media/SP-speed.jpg": "/static/media/SP-speed.5fbc64243376d19a146c.jpg",
     "static/media/parody-generator-sample-2.png": "/static/media/parody-generator-sample-2.30120569dee044cc4a7f.png",
     "static/media/parody-generator-sample-3.png": "/static/media/parody-generator-sample-3.5af90aaab3ea6b0a6891.png",
@@ -76,6 +76,7 @@
     "static/media/github.png": "/static/media/github.4bb497e598c121a691f7.png",
     "static/media/luminous-zephyr-sample.jpg": "/static/media/luminous-zephyr-sample.625f260e1e37612d6e59.jpg",
     "static/media/terminal-1.png": "/static/media/terminal-1.2dd47b6aac2d1a607f38.png",
+    "static/media/transformers.png": "/static/media/transformers.9e11c4adda74e6501f55.png",
     "static/media/authenticator-app.jpeg": "/static/media/authenticator-app.09fc1dd25076613a0b2d.jpeg",
     "static/media/fyp-performance.png": "/static/media/fyp-performance.cdf9d49974474bf8483c.png",
     "static/media/sudoku-solver-solved.png": "/static/media/sudoku-solver-solved.7f9d624a15dc596c1730.png",
@@ -175,7 +176,6 @@
     "static/media/python.png": "/static/media/python.448fb2a83595fa5c5c8a.png",
     "static/media/tailwind.png": "/static/media/tailwind.013659ff99c4cec2d7ce.png",
     "static/media/Yps-popup.png": "/static/media/Yps-popup.51b9ec58c024251c63c4.png",
-    "static/media/transformers.png": "/static/media/transformers.5a831b200a52182ba141.png",
     "static/media/azure-app-service.png": "/static/media/azure-app-service.3dc15e1126ddcc06d91d.png",
     "static/media/SEA-logo.png": "/static/media/SEA-logo.066ebbd43528ed9f5f33.png",
     "static/media/whitenoise-middleware.png": "/static/media/whitenoise-middleware.6af14d332fa4817d137a.png",
@@ -220,6 +220,6 @@
   },
   "entrypoints": [
     "static/css/main.fcb2a593.css",
-    "static/js/main.ce816eb0.js"
+    "static/js/main.5c6d220f.js"
   ]
 }

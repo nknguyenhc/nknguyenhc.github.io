@@ -73,6 +73,7 @@ import {
   stabilityai,
   tailwind,
   telegram,
+  transformers,
   typescript,
   vscodeExtension,
   vue,
@@ -220,7 +221,15 @@ const techstackData: Array<TechStackSection> = [
   },
   {
     name: 'Artificial Intelligence',
-    techstacks: [stabilityai, openai, gemini, claude, numpy, pytorch],
+    techstacks: [
+      stabilityai,
+      openai,
+      gemini,
+      claude,
+      numpy,
+      pytorch,
+      transformers,
+    ],
   },
   {
     name: 'Programming Languages',

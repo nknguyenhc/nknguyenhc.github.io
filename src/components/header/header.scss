@@ -1,9 +1,11 @@
+@use 'sass:math';
+@use '../../styles/tokens' as *;
+
 $header-vertical-padding: 20px;
 $dropdown-height-transition: height 0.6s ease-in-out;
 $menu-icon-width: 25px;
 $menu-icon-container-padding: 20px;
-$menu-icon-centre: $menu-icon-width / 2 + $menu-icon-container-padding;
-$menu-icon-transition: transform 0.4s linear;
+$menu-icon-centre: math.div($menu-icon-width, 2) + $menu-icon-container-padding;
 $menu-item-transition: 0.3s ease-in-out;
 
 header {

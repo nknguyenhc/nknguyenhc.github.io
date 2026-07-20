@@ -1,3 +1,5 @@
+@use '../../../styles/tokens' as *;
+
 .ultimate-tictactoe {
     display: flex;
     flex-direction: column;

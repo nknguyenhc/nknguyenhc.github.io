@@ -1,0 +1,41 @@
+// Colours
+$red: #ff7f7a;
+$dark-red: rgb(167, 23, 7);
+$lightgrey: rgb(194, 194, 194);
+$cyan: #54e3e3;
+$secondary: rgb(31, 31, 31);
+$blue: #0600a3;
+$purple: #b568f7;
+
+// Spacing
+$small-gap: 12px;
+$x-small-gap: 4px;
+$normal-gap: 24px;
+$large-gap: 40px;
+$x-large-gap: 60px;
+$xx-large-gap: 150px;
+
+// Borders
+$small-border-radius: 10px;
+$x-small-border-radius: 6px;
+$large-border-radius: 30px;
+
+// Transitions
+$bg-transition: background-color 0.15s ease-in-out;
+$opacity-transition: opacity 0.4s ease-in-out;
+$menu-icon-transition: transform 0.4s linear;
+
+// Typography
+$small-fs: 12px;
+$normal-fs: 16px;
+$slightly-large-fs: 24px;
+$large-fs: 30px;
+$x-large-fs: 60px;
+$light-fw: 300;
+$normal-fw: 400;
+$bold-fw: 700;
+$light-bold-fw: 550;
+$normal-line-h: 150%;
+
+// Breakpoints
+$desktop: 968px;

@@ -1,3 +1,5 @@
+@use '../../styles/tokens' as *;
+
 $click-dropdown-transition-duration: 0.3s;
 
 .dropdown-click {

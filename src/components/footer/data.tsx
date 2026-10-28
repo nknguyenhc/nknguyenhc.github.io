@@ -25,7 +25,7 @@ export const footerColumns: Array<FooterColumn> = [
     items: [
       {
         text: 'Resume',
-        href: process.env.PUBLIC_URL + '/Resume.pdf',
+        href: import.meta.env.BASE_URL + 'Resume.pdf',
         newTab: true,
       },
     ],

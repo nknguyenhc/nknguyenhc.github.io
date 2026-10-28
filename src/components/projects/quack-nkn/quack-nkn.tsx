@@ -171,7 +171,7 @@ const Features = (): JSX.Element => {
       '0'.repeat(2 - Math.floor(Math.log(i) / Math.log(10))) + i;
     return Array.from(Array(frameCount).keys()).map(
       (i) =>
-        `${process.env.PUBLIC_URL}/videos/quack-nkn-tracker/frame-${toFrameNumber(i + 1)}.jpg`
+        `${import.meta.env.BASE_URL}videos/quack-nkn-tracker/frame-${toFrameNumber(i + 1)}.jpg`
     );
   }, [frameCount]);
   const scrollBreakpoints = useMemo(
@@ -294,7 +294,7 @@ const Features = (): JSX.Element => {
             </div>
           </div>
           <video
-            src={process.env.PUBLIC_URL + '/videos/quack-nkn-reminder.mp4'}
+            src={import.meta.env.BASE_URL + 'videos/quack-nkn-reminder.mp4'}
             className="quack-nkn-features-video"
             autoPlay={true}
             muted={true}

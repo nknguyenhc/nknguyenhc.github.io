@@ -181,7 +181,7 @@ const TaPosition = ({ data }: { data: TaDataType }): JSX.Element => {
             <div>
               View{' '}
               <a
-                href={`${process.env.PUBLIC_URL}/TA/${data.name}.pdf`}
+                href={`${import.meta.env.BASE_URL}TA/${data.name}.pdf`}
                 className="ta-data-details-link"
               >
                 full report

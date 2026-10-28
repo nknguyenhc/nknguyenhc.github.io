@@ -54,15 +54,6 @@ const headerItems: Array<HeaderItemWithLink | HeaderItemWithDropdown> = [
       },
     ],
   }),
-  new HeaderItemWithDropdown({
-    text: 'Guides',
-    dropdown: [
-      {
-        text: 'Deploy Django on Heroku',
-        url: '/guide/deploy-django-on-heroku',
-      },
-    ],
-  }),
 ];
 
 export default headerItems;

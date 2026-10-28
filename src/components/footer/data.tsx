@@ -64,15 +64,6 @@ export const footerColumns: Array<FooterColumn> = [
       },
     ],
   },
-  {
-    top: 'Guides',
-    items: [
-      {
-        text: 'Deploy Django on Heroku',
-        href: '/guide/deploy-django-on-heroku',
-      },
-    ],
-  },
 ];
 
 type SocialLink = {

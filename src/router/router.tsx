@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from '../App';
-import DjangoHerokuGuide from '../components/guides/django-on-heroku/index';
 import Home from '../components/home/index';
 import NotFound from '../components/notfound/not-found';
 import Modules from '../components/academics/modules/modules';
@@ -15,15 +14,6 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Home />,
-      },
-      {
-        path: 'guide/',
-        children: [
-          {
-            path: 'deploy-django-on-heroku',
-            element: <DjangoHerokuGuide />,
-          },
-        ],
       },
       {
         path: 'project/',

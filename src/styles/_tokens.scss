@@ -1,11 +1,19 @@
-// Colours
-$red: #ff7f7a;
-$dark-red: rgb(167, 23, 7);
-$lightgrey: rgb(194, 194, 194);
-$cyan: #54e3e3;
-$secondary: rgb(31, 31, 31);
-$blue: #0600a3;
-$purple: #b568f7;
+// Warm shared palette; aliases also theme the interactive pages.
+$paper: #faf7f2;
+$surface: #fffdf9;
+$ink: #352c26;
+$muted: #75675c;
+$border: #dfd3c5;
+$accent: #984d34;
+$red: #ead5c5;
+$dark-red: $accent;
+$lightgrey: $border;
+$cyan: #efe2d3;
+$secondary: $ink;
+$blue: #8a432d;
+$purple: #f0e8dd;
+$heading-font: Georgia, 'Times New Roman', serif;
+$soft-shadow: 0 12px 40px rgba(75, 48, 27, 0.06);
 
 // Spacing
 $small-gap: 12px;

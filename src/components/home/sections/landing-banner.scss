@@ -1,125 +1,105 @@
 @use '../../../styles/tokens' as *;
 
 .landing-banner {
-    width: 100vw;
-    margin-top: 20vh;
+  width: 100%;
+  margin-top: 136px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+
+  &-images {
+    width: clamp(200px, 24vw, 300px);
+    height: clamp(200px, 24vw, 300px);
+    position: relative;
+    border-radius: 50%;
+    border: 8px solid $surface;
+    outline: 1px solid $border;
+    box-shadow: 0 16px 48px rgba(75, 48, 27, 0.12);
+    cursor: pointer;
+  }
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    clip-path: circle(closest-side);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    &-not-circle { clip-path: none; }
+    &-show { opacity: 1; }
+  }
+  &-text {
+    text-align: center;
+    padding: 0 20px;
+    &-top { color: $muted; font-size: 18px; margin-bottom: 8px; }
+    &-bottom {
+      font-family: $heading-font;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: $normal-fw;
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+    }
+  }
+  &-scroll-btn {
+    padding: 11px 26px;
+    border: 1px solid $accent;
+    border-radius: 999px;
+    background: $accent;
+    color: $surface;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    &:hover { background: $blue; transform: translateY(-2px); }
+  }
+  &-techstacks {
+    box-sizing: border-box;
+    width: min(100% - 96px, 1000px);
+    margin-top: 40px;
+    padding: 16px 32px;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 20px;
+    box-shadow: $soft-shadow;
+    &-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid #eee5da;
+      &:last-child { border-bottom: 0; }
+      &-name { width: 160px; flex-shrink: 0; color: $muted; font-size: 14px; font-weight: 550; }
+      &-techstacks { display: flex; gap: 12px; flex-wrap: wrap; }
+    }
+  }
+  &-techstack {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 60px;
-
-    @media (max-width: $desktop) {
-        margin-top: 10vh;
+    height: 36px;
+    width: 36px;
+    border-radius: 8px;
+    @for $i from 0 through 15 {
+      &-anim-#{$i} {
+        opacity: 1;
+        transition: opacity 0.3s linear;
+        transition-delay: #{$i * 0.04}s;
+      }
     }
-
-    &-images {
-        height: 50vh;
-        width: 50vh;
-        max-height: 650px;
-        max-width: 650px;
-        position: relative;
-
-        @media (max-width: $desktop) {
-            height: 80vw;
-            width: 80vw;
-        }
+    &-hide { opacity: 0; }
+    &:hover { background: $cyan; }
+    img { max-height: 100%; max-width: 100%; }
+  }
+  @media (max-width: $desktop) {
+    margin-top: 96px;
+    &-techstacks { width: calc(100% - 40px); padding: 8px 20px; margin-top: 24px; }
+  }
+  @media (max-width: 540px) {
+    &-techstacks-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      &-name { width: auto; }
     }
-
-    &-image {
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 50%;
-        transform: translateX(-50%);
-        clip-path: circle(closest-side);
-        opacity: 0;
-        transition: opacity 0.3s cubic-bezier(0.87, 0.12, 0.44, 0.44);
-
-        &-not-circle {
-            clip-path: none;
-        }
-
-        &-show {
-            opacity: 1;
-        }
-    }
-
-    &-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-
-        &-top {
-            font-size: $large-fs;
-        }
-
-        &-bottom {
-            font-size: $x-large-fs;
-            font-weight: $bold-fw;
-
-            @media (max-width: $desktop) {
-                font-size: $large-fs;
-            }
-        }
-    }
-
-    &-techstacks {
-        display: flex;
-        flex-direction: column;
-        gap: $normal-gap;
-        justify-content: center;
-
-        &-row {
-            display: flex;
-            flex-direction: row;
-            gap: $normal-gap;
-            width: 65vw;
-
-            &-name {
-                width: 100px;
-                flex-shrink: 0;
-            }
-
-            &-techstacks {
-                display: flex;
-                flex-direction: row;
-                gap: $small-gap;
-                flex-wrap: wrap;
-            }
-
-            @media (max-width: $desktop) {
-                width: 90vw;
-            }
-        }
-    }
-
-    &-techstack {
-        height: 40px;
-        width: 40px;
-
-        @for $i from 0 through 15 {
-            &-anim-#{$i} {
-                opacity: 1;
-                transition: opacity 0.3s linear;
-                transition-delay: #{$i * 0.1}s;
-            }
-        }
-
-        &-hide {
-            opacity: 0;
-        }
-
-        img {
-            max-height: 100%;
-            max-width: 100%;
-        }
-    }
-
-    &-scroll-btn {
-        font-size: $normal-fs;
-        cursor: pointer;
-        text-decoration: underline;
-    }
+  }
 }

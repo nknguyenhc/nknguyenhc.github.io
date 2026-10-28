@@ -1,12 +1,14 @@
 @use '../../styles/tokens' as *;
 
 .footer {
-    background-color: white;
+    background-color: #eee3d5;
+    border-top: 1px solid $border;
     display: flex;
     flex-direction: row;
-    gap: $x-large-gap;
+    gap: 32px 40px;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: $normal-gap;
+    padding: 56px max(24px, calc((100% - 1000px) / 2));
 
     @media (max-width: $desktop) {
         justify-content: flex-start;
@@ -20,6 +22,9 @@
 
         &-header {
             font-weight: $light-bold-fw;
+            color: $blue;
+            font-size: 14px;
+            letter-spacing: 0.04em;
         }
 
         &-items {
@@ -31,7 +36,10 @@
         &-item {
             display: flex;
             flex-direction: row;
-            gap: $x-small-gap;
+            gap: 10px;
+            align-items: center;
+            font-size: 14px;
+            overflow-wrap: anywhere;
 
             &-icon {
                 height: 25px;

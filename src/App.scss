@@ -20,18 +20,23 @@
 @use './components/projects/ultimate-tictactoe/ultimate-tictactoe.scss' as ultimate-tictactoe;
 
 * {
-  color: black;
+  color: inherit;
   font-size: $normal-fs;
   font-weight: $normal-fw;
   letter-spacing: 0.01em;
   margin: 0;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+
 }
 
-*::-webkit-scrollbar {
-  display: none;
+html {
+  scrollbar-color: $border $paper;
+  scroll-padding-top: 100px;
 }
+
+::selection { background: $red; color: $ink; }
+:focus-visible { outline: 2px solid $accent; outline-offset: 5px; }
+button, input, select, textarea { font-family: inherit; }
 
 a {
   text-decoration: none;
@@ -54,6 +59,9 @@ a {
 .link {
   color: $blue;
   text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  &:hover { color: $ink; }
 }
 
 .small-img-container {
@@ -71,4 +79,13 @@ a {
 
 .App {
   overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
 }

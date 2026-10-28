@@ -5,8 +5,8 @@ $transition-style: linear;
 
 .stepper {
     position: fixed;
-    top: 100px;
-    left: 20px;
+    top: 108px;
+    left: 16px;
     display: flex;
     flex-direction: column;
     gap: $normal-gap;
@@ -22,7 +22,11 @@ $transition-style: linear;
         width: calc(100vw - 68px);
         overflow: auto;
         cursor: pointer;
-        height: 40px;
+        height: 48px;
+        background: rgba(250, 247, 242, 0.97);
+        border-bottom: 1px solid $border;
+        gap: 18px;
+        scrollbar-width: none;
 
         &-overflow {
             box-shadow: inset -13px 0px 10px -15px;
@@ -52,17 +56,17 @@ $transition-style: linear;
         }
 
         &-circle {
-            height: 18px;
-            width: 18px;
-            border: 2px solid black;
-            background-color: white;
+            height: 10px;
+            width: 10px;
+            border: 1px solid $accent;
+            background-color: $surface;
             border-radius: 50%;
             cursor: pointer;
             transition: background-color $transition-duration $transition-style, border-color $transition-duration $transition-style;
             flex-shrink: 0;
 
             @media (max-width: $desktop) {
-                height: 5px;
+                height: 3px;
                 width: 100%;
                 border: none;
                 background-color: $dark-red;
@@ -75,13 +79,16 @@ $transition-style: linear;
             opacity: 0;
             transition: opacity $transition-duration $transition-style;
             white-space: nowrap;
+            background: $paper;
+            padding: 2px 6px;
+            border-radius: 4px;
 
             @media (max-width: $desktop) {
                 opacity: 1;
                 transition: $menu-icon-transition;
 
                 &-hide {
-                    transform: translateY(-200%);
+                    transform: none;
                 }
             }
         }
@@ -104,7 +111,7 @@ $transition-style: linear;
             width: fit-content;
 
             & .stepper-step-circle {
-                border: 2px solid $red;
+                border: 1px solid $accent;
 
                 @media (max-width: $desktop) {
                     border: none;

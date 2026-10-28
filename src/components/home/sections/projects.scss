@@ -1,12 +1,17 @@
-@use 'sass:math';
 @use '../../../styles/tokens' as *;
 
 .projects {
-    height: 120vh;
-    width: 100vw;
+    width: min(100% - 120px, 1100px);
+    margin: 0 auto;
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+
+    > .home-section-title { width: 100%; padding-top: 24px; }
 
     @media (max-width: $desktop) {
+        width: calc(100% - 40px);
         height: auto;
         display: flex;
         flex-direction: column;
@@ -17,46 +22,48 @@
     &-container {
         display: flex;
         flex-direction: column;
-        gap: $normal-gap;
+        gap: 64px;
+        padding: 40px 0 64px;
         background-color: $purple;
+        border-block: 1px solid $border;
     }
 
     &-show-more {
         margin: auto;
-        padding: $normal-gap;
-        background: $cyan;
-        font-size: $slightly-large-fs;
+        padding: 12px 28px;
+        background: $accent;
+        color: $surface;
+        font-size: $normal-fs;
         border-radius: $small-border-radius;
         cursor: pointer;
     }
 }
 
-$panel-top: 23%;
-$panel-left: 12%;
-$panel-width: 85%;
-$panel-height: 73%;
-$project-image-mobile-width: 80vw;
+$project-image-mobile-width: min(80vw, calc(100vw - 112px));
 
 .project {
-    position: absolute;
-    top: $panel-top;
-    left: $panel-left;
-    width: $panel-width;
-    height: $panel-height;
-    background: white;
-    border: 2px $lightgrey solid;
+    grid-area: 2 / 1;
+    min-width: 0;
+    background: $surface;
+    border: 1px $border solid;
+    box-shadow: $soft-shadow;
+    visibility: hidden;
+    pointer-events: none;
     border-radius: $large-border-radius;
     display: flex;
     flex-direction: row;
     opacity: 0;
     z-index: 0;
-    transform: rotate(-30deg);
+    transform: translateY(12px);
     transform-origin: 80% 120%;
-    transition: opacity 0.5s linear, transform 0.5s linear;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 
     @media (max-width: $desktop) {
         position: static;
-        width: calc(100% - 4px);
+        width: 100%;
+        box-sizing: border-box;
+        visibility: visible;
+        pointer-events: auto;
         height: auto;
         flex-direction: column;
         transform: none;
@@ -66,21 +73,23 @@ $project-image-mobile-width: 80vw;
 
     &-arrow-left {
         position: absolute;
-        left: $panel-left;
-        top: $panel-top + math.div($panel-height, 2);
+        left: 0;
+        top: 55%;
         translate: -50% -50%;
     }
 
     &-arrow-right {
         position: absolute;
-        left: calc(#{$panel-left} + #{$panel-width} + 4px);
-        top: $panel-top + math.div($panel-height, 2);
+        left: 100%;
+        top: 55%;
         translate: -50% -50%;
     }
 
     &-show {
         opacity: 1;
         z-index: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     &-static {
@@ -88,7 +97,10 @@ $project-image-mobile-width: 80vw;
     }
     
     &-panel {
-        padding: $large-gap;
+        padding: 32px;
+        min-width: 0;
+        box-sizing: border-box;
+        gap: 24px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -104,17 +116,20 @@ $project-image-mobile-width: 80vw;
     }
 
     &-left {
-        width: 35%;
+        width: 42%;
     }
 
     &-right {
-        width: 65%;
-        align-items: end;
+        width: 58%;
+        align-items: stretch;
     }
 
     &-title {
-        font-size: $large-fs;
-        font-weight: $light-bold-fw;
+        font-family: $heading-font;
+        font-size: 30px;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        font-weight: $normal-fw;
     }
 
     &-description {
@@ -125,6 +140,8 @@ $project-image-mobile-width: 80vw;
 
     &-period {
         font-weight: $light-bold-fw;
+        color: $muted;
+        font-size: 14px;
     }
 
     &-links {
@@ -142,11 +159,16 @@ $project-image-mobile-width: 80vw;
     &-images {
         display: flex;
         flex-direction: row;
-        max-height: 80%;
+        height: 340px;
+        max-height: 340px;
+        gap: 8px;
     }
 
     &-image {
-        border: 1px black solid;
+        border: 1px solid $border;
+        border-radius: 10px;
+        overflow: hidden;
+        background: white;
         max-height: 50%;
         display: flex;
         justify-content: center;
@@ -180,12 +202,14 @@ $project-image-mobile-width: 80vw;
         display: flex;
         flex-direction: row;
         gap: $normal-gap;
+        flex-wrap: wrap;
 
         @media (max-width: $desktop) {
             flex-direction: column;
         }
 
         &-links {
+            flex-wrap: wrap;
             display: flex;
             flex-direction: row;
             gap: $normal-gap;
@@ -210,7 +234,8 @@ $project-image-mobile-width: 80vw;
             width: $project-image-mobile-width;
             height: $project-image-mobile-width;
             position: relative;
-            box-shadow: 0px 0px 5px black;
+            box-shadow: $soft-shadow;
+            background: white;
             border-radius: $small-border-radius;
             overflow: hidden;
 
@@ -271,6 +296,7 @@ $project-image-mobile-width: 80vw;
     }
 
     &-techstacks {
+        flex-wrap: wrap;
         display: flex;
         flex-direction: row;
         gap: $small-gap;

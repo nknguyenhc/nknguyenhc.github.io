@@ -9,14 +9,16 @@ $menu-icon-centre: math.div($menu-icon-width, 2) + $menu-icon-container-padding;
 $menu-item-transition: 0.3s ease-in-out;
 
 header {
-    background-color: $red;
+    background-color: rgba(250, 247, 242, 0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid $border;
     padding-top: $header-vertical-padding;
     padding-bottom: $header-vertical-padding;
     display: flex;
     flex-direction: row;
     gap: $large-gap;
     justify-content: center;
-    box-shadow: 0px -5px 20px 10px #da2525;
+    box-shadow: 0 4px 24px rgba(75, 48, 27, 0.04);
     position: fixed;
     width: 100vw;
     top: 0;
@@ -32,7 +34,9 @@ header {
 
     &-item {
         cursor: pointer;
-        padding: $x-small-gap;
+        padding: 5px 14px;
+        font-size: 14px;
+        font-weight: 550;
         border-radius: $x-small-border-radius;
         transition: $bg-transition;
 
@@ -52,7 +56,7 @@ header {
         transform: translateX(-50%);
         border: 1px solid $lightgrey;
         border-radius: $small-border-radius;
-        background-color: white;
+        background-color: $surface;
         padding: $small-gap;
         width: 200px;
         opacity: 0;
@@ -62,7 +66,7 @@ header {
         gap: $small-gap;
         z-index: -10;
         height: 20px;
-        box-shadow: 0px 0px 10px;
+        box-shadow: $soft-shadow;
         overflow: hidden;
 
         &-container {
@@ -106,6 +110,8 @@ header {
 @media (max-width: $desktop) {
     header {
         background-color: transparent;
+        backdrop-filter: none;
+        border-bottom: 0;
         padding-top: 0;
         padding-bottom: 0;
         display: block;
@@ -124,7 +130,10 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px $secondary solid;
+            border: 1px $border solid;
+            background: $surface;
+            padding: 6px;
+            box-shadow: $soft-shadow;
             border-radius: 5px;
 
             svg {
@@ -170,7 +179,7 @@ header {
                 width: 100vw;
                 height: 100vw;
                 overflow: hidden;
-                background: $red;
+                background: $paper;
 
                 &-hide {
                     // transform: translate(calc(-100vw + #{$menu-icon-centre}), calc(-50vh - 50vw + #{$menu-icon-centre})) scale(0);

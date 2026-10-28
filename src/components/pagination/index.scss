@@ -3,7 +3,7 @@
 .pagination {
     &-svg {
         polygon {
-            fill: black;
+            fill: $ink;
         }
     }
 
@@ -11,7 +11,9 @@
         height: 40px;
         width: 40px;
         border-radius: 50%;
-        background-color: rgba(200, 200, 200, 0.8);
+        background-color: $surface;
+        border: 1px solid $border;
+        box-shadow: $soft-shadow;
         cursor: pointer;
         z-index: 10;
 
@@ -21,10 +23,10 @@
         }
 
         &-enabled {
-            opacity: 0.6;
+            opacity: 1;
 
             &:hover {
-                opacity: 1;
+                background-color: $cyan;
             }
         }
 

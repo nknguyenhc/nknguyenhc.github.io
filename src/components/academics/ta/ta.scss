@@ -8,8 +8,11 @@
     gap: $x-large-gap;
 
     &-title {
-        font-size: $large-fs;
-        font-weight: $bold-fw;
+        font-family: $heading-font;
+        font-size: clamp(32px, 4vw, 42px);
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        font-weight: $normal-fw;
 
         @media (max-width: $desktop) {
             padding: 0px $normal-gap;
@@ -28,11 +31,12 @@
     flex-direction: row;
     align-items: center;
     gap: $normal-gap;
-    border: black 2px solid;
+    border: $border 1px solid;
+    box-shadow: $soft-shadow;
     border-radius: $large-border-radius;
     padding: $normal-gap;
     max-width: 80vw;
-    background-color: white;
+    background-color: $surface;
     transform-origin: 30% 10%;
     transition: scale 0.5s cubic-bezier(0.39, 0.1, 0.22, 1);
     
@@ -41,14 +45,16 @@
     }
 
     &-zoomed {
-        scale: 1.1;
+        scale: 1.015;
     }
 
     &-icon {
         height: 400px;
         width: 400px;
         flex-shrink: 0;
-        border: 2px black solid;
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: white;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -58,8 +64,8 @@
         }
 
         @media (max-width: $desktop) {
-            height: 300px;
-            width: 300px;
+            height: 240px;
+            width: min(240px, 100%);
         }
     }
 

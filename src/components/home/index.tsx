@@ -12,6 +12,10 @@ export default function Home(): JSX.Element {
       id: 'landing-banner',
     },
     {
+      displayText: 'Experience',
+      id: 'experience',
+    },
+    {
       displayText: 'My projects',
       id: 'my-projects',
     },
@@ -22,10 +26,6 @@ export default function Home(): JSX.Element {
     {
       displayText: 'Hackathons/Competitions',
       id: 'hackathons',
-    },
-    {
-      displayText: 'Experience',
-      id: 'experience',
     },
     {
       displayText: 'Awards',

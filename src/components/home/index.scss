@@ -7,16 +7,21 @@
 .home {
   display: flex;
   flex-direction: column;
-  gap: 20vh;
+  gap: clamp(64px, 8vw, 112px);
 
   &-section-title {
-    padding: 20px 20vw;
-    padding-top: 100px;
-    font-size: $large-fs;
-    font-weight: $light-bold-fw;
+    width: min(100% - 96px, 1000px);
+    margin: 0 auto;
+    padding: 64px 0 32px;
+    font-family: $heading-font;
+    font-size: clamp(32px, 3.5vw, 46px);
+    font-weight: $normal-fw;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
 
     @media (max-width: $desktop) {
-      padding: 20px 40px;
+      width: calc(100% - 40px);
+      padding: 40px 0 24px;
     }
   }
 }
